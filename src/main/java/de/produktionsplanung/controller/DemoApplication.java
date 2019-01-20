@@ -1,4 +1,4 @@
-package de.produktionsplanung.demo;
+package de.produktionsplanung.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
