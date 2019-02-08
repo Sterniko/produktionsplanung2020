@@ -94,19 +94,30 @@ public class DataInitService {
     }
 
     private static void addExampleWarehouse(Data data) {
-        List<Component> components = new ArrayList<>();
+        List<Frame> components = new ArrayList<>();
         components.add(new Frame("Frame a", null));
+        components.add(new Frame("Frame b", null));
+        components.add(new Frame("Frame c", null));
+        data.setFrames(components);
+
+
 
         List<BusinessWeek> weeks = new ArrayList<>();
 
 
-        LocalDate date = LocalDate.of(2019, 2,)
+        LocalDate date = LocalDate.of(2019, 2, 5);
         for (int i = 0; i < 5; i++) {
-            BusinessDay businessDay = new BusinessDay();
-            businessDay.setDate(date);
+            for(int j = 0; j <7;i++){
+                BusinessDay businessDay = new BusinessDay();
+                businessDay.setDate(date);
+
+                businessDay.getWarehouseStok().put(components.get(0),(int)(Math.random()*10)+1);
+                businessDay.getWarehouseStok().put(components.get(1),(int)(Math.random()*10)+1);
+                businessDay.getWarehouseStok().put(components.get(2),(int)(Math.random()*10)+1);
 
 
-
+                date= date.plusDays(1);
+            }
         }
 
 

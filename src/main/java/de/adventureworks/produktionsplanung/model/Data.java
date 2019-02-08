@@ -1,9 +1,6 @@
 package de.adventureworks.produktionsplanung.model;
 
-import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.bike.Fork;
-import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
-import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
+import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
@@ -23,20 +20,16 @@ public class Data {
     private List<Customer> customers;
     private List<Supplier> suppliers;
     private List<Bike> bikes;
-    private List<Frame> frames;
-    private List<Fork> forks;
-    private List<Saddle> saddles;
+    private List<Component> components;
 
-    public Data(Map<LocalDate, BusinessDay> businessDays, Map<Integer, BusinessWeek> businessWeeks, List<Ship> ships, List<Customer> customers, List<Supplier> suppliers, List<Bike> bikes, List<Frame> frames, List<Fork> forks, List<Saddle> saddles) {
+    public Data(Map<LocalDate, BusinessDay> businessDays, Map<Integer, BusinessWeek> businessWeeks, List<Ship> ships, List<Customer> customers, List<Supplier> suppliers, List<Bike> bikes, List<Component> components) {
         this.businessDays = businessDays;
         this.businessWeeks = businessWeeks;
         this.ships = ships;
         this.customers = customers;
         this.suppliers = suppliers;
         this.bikes = bikes;
-        this.frames = frames;
-        this.forks = forks;
-        this.saddles = saddles;
+        this.components = components;
     }
 
     public Data() {}
@@ -89,28 +82,11 @@ public class Data {
         this.bikes = bikes;
     }
 
-    public List<Frame> getFrames() {
-        return frames;
+    public List<Component> getComponents() {
+        return components;
     }
 
-    public void setFrames(List<Frame> frames) {
-        this.frames = frames;
+    public void setComponents(List<Component> components) {
+        this.components = components;
     }
-
-    public List<Fork> getForks() {
-        return forks;
-    }
-
-    public void setForks(List<Fork> forks) {
-        this.forks = forks;
-    }
-
-    public List<Saddle> getSaddles() {
-        return saddles;
-    }
-
-    public void setSaddles(List<Saddle> saddles) {
-        this.saddles = saddles;
-    }
-
 }
