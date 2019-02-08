@@ -37,11 +37,11 @@ public class DataBean {
         data.setBusinessDays(businessDays);
     }
 
-    public Map<Integer, BusinessWeek> getBusinessWeeks() {
+    public List<BusinessWeek> getBusinessWeeks() {
         return data.getBusinessWeeks();
     }
 
-    public void setBusinessWeeks(Map<Integer, BusinessWeek> businessWeeks) {
+    public void setBusinessWeeks(List<BusinessWeek> businessWeeks) {
         data.setBusinessWeeks(businessWeeks);
     }
 
