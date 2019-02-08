@@ -6,6 +6,9 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Fork;
 import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
 import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.bike.Component;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
@@ -88,5 +91,24 @@ public class DataInitService {
 
     public Data getData() {
         return data;
+    }
+
+    private static void addExampleWarehouse(Data data) {
+        List<Component> components = new ArrayList<>();
+        components.add(new Frame("Frame a", null));
+
+        List<BusinessWeek> weeks = new ArrayList<>();
+
+
+        LocalDate date = LocalDate.of(2019, 2,)
+        for (int i = 0; i < 5; i++) {
+            BusinessDay businessDay = new BusinessDay();
+            businessDay.setDate(date);
+
+
+
+        }
+
+
     }
 }
