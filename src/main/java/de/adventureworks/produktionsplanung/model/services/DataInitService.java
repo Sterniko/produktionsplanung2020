@@ -88,6 +88,7 @@ public class DataInitService {
             businessDayMap.put(bd.getDate(), bd);
         }
         data.setBusinessDays(businessDayMap);
+        addExampleWarehouse(data);
     }
 
     public Data getData() {
