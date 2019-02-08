@@ -94,12 +94,11 @@ public class DataInitService {
     }
 
     private static void addExampleWarehouse(Data data) {
-        List<Frame> components = new ArrayList<>();
+        List<Component> components = new ArrayList<>();
         components.add(new Frame("Frame a", null));
         components.add(new Frame("Frame b", null));
         components.add(new Frame("Frame c", null));
-        data.setFrames(components);
-
+        data.setComponents(components);
 
 
         List<BusinessWeek> weeks = new ArrayList<>();
@@ -114,7 +113,6 @@ public class DataInitService {
                 businessDay.getWarehouseStok().put(components.get(0),(int)(Math.random()*10)+1);
                 businessDay.getWarehouseStok().put(components.get(1),(int)(Math.random()*10)+1);
                 businessDay.getWarehouseStok().put(components.get(2),(int)(Math.random()*10)+1);
-
 
                 date= date.plusDays(1);
             }

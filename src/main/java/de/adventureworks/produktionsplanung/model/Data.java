@@ -14,7 +14,8 @@ import java.util.Map;
 public class Data {
 
     private Map<LocalDate, BusinessDay> businessDays;
-    private Map<Integer, BusinessWeek> businessWeeks;
+    private List<BusinessWeek> businessWeeks;
+
 
     private List<Ship> ships;
     private List<Customer> customers;
@@ -22,7 +23,7 @@ public class Data {
     private List<Bike> bikes;
     private List<Component> components;
 
-    public Data(Map<LocalDate, BusinessDay> businessDays, Map<Integer, BusinessWeek> businessWeeks, List<Ship> ships, List<Customer> customers, List<Supplier> suppliers, List<Bike> bikes, List<Component> components) {
+    public Data(Map<LocalDate, BusinessDay> businessDays, List<BusinessWeek> businessWeeks, List<Ship> ships, List<Customer> customers, List<Supplier> suppliers, List<Bike> bikes, List<Component> components) {
         this.businessDays = businessDays;
         this.businessWeeks = businessWeeks;
         this.ships = ships;
@@ -42,11 +43,11 @@ public class Data {
         this.businessDays = businessDays;
     }
 
-    public Map<Integer, BusinessWeek> getBusinessWeeks() {
+    public List<BusinessWeek> getBusinessWeeks() {
         return businessWeeks;
     }
 
-    public void setBusinessWeeks(Map<Integer, BusinessWeek> businessWeeks) {
+    public void setBusinessWeeks(List<BusinessWeek> businessWeeks) {
         this.businessWeeks = businessWeeks;
     }
 
