@@ -1,34 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Warehouse</title>
 </head>
 <body>
 
+    <div th:with="components = ${}"
+    <table>
+        <td th:each="week: ${businessWeeks}">
+            <table th:each="day: ${we}"
 
-<table>
-    <tr>
-        <th>Head 1</th>
-        <th>Head 2</th>
-        <th>Head 3</th>
-    </tr>
-    <tr>
-        <td>Jill</td>
-        <td>Smith</td>
-        <td>50</td>
-    </tr>
-    <tr>
-        <td>Eve</td>
-        <td>Jackson</td>
-        <td>94</td>
-    </tr>
-</table>
-
-
-
-
-
+        </td>
+    </table>
 
 </body>
 </html>

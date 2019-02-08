@@ -3,12 +3,14 @@ package de.adventureworks.produktionsplanung.controller;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDate;
 import java.util.Map;
 
+@Controller
 public class WarehouseController {
 
     private DataBean dataBean;
@@ -19,10 +21,12 @@ public class WarehouseController {
 
     @RequestMapping("/warehouse")
     public String getBusinessWeeks(Model model) {
-        model.addAttribute("businessWeeks", dataBean.getBusinessWeeks())
+        model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
+        model.addAttribute("frames", dataBean.getFrames());
         return "warehouse";
     }
 
+/*
     public void postComponentChange(LocalDate date, Map<Component, Integer> newStock) {
         BusinessDay businessDay =;
         //TODO: businessDay of LocalDate
@@ -32,5 +36,6 @@ public class WarehouseController {
 
 
     }
+    */
 
 }
