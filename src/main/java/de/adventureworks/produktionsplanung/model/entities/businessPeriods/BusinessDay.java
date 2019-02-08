@@ -28,6 +28,9 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     private Map<Component, Integer> warehouseStock;
 
+    public BusinessDay(){
+        warehouseStock = new Map<Component, Integer>();
+    }
 
 
     public BusinessDay(LocalDate date, Map<Supplier, LogisticsObject> pendingSupplierAmount, List<LogisticsObject> sentDeliveries, List<LogisticsObject> receivedDeliveries, Map<Country, Boolean> workingDays, Map<Bike, Integer> plannedProduction, Map<Bike, Integer> additionalProduction, Map<Bike, Integer> actualProduction, Map<Component, Integer> warehouseStock) {
