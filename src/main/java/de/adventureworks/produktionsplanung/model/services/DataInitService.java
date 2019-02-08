@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,11 +102,17 @@ public class DataInitService {
         data.setComponents(components);
 
 
-        List<BusinessWeek> weeks = new ArrayList<>();
+
+
+
 
 
         LocalDate date = LocalDate.of(2019, 2, 5);
+        List<BusinessWeek> weeks = new LinkedList<>();
         for (int i = 0; i < 5; i++) {
+
+            BusinessWeek week= new BusinessWeek();
+            List<BusinessDay> singelWeek= new LinkedList<>();
             for(int j = 0; j <7;i++){
                 BusinessDay businessDay = new BusinessDay();
                 businessDay.setDate(date);
@@ -114,10 +121,13 @@ public class DataInitService {
                 businessDay.getWarehouseStok().put(components.get(1),(int)(Math.random()*10)+1);
                 businessDay.getWarehouseStok().put(components.get(2),(int)(Math.random()*10)+1);
 
+                singelWeek.add(businessDay);
                 date= date.plusDays(1);
             }
+            week.setDays(singelWeek);
+            weeks.add(week);
         }
-
+        data.setBusinessWeeks(weeks);
 
     }
 }

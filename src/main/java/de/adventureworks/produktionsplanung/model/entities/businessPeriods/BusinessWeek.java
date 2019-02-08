@@ -57,4 +57,5 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
     public int compareTo(BusinessWeek o) {
         return calendarWeek -o.calendarWeek;
     }
+
 }
