@@ -22,7 +22,7 @@ public class WarehouseController {
     @RequestMapping("/warehouse")
     public String getBusinessWeeks(Model model) {
         model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
-        model.addAttribute("frames", dataBean.getFrames());
+        model.addAttribute("components", dataBean.getComponents());
         return "warehouse";
     }
 

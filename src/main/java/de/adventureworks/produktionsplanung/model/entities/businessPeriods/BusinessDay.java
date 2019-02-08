@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -29,7 +30,6 @@ public class BusinessDay implements Comparable<BusinessDay> {
     private Map<Component, Integer> warehouseStock;
 
     public BusinessDay(){
-        warehouseStock = new Map<Component, Integer>();
     }
 
 
@@ -44,8 +44,6 @@ public class BusinessDay implements Comparable<BusinessDay> {
         this.actualProduction = actualProduction;
         this.warehouseStock = warehouseStock;
     }
-
-    public BusinessDay(){}
 
     public LocalDate getDate() {
         return date;

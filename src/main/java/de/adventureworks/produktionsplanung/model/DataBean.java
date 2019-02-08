@@ -26,6 +26,7 @@ public class DataBean {
     public DataBean(DataInitService dataInitService) {
         this.dataInitService = dataInitService;
         this.data = dataInitService.getData();
+        System.out.println("data initialized");
     }
 
 
