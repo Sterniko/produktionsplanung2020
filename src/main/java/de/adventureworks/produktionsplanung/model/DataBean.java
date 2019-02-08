@@ -77,28 +77,11 @@ public class DataBean {
         data.setBikes(bikes);
     }
 
-    public List<Frame> getFrames() {
-        return data.getFrames();
+    public void setComponents(List<de.adventureworks.produktionsplanung.model.entities.bike.Component> components){
+        data.setComponents(components);
     }
-
-    public void setFrames(List<Frame> frames) {
-        data.setFrames(frames);
-    }
-
-    public List<Fork> getForks() {
-        return data.getForks();
-    }
-
-    public void setForks(List<Fork> forks) {
-        data.setForks(forks);
-    }
-
-    public List<Saddle> getSaddles() {
-        return data.getSaddles();
-    }
-
-    public void setSaddles(List<Saddle> saddles) {
-        data.setSaddles(saddles);
+    public List<de.adventureworks.produktionsplanung.model.entities.bike.Component> getComponents(){
+        return data.getComponents();
     }
 
 
