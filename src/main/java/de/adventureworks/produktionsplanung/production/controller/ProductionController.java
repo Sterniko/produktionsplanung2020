@@ -1,0 +1,68 @@
+package de.adventureworks.produktionsplanung.production.controller;
+
+
+
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import net.minidev.json.JSONObject;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import de.adventureworks.produktionsplanung.model.services.ProductionService;
+import de.adventureworks.produktionsplanung.production.model.ProductionModel;
+
+import java.time.LocalDate;
+import java.util.*;
+
+@Controller
+public class ProductionController {
+
+    ApplicationContext ctx;
+    ProductionService productionService;
+    ProductionModel productionModel;
+
+
+    public ProductionController(ApplicationContext ctx) {
+        this.ctx = ctx;
+        this.productionModel = new ProductionModel(this.ctx);
+        this.productionService = new ProductionService(productionModel);
+    }
+
+
+    @RequestMapping("/production")
+    public String getCustomers(Model model) {
+
+
+        this.productionService.calculateRegularProduction();
+        List<BusinessDay> businessDayList = new ArrayList<>();
+
+        for(Map.Entry<LocalDate, BusinessDay> entry : this.productionModel.getBusinessDays().entrySet()){
+            businessDayList.add(entry.getValue());
+            LocalDate date = entry.getKey();
+            this.productionService.setProductionForDay(date);
+        }
+
+        JSONObject jsonDay = new JSONObject();
+        JSONObject bikeAmount;
+        //TODO: SORT JSONSDate !!
+        for(BusinessDay bd : businessDayList){
+            bikeAmount = new JSONObject();
+            for(Map.Entry<Bike,Integer> entry  : bd.getPlannedProduction().entrySet()){
+                bikeAmount.put(entry.getKey().getName() , entry.getValue());
+            }
+            jsonDay.appendField(bd.getDate().toString(), bikeAmount);
+        }
+
+        model.addAttribute("businessDays",jsonDay);
+
+
+        return "production";
+    }
+}
+/* Collections.sort(businessDayList, new Comparator<BusinessDay>() {
+            public int compare(BusinessDay o1, BusinessDay o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
+});*/

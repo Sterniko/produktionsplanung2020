@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produktion</title>
+</head>
+<body>
+
+<h1>Produktion</h1>
+<div class ="produktion">
+    <table border = "1">
+        <tr>
+            <th>Datum</th>
+            <th>Tagesplanung</th>
+            <th>Production</th>
+        </tr>
+        <tr  th:each="bd : ${businessDays}">
+            <td th:text="${bd.key}"></td>
+            <td th:text="${bd.value}"></td>
+
+
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
