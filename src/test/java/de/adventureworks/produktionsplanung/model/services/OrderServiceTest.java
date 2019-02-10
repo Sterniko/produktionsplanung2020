@@ -8,12 +8,9 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
-import org.aspectj.weaver.ast.Or;
 import org.junit.Before;
 import org.junit.Test;
-import sun.rmi.runtime.Log;
 
-import javax.persistence.criteria.Order;
 import java.util.ArrayList;
 import java.util.HashMap;
 

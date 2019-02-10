@@ -39,14 +39,12 @@ public class DataInitService {
         frameList.add(new Frame("7005DB", supplierList.get(0)));
         frameList.add(new Frame("7005TB", supplierList.get(0)));
         frameList.add(new Frame ("Monocoque", supplierList.get(0)));
-        data.setFrames(frameList);
 
         List<Saddle> saddleList = new ArrayList<>();
         saddleList.add(new Saddle("Fizik Tundra", supplierList.get(2)));
         saddleList.add(new Saddle("Race Line", supplierList.get(2)));
         saddleList.add(new Saddle("Spark", supplierList.get(2)));
         saddleList.add(new Saddle("Speed Line",  supplierList.get(2)));
-        data.setSaddles(saddleList);
 
         List<Fork> forkList = new ArrayList<>();
         forkList.add(new Fork("Fox32 F100", supplierList.get(1)));
@@ -56,7 +54,6 @@ public class DataInitService {
         forkList.add(new Fork("Rock Schox Recon351", supplierList.get(1)));
         forkList.add(new Fork("Rock Schox ReconSl", supplierList.get(1)));
         forkList.add(new Fork("SR Suntour Raidon", supplierList.get(1)));
-        data.setForks(forkList);
 
         //Bikes
         List<Bike> bikeList = new ArrayList<>();
@@ -85,7 +82,6 @@ public class DataInitService {
         }
         data.setBusinessDays(businessDayMap);
         addExampleWarehouse(data);
-        System.out.println("r");
     }
 
     public Data getData() {
