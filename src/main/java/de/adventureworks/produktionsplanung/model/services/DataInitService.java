@@ -7,7 +7,6 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
 import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
-import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
