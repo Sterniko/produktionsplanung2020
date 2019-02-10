@@ -11,16 +11,23 @@
     <table border = "1">
         <tr>
             <th>Datum</th>
-            <th>Tagesplanung</th>
-            <th>Production</th>
+            <th>Planned Production Bike 1</th>
+            <th>Planned Production Bike 2</th>
+            <th>Planned Production Bike 3</th>
+            <th>Planned Production Bike 4</th>
+            <th>Planned Production Bike 5</th>
+            <th>Planned Production Bike 6</th>
+            <th>Planned Production Bike 7</th>
+            <th>Planned Production Bike 8</th>
         </tr>
-        <tr  th:each="bd : ${businessDays}">
-            <td th:text="${bd.key}"></td>
-            <td th:text="${bd.value}"></td>
 
+         <tr th:each="bd: ${businessDays}">
+             <td th:text="${bd.getDate().toString()}"></td>
+             <td th:each="entry : ${bd.getPlannedProduction()}">
+              <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
+                </td>
+          </tr>
 
-            </td>
-        </tr>
     </table>
 </div>
 

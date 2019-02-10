@@ -2,9 +2,7 @@ package de.adventureworks.produktionsplanung.production.controller;
 
 
 
-import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
-import net.minidev.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,26 +41,25 @@ public class ProductionController {
             LocalDate date = entry.getKey();
             this.productionService.setProductionForDay(date);
         }
+        Collections.sort(businessDayList, new Comparator<BusinessDay>() {
+                    public int compare(BusinessDay o1, BusinessDay o2) {
+                        return o1.getDate().compareTo(o2.getDate());
+                    }
+        });
 
-        JSONObject jsonDay = new JSONObject();
-        JSONObject bikeAmount;
-        //TODO: SORT JSONSDate !!
-        for(BusinessDay bd : businessDayList){
-            bikeAmount = new JSONObject();
-            for(Map.Entry<Bike,Integer> entry  : bd.getPlannedProduction().entrySet()){
-                bikeAmount.put(entry.getKey().getName() , entry.getValue());
-            }
-            jsonDay.appendField(bd.getDate().toString(), bikeAmount);
-        }
-
-        model.addAttribute("businessDays",jsonDay);
+        model.addAttribute("businessDays",businessDayList);
 
 
         return "production";
     }
 }
-/* Collections.sort(businessDayList, new Comparator<BusinessDay>() {
-            public int compare(BusinessDay o1, BusinessDay o2) {
-                return o1.getDate().compareTo(o2.getDate());
+        /*
+        JSONObject jsonDay = new JSONObject();
+        JSONObject bikeAmount;
+        for(BusinessDay bd : businessDayList){
+            bikeAmount = new JSONObject();
+            for(Map.Entry<Bike,Integer> entry  : bd.getPlannedProduction().entrySet()){
+               bikeAmount.put(entry.getKey().getName() , entry.getValue());
             }
-});*/
+            jsonDay.appendField(bd.getDate().toString(), bikeAmount);
+        }*/
