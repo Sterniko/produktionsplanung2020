@@ -6,6 +6,9 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Fork;
 import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
 import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.bike.Component;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
@@ -13,10 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class DataInitService {
@@ -84,9 +84,52 @@ public class DataInitService {
             businessDayMap.put(bd.getDate(), bd);
         }
         data.setBusinessDays(businessDayMap);
+        addExampleWarehouse(data);
+        System.out.println("r");
     }
 
     public Data getData() {
         return data;
+    }
+
+    private static void addExampleWarehouse(Data data) {
+        List<Component> components = new ArrayList<>();
+        components.add(new Frame("Frame a", null));
+        components.add(new Frame("Frame b", null));
+        components.add(new Frame("Frame c", null));
+        data.setComponents(components);
+        data.setBusinessDays(new HashMap<>());
+
+
+
+        LocalDate date = LocalDate.of(2019, 2, 5);
+        List<BusinessWeek> weeks = new LinkedList<>();
+        for (int i = 0; i < 5; i++) {
+
+            BusinessWeek week= new BusinessWeek();
+            List<BusinessDay> singelWeek= new LinkedList<>();
+            for(int j = 0; j <7;j++){
+                BusinessDay businessDay = new BusinessDay();
+                businessDay.setDate(date);
+
+                Map<Component, Integer> wareHouseStock = new HashMap<>();
+
+                wareHouseStock.put(components.get(0),(int)(Math.random()*10)+1);
+                wareHouseStock.put(components.get(1),(int)(Math.random()*10)+1);
+                wareHouseStock.put(components.get(2),(int)(Math.random()*10)+1);
+
+                businessDay.setWarehouseStok(wareHouseStock);
+
+                singelWeek.add(businessDay);
+
+                data.getBusinessDays().put(date, businessDay);
+
+                date= date.plusDays(1);
+            }
+            week.setDays(singelWeek);
+            weeks.add(week);
+        }
+        data.setBusinessWeeks(weeks);
+
     }
 }

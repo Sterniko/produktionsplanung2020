@@ -26,6 +26,7 @@ public class DataBean {
     public DataBean(DataInitService dataInitService) {
         this.dataInitService = dataInitService;
         this.data = dataInitService.getData();
+        System.out.println("data initialized");
     }
 
 
@@ -37,11 +38,11 @@ public class DataBean {
         data.setBusinessDays(businessDays);
     }
 
-    public Map<Integer, BusinessWeek> getBusinessWeeks() {
+    public List<BusinessWeek> getBusinessWeeks() {
         return data.getBusinessWeeks();
     }
 
-    public void setBusinessWeeks(Map<Integer, BusinessWeek> businessWeeks) {
+    public void setBusinessWeeks(List<BusinessWeek> businessWeeks) {
         data.setBusinessWeeks(businessWeeks);
     }
 
@@ -77,28 +78,11 @@ public class DataBean {
         data.setBikes(bikes);
     }
 
-    public List<Frame> getFrames() {
-        return data.getFrames();
+    public void setComponents(List<de.adventureworks.produktionsplanung.model.entities.bike.Component> components){
+        data.setComponents(components);
     }
-
-    public void setFrames(List<Frame> frames) {
-        data.setFrames(frames);
-    }
-
-    public List<Fork> getForks() {
-        return data.getForks();
-    }
-
-    public void setForks(List<Fork> forks) {
-        data.setForks(forks);
-    }
-
-    public List<Saddle> getSaddles() {
-        return data.getSaddles();
-    }
-
-    public void setSaddles(List<Saddle> saddles) {
-        data.setSaddles(saddles);
+    public List<de.adventureworks.produktionsplanung.model.entities.bike.Component> getComponents(){
+        return data.getComponents();
     }
 
 

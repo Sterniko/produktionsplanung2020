@@ -3,11 +3,15 @@ package de.adventureworks.produktionsplanung.model.entities.businessPeriods;
 import java.util.List;
 import java.util.Objects;
 
-public class BusinessWeek {
+public class BusinessWeek implements Comparable<BusinessWeek> {
 
-    List<BusinessDay> days;
+    private List<BusinessDay> days;
+    private int calendarWeek;
 
-    public BusinessWeek(List<BusinessDay> days) {
+
+
+    public BusinessWeek(List<BusinessDay> days, int calanderWeek) {
+        this.calendarWeek = calanderWeek;
         this.days = days;
     }
 
@@ -26,12 +30,12 @@ public class BusinessWeek {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BusinessWeek that = (BusinessWeek) o;
-        return Objects.equals(days, that.days);
+        return this.calendarWeek==that.calendarWeek;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(days);
+        return calendarWeek;
     }
 
     @Override
@@ -40,4 +44,18 @@ public class BusinessWeek {
                 "days=" + days +
                 '}';
     }
+
+    public int getCalendarWeek() {
+        return calendarWeek;
+    }
+
+    public void setCalendarWeek(int calendarWeek) {
+        this.calendarWeek = calendarWeek;
+    }
+
+    @Override
+    public int compareTo(BusinessWeek o) {
+        return calendarWeek -o.calendarWeek;
+    }
+
 }

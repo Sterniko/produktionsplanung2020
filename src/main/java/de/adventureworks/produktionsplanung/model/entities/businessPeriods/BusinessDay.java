@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -26,9 +27,13 @@ public class BusinessDay implements Comparable<BusinessDay> {
     private Map<Bike, Integer> additionalProduction;
     private Map<Bike, Integer> actualProduction;
 
-    private Map<Component, Integer> warehouseStok;
+    private Map<Component, Integer> warehouseStock;
 
-    public BusinessDay(LocalDate date, Map<Supplier, LogisticsObject> pendingSupplierAmount, List<LogisticsObject> sentDeliveries, List<LogisticsObject> receivedDeliveries, Map<Country, Boolean> workingDays, Map<Bike, Integer> plannedProduction, Map<Bike, Integer> additionalProduction, Map<Bike, Integer> actualProduction, Map<Component, Integer> warehouseStok) {
+    public BusinessDay(){
+    }
+
+
+    public BusinessDay(LocalDate date, Map<Supplier, LogisticsObject> pendingSupplierAmount, List<LogisticsObject> sentDeliveries, List<LogisticsObject> receivedDeliveries, Map<Country, Boolean> workingDays, Map<Bike, Integer> plannedProduction, Map<Bike, Integer> additionalProduction, Map<Bike, Integer> actualProduction, Map<Component, Integer> warehouseStock) {
         this.date = date;
         this.pendingSupplierAmount = pendingSupplierAmount;
         this.sentDeliveries = sentDeliveries;
@@ -37,10 +42,8 @@ public class BusinessDay implements Comparable<BusinessDay> {
         this.plannedProduction = plannedProduction;
         this.additionalProduction = additionalProduction;
         this.actualProduction = actualProduction;
-        this.warehouseStok = warehouseStok;
+        this.warehouseStock = warehouseStock;
     }
-
-    public BusinessDay(){}
 
     public LocalDate getDate() {
         return date;
@@ -108,11 +111,11 @@ public class BusinessDay implements Comparable<BusinessDay> {
     }
 
     public Map<Component, Integer> getWarehouseStok() {
-        return warehouseStok;
+        return warehouseStock;
     }
 
     public void setWarehouseStok(Map<Component, Integer> warehouseStok) {
-        this.warehouseStok = warehouseStok;
+        this.warehouseStock = warehouseStok;
     }
 
     @Override
@@ -128,12 +131,12 @@ public class BusinessDay implements Comparable<BusinessDay> {
                 Objects.equals(plannedProduction, that.plannedProduction) &&
                 Objects.equals(additionalProduction, that.additionalProduction) &&
                 Objects.equals(actualProduction, that.actualProduction) &&
-                Objects.equals(warehouseStok, that.warehouseStok);
+                Objects.equals(warehouseStock, that.warehouseStock);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(date, pendingSupplierAmount, sentDeliveries, receivedDeliveries, workingDays, plannedProduction, additionalProduction, actualProduction, warehouseStok);
+        return Objects.hash(date, pendingSupplierAmount, sentDeliveries, receivedDeliveries, workingDays, plannedProduction, additionalProduction, actualProduction, warehouseStock);
     }
 
     @Override
@@ -147,7 +150,7 @@ public class BusinessDay implements Comparable<BusinessDay> {
                 ", plannedProduction=" + plannedProduction +
                 ", additionalProduction=" + additionalProduction +
                 ", actualProduction=" + actualProduction +
-                ", warehouseStok=" + warehouseStok +
+                ", warehouseStock=" + warehouseStock +
                 '}';
     }
 
@@ -155,4 +158,6 @@ public class BusinessDay implements Comparable<BusinessDay> {
     public int compareTo(BusinessDay o) {
         return this.date.compareTo(o.getDate());
     }
+
+
 }
