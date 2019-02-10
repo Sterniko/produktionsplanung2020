@@ -40,11 +40,6 @@ public class BusinessDay implements Comparable<BusinessDay> {
         this.warehouseStok = warehouseStok;
     }
 
-    public BusinessDay(){}
-
-
-
-
     public LocalDate getDate() {
         return date;
     }
