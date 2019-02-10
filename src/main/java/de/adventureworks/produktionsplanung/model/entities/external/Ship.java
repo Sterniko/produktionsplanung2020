@@ -109,8 +109,8 @@ public class Ship implements Comparable<Ship>{
         for (Delivery e : deliveries) {
             LocalDate oldDate = e.getArrival();
             BusinessDay oldBDay = databean.getBusinessDay(oldDate);
-            //oldBDay.getReceivedDeliveries()
-            //TODO
+            oldBDay.getReceivedDeliveries().remove(e);
+            databean.getBusinessDay(newArrival).getReceivedDeliveries().add(e);
             e.setArrival(newArrival);
         }
 

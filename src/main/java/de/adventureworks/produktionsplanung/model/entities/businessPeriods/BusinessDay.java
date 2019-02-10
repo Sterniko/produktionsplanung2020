@@ -42,6 +42,9 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public BusinessDay(){}
 
+
+
+
     public LocalDate getDate() {
         return date;
     }
