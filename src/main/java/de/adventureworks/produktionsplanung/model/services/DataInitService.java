@@ -1,10 +1,7 @@
 package de.adventureworks.produktionsplanung.model.services;
 
 import de.adventureworks.produktionsplanung.model.Data;
-import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.bike.Fork;
-import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
-import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
+import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
@@ -68,6 +65,17 @@ public class DataInitService {
         data.setBikes(bikeList);
 
 
+        Map<Component,Integer> wareHouseStockMap = new HashMap<>();
+
+        for(Component c : forkList){
+            wareHouseStockMap.put(c,100);
+        }
+        for(Component c : saddleList){
+            wareHouseStockMap.put(c,100);
+        }
+        for(Component c : frameList){
+            wareHouseStockMap.put(c,100);
+        }
 
         Customer customer1 = new Customer("Metro AG", Country.GERMANY);
         List<Customer> customers = new ArrayList<Customer>();
@@ -78,6 +86,7 @@ public class DataInitService {
         for(int i = 0 ; i < 100 ; i++){
             BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null,null,null,null,null,null,null);
             businessDayMap.put(bd.getDate(), bd);
+            bd.setWarehouseStock(wareHouseStockMap);
         }
         data.setBusinessDays(businessDayMap);
         addExampleWarehouse(data);
