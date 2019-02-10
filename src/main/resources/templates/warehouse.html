@@ -6,19 +6,23 @@
 </head>
 <body>
 
-    <div th:with="components = ${components}">
-        <table>
-            <td th:each="week: ${businessWeeks}">
-                <tr>
-                    <th th:text="${week.calendarWeek}"></th>
-                </tr>
-                <table th:each="day: ${week.getDays()}">
-                    <tr th:each="component = ${components}">
-                        <td><span th:utext="|${day.getWarehouseStok().get(component)}|"></span></td>
-                    </tr>
-                </table>
+
+    <table border="1">
+        <tr>
+            <td>Woche</td>
+            <td colspan="7" th:each="week: ${businessWeeks}">
+                <span th:utext="|${week.getCalendarWeek()}|"></span>
             </td>
-        </table>
-    </div>
+        </tr>
+        <tr th:each="component: ${components}">
+            <td>
+                <span th:utext="${component.name}"></span>
+            </td>
+            <td th:each="key: ${businessDays.keySet()}">
+                <span th:utext="|${businessDays.get(key).warehouseStok.get(component)}|"></span>
+            </td>
+        </tr>
+    </table>
+
 </body>
 </html>

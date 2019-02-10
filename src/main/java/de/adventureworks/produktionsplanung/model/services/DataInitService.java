@@ -98,10 +98,7 @@ public class DataInitService {
         components.add(new Frame("Frame b", null));
         components.add(new Frame("Frame c", null));
         data.setComponents(components);
-
-
-
-
+        data.setBusinessDays(new HashMap<>());
 
 
 
@@ -124,6 +121,9 @@ public class DataInitService {
                 businessDay.setWarehouseStok(wareHouseStock);
 
                 singelWeek.add(businessDay);
+
+                data.getBusinessDays().put(date, businessDay);
+
                 date= date.plusDays(1);
             }
             week.setDays(singelWeek);

@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -22,20 +23,14 @@ public class WarehouseController {
     @RequestMapping("/warehouse")
     public String getBusinessWeeks(Model model) {
         model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
+        model.addAttribute("businessDays", dataBean.getBusinessDays());
         model.addAttribute("components", dataBean.getComponents());
         return "warehouse";
     }
 
-/*
-    public void postComponentChange(LocalDate date, Map<Component, Integer> newStock) {
-        BusinessDay businessDay =;
-        //TODO: businessDay of LocalDate
-
-        businessDay.setWarehouseStok(newStock);
-
-
+    @RequestMapping(value = "/warehouse", method = RequestMethod.POST)
+    public void updateComponentStock(LocalDate date, Map<Component, Integer> newStock) {
 
     }
-    */
 
 }
