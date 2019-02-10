@@ -15,24 +15,27 @@ import java.util.Map;
 public class OrderService {
 
     public static void placeOrder(Supplier supplier, Map<Component, Integer> map, BusinessDay bd) {
-        int lotAmount = OrderService.getSumAmount(supplier, bd);
-        int sumAmount = 0;
-        for(Component c : map.keySet()){
-            int amount = map.get(c);
-            sumAmount += amount;
-            OrderService.addAmount(supplier, bd, amount, c);
-        }
-        if((sumAmount + lotAmount) >= supplier.getLotSize()){
-            LogisticsObject lo = bd.getPendingSupplierAmount().get(supplier);
-            List list = bd.getSentDeliveries();
-            list.add(lo);
-            bd.setSentDeliveries(list);
-            HashMap<Supplier, LogisticsObject> newMap = new HashMap<>();
-            bd.setPendingSupplierAmount(newMap);
-        }
 
+     if(bd.getPendingSupplierAmount().get(supplier) != null) {
+         int lotAmount = OrderService.getSumAmount(supplier, bd);
+         int sumAmount = 0;
+         int supplierLotsize = supplier.getLotSize();
 
-
+         for (Component c : map.keySet()) {
+             int amount = map.get(c);
+             sumAmount += amount;
+             OrderService.addAmount(supplier, bd, amount, c);
+         }
+         if ((sumAmount + lotAmount) >= supplierLotsize) {
+             LogisticsObject lo = bd.getPendingSupplierAmount().get(supplier);
+             List list = bd.getSentDeliveries();
+             list.add(lo);
+             bd.setSentDeliveries(list);
+             HashMap<Supplier, LogisticsObject> newMap = new HashMap<>();
+             bd.setPendingSupplierAmount(newMap);
+             System.out.println("Musste neu gemaket werden");
+         }
+     }
     }
 
     private static int getSumAmount(Supplier supplier, BusinessDay bd) {
