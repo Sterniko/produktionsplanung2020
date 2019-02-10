@@ -30,6 +30,15 @@ public class DataBean {
     }
 
 
+
+
+
+
+    //Methode neu, brauche ich Sercan
+    public BusinessDay getBusinessDay(LocalDate date){
+        return data.getBusinessDays().get(date);
+    }
+
     public Map<LocalDate, BusinessDay> getBusinessDays() {
         return data.getBusinessDays();
     }
