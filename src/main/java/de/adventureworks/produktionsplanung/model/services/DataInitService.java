@@ -65,7 +65,7 @@ public class DataInitService {
         data.setBikes(bikeList);
 
 
-        Map<Component,Integer> wareHouseStockMap = new HashMap<>();
+      /*  Map<Component,Integer> wareHouseStockMap = new HashMap<>();
 
         for(Component c : forkList){
             wareHouseStockMap.put(c,100);
@@ -88,7 +88,7 @@ public class DataInitService {
             businessDayMap.put(bd.getDate(), bd);
             bd.setWarehouseStock(wareHouseStockMap);
         }
-        data.setBusinessDays(businessDayMap);
+        data.setBusinessDays(businessDayMap);*/
         addExampleWarehouse(data);
     }
 
@@ -122,7 +122,7 @@ public class DataInitService {
                 wareHouseStock.put(components.get(1),(int)(Math.random()*10)+1);
                 wareHouseStock.put(components.get(2),(int)(Math.random()*10)+1);
 
-                businessDay.setWarehouseStok(wareHouseStock);
+                businessDay.setWarehouseStock(wareHouseStock);
 
                 singelWeek.add(businessDay);
 
