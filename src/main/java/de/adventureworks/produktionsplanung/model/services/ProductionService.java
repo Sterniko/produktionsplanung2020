@@ -219,6 +219,7 @@ public class ProductionService {
             i = 0;
 
             enoughComp = true;
+
             for(Map.Entry comp : bd.getWarehouseStock().entrySet()){
 
                 if(componentList.contains(comp.getKey())){

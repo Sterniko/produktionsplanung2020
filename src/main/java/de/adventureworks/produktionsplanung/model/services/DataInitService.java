@@ -29,20 +29,22 @@ public class DataInitService {
         supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
         supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
         data.setSuppliers(supplierList);
-        List<Frame> frameList = new ArrayList<>();
+        List<Component> frameList = new ArrayList<>();
 
         supplierList.get(0);
         frameList.add(new Frame("7005DB", supplierList.get(0)));
         frameList.add(new Frame("7005TB", supplierList.get(0)));
         frameList.add(new Frame ("Monocoque", supplierList.get(0)));
 
-        List<Saddle> saddleList = new ArrayList<>();
+        data.setComponents(frameList);
+        List<Component> saddleList = new ArrayList<>();
         saddleList.add(new Saddle("Fizik Tundra", supplierList.get(2)));
         saddleList.add(new Saddle("Race Line", supplierList.get(2)));
         saddleList.add(new Saddle("Spark", supplierList.get(2)));
         saddleList.add(new Saddle("Speed Line",  supplierList.get(2)));
+        data.setComponents(saddleList);
 
-        List<Fork> forkList = new ArrayList<>();
+        List<Component> forkList = new ArrayList<>();
         forkList.add(new Fork("Fox32 F100", supplierList.get(1)));
         forkList.add(new Fork("Fox32 F80",  supplierList.get(1)));
         forkList.add(new Fork("Fox Talas140", supplierList.get(1)));
@@ -50,7 +52,7 @@ public class DataInitService {
         forkList.add(new Fork("Rock Schox Recon351", supplierList.get(1)));
         forkList.add(new Fork("Rock Schox ReconSl", supplierList.get(1)));
         forkList.add(new Fork("SR Suntour Raidon", supplierList.get(1)));
-
+        data.setComponents(forkList);
         //Bikes
         List<Bike> bikeList = new ArrayList<>();
 
@@ -65,7 +67,7 @@ public class DataInitService {
         data.setBikes(bikeList);
 
 
-      /*  Map<Component,Integer> wareHouseStockMap = new HashMap<>();
+        Map<Component,Integer> wareHouseStockMap = new HashMap<>();
 
         for(Component c : forkList){
             wareHouseStockMap.put(c,100);
@@ -88,8 +90,8 @@ public class DataInitService {
             businessDayMap.put(bd.getDate(), bd);
             bd.setWarehouseStock(wareHouseStockMap);
         }
-        data.setBusinessDays(businessDayMap);*/
-        addExampleWarehouse(data);
+        data.setBusinessDays(businessDayMap);
+        //addExampleWarehouse(data);
     }
 
     public Data getData() {
