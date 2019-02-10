@@ -3,6 +3,7 @@ package de.adventureworks.produktionsplanung.production.controller;
 
 
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,22 +18,18 @@ import java.util.*;
 @Controller
 public class ProductionController {
 
-    ApplicationContext ctx;
     ProductionService productionService;
+    @Autowired
     ProductionModel productionModel;
 
+    public ProductionController() {
 
-    public ProductionController(ApplicationContext ctx) {
-        this.ctx = ctx;
-        this.productionModel = new ProductionModel(this.ctx);
-        this.productionService = new ProductionService(productionModel);
     }
-
 
     @RequestMapping("/production")
     public String getCustomers(Model model) {
 
-
+        this.productionService = new ProductionService(this.productionModel);
         this.productionService.calculateRegularProduction();
         List<BusinessDay> businessDayList = new ArrayList<>();
 
@@ -40,6 +37,8 @@ public class ProductionController {
             businessDayList.add(entry.getValue());
             LocalDate date = entry.getKey();
             this.productionService.setProductionForDay(date);
+            this.productionService.checkComponentsForDay(entry.getValue());
+
         }
         Collections.sort(businessDayList, new Comparator<BusinessDay>() {
                     public int compare(BusinessDay o1, BusinessDay o2) {
