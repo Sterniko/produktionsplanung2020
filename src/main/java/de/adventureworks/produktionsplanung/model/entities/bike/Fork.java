@@ -5,7 +5,6 @@ import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 public class Fork extends  Component {
 
     public Fork(String name, Supplier supplier){
-
                 super(name, supplier);
     }
 }

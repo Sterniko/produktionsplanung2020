@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produktion</title>
+</head>
+<body>
+
+<h1>Produktion</h1>
+<div class ="produktion">
+    <table border = "1">
+        <tr>
+            <th>Datum</th>
+            <th>Planned Production Bike 1</th>
+            <th>Planned Production Bike 2</th>
+            <th>Planned Production Bike 3</th>
+            <th>Planned Production Bike 4</th>
+            <th>Planned Production Bike 5</th>
+            <th>Planned Production Bike 6</th>
+            <th>Planned Production Bike 7</th>
+            <th>Planned Production Bike 8</th>
+        </tr>
+
+         <tr th:each="bd: ${businessDays}">
+             <td th:text="${bd.getDate().toString()}"></td>
+             <td th:each="entry : ${bd.getPlannedProduction()}">
+              <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
+                </td>
+          </tr>
+
+    </table>
+</div>
+
+</body>
+</html>
