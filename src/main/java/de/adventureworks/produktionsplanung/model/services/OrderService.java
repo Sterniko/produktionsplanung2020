@@ -16,16 +16,20 @@ public class OrderService {
 
     public static void placeOrder(Supplier supplier, Map<Component, Integer> map, BusinessDay bd) {
 
-     if(bd.getPendingSupplierAmount().get(supplier) != null) {
+        if(bd.getPendingSupplierAmount().get(supplier) != null) {
+
          int lotAmount = OrderService.getSumAmount(supplier, bd);
          int sumAmount = 0;
          int supplierLotsize = supplier.getLotSize();
 
          for (Component c : map.keySet()) {
-             int amount = map.get(c);
-             sumAmount += amount;
-             OrderService.addAmount(supplier, bd, amount, c);
+
+                 int amount = map.get(c);
+                 sumAmount += amount;
+                 OrderService.addAmount(supplier, bd, amount, c);
+
          }
+
          if ((sumAmount + lotAmount) >= supplierLotsize) {
              LogisticsObject lo = bd.getPendingSupplierAmount().get(supplier);
              List list = bd.getSentDeliveries();
@@ -35,6 +39,19 @@ public class OrderService {
              bd.setPendingSupplierAmount(newMap);
              System.out.println("Musste neu gemaket werden");
          }
+
+
+     }
+    }
+
+    public static void addToOrder(Map<Component, Integer> map, Component c, int amount){
+     if(map.get(c) != null) {
+         int oldAmount = map.get(c);
+         int newAmount = oldAmount + amount;
+         map.put(c, newAmount);
+     }
+     else{
+         map.put(c, amount);
      }
     }
 
@@ -50,32 +67,29 @@ public class OrderService {
     }
 
     private static void addAmount(Supplier supplier, BusinessDay bd, int amount, Component component){
+            Map<Supplier, LogisticsObject> map = bd.getPendingSupplierAmount();
+            LogisticsObject logisticsObject;
+            Map<Component, Integer> componentMap;
 
-        Map<Supplier, LogisticsObject> map = bd.getPendingSupplierAmount();
-        LogisticsObject logisticsObject;
-        Map<Component, Integer> componentMap;
+            if (map.get(supplier) != null) {
+                logisticsObject = map.get(supplier);
+                componentMap = logisticsObject.getComponents();
+            } else {
+                logisticsObject = new LogisticsObject(supplier);
+                logisticsObject.setSumAmount(0);
+                componentMap = new HashMap<>();
+                logisticsObject.setComponents(componentMap);
+            }
 
-        if(map.get(supplier) != null) {
-            logisticsObject = map.get(supplier);
-            componentMap = logisticsObject.getComponents();
-        }
-        else{
-            logisticsObject = new LogisticsObject(supplier);
-            logisticsObject.setSumAmount(0);
-            componentMap = new HashMap<>();
+            logisticsObject.setSumAmount(logisticsObject.getSumAmount() + amount);
+            componentMap.put(component, amount);
             logisticsObject.setComponents(componentMap);
+
+            map.put(supplier, logisticsObject);
+
+            bd.setPendingSupplierAmount(map);
         }
 
-        logisticsObject.setSumAmount(logisticsObject.getSumAmount() + amount);
-
-        int oldAmount = componentMap.get(component);
-        componentMap.put(component, (oldAmount + amount));
-        logisticsObject.setComponents(componentMap);
-
-        map.put(supplier, logisticsObject);
-
-        bd.setPendingSupplierAmount(map);
-    }
 
 
 }
