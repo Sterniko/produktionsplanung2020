@@ -1,6 +1,14 @@
 package de.adventureworks.produktionsplanung.model.entities.external;
 
+import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.logistics.Delivery;
+import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Ship implements Comparable<Ship>{
@@ -8,11 +16,18 @@ public class Ship implements Comparable<Ship>{
     private String name;
     private LocalDate departure;
     private LocalDate arrival;
+    private List<Delivery> deliveries;
+
+    @Autowired
+    DataBean databean;
+
 
     public Ship(String name, LocalDate departure, LocalDate arrival) {
         this.name = name;
         this.departure = departure;
         this.arrival = arrival;
+        deliveries = new ArrayList();
+
     }
 
     public String getName() {
@@ -68,4 +83,37 @@ public class Ship implements Comparable<Ship>{
                 ", arrival=" + arrival +
                 '}';
     }
+
+    public void addOrder(Delivery order){
+        deliveries.add(order);
+    }
+
+    public void deleteOrder(Delivery order){
+        deliveries.remove(order);
+    }
+
+    public void addOrders(List<Delivery> newOrders){
+        for(Delivery e : newOrders){
+            addOrder(e);
+        }
+    }
+
+    public void deleteOrders(List<Delivery> toDelete){
+        for(Delivery e: toDelete){
+            deleteOrder(e);
+        }
+    }
+
+    public void delayArrival(LocalDate newArrival) {
+        arrival = newArrival;
+        for (Delivery e : deliveries) {
+            LocalDate oldDate = e.getArrival();
+            BusinessDay oldBDay = databean.getBusinessDay(oldDate);
+            //oldBDay.getReceivedDeliveries()
+            //TODO
+            e.setArrival(newArrival);
+        }
+
+    }
+
 }
