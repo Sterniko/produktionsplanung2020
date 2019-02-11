@@ -45,13 +45,18 @@ public class OrderService {
         }
     }
 
-    public static void addToOrder(Map<Component, Integer> map, Component c, int amount) {
-        if (map.get(c) != null) {
-            int oldAmount = map.get(c);
-            int newAmount = oldAmount + amount;
-            map.put(c, newAmount);
-        } else {
-            map.put(c, amount);
+    public static void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
+        for(Component c : map.keySet()) {
+            int amount = map.get(c);
+            LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
+            Map<Component, Integer> componentMap = logisticsObject.getComponents();
+            if (componentMap.get(c) != null) {
+                int oldAmount = map.get(c);
+                int newAmount = oldAmount + amount;
+                componentMap.put(c, newAmount);
+            } else {
+                componentMap.put(c, amount);
+            }
         }
     }
 
