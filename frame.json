@@ -1,0 +1,28 @@
+[ {
+  "name" : "7005DB",
+  "supplier" : {
+    "name" : "WernerRahmenGMBH",
+    "lotSize" : 10,
+    "leadTime" : 7,
+    "country" : "GERMANY",
+    "components" : null
+  }
+}, {
+  "name" : "7005TB",
+  "supplier" : {
+    "name" : "WernerRahmenGMBH",
+    "lotSize" : 10,
+    "leadTime" : 7,
+    "country" : "GERMANY",
+    "components" : null
+  }
+}, {
+  "name" : "Monocoque",
+  "supplier" : {
+    "name" : "WernerRahmenGMBH",
+    "lotSize" : 10,
+    "leadTime" : 7,
+    "country" : "GERMANY",
+    "components" : null
+  }
+} ]

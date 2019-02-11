@@ -17,28 +17,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OrderServiceTest {
-    Supplier china;
-    Supplier germany;
-    Supplier spain;
-    HashMap<Component, Integer> componentMap;
-    HashMap<Component, Integer> componentMap2;
-    Frame frame1;
-    Frame frame2;
-    Fork fork1;
-    Fork fork2;
-    Saddle saddle1;
-    Saddle saddle2;
-    BusinessDay businessDay;
-    BusinessDay businessDay2;
-    HashMap<Supplier, LogisticsObject> lo;
-    HashMap<Supplier, LogisticsObject> lo2;
-    LogisticsObject logisticsObjectS;
-    LogisticsObject logisticsObjectS2;
-    LogisticsObject logisticsObjectG;
-    LogisticsObject logisticsObjectC;
-    ArrayList<LogisticsObject> list;
-    ArrayList<LogisticsObject> list2;
-    HashMap<Component, Integer> map;
+    private Supplier china;
+    private Supplier germany;
+    private Supplier spain;
+    private HashMap<Component, Integer> componentMap;
+    private HashMap<Component, Integer> componentMap2;
+    private Frame frame1;
+    private Frame frame2;
+    private Fork fork1;
+    private Fork fork2;
+    private Saddle saddle1;
+    private Saddle saddle2;
+    private BusinessDay businessDay;
+    private BusinessDay businessDay2;
+    private HashMap<Supplier, LogisticsObject> lo;
+    private HashMap<Supplier, LogisticsObject> lo2;
+    private LogisticsObject logisticsObjectS;
+    private LogisticsObject logisticsObjectS2;
+    private LogisticsObject logisticsObjectG;
+    private LogisticsObject logisticsObjectC;
+    private ArrayList<LogisticsObject> list;
+    private ArrayList<LogisticsObject> list2;
+    private HashMap<Component, Integer> map;
 
 
 
