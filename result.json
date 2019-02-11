@@ -1,0 +1,257 @@
+[ {
+  "name" : "MTBAllrounder",
+  "frame" : {
+    "name" : "7005DB",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Fox32 F100",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Spark",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBCompetition",
+  "frame" : {
+    "name" : "Monocoque",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Fox Talas140",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Speed Line",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBDownhill",
+  "frame" : {
+    "name" : "7005DB",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Rock Schox Recon351",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Fizik Tundra",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBExtreme",
+  "frame" : {
+    "name" : "Monocoque",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Fox32 F100",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Spark",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBFreeride",
+  "frame" : {
+    "name" : "7005TB",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Fox32 F80",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Fizik Tundra",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBMarathon",
+  "frame" : {
+    "name" : "7005DB",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Rock Schox ReconSl",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Race Line",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBPerformance",
+  "frame" : {
+    "name" : "7005TB",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "Rock Schox Reba",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Fizik Tundra",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+}, {
+  "name" : "MTBTrail",
+  "frame" : {
+    "name" : "Monocoque",
+    "supplier" : {
+      "name" : "WernerRahmenGMBH",
+      "lotSize" : 10,
+      "leadTime" : 7,
+      "country" : "GERMANY",
+      "components" : null
+    }
+  },
+  "fork" : {
+    "name" : "SR Suntour Raidon",
+    "supplier" : {
+      "name" : "Tenedores de Zaragoza",
+      "lotSize" : 75,
+      "leadTime" : 14,
+      "country" : "SPAIN",
+      "components" : null
+    }
+  },
+  "saddle" : {
+    "name" : "Speed Line",
+    "supplier" : {
+      "name" : "DengwongSaddles",
+      "lotSize" : 500,
+      "leadTime" : 49,
+      "country" : "CHINA",
+      "components" : null
+    }
+  }
+} ]
