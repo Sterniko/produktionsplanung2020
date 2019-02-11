@@ -27,6 +27,14 @@
             <th>Actual Production Bike 6</th>
             <th>Actual Production Bike 7</th>
             <th>Actual Production Bike 8</th>
+            <th>Additional Production Bike 1</th>
+            <th>Additional Production Bike 2</th>
+            <th>Additional Production Bike 3</th>
+            <th>Additional Production Bike 4</th>
+            <th>Additional Production Bike 5</th>
+            <th>Additional Production Bike 6</th>
+            <th>Additional Production Bike 7</th>
+            <th>Additional Production Bike 8</th>
             <th>Warehouse Slot 1</th>
             <th>Warehouse Slot 2</th>
             <th>Warehouse Slot 3</th>
@@ -50,9 +58,13 @@
                 </td>
              <td th:each="entry : ${bd.getActualProduction()}">
                  <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
+             <td th:each="entry : ${bd.getAdditionalProduction()}">
+                 <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
+             </td>
              <td th:each="entry : ${bd.getWarehouseStock()}">
                  <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
              </td>
+
           </tr>
 
     </table>

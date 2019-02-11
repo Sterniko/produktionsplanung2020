@@ -50,7 +50,7 @@ public class DataInitService {
         forkList.add(new Fork("Fox Talas140", supplierList.get(1)));
         forkList.add(new Fork("Rock Schox Reba", supplierList.get(1)));
         forkList.add(new Fork("Rock Schox Recon351", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox ReconSl", supplierList.get(1)));
+        forkList.add(new Fork("Rock Schox ReconSL", supplierList.get(1)));
         forkList.add(new Fork("SR Suntour Raidon", supplierList.get(1)));
         data.setComponents(forkList);
         //Bikes
@@ -58,8 +58,8 @@ public class DataInitService {
 
         bikeList.add(new Bike("MTBAllrounder",  frameList.get(0), forkList.get(0), saddleList.get(2)));
         bikeList.add(new Bike("MTBCompetition",  frameList.get(2), forkList.get(2), saddleList.get(3)));
-        bikeList.add(new Bike("MTBDownhill", frameList.get(0), forkList.get(4), saddleList.get(0)));
-        bikeList.add(new Bike("MTBExtreme", frameList.get(2), forkList.get(0), saddleList.get(2)));
+        bikeList.add(new Bike("MTBDownhill", frameList.get(1), forkList.get(4), saddleList.get(0)));
+        bikeList.add(new Bike("MTBExtreme", frameList.get(2), forkList.get(3), saddleList.get(2)));
         bikeList.add(new Bike("MTBFreeride", frameList.get(1), forkList.get(1), saddleList.get(0)));
         bikeList.add(new Bike("MTBMarathon", frameList.get(0), forkList.get(5), saddleList.get(1)));
         bikeList.add(new Bike("MTBPerformance", frameList.get(1), forkList.get(3), saddleList.get(0)));
@@ -85,12 +85,30 @@ public class DataInitService {
 
         data.setCustomers(customers);
         Map<LocalDate,BusinessDay> businessDayMap = new HashMap<>();
-        for(int i = 0 ; i < 100 ; i++){
+        for(int i = 0 ; i < 5 ; i++){
             BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null,null,null,null,null,null,null);
             businessDayMap.put(bd.getDate(), bd);
             bd.setWarehouseStock(wareHouseStockMap);
         }
         data.setBusinessDays(businessDayMap);
+
+        Map<LocalDate,BusinessDay> bdMap = data.getBusinessDays();
+
+        BusinessDay bday = bdMap.get(LocalDate.now());
+        Map<Component,Integer> wareHouseStockMap2 = new HashMap<>();
+        for(Component c : forkList){
+            wareHouseStockMap2.put(c,250);
+        }
+        for(Component c : saddleList){
+            wareHouseStockMap2.put(c,200);
+        }
+        for(Component c : frameList){
+            wareHouseStockMap2.put(c,300);
+        }
+        bday.setWarehouseStock(wareHouseStockMap2);
+        bdMap.put(LocalDate.now(), bday);
+        data.setBusinessDays(bdMap);
+        BusinessDay bda2y = bdMap.get(LocalDate.now());
         //addExampleWarehouse(data);
     }
 
