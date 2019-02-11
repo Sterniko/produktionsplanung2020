@@ -193,11 +193,13 @@ public class ProductionService {
      * @param bd to check
      * @return
      */
+
+    //TODO : AdditionalProduction setzen
     public void checkComponentsForDay(BusinessDay bd){
         Integer amountPlannedProduction;
-        Integer amountWareHouse;
+        Integer amountWareHouse = 0;
         Integer i ;
-        Integer minComp = Integer.MAX_VALUE;
+        Integer minComp ;
         Bike bike;
         Boolean enoughComp;
 
@@ -205,11 +207,13 @@ public class ProductionService {
         Map<Bike,Integer> actualProduction = new HashMap<>();
         Map<Component,Integer> newWareHouseStock = new HashMap<>();
 
+        //Für alle Bikes die PlannedProduction des Tages angucken
         for(Map.Entry entry : plannedProduction.entrySet()){
             ArrayList<Component> componentList = new ArrayList<>();
-
+            Map<Component,Integer> amountComponent = new HashMap<>();
             bike = (Bike) entry.getKey();
 
+            //Componenten des Bikes
             componentList.add(bike.getFork());
             componentList.add(bike.getFrame());
             componentList.add(bike.getSaddle());
@@ -217,14 +221,20 @@ public class ProductionService {
 
             //Hilfsvar zum zählen, ob alle Componenten ausreichend vorhanden sind!
             i = 0;
-
+            //Hilfsvar um das min. zu bestimmen falls min. 1 comp nicht ausreichend vorhanden ist
+            minComp = Integer.MAX_VALUE;
             enoughComp = true;
 
+            //Alle componenten des Warehouse angucken
             for(Map.Entry comp : bd.getWarehouseStock().entrySet()){
 
+                amountWareHouse = (Integer) comp.getValue();
+                newWareHouseStock.put((Component) comp.getKey(),amountWareHouse);
+
+                //Componente im Lager = Componente vom Bike
                 if(componentList.contains(comp.getKey())){
+                    amountComponent.put((Component) comp.getKey(),amountWareHouse);
                     i++;
-                    amountWareHouse = (Integer) comp.getValue();
                     //nicht ausreichend im Lager -> speichere min Lagerstand aller Componenten des Bikes
                     if(amountPlannedProduction > amountWareHouse){
                         if(minComp > amountWareHouse){
@@ -239,22 +249,25 @@ public class ProductionService {
                             bd.setActualProduction(actualProduction);
 
                             amountWareHouse -= amountPlannedProduction;
+                            for(Map.Entry c : amountComponent.entrySet()){
+                                newWareHouseStock.put((Component) c.getKey(), amountWareHouse);
+                            }
                         }
                         //min 1 Componente nicht ausreichend im Lager
                         else {
                             actualProduction.put(bike, minComp);
                             bd.setActualProduction(actualProduction);
 
-                            amountWareHouse -= minComp;
+                            for(Map.Entry c : amountComponent.entrySet()){
+                                amountWareHouse = (Integer)c.getValue() - minComp;
+                                newWareHouseStock.put((Component) c.getKey(), amountWareHouse);
+                            }
                         }
-                        //TODO: ALtes WHObject holen und 3 Comp überschreiben!
-                        for(Component c : componentList){
-                            newWareHouseStock.put(c,amountWareHouse);
-                        }
-                        bd.setWarehouseStock(newWareHouseStock);
+
                     }
                 }
             }
+            bd.setWarehouseStock(newWareHouseStock);
         }
     }
 
