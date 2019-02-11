@@ -1,12 +1,14 @@
 package de.adventureworks.produktionsplanung.model.services;
 
-import de.adventureworks.produktionsplanung.model.DataBean;
+
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
+import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.production.model.ProductionModel;
-import org.springframework.context.ApplicationContext;
+
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -181,6 +183,78 @@ public class ProductionService {
                 productionMap.put(bike, 0);
             }
             bd.setPlannedProduction(productionMap);
+        }
+    }
+
+    /**
+     * Checks if enough Components are in the Warehouse to produce for Planned Production
+     * Sets ActualProduction
+     * Deletes Components for Production out of Warehouse
+     * @param bd to check
+     * @return
+     */
+    public void checkComponentsForDay(BusinessDay bd){
+        Integer amountPlannedProduction;
+        Integer amountWareHouse;
+        Integer i ;
+        Integer minComp = Integer.MAX_VALUE;
+        Bike bike;
+        Boolean enoughComp;
+
+        Map<Bike,Integer> plannedProduction = bd.getPlannedProduction();
+        Map<Bike,Integer> actualProduction = new HashMap<>();
+        Map<Component,Integer> newWareHouseStock = new HashMap<>();
+
+        for(Map.Entry entry : plannedProduction.entrySet()){
+            ArrayList<Component> componentList = new ArrayList<>();
+
+            bike = (Bike) entry.getKey();
+
+            componentList.add(bike.getFork());
+            componentList.add(bike.getFrame());
+            componentList.add(bike.getSaddle());
+            amountPlannedProduction =  (Integer)entry.getValue();
+
+            //Hilfsvar zum zählen, ob alle Componenten ausreichend vorhanden sind!
+            i = 0;
+
+            enoughComp = true;
+
+            for(Map.Entry comp : bd.getWarehouseStock().entrySet()){
+
+                if(componentList.contains(comp.getKey())){
+                    i++;
+                    amountWareHouse = (Integer) comp.getValue();
+                    //nicht ausreichend im Lager -> speichere min Lagerstand aller Componenten des Bikes
+                    if(amountPlannedProduction > amountWareHouse){
+                        if(minComp > amountWareHouse){
+                            enoughComp = false;
+                            minComp = amountWareHouse;
+                        }
+                    }
+                    if(i == 3){
+                        //alle 3 Componenten sind ausreichend im Lager
+                        if(enoughComp) {
+                            actualProduction.put(bike, amountPlannedProduction);
+                            bd.setActualProduction(actualProduction);
+
+                            amountWareHouse -= amountPlannedProduction;
+                        }
+                        //min 1 Componente nicht ausreichend im Lager
+                        else {
+                            actualProduction.put(bike, minComp);
+                            bd.setActualProduction(actualProduction);
+
+                            amountWareHouse -= minComp;
+                        }
+                        //TODO: ALtes WHObject holen und 3 Comp überschreiben!
+                        for(Component c : componentList){
+                            newWareHouseStock.put(c,amountWareHouse);
+                        }
+                        bd.setWarehouseStock(newWareHouseStock);
+                    }
+                }
+            }
         }
     }
 

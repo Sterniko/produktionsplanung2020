@@ -129,6 +129,7 @@ public class BusinessCalendar {
         this.arrHolidays[12][26] = true;
         this.arrHolidays[12][31] = true;
         this.arrHolidays[1][1] = true;
+        this.arrHolidays[5][1] = true;
 
     }
     /**

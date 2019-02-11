@@ -5,11 +5,11 @@ import java.util.Objects;
 public class Bike {
 
     private String name;
-    private Frame frame;
-    private Fork fork;
-    private  Saddle saddle;
+    private Component frame;
+    private Component fork;
+    private Component saddle;
 
-    public Bike(String name, Frame frame, Fork fork, Saddle saddle) {
+    public Bike(String name, Component frame, Component fork, Component saddle) {
         this.name = name;
         this.frame = frame;
         this.fork = fork;
@@ -24,7 +24,7 @@ public class Bike {
         this.name = name;
     }
 
-    public Frame getFrame() {
+    public Component getFrame() {
         return frame;
     }
 
@@ -32,7 +32,7 @@ public class Bike {
         this.frame = frame;
     }
 
-    public Fork getFork() {
+    public Component getFork() {
         return fork;
     }
 
@@ -40,7 +40,7 @@ public class Bike {
         this.fork = fork;
     }
 
-    public Saddle getSaddle() {
+    public Component getSaddle() {
         return saddle;
     }
 

@@ -110,12 +110,12 @@ public class BusinessDay implements Comparable<BusinessDay> {
         this.actualProduction = actualProduction;
     }
 
-    public Map<Component, Integer> getWarehouseStok() {
+    public Map<Component, Integer> getWarehouseStock() {
         return warehouseStock;
     }
 
-    public void setWarehouseStok(Map<Component, Integer> warehouseStok) {
-        this.warehouseStock = warehouseStok;
+    public void setWarehouseStock(Map<Component, Integer> warehouseStock) {
+        this.warehouseStock = warehouseStock;
     }
 
     @Override
