@@ -19,10 +19,25 @@
                 <span th:utext="${component.name}"></span>
             </td>
             <td th:each="key: ${businessDays.keySet()}">
-                <span th:utext="|${businessDays.get(key).warehouseStok.get(component)}|"></span>
+                <span th:utext="|${businessDays.get(key).warehouseStock.get(component)}|"></span>
             </td>
         </tr>
     </table>
+
+
+    <form method="POST" th:action="@{/warehouse}" th:object="${warehouseRequest}">
+
+        <input type="date" th:field="*{date}" />
+        <br>
+        <span th:each="component: ${components}">
+            <span th:utext="${component.name}" ></span>
+            <input type="number" th:field="*{warehouseMap[__${component.name}__]}" />
+
+            <br>
+        </span>
+        <br>
+        <button type="submit" name="submit" value="value">This is a link that sends a POST request</button>
+    </form>
 
 </body>
 </html>
