@@ -1,6 +1,7 @@
 package de.adventureworks.produktionsplanung.model.services;
 
 
+import com.sun.xml.internal.bind.v2.TODO;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
@@ -87,6 +88,10 @@ public class OrderService {
 
         bd.setPendingSupplierAmount(map);
     }
+
+
+    // Method Stub
+    //TODO richtige Methode implementieren
 
     private static void setDeliveryDate(LogisticsObject logisticsObject, BusinessDay bd){
         Supplier supplier = logisticsObject.getSupplier();
