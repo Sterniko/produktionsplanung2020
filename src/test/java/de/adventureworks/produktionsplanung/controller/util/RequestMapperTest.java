@@ -5,7 +5,6 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
 import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
