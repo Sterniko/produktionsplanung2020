@@ -19,7 +19,7 @@
                 <span th:utext="${component.name}"></span>
             </td>
             <td th:each="key: ${businessDays.keySet()}">
-                <span th:utext="|${businessDays.get(key).warehouseStok.get(component)}|"></span>
+                <span th:utext="|${businessDays.get(key).warehouseStock.get(component)}|"></span>
             </td>
         </tr>
     </table>
