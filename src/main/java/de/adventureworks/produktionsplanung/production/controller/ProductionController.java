@@ -29,7 +29,7 @@ public class ProductionController {
     @RequestMapping("/production")
     public String getCustomers(Model model) {
 
-        this.productionService = new ProductionService(this.productionModel);
+        this.productionService = new ProductionService();
         this.productionService.calculateRegularProduction();
         List<BusinessDay> businessDayList = new ArrayList<>();
 
