@@ -65,7 +65,7 @@
 }, {
   "name" : "MTBDownhill",
   "frame" : {
-    "name" : "7005DB",
+    "name" : "7005TB",
     "supplier" : {
       "name" : "WernerRahmenGMBH",
       "lotSize" : 10,
@@ -107,7 +107,7 @@
     }
   },
   "fork" : {
-    "name" : "Fox32 F100",
+    "name" : "Rock Schox Reba",
     "supplier" : {
       "name" : "Tenedores de Zaragoza",
       "lotSize" : 75,
@@ -171,7 +171,7 @@
     }
   },
   "fork" : {
-    "name" : "Rock Schox ReconSl",
+    "name" : "Rock Schox ReconSL",
     "supplier" : {
       "name" : "Tenedores de Zaragoza",
       "lotSize" : 75,
