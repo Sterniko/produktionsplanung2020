@@ -3,7 +3,6 @@ package de.adventureworks.produktionsplanung.model.entities.external;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.logistics.Delivery;
-import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
@@ -75,6 +74,7 @@ public class Ship implements Comparable<Ship>{
         return this.getDeparture().compareTo(o.getDeparture());
     }
 
+
     @Override
     public String toString() {
         return "Ship{" +
@@ -83,6 +83,7 @@ public class Ship implements Comparable<Ship>{
                 ", arrival=" + arrival +
                 '}';
     }
+
 
     public void addOrder(Delivery order){
         deliveries.add(order);
@@ -104,16 +105,11 @@ public class Ship implements Comparable<Ship>{
         }
     }
 
-    public void delayArrival(LocalDate newArrival) {
-        arrival = newArrival;
-        for (Delivery e : deliveries) {
-            LocalDate oldDate = e.getArrival();
-            BusinessDay oldBDay = databean.getBusinessDay(oldDate);
-            oldBDay.getReceivedDeliveries().remove(e);
-            databean.getBusinessDay(newArrival).getReceivedDeliveries().add(e);
-            e.setArrival(newArrival);
-        }
-
+    public List<Delivery> getDeliveries() {
+        return deliveries;
     }
 
+    public void setDeliveries(List<Delivery> deliveries) {
+        this.deliveries = deliveries;
+    }
 }
