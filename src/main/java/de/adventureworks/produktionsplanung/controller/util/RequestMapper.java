@@ -1,5 +1,6 @@
 package de.adventureworks.produktionsplanung.controller.util;
 
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 
 import java.util.HashMap;
@@ -25,6 +26,16 @@ public class RequestMapper {
         }
 
         return returnMap;
+    }
+
+    public static Bike mapBike(String bikeName, List<Bike> bikes) {
+
+        for (Bike bike: bikes) {
+            if (bike.getName().equals(bikeName)) {
+                return bike;
+            }
+        }
+        return null;
 
     }
 

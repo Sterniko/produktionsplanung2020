@@ -4,6 +4,9 @@ import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.services.OrderService;
+import de.adventureworks.produktionsplanung.model.services.ProductionEngagementService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +18,14 @@ import java.util.Map;
 @Controller
 public class WarehouseController {
 
+    @Autowired
     private DataBean dataBean;
 
-    public WarehouseController(DataBean dataBean) {
-        this.dataBean = dataBean;
+    @Autowired
+    private ProductionEngagementService productionEngagementService;
+
+    public WarehouseController() {
+
     }
 
     @RequestMapping("/warehouse")
@@ -46,9 +53,8 @@ public class WarehouseController {
         Map<Component, Integer> componentMap = RequestMapper.mapComponentStringMap(
                 warehouseRequest.getWarehouseMap(), dataBean.getComponents());
 
-        //Todo nachbestellen
-
-        System.out.println(componentMap);
+        businessDay.setWarehouseStock(componentMap);
+        OrderService.addToOrder(businessDay, componentMap);
 
 
     }
