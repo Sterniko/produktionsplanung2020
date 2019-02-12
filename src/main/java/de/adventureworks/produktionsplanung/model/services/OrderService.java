@@ -48,16 +48,18 @@ public class OrderService {
 
     public static void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
         for(Component c : map.keySet()) {
-            int amount = map.get(c);
-            LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
-            Map<Component, Integer> componentMap = logisticsObject.getComponents();
-            if (!componentMap.containsKey(c)) {
-                componentMap.put(c, amount);
-            } else {
-                int oldAmount = componentMap.get(c);
-                int newAmount = oldAmount + amount;
-                componentMap.put(c, newAmount);
+            if (map.get(c) != null) {
+                int amount = map.get(c);
+                LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
+                Map<Component, Integer> componentMap = logisticsObject.getComponents();
+                if (!componentMap.containsKey(c)) {
+                    componentMap.put(c, amount);
+                } else {
+                    int oldAmount = componentMap.get(c);
+                    int newAmount = oldAmount + amount;
+                    componentMap.put(c, newAmount);
 
+                }
             }
         }
     }
