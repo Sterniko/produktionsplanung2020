@@ -13,6 +13,9 @@ public class Supplier {
     private Country country;
     private List<Component> components;
 
+    public Supplier(){
+        }
+
     public Supplier(String name, int lotSize, int leadTime, Country country, List<Component> components) {
         this.name = name;
         this.lotSize = lotSize;

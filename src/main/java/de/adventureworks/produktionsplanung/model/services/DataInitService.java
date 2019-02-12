@@ -1,5 +1,7 @@
 package de.adventureworks.produktionsplanung.model.services;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.adventureworks.produktionsplanung.model.Data;
 import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
@@ -13,6 +15,7 @@ import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsOb
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -24,110 +27,84 @@ public class DataInitService {
     @PostConstruct
     public void init() {
         data = new Data();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
 
-        List<Supplier> supplierList = new ArrayList<>();
+            List<Supplier> supplierList = mapper.readValue(new File("supplier.json"), new TypeReference<List<Supplier>>() {});
+            data.setSuppliers(supplierList);
 
-        supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null ));
-        supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
-        supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
-        data.setSuppliers(supplierList);
-        List<Component> frameList = new ArrayList<>();
+            List<Frame> frameList = mapper.readValue(new File("frame.json"), new TypeReference<List<Frame>>() {});
+            data.setComponents(frameList);
 
-        supplierList.get(0);
-        frameList.add(new Frame("7005DB", supplierList.get(0)));
-        frameList.add(new Frame("7005TB", supplierList.get(0)));
-        frameList.add(new Frame ("Monocoque", supplierList.get(0)));
+            List<Saddle> saddleList = mapper.readValue(new File("saddle.json"), new TypeReference<List<Saddle>>() {});
+            data.setComponents(saddleList);
 
-        data.setComponents(frameList);
-        List<Component> saddleList = new ArrayList<>();
-        saddleList.add(new Saddle("Fizik Tundra", supplierList.get(2)));
-        saddleList.add(new Saddle("Race Line", supplierList.get(2)));
-        saddleList.add(new Saddle("Spark", supplierList.get(2)));
-        saddleList.add(new Saddle("Speed Line",  supplierList.get(2)));
-        data.setComponents(saddleList);
+            ArrayList<Fork> forkList = mapper.readValue(new File("fork.json"), new TypeReference<List<Fork>>() {});
+            data.setComponents(forkList);
 
-        List<Component> forkList = new ArrayList<>();
-        forkList.add(new Fork("Fox32 F100", supplierList.get(1)));
-        forkList.add(new Fork("Fox32 F80",  supplierList.get(1)));
-        forkList.add(new Fork("Fox Talas140", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox Reba", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox Recon351", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox ReconSL", supplierList.get(1)));
-        forkList.add(new Fork("SR Suntour Raidon", supplierList.get(1)));
-        data.setComponents(forkList);
-        //Bikes
-        List<Bike> bikeList = new ArrayList<>();
-
-        bikeList.add(new Bike("MTBAllrounder",  frameList.get(0), forkList.get(0), saddleList.get(2)));
-        bikeList.add(new Bike("MTBCompetition",  frameList.get(2), forkList.get(2), saddleList.get(3)));
-        bikeList.add(new Bike("MTBDownhill", frameList.get(1), forkList.get(4), saddleList.get(0)));
-        bikeList.add(new Bike("MTBExtreme", frameList.get(2), forkList.get(3), saddleList.get(2)));
-        bikeList.add(new Bike("MTBFreeride", frameList.get(1), forkList.get(1), saddleList.get(0)));
-        bikeList.add(new Bike("MTBMarathon", frameList.get(0), forkList.get(5), saddleList.get(1)));
-        bikeList.add(new Bike("MTBPerformance", frameList.get(1), forkList.get(3), saddleList.get(0)));
-        bikeList.add(new Bike("MTBTrail", frameList.get(2), forkList.get(6), saddleList.get(3)));
-        data.setBikes(bikeList);
+            ArrayList<Bike> bikeList = mapper.readValue(new File("bikes.json"), new TypeReference<List<Bike>>() {});
+            System.out.println(bikeList + "s");
+            data.setBikes(bikeList);
 
 
-        Map<Component,Integer> wareHouseStockMap = new HashMap<>();
+            Map<Component, Integer> wareHouseStockMap = new HashMap<>();
 
-        for(Component c : forkList){
-            wareHouseStockMap.put(c,100);
+            for (Component c : forkList) {
+                wareHouseStockMap.put(c, 100);
+            }
+            for (Component c : saddleList) {
+                wareHouseStockMap.put(c, 100);
+            }
+            for (Component c : frameList) {
+                wareHouseStockMap.put(c, 100);
+            }
+
+            Customer customer1 = new Customer("Metro AG", Country.GERMANY);
+            List<Customer> customers = new ArrayList<Customer>();
+            customers.add(customer1);
+
+            data.setCustomers(customers);
+            Map<LocalDate, BusinessDay> businessDayMap = new HashMap<>();
+            for (int i = 0; i < 5; i++) {
+                BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null, null, null, null, null, null, null);
+                businessDayMap.put(bd.getDate(), bd);
+                bd.setWarehouseStock(wareHouseStockMap);
+            }
+            data.setBusinessDays(businessDayMap);
+
+            Map<LocalDate, BusinessDay> bdMap = data.getBusinessDays();
+
+            // Robert testing stuff für warehouse nullpointer
+            BusinessDay bd = bdMap.get(LocalDate.now());
+            ArrayList<LogisticsObject> loList = new ArrayList<>();
+            LogisticsObject logisticsObject = new LogisticsObject(supplierList.get(1));
+            HashMap<Component, Integer> componentIntegerHashMap = new HashMap<>();
+            logisticsObject.setComponents(componentIntegerHashMap);
+            HashMap<Supplier, LogisticsObject> loMap = new HashMap<>();
+            loMap.put(supplierList.get(1), logisticsObject);
+            bd.setPendingSupplierAmount(loMap);
+            bd.setSentDeliveries(loList);
+
+
+            BusinessDay bday = bdMap.get(LocalDate.now());
+            Map<Component, Integer> wareHouseStockMap2 = new HashMap<>();
+            for (Component c : forkList) {
+                wareHouseStockMap2.put(c, 250);
+            }
+            for (Component c : saddleList) {
+                wareHouseStockMap2.put(c, 200);
+            }
+            for (Component c : frameList) {
+                wareHouseStockMap2.put(c, 300);
+            }
+            bday.setWarehouseStock(wareHouseStockMap2);
+            bdMap.put(LocalDate.now(), bday);
+            data.setBusinessDays(bdMap);
+            BusinessDay bda2y = bdMap.get(LocalDate.now());
+            //addExampleWarehouse(data);
+            addExampleShip(data);
         }
-        for(Component c : saddleList){
-            wareHouseStockMap.put(c,100);
-        }
-        for(Component c : frameList){
-            wareHouseStockMap.put(c,100);
-        }
-
-        Customer customer1 = new Customer("Metro AG", Country.GERMANY);
-        List<Customer> customers = new ArrayList<Customer>();
-        customers.add(customer1);
-
-        data.setCustomers(customers);
-        Map<LocalDate,BusinessDay> businessDayMap = new HashMap<>();
-        for(int i = 0 ; i < 5 ; i++){
-            BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null,null,null,null,null,null,null);
-            businessDayMap.put(bd.getDate(), bd);
-            bd.setWarehouseStock(wareHouseStockMap);
-        }
-        data.setBusinessDays(businessDayMap);
-
-        Map<LocalDate,BusinessDay> bdMap = data.getBusinessDays();
-
-        // Robert testing stuff für warehouse nullpointer
-        BusinessDay bd = bdMap.get(LocalDate.now());
-        ArrayList<LogisticsObject> loList = new ArrayList<>();
-        LogisticsObject logisticsObject = new LogisticsObject(supplierList.get(1));
-        HashMap<Component, Integer> componentIntegerHashMap = new HashMap<>();
-        logisticsObject.setComponents(componentIntegerHashMap);
-        HashMap<Supplier, LogisticsObject> loMap = new HashMap<>();
-        loMap.put(supplierList.get(1), logisticsObject);
-        bd.setPendingSupplierAmount(loMap);
-        bd.setSentDeliveries(loList);
-
-
-
-
-       /* BusinessDay bday = bdMap.get(LocalDate.now());
-        Map<Component,Integer> wareHouseStockMap2 = new HashMap<>();
-        for(Component c : forkList){
-            wareHouseStockMap2.put(c,250);
-        }
-        for(Component c : saddleList){
-            wareHouseStockMap2.put(c,200);
-        }
-        for(Component c : frameList){
-            wareHouseStockMap2.put(c,300);
-        }
-        bday.setWarehouseStock(wareHouseStockMap2);
-        bdMap.put(LocalDate.now(), bday);
-        data.setBusinessDays(bdMap);
-        BusinessDay bda2y = bdMap.get(LocalDate.now());*/
-        //addExampleWarehouse(data);
-        addExampleShip(data);
-
+        catch (Exception e){}
     }
 
 

@@ -87,7 +87,7 @@ public class Data {
         return components;
     }
 
-    public void setComponents(List<Component> components) {
-        this.components = components;
+    public void setComponents(List<?> components) {
+        this.components = (List<Component>)components;
     }
 }
