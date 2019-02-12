@@ -2,12 +2,10 @@ package de.adventureworks.produktionsplanung.model.entities.bike;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 
@@ -143,10 +141,11 @@ public class JSONClass {
         return supplierList;
     }
 
-    public static HashMap<LocalDate, Boolean> getHoliday(){
+    public static HashMap<LocalDate, HashMap<Country, Boolean>> getHoliday(){
 
-        HashMap<LocalDate, Boolean> holidayMap= new HashMap<>();
-        return holidayMap;
+        HashMap<Country, Boolean> holidayMap= new HashMap<>();
+        HashMap<LocalDate, HashMap<Country, Boolean>> dateMap = new HashMap<>();
+        return dateMap;
     }
 
 
