@@ -172,9 +172,9 @@ public class DataInitService {
 
 
 
-        Ship a = new Ship("AaA",dep1, arr1);
-        Ship b = new Ship("BbB",dep2,arr2);
-        Ship c = new Ship("CcC",dep3,arr3);
+        Ship a = new Ship("ASIA",dep1, arr1);
+        Ship b = new Ship("Q-MARRY",dep2,arr2);
+        Ship c = new Ship("Schiff",dep3,arr3);
 
         List<Ship> ships = new ArrayList<>();
         ships.add(a);

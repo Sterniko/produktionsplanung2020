@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.logistics.Delivery;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ShipService {
 
@@ -30,10 +31,13 @@ public class ShipService {
         }
     }
 
-
-
-
-
+    public static Ship getShipByName(String name){
+        List<Ship> ships = databean.getShips();
+        for(Ship e: ships){
+            if(e.getName().equals(name)){return e;}
+        }
+        return null;
+    }
 
 
 
