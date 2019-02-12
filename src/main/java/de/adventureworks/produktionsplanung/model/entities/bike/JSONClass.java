@@ -4,6 +4,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import de.adventureworks.produktionsplanung.model.Data;
@@ -41,17 +42,21 @@ public class JSONClass {
             e.printStackTrace();
         }
 
+
+
         */
 
+       try {
+           ArrayList<Fork> fork2 = mapper.readValue("fork.json", new TypeReference<List<Fork>>(){});
+           System.out.println(fork2);
+       }
+       catch (Exception e){
+           e.printStackTrace();
+       }
 
-        for (LocalDate ld : holidayMap.keySet()) {
-            HashMap<Country, Boolean> map = holidayMap.get(ld);
-            for (Country country : map.keySet()) {
-                if(map.get(country)){
-                    System.out.println(ld.toString() + " "  + country);
-                }
-            }
-        }
+
+
+
     }
 
 
