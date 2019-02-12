@@ -110,7 +110,7 @@ public class DataInitService {
 
 
 
-        BusinessDay bday = bdMap.get(LocalDate.now());
+       /* BusinessDay bday = bdMap.get(LocalDate.now());
         Map<Component,Integer> wareHouseStockMap2 = new HashMap<>();
         for(Component c : forkList){
             wareHouseStockMap2.put(c,250);
@@ -124,7 +124,7 @@ public class DataInitService {
         bday.setWarehouseStock(wareHouseStockMap2);
         bdMap.put(LocalDate.now(), bday);
         data.setBusinessDays(bdMap);
-        BusinessDay bda2y = bdMap.get(LocalDate.now());
+        BusinessDay bda2y = bdMap.get(LocalDate.now());*/
         //addExampleWarehouse(data);
         addExampleShip(data);
 

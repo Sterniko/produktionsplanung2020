@@ -15,6 +15,8 @@ import de.adventureworks.produktionsplanung.controller.production.model.Producti
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Controller
 public class ProductionController {
@@ -37,7 +39,13 @@ public class ProductionController {
         this.productionService.calculateRegularProduction();
         List<BusinessDay> businessDayList = new ArrayList<>();
         Map<Country, Boolean> workingDayMap = new HashMap<>();
-        for(Map.Entry<LocalDate, BusinessDay> entry : this.productionModel.getBusinessDays().entrySet()){
+
+        Map<LocalDate, BusinessDay> m = this.productionModel.getBusinessDays().entrySet().stream()
+                .sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(
+                        Map.Entry::getKey, Map.Entry::getValue,(oldValue,newValue) -> oldValue,LinkedHashMap::new));
+
+
+        for(Map.Entry<LocalDate, BusinessDay> entry : m.entrySet()){
             businessDayList.add(entry.getValue());
 
             if(this.businessCalendar.isWorkingDay(entry.getKey())){

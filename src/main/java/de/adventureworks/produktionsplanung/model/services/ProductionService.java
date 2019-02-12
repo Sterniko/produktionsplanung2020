@@ -205,9 +205,10 @@ public class ProductionService {
      */
     public void checkComponentsForDay(BusinessDay bd){
         int amountPlannedProduction;
-        int amountWareHouse = 0;
+        int amountCompWareHouse = 0;
         int i ;
         int minComp ;
+        int amountNextDay;
         Bike bike;
         boolean enoughComp;
 
@@ -220,7 +221,7 @@ public class ProductionService {
         for(Map.Entry entry : plannedProduction.entrySet()){
 
             ArrayList<Component> componentList = new ArrayList<>();
-            Map<Component,Integer> amountComponent = new HashMap<>();
+            Map<Component,Integer> memoryCompWarehouse = new HashMap<>();
 
             bike = (Bike) entry.getKey();
             amountPlannedProduction =  (Integer)entry.getValue();
@@ -239,19 +240,19 @@ public class ProductionService {
             //Alle componenten des Warehouse angucken
             for(Map.Entry comp : bd.getWarehouseStock().entrySet()){
 
-                amountWareHouse = (Integer) comp.getValue();
-                newWareHouseStock.put((Component) comp.getKey(),amountWareHouse);
+                amountCompWareHouse = (Integer) comp.getValue();
+                newWareHouseStock.put((Component) comp.getKey(),amountCompWareHouse);
 
                 if(componentList.contains(comp.getKey())){
 
                     //Speichere WH stand der Componente falls unterschiedliche Lagerstände vorhanden sind
-                    amountComponent.put((Component) comp.getKey(),amountWareHouse);
+                    memoryCompWarehouse.put((Component) comp.getKey(),amountCompWareHouse);
                     i++;
                     //nicht ausreichend im Lager -> speichere Minimum Lagerstand der Componenten des Bikes
-                    if(amountPlannedProduction > amountWareHouse){
-                        if(minComp > amountWareHouse){
+                    if(amountPlannedProduction > amountCompWareHouse){
+                        if(minComp > amountCompWareHouse){
                             enoughComp = false;
-                            minComp = amountWareHouse;
+                            minComp = amountCompWareHouse;
                         }
                     }
                     if(i == 3){
@@ -262,14 +263,16 @@ public class ProductionService {
                             bd.setActualProduction(actualProduction);
                             bd.setAdditionalProduction(additionalProduction);
 
-                            for(Map.Entry c : amountComponent.entrySet()){
-                                amountWareHouse = (Integer)c.getValue() - amountPlannedProduction;
-                                newWareHouseStock.put((Component) c.getKey(), amountWareHouse);
+                            for(Map.Entry c : memoryCompWarehouse.entrySet()){
+                                amountCompWareHouse = (Integer)c.getValue() - amountPlannedProduction;
+                                newWareHouseStock.put((Component) c.getKey(), amountCompWareHouse);
                             }
                         }
                         //min 1 Componente nicht ausreichend im Lager
                         else {
+                            int amountToAdd =  amountPlannedProduction - minComp;
 
+                            setProductionForNextDay(bd.getDate(), bike, amountToAdd);
                             actualProduction.put(bike, minComp);
                             additionalProduction.put(bike, minComp - amountPlannedProduction);
 
@@ -277,37 +280,32 @@ public class ProductionService {
                             bd.setActualProduction(actualProduction);
 
                             //falls unterschiedliche Lagerstände vorhanden waren ..
-                            for(Map.Entry c : amountComponent.entrySet()){
-                                amountWareHouse = (Integer)c.getValue() - minComp;
-                                newWareHouseStock.put((Component) c.getKey(), amountWareHouse);
+                            for(Map.Entry c : memoryCompWarehouse.entrySet()){
+                                amountCompWareHouse = (Integer)c.getValue() - minComp;
+                                newWareHouseStock.put((Component) c.getKey(), amountCompWareHouse);
                             }
                         }
 
                     }
                 }
+
             }
             bd.setWarehouseStock(newWareHouseStock);
         }
     }
-
-    /**
-     * calculates Shift for a given Date
-     */
-    public void getShift(LocalDate date){
-        int m = date.getMonthValue();
-        int y = date.getYear();
-        int wd = this.businessCalendar.getWorkingDaysOutOfMonthAndYear(m,y);
-        //65/Stunde * 7 * wd
-      /*  if( <= (455 * wd)){
-            // System.out.println("Month: " + m + " Shift 1");
+    public void setProductionForNextDay(LocalDate date, Bike bike, Integer amount) {
+        BusinessDay nextBusinessday = this.productionModel.getBusinessDay(date.plusDays(1));
+        Map<Bike, Integer> newPlannedProduction = new HashMap<>();
+        if (nextBusinessday.getPlannedProduction() != null && this.businessCalendar.isWorkingDay(nextBusinessday.getDate())) {
+            for (Map.Entry Bike : nextBusinessday.getPlannedProduction().entrySet()) {
+                if (bike.equals(Bike.getKey())) {
+                    newPlannedProduction.put((Bike) Bike.getKey(), (Integer) Bike.getValue() + amount);
+                } else {
+                    newPlannedProduction.put((Bike) Bike.getKey(), (Integer) Bike.getValue());
+                }
+            }
+            nextBusinessday.setPlannedProduction(newPlannedProduction);
         }
-        //65/Stunde * 16 * wd = 2 schichten
-        else if( <= (910 * wd )){
-            //System.out.println("Month: " + m + " Shift 2");
-        }
-        else{
-            //System.out.println("Month: " + m + " Shift 3");
-        }*/
     }
 
     /**
