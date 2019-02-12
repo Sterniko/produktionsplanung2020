@@ -65,7 +65,7 @@ public class ProductionService {
 
         BusinessDay bd = this.productionModel.getBusinessDay(date);
 
-        
+
 
         //TODO:Map von BD benutzen
         if(this.businessCalendar.isWorkingDay(date)) {
@@ -288,6 +288,26 @@ public class ProductionService {
             }
             bd.setWarehouseStock(newWareHouseStock);
         }
+    }
+
+    /**
+     * calculates Shift for a given Date
+     */
+    public void getShift(LocalDate date){
+        int m = date.getMonthValue();
+        int y = date.getYear();
+        int wd = this.businessCalendar.getWorkingDaysOutOfMonthAndYear(m,y);
+        //65/Stunde * 7 * wd
+      /*  if( <= (455 * wd)){
+            // System.out.println("Month: " + m + " Shift 1");
+        }
+        //65/Stunde * 16 * wd = 2 schichten
+        else if( <= (910 * wd )){
+            //System.out.println("Month: " + m + " Shift 2");
+        }
+        else{
+            //System.out.println("Month: " + m + " Shift 3");
+        }*/
     }
 
     /**

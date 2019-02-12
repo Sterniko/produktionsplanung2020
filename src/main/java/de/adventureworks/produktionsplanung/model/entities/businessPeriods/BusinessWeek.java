@@ -8,11 +8,21 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
     private List<BusinessDay> days;
     private int calendarWeek;
 
+    public int getWorkingHours() {
+        return workingHours;
+    }
+
+    public void setWorkingHours(int workingHours) {
+        this.workingHours = workingHours;
+    }
+
+    private int workingHours;
 
 
-    public BusinessWeek(List<BusinessDay> days, int calanderWeek) {
-        this.calendarWeek = calanderWeek;
+    public BusinessWeek(List<BusinessDay> days, int calendarWeek, int workingHours) {
         this.days = days;
+        this.calendarWeek = calendarWeek;
+        this.workingHours = workingHours;
     }
 
     public BusinessWeek(){}
