@@ -55,14 +55,14 @@
         <div class="form-group column">
             <h2>Schiff Verspätung</h2>
             <br>
-            <form>
+            <form method="POST" th:action="@{/updateShip}" th:object="${updateShipRequest}">
                 <label>Schiff wählen:</label>
-                <select class="form-control" id="schff">
-                    <option th:each="schiff: ${schiffe}"><span th:text="|${schiff.name}|"></span></option>
+                <select th:field="*{name}" class="form-control" id="schff">
+                    <option th:each="schiff: ${schiffe}" th:value="${schiff.name}"><span th:text="|${schiff.name}|"></span></option>
                 </select>
                 <br>
                 <label>Neue Ankunftszeit:</label>
-                <input type="datetime-local" class="date-picker date-picker-popup form-control">
+                <input type="date" th:field="*{newArrival}" class="date-picker date-picker-popup form-control">
                 <br>
                 <input type="submit" class="btn btn-warning" value="Ändern">
 
@@ -72,10 +72,10 @@
         <div class="form-group column">
             <h2>Schiff Löschen</h2>
             <br>
-            <form>
+            <form method="POST" th:action="@{/deleteShip}" th:object="${deleteShipRequest}">
                 <label>Schiff wählen:</label>
-                <select class="form-control" id="schff">
-                    <option th:each="schiff: ${schiffe}"><span th:text="|${schiff.name}|"></span></option>
+                <select th:field="*{name}" class="form-control"  id="schffdel">
+                    <option th:each="schiff: ${schiffe}" th:value="${schiff.name}"><span th:text="|${schiff.name}|"></span></option>
                 </select>
                 <br>
                 <br>
