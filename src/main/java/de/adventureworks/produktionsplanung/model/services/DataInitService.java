@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import org.springframework.stereotype.Service;
 
@@ -110,6 +111,7 @@ public class DataInitService {
         data.setBusinessDays(bdMap);
         BusinessDay bda2y = bdMap.get(LocalDate.now());
         //addExampleWarehouse(data);
+        addExampleShip(data);
     }
 
     public Data getData() {
@@ -155,5 +157,29 @@ public class DataInitService {
         }
         data.setBusinessWeeks(weeks);
 
+    }
+
+
+    private static void addExampleShip(Data data){
+
+
+        LocalDate dep1 = LocalDate.of(2019,7,23);
+        LocalDate dep2 = LocalDate.of(2017,4,3);
+        LocalDate dep3 = LocalDate.of(2018,10,19);
+        LocalDate arr1= LocalDate.now().plusDays(233);
+        LocalDate arr2= LocalDate.now().plusDays(23);
+        LocalDate arr3= LocalDate.now().plusDays(33);
+
+
+
+        Ship a = new Ship("AaA",dep1, arr1);
+        Ship b = new Ship("BbB",dep2,arr2);
+        Ship c = new Ship("CcC",dep3,arr3);
+
+        List<Ship> ships = new ArrayList<>();
+        ships.add(a);
+        ships.add(b);
+        ships.add(c);
+        data.setShips(ships);
     }
 }

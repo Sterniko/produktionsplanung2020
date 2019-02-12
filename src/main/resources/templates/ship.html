@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Schiff Uebersicht</title>
+</head>
+<body>
+
+
+
+
+<table>
+
+    <thead>
+         <tr>
+             <th>Name</th>
+             <th>Abfahrt</th>
+             <th>Ankunft</th>
+             <th></th>
+             <th></th>
+         </tr>
+    </thead>
+
+    <tbody>
+         <tr th:each="schiff: ${schiffe}">
+             <td>
+                 <span th:text="|${schiff.name}|"></span>
+             </td>
+             <td> <span th:text="|${schiff.departure}|"></span></td>
+             <td> <span th:text="|${schiff.arrival}|"></span></td>
+             <td><a>Löschen</a></td>
+             <td> Form das Arrival Datum ändern kann</td>
+         </tr>
+    </tbody>
+
+
+
+</table>
+
+
+
+
+
+
+
+
+</body>
+</html>

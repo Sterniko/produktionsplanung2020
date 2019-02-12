@@ -14,9 +14,9 @@ public class ShipService {
     static private DataBean databean;
 
 
-    public static void deleteShip(Ship ship){
+    public static void deleteShip(Ship ship, LocalDate deleteDay ){
         databean.getShips().remove(ship);
-
+        //TODO placeOrder neu bestellen
     }
 
     public static void delayShip(Ship ship, LocalDate newArrival){
