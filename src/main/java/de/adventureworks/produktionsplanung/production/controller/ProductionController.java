@@ -18,7 +18,9 @@ import java.util.*;
 @Controller
 public class ProductionController {
 
+    @Autowired
     ProductionService productionService;
+
     @Autowired
     ProductionModel productionModel;
 
@@ -28,8 +30,6 @@ public class ProductionController {
 
     @RequestMapping("/production")
     public String getCustomers(Model model) {
-
-        this.productionService = new ProductionService(this.productionModel);
         this.productionService.calculateRegularProduction();
         List<BusinessDay> businessDayList = new ArrayList<>();
 

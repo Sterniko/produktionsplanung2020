@@ -15,8 +15,9 @@ import java.util.Map;
 @Service
 public class OrderService {
 
-    public static void placeOrder(Supplier supplier, Map<Component, Integer> map, BusinessDay bd) {
-
+    public static void placeOrder(Supplier supplier, BusinessDay bd) {
+        LogisticsObject lo = bd.getPendingSupplierAmount().get(supplier);
+        Map<Component, Integer> map = lo.getComponents();
         if (bd.getPendingSupplierAmount().get(supplier) != null) {
 
             int lotAmount = OrderService.getSumAmount(supplier, bd);
@@ -32,7 +33,7 @@ public class OrderService {
             }
 
             if ((sumAmount + lotAmount) >= supplierLotsize) {
-                LogisticsObject lo = bd.getPendingSupplierAmount().get(supplier);
+                ;
                 List list = bd.getSentDeliveries();
                 list.add(lo);
                 bd.setSentDeliveries(list);
@@ -45,13 +46,19 @@ public class OrderService {
         }
     }
 
-    public static void addToOrder(Map<Component, Integer> map, Component c, int amount) {
-        if (map.get(c) != null) {
-            int oldAmount = map.get(c);
-            int newAmount = oldAmount + amount;
-            map.put(c, newAmount);
-        } else {
-            map.put(c, amount);
+    public static void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
+        for(Component c : map.keySet()) {
+            int amount = map.get(c);
+            LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
+            Map<Component, Integer> componentMap = logisticsObject.getComponents();
+            if (!componentMap.containsKey(c)) {
+                componentMap.put(c, amount);
+            } else {
+                int oldAmount = componentMap.get(c);
+                int newAmount = oldAmount + amount;
+                componentMap.put(c, newAmount);
+
+            }
         }
     }
 

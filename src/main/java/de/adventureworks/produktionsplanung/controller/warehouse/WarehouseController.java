@@ -46,6 +46,8 @@ public class WarehouseController {
         Map<Component, Integer> componentMap = RequestMapper.mapComponentStringMap(
                 warehouseRequest.getWarehouseMap(), dataBean.getComponents());
 
+        //Todo nachbestellen
+
         System.out.println(componentMap);
 
 

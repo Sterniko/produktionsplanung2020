@@ -1,0 +1,37 @@
+[ {
+  "name" : "Fizik Tundra",
+  "supplier" : {
+    "name" : "DengwongSaddles",
+    "lotSize" : 500,
+    "leadTime" : 49,
+    "country" : "CHINA",
+    "components" : null
+  }
+}, {
+  "name" : "Race Line",
+  "supplier" : {
+    "name" : "DengwongSaddles",
+    "lotSize" : 500,
+    "leadTime" : 49,
+    "country" : "CHINA",
+    "components" : null
+  }
+}, {
+  "name" : "Spark",
+  "supplier" : {
+    "name" : "DengwongSaddles",
+    "lotSize" : 500,
+    "leadTime" : 49,
+    "country" : "CHINA",
+    "components" : null
+  }
+}, {
+  "name" : "Speed Line",
+  "supplier" : {
+    "name" : "DengwongSaddles",
+    "lotSize" : 500,
+    "leadTime" : 49,
+    "country" : "CHINA",
+    "components" : null
+  }
+} ]

@@ -1,0 +1,19 @@
+[ {
+  "name" : "WernerRahmenGMBH",
+  "lotSize" : 10,
+  "leadTime" : 7,
+  "country" : "GERMANY",
+  "components" : null
+}, {
+  "name" : "Tenedores de Zaragoza",
+  "lotSize" : 75,
+  "leadTime" : 14,
+  "country" : "SPAIN",
+  "components" : null
+}, {
+  "name" : "DengwongSaddles",
+  "lotSize" : 500,
+  "leadTime" : 49,
+  "country" : "CHINA",
+  "components" : null
+} ]

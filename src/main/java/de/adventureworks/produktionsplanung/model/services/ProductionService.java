@@ -5,6 +5,8 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.production.model.ProductionModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Service
 public class ProductionService {
 
     //Class var
@@ -21,6 +23,8 @@ public class ProductionService {
     private double[] bikesPercentArr;
     private double[] memoryBikes;
     private int bikesPA;
+
+    @Autowired
     private ProductionModel productionModel;
     private BusinessCalendar businessCalendar;
 
@@ -37,8 +41,7 @@ public class ProductionService {
     /**
      * Constructor ProductionService could get different bikesPA or other %distribution of bikes or month
      */
-    public ProductionService(ProductionModel productionModel){
-        this.productionModel = productionModel;
+    public ProductionService(){
         this.monthPercentArr = new double[12];
         this.productionArr = new double[12*8];
         this.bikesPercentArr = new double[8];
