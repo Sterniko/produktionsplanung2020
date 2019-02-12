@@ -98,12 +98,14 @@ public class DataInitService {
 
         // Robert testing stuff für warehouse nullpointer
         BusinessDay bd = bdMap.get(LocalDate.now());
+        ArrayList<LogisticsObject> loList = new ArrayList<>();
         LogisticsObject logisticsObject = new LogisticsObject(supplierList.get(1));
         HashMap<Component, Integer> componentIntegerHashMap = new HashMap<>();
         logisticsObject.setComponents(componentIntegerHashMap);
         HashMap<Supplier, LogisticsObject> loMap = new HashMap<>();
         loMap.put(supplierList.get(1), logisticsObject);
         bd.setPendingSupplierAmount(loMap);
+        bd.setSentDeliveries(loList);
 
 
 

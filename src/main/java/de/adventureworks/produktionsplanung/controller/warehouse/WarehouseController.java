@@ -1,5 +1,6 @@
 package de.adventureworks.produktionsplanung.controller.warehouse;
 
+import com.sun.tools.corba.se.idl.constExpr.Or;
 import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
@@ -55,8 +56,8 @@ public class WarehouseController {
 
         businessDay.setWarehouseStock(componentMap);
         OrderService.addToOrder(businessDay, componentMap);
+        OrderService.placeOrder(dataBean.getComponents().get(0).getSupplier(), businessDay);
         System.out.println(businessDay.getSentDeliveries());
-
 
     }
 
