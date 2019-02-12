@@ -65,7 +65,7 @@ public class DataInitService {
 
             data.setCustomers(customers);
             Map<LocalDate, BusinessDay> businessDayMap = new HashMap<>();
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 10; i++) {
                 BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null, null, null, null, null, null, null);
                 businessDayMap.put(bd.getDate(), bd);
                 bd.setWarehouseStock(wareHouseStockMap);
@@ -104,7 +104,9 @@ public class DataInitService {
             //addExampleWarehouse(data);
             addExampleShip(data);
         }
-        catch (Exception e){}
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 

@@ -296,16 +296,28 @@ public class ProductionService {
     public void setProductionForNextDay(LocalDate date, Bike bike, Integer amount) {
         BusinessDay nextBusinessday = this.productionModel.getBusinessDay(date.plusDays(1));
         Map<Bike, Integer> newPlannedProduction = new HashMap<>();
-        if (nextBusinessday.getPlannedProduction() != null && this.businessCalendar.isWorkingDay(nextBusinessday.getDate())) {
-            for (Map.Entry Bike : nextBusinessday.getPlannedProduction().entrySet()) {
-                if (bike.equals(Bike.getKey())) {
-                    newPlannedProduction.put((Bike) Bike.getKey(), (Integer) Bike.getValue() + amount);
-                } else {
-                    newPlannedProduction.put((Bike) Bike.getKey(), (Integer) Bike.getValue());
+
+        //letzter BusinessDay
+        if (nextBusinessday == null) {
+            return;
+        }
+        //nächster ist kein Arbeitstag
+        else if (!this.businessCalendar.isWorkingDay(nextBusinessday.getDate())) {
+            for (int i = 2; i < 7; i++) {
+                if (this.businessCalendar.isWorkingDay(this.productionModel.getBusinessDay(date.plusDays(i)).getDate())) {
+                    nextBusinessday = this.productionModel.getBusinessDay(date.plusDays(i));
+                    break;
                 }
             }
-            nextBusinessday.setPlannedProduction(newPlannedProduction);
         }
+        for (Map.Entry Bike : nextBusinessday.getPlannedProduction().entrySet()) {
+            if (bike.equals(Bike.getKey())) {
+                newPlannedProduction.put((Bike) Bike.getKey(), (Integer) Bike.getValue() + amount);
+            } else {
+                newPlannedProduction.put((Bike) Bike.getKey(), (Integer) Bike.getValue());
+            }
+        }
+        nextBusinessday.setPlannedProduction(newPlannedProduction);
     }
 
     /**

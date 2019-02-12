@@ -40,33 +40,34 @@ public class ProductionController {
         List<BusinessDay> businessDayList = new ArrayList<>();
         Map<Country, Boolean> workingDayMap = new HashMap<>();
 
-        Map<LocalDate, BusinessDay> m = this.productionModel.getBusinessDays().entrySet().stream()
-                .sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(
-                        Map.Entry::getKey, Map.Entry::getValue,(oldValue,newValue) -> oldValue,LinkedHashMap::new));
-
-
-        for(Map.Entry<LocalDate, BusinessDay> entry : m.entrySet()){
+        //get BusinessDays
+        for(Map.Entry<LocalDate, BusinessDay> entry : this.productionModel.getBusinessDays().entrySet()){
             businessDayList.add(entry.getValue());
-
-            if(this.businessCalendar.isWorkingDay(entry.getKey())){
-                workingDayMap.put(Country.GERMANY, Boolean.TRUE);
-            }
-            else{
-                workingDayMap.put(Country.GERMANY, Boolean.FALSE);
-            }
-            entry.getValue().setWorkingDays(workingDayMap);
-
-            LocalDate date = entry.getKey();
-
-            this.productionService.setProductionForDay(date);
-            this.productionService.checkComponentsForDay(entry.getValue());
-
         }
+        //sort them
         Collections.sort(businessDayList, new Comparator<BusinessDay>() {
                     public int compare(BusinessDay o1, BusinessDay o2) {
                         return o1.getDate().compareTo(o2.getDate());
                     }
         });
+
+        //work with them
+        for(BusinessDay bd : businessDayList){
+            if(this.businessCalendar.isWorkingDay(bd.getDate())){
+                workingDayMap.put(Country.GERMANY, Boolean.TRUE);
+            }
+            else{
+                workingDayMap.put(Country.GERMANY, Boolean.FALSE);
+            }
+            bd.setWorkingDays(workingDayMap);
+
+            LocalDate date = bd.getDate();
+            this.productionService.setProductionForDay(date);
+        }
+        //After Planned Production is set -> CheckForComponents!
+        for(BusinessDay bd2 : businessDayList){
+            this.productionService.checkComponentsForDay(bd2);
+        }
 
         model.addAttribute("businessDays",businessDayList);
 
