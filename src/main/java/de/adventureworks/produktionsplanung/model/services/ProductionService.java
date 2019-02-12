@@ -4,7 +4,7 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
-import de.adventureworks.produktionsplanung.production.model.ProductionModel;
+import de.adventureworks.produktionsplanung.controller.production.model.ProductionModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

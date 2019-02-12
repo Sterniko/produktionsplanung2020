@@ -1,16 +1,15 @@
-package de.adventureworks.produktionsplanung.production.controller;
+package de.adventureworks.produktionsplanung.controller.production.controller;
 
 
 
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import de.adventureworks.produktionsplanung.model.services.ProductionService;
-import de.adventureworks.produktionsplanung.production.model.ProductionModel;
+import de.adventureworks.produktionsplanung.controller.production.model.ProductionModel;
 
 import java.time.LocalDate;
 import java.util.*;

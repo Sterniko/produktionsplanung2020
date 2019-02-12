@@ -1,11 +1,9 @@
-package de.adventureworks.produktionsplanung.production.model;
+package de.adventureworks.produktionsplanung.controller.production.model;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

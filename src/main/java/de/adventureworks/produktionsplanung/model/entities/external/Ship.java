@@ -25,7 +25,7 @@ public class Ship implements Comparable<Ship>{
         this.name = name;
         this.departure = departure;
         this.arrival = arrival;
-        deliveries = new ArrayList();
+        this.deliveries = new ArrayList();
 
     }
 
