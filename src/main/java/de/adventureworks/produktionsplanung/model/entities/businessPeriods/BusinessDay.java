@@ -21,6 +21,8 @@ public class BusinessDay implements Comparable<BusinessDay> {
     private List<LogisticsObject> sentDeliveries;
     private List<LogisticsObject> receivedDeliveries;
 
+
+
     private Map<Country, Boolean> workingDays;
 
     private Map<Bike, Integer> plannedProduction;
@@ -31,7 +33,6 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public BusinessDay(){
     }
-
 
     public BusinessDay(LocalDate date, Map<Supplier, LogisticsObject> pendingSupplierAmount, List<LogisticsObject> sentDeliveries, List<LogisticsObject> receivedDeliveries, Map<Country, Boolean> workingDays, Map<Bike, Integer> plannedProduction, Map<Bike, Integer> additionalProduction, Map<Bike, Integer> actualProduction, Map<Component, Integer> warehouseStock) {
         this.date = date;

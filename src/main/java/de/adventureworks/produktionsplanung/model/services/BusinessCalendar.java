@@ -27,6 +27,17 @@ public class BusinessCalendar {
     }
 
     /**
+     * return true if date is saturday
+     * @param date to check
+     * @return
+     */
+    public boolean isSaturday(LocalDate date){
+        if(date.getDayOfWeek().getValue() == 6){
+            return true;
+        }
+        return false;
+    }
+    /**
      * returns boolean if LocalDate is a workingDay
      * @param date to check
      */
