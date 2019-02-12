@@ -112,4 +112,8 @@ public class Ship implements Comparable<Ship>{
     public void setDeliveries(List<Delivery> deliveries) {
         this.deliveries = deliveries;
     }
+
+
+
+
 }
