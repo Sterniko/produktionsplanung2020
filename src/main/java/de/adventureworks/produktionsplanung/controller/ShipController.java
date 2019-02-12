@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+
 @Controller
 public class ShipController {
 
@@ -23,10 +25,14 @@ public class ShipController {
 
     @RequestMapping(value="/deleteShip")
     public String GetShips(@RequestParam String name){
-        System.out.println(ShipService.getShipByName(name));
-
-        return "ship";
+        ShipService.deleteShip(ShipService.getShipByName(name), LocalDate.now());
+        return "redirect:ship";
     }
 
+    @RequestMapping(value="/updateShip")
+    public String GetShips(@RequestParam String name, LocalDate newArrival){
+        ShipService.delayShip(ShipService.getShipByName(name),newArrival);
+        return "redirect:ship";
+    }
 
 }
