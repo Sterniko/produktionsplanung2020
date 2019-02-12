@@ -26,6 +26,7 @@ public class ProductionService {
 
     @Autowired
     private ProductionModel productionModel;
+
     private BusinessCalendar businessCalendar;
 
     //Getter & Setter
@@ -62,8 +63,9 @@ public class ProductionService {
 
         //TODO: CHECK FOR BESTELLUNGEN !!!
 
-        Map<LocalDate, BusinessDay> businessDays = this.productionModel.getBusinessDays();
-        BusinessDay bd = businessDays.get(date);
+        BusinessDay bd = this.productionModel.getBusinessDay(date);
+
+        
 
         //TODO:Map von BD benutzen
         if(this.businessCalendar.isWorkingDay(date)) {
@@ -71,14 +73,18 @@ public class ProductionService {
             int month = date.getMonthValue();
             int workingDays = this.businessCalendar.getWorkingDaysOutOfMonthAndYear(month, date.getYear());
             int counter = 0;
+            double monthProduction;
 
 
             //Starte im Januar bei 0, Feb 8, März 16, etc jeweils 8 bikes pro Monat im ProductionArr
             if (month > 1) {
                 counter = ((month - 1) * 8);
             }
+            monthProduction = this.productionArr[counter] + this.productionArr[counter+1] + this.productionArr[counter + 2] +
+                    this.productionArr[counter + 3] + this.productionArr[counter + 4] + this.productionArr[counter + 5] +
+                    this.productionArr[counter + 6] + this.productionArr[counter + 7];
 
-            //Allrounder
+             //Allrounder
             double prodAllrounder = this.productionArr[counter] / workingDays;
             this.memoryBikes[0] += prodAllrounder % 1;
             //Competition
