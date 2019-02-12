@@ -55,6 +55,7 @@ public class WarehouseController {
 
         businessDay.setWarehouseStock(componentMap);
         OrderService.addToOrder(businessDay, componentMap);
+        System.out.println(businessDay.getSentDeliveries());
 
 
     }

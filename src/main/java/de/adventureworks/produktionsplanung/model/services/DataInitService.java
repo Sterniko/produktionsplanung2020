@@ -9,6 +9,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
+import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -94,6 +95,18 @@ public class DataInitService {
         data.setBusinessDays(businessDayMap);
 
         Map<LocalDate,BusinessDay> bdMap = data.getBusinessDays();
+
+        // Robert testing stuff für warehouse nullpointer
+        BusinessDay bd = bdMap.get(LocalDate.now());
+        LogisticsObject logisticsObject = new LogisticsObject(supplierList.get(1));
+        HashMap<Component, Integer> componentIntegerHashMap = new HashMap<>();
+        logisticsObject.setComponents(componentIntegerHashMap);
+        HashMap<Supplier, LogisticsObject> loMap = new HashMap<>();
+        loMap.put(supplierList.get(1), logisticsObject);
+        bd.setPendingSupplierAmount(loMap);
+
+
+
 
         BusinessDay bday = bdMap.get(LocalDate.now());
         Map<Component,Integer> wareHouseStockMap2 = new HashMap<>();
