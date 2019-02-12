@@ -1,22 +1,28 @@
 package de.adventureworks.produktionsplanung.model.entities.bike;
 
 import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oracle.javafx.jmx.json.JSONReader;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import de.adventureworks.produktionsplanung.model.Data;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
+import net.minidev.json.JSONArray;
+import net.minidev.json.writer.JsonReader;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class JSONClass {
 
+
+
+public class JSONClass {
 
     public static void main(String args[]) {
 
@@ -29,7 +35,8 @@ public class JSONClass {
         ObjectMapper mapper = new ObjectMapper();
 
 
-       /* try {
+
+        try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("bikes.json"), bikeArrayList);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("frame.json"), frameArrayList);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("saddle.json"), saddleArrayList);
@@ -44,15 +51,7 @@ public class JSONClass {
 
 
 
-        */
 
-       try {
-           ArrayList<Fork> fork2 = mapper.readValue("fork.json", new TypeReference<List<Fork>>(){});
-           System.out.println(fork2);
-       }
-       catch (Exception e){
-           e.printStackTrace();
-       }
 
 
 

@@ -9,6 +9,9 @@ public class Bike {
     private Component fork;
     private Component saddle;
 
+    public Bike() {
+    }
+
     public Bike(String name, Component frame, Component fork, Component saddle) {
         this.name = name;
         this.frame = frame;
