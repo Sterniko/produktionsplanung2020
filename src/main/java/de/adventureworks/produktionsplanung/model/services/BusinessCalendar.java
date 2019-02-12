@@ -2,12 +2,16 @@ package de.adventureworks.produktionsplanung.model.services;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+@Service
 public class BusinessCalendar {
 
     private boolean arrHolidays[][];
@@ -55,7 +59,7 @@ public class BusinessCalendar {
      * @param date to check
      * @return if date is a holiday
      */
-    private boolean isHoliday(LocalDate date) {
+    public boolean isHoliday(LocalDate date) {
         int day = date.getDayOfMonth();
         int month = date.getMonthValue();
 

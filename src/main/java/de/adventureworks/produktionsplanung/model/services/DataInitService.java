@@ -127,7 +127,9 @@ public class DataInitService {
         BusinessDay bda2y = bdMap.get(LocalDate.now());
         //addExampleWarehouse(data);
         addExampleShip(data);
+
     }
+
 
     public Data getData() {
         return data;

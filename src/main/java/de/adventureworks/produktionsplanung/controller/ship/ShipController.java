@@ -19,7 +19,8 @@ public class ShipController {
 
     @Autowired
     private DataBean dataBean;
-    private ShipService service = new ShipService();
+    @Autowired
+    private ShipService service;
 
 
     @RequestMapping(value="/showShips")
@@ -35,7 +36,7 @@ public class ShipController {
         String shipName = deleteShipRequest.getName();
         //Ship ship = RequestMapper.mapShip(shipName, dataBean.getShips());
         //TODO Service hier als Klasse verwendet -.- ---Sercan
-        Ship ship =  service.getShipByName(shipName,dataBean);
+        Ship ship =  service.getShipByName(shipName);
         service.deleteShip(ship,LocalDate.now(),dataBean);
         return "redirect:/showShips";
     }
@@ -43,11 +44,11 @@ public class ShipController {
     @RequestMapping(value="/updateShip", method = RequestMethod.POST)
     public String GetShips(UpdateShipRequest updateShipRequest){
         String shipName = updateShipRequest.getName();
-        Ship ship= service.getShipByName(shipName,dataBean);
+        Ship ship= service.getShipByName(shipName);
         //Ship ship = RequestMapper.mapShip(shipName, dataBean.getShips());
         LocalDate newArrival = updateShipRequest.getNewArrival();
         //VIEL SPASS BEIM WEITERMACHEN :)
-        service.delayShip(ship,newArrival,dataBean);
+        service.delayShip(ship,newArrival);
         return "redirect:/showShips";
     }
 

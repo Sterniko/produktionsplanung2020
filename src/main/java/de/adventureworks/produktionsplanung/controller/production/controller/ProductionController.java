@@ -3,6 +3,8 @@ package de.adventureworks.produktionsplanung.controller.production.controller;
 
 
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.external.Country;
+import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,9 @@ public class ProductionController {
     @Autowired
     ProductionModel productionModel;
 
+    @Autowired
+    BusinessCalendar businessCalendar;
+
     public ProductionController() {
 
     }
@@ -31,10 +36,20 @@ public class ProductionController {
     public String getCustomers(Model model) {
         this.productionService.calculateRegularProduction();
         List<BusinessDay> businessDayList = new ArrayList<>();
-
+        Map<Country, Boolean> workingDayMap = new HashMap<>();
         for(Map.Entry<LocalDate, BusinessDay> entry : this.productionModel.getBusinessDays().entrySet()){
             businessDayList.add(entry.getValue());
+
+            if(this.businessCalendar.isWorkingDay(entry.getKey())){
+                workingDayMap.put(Country.GERMANY, Boolean.TRUE);
+            }
+            else{
+                workingDayMap.put(Country.GERMANY, Boolean.FALSE);
+            }
+            entry.getValue().setWorkingDays(workingDayMap);
+
             LocalDate date = entry.getKey();
+
             this.productionService.setProductionForDay(date);
             this.productionService.checkComponentsForDay(entry.getValue());
 
@@ -51,13 +66,3 @@ public class ProductionController {
         return "production";
     }
 }
-        /*
-        JSONObject jsonDay = new JSONObject();
-        JSONObject bikeAmount;
-        for(BusinessDay bd : businessDayList){
-            bikeAmount = new JSONObject();
-            for(Map.Entry<Bike,Integer> entry  : bd.getPlannedProduction().entrySet()){
-               bikeAmount.put(entry.getKey().getName() , entry.getValue());
-            }
-            jsonDay.appendField(bd.getDate().toString(), bikeAmount);
-        }*/

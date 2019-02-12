@@ -23,7 +23,10 @@ public class ProductionModel {
         return ((DataBean) this.dataBean).getBusinessDays();
     }
     public List<Bike> getBikes(){
-        return (((DataBean) this.dataBean).getBikes());
+        return this.dataBean.getBikes();
+    }
+    public BusinessDay getBusinessDay(LocalDate date){
+        return this.dataBean.getBusinessDay(date);
     }
 
 }

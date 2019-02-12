@@ -65,6 +65,7 @@ public class ProductionService {
         Map<LocalDate, BusinessDay> businessDays = this.productionModel.getBusinessDays();
         BusinessDay bd = businessDays.get(date);
 
+        //TODO:Map von BD benutzen
         if(this.businessCalendar.isWorkingDay(date)) {
 
             int month = date.getMonthValue();
