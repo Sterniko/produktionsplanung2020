@@ -13,15 +13,6 @@ import java.time.LocalDate;
 @Service
 public class ArrivalCalculater {
 
-    @Autowired
-    private static DataBean databean;
-
-    //nur zum testen
-    public static void printBean(){
-        System.out.println("Databean: "+databean);
-    }
-
-
     /**
         Methode welche den LocalDate errechnet abhäning von leadTime und Land wann die Lieferung ankommt
 
@@ -29,13 +20,13 @@ public class ArrivalCalculater {
         @param leadTime die Dauer wie lange die Lieferung dauert (Steht im Supplier)
         @param country das Land aus dem die Lieferung kommt (Steht im Supplier)
      */
-    public static LocalDate calculate(LocalDate sendDate, int leadTime, Country country) {
+    public static LocalDate calculate(LocalDate sendDate, int leadTime, Country country, DataBean dataBean ) {
 
 
         LocalDate temp = sendDate;
         while (leadTime > 0) {
 
-            BusinessDay bd = databean.getBusinessDay(temp);
+            BusinessDay bd = dataBean.getBusinessDay(temp);
 
 
             if (Country.CHINA == country) {

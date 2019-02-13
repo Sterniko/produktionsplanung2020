@@ -3,7 +3,9 @@ package de.adventureworks.produktionsplanung.controller.ship;
 
 import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
+import de.adventureworks.produktionsplanung.model.services.ArrivalCalculater;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,10 +58,17 @@ public class ShipController {
     //TODO bekommen oder andere Lösung---Sercan
     @RequestMapping(value="/")
     public String goHome(Model model){
+
         return "home";
     }
 
-
+    @RequestMapping(value="/aaaa")
+    public String CalcTest(Model model){
+        System.out.println();
+        System.out.println(ArrivalCalculater.calculate(LocalDate.of(2019,1,1), 16, Country.USA,dataBean));
+        System.out.println();
+        return "home";
+    }
 
 
 }
