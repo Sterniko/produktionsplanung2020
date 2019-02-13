@@ -34,7 +34,6 @@ public class OrderService {
             }
 
             if ((sumAmount + lotAmount) >= supplierLotsize) {
-                ;
                 List list = bd.getSentDeliveries();
                 list.add(lo);
                 bd.setSentDeliveries(list);
