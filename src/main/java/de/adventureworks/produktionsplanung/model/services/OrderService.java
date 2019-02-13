@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.stereotype.Service;
+import sun.rmi.runtime.Log;
 
 import java.util.HashMap;
 import java.util.List;
@@ -50,7 +51,15 @@ public class OrderService {
         for(Component c : map.keySet()) {
             if (map.get(c) != null) {
                 int amount = map.get(c);
-                LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
+                LogisticsObject logisticsObject;
+                if(!bd.getPendingSupplierAmount().containsKey(c.getSupplier())){
+                    logisticsObject = new LogisticsObject(c.getSupplier());
+                    HashMap<Supplier, LogisticsObject> newPendingSupplierMap = new HashMap<>();
+                    newPendingSupplierMap.put(c.getSupplier(), logisticsObject);
+                }
+                else {
+                    logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
+                }
                 Map<Component, Integer> componentMap = logisticsObject.getComponents();
                 if (!componentMap.containsKey(c)) {
                     componentMap.put(c, amount);

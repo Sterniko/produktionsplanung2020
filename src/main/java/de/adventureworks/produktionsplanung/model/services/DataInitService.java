@@ -98,7 +98,7 @@ public class DataInitService {
 
             data.setCustomers(customers);
             Map<LocalDate, BusinessDay> businessDayMap = new HashMap<>();
-            
+
             Map<LocalDate, BusinessDay> bdMap = data.getBusinessDays();
 
 
