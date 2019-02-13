@@ -88,7 +88,6 @@ public class OrderServiceTest {
         OrderService.addToOrder(businessDay, map);
         map.put(fork1, 0);
         OrderService.addToOrder(businessDay, map);
-        OrderService.placeOrder(spain, businessDay);
 
         System.out.println(list);
         System.out.println(businessDay.getPendingSupplierAmount());

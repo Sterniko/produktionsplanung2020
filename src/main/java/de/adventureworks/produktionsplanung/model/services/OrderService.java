@@ -2,14 +2,18 @@ package de.adventureworks.produktionsplanung.model.services;
 
 
 import com.sun.xml.internal.bind.v2.TODO;
+import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import sun.rmi.runtime.Log;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +21,10 @@ import java.util.Map;
 @Service
 public class OrderService {
 
-    public static void placeOrder(Supplier supplier, BusinessDay bd) {
+    @Autowired
+    private DataBean dataBean;
+
+    public static void placeOrder(Supplier supplier, BusinessDay bd, DataBean dataBean) {
 
         Supplier newSupplier = new Supplier();
         Map<Supplier, LogisticsObject> helpMap = bd.getPendingSupplierAmount();
@@ -48,6 +55,20 @@ public class OrderService {
             lo.setComponents(componentMap);
             pendingSupplierMap.put(supplier, lo);
             bd.setPendingSupplierAmount(pendingSupplierMap);
+
+            LocalDate deliveryLocalDate = ArrivalCalculater.calculate(bd.getDate(), supplier.getLeadTime(), supplier.getCountry(), dataBean);
+            Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
+            BusinessDay deliveryDate = bdMap.get(deliveryLocalDate);
+            List<LogisticsObject> deliverList = deliveryDate.getSentDeliveries();
+            List<LogisticsObject> newList = new ArrayList<>();
+            for(LogisticsObject logisticsObject : deliverList){
+                newList.add(logisticsObject);
+            }
+            newList.add(lo);
+            deliveryDate.setReceivedDeliveries(newList);
+            bdMap.put(deliveryLocalDate, deliveryDate);
+            dataBean.setBusinessDays(bdMap);
+
         }
 
 
