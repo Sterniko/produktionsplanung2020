@@ -16,7 +16,7 @@ public class ShipService {
 
     @Autowired
     private DataBean databean;
-    //TODO sollte eigentlich static sein,..... arbeite erstmal jetzt mit Injection---Sercan
+    //TODO sollte eigentlich static sein---Sercan
 
 
     public void deleteShip(Ship ship, LocalDate deleteDay,DataBean databean ){
@@ -42,11 +42,6 @@ public class ShipService {
                 return e;
             }
         }
-
         return null;
-
     }
-
-
-
 }
