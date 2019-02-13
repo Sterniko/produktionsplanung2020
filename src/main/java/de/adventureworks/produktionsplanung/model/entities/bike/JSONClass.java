@@ -145,7 +145,7 @@ public class JSONClass {
         return supplierList;
     }
 
-    private static HashMap<LocalDate, HashMap<Country, Boolean>> getHoliday() {
+    public static HashMap<LocalDate, HashMap<Country, Boolean>> getHoliday() {
 
 
         HashMap<LocalDate, HashMap<Country, Boolean>> dateMap = new HashMap<>();

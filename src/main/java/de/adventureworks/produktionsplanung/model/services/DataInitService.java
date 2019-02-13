@@ -56,8 +56,9 @@ public class DataInitService {
 
 
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
+            HashMap<LocalDate, HashMap<Country, Boolean>> workingDaysMap = JSONClass.getHoliday();
             for (BusinessDay bd : businessDayList) {
-
+                LocalDate ld = bd.getDate();
                 Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
                 for(Component c : data.getComponents()) {
                         Supplier s = c.getSupplier();
@@ -70,9 +71,8 @@ public class DataInitService {
                         }
 
                 }
-
-
-
+                HashMap<Country, Boolean> workingDays = workingDaysMap.get(ld);
+                bd.setWorkingDays(workingDays);
                 bd.setPendingSupplierAmount(pendingSupplierAmount);
                 businessDays.put(bd.getDate(), bd);
             }
