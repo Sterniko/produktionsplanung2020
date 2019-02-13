@@ -10,6 +10,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import org.apache.tomcat.jni.Local;
 
 
 public class JSONClass {
@@ -215,6 +216,24 @@ public class JSONClass {
         JSONClass.insertHoliday(LocalDate.of(2019, 12, 25), Country.SPAIN, dateMap);
 
         //TODO GEr hinzufügen
+        JSONClass.insertHoliday(LocalDate.of(2019,1,1),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,4,19),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,4,21),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,4,22),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,5,1),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,5,30),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,6,10),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,10,3),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,6,20),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,12,25),Country.GERMANY,dateMap);
+        JSONClass.insertHoliday(LocalDate.of(2019,12,26),Country.GERMANY,dateMap);
+
+
+
+
+
+
+
 
         return dateMap;
     }
