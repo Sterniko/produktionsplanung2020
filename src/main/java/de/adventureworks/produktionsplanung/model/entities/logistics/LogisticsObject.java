@@ -12,6 +12,8 @@ public class LogisticsObject {
     private int sumAmount;
     private Map<Component, Integer> components;
 
+    public LogisticsObject(){}
+
     public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components) {
         this.supplier = supplier;
         this.sumAmount = sumAmount;

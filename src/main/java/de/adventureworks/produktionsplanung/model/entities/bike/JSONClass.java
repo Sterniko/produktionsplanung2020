@@ -1,15 +1,24 @@
 package de.adventureworks.produktionsplanung.model.entities.bike;
 
 import java.io.File;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oracle.javafx.jmx.json.JSONReader;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import de.adventureworks.produktionsplanung.model.Data;
+import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
-
-
-
+import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import net.minidev.json.JSONArray;
+import net.minidev.json.writer.JsonReader;
+import org.apache.tomcat.jni.Local;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class JSONClass {
@@ -21,9 +30,9 @@ public class JSONClass {
         ArrayList<Saddle> saddleArrayList = JSONClass.getSaddle();
         ArrayList<Fork> forkArrayList = JSONClass.getFork();
         ArrayList<Supplier> supplierArrayList = JSONClass.getSupplier();
+        List<BusinessDay> bdList = JSONClass.getBusinessDays();
         HashMap<LocalDate, HashMap<Country, Boolean>> holidayMap = JSONClass.getHoliday();
         ObjectMapper mapper = new ObjectMapper();
-
 
 
         try {
@@ -33,22 +42,14 @@ public class JSONClass {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("fork.json"), forkArrayList);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("supplier.json"), supplierArrayList);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("holidays.json"), holidayMap);
-
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("businessDays.json"), bdList);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-
-
-
-
-
-
     }
-
-
 
 
     private static ArrayList<Bike> getBike() {
@@ -158,7 +159,7 @@ public class JSONClass {
         return supplierList;
     }
 
-    public static HashMap<LocalDate, HashMap<Country, Boolean>> getHoliday() {
+    private static HashMap<LocalDate, HashMap<Country, Boolean>> getHoliday() {
 
 
         HashMap<LocalDate, HashMap<Country, Boolean>> dateMap = new HashMap<>();
@@ -231,6 +232,17 @@ public class JSONClass {
     private static void insertHoliday(LocalDate localDate, Country country, HashMap<LocalDate, HashMap<Country, Boolean>> map) {
         HashMap<Country, Boolean> holidayMap = map.get(localDate);
         holidayMap.put(country, true);
+    }
+
+    public static List<BusinessDay> getBusinessDays() {
+        List<BusinessDay> bdList = new ArrayList<>();
+        LocalDate ld = LocalDate.of(2019, 1, 1);
+        for (int i = 0; i < 450; i++) {
+            BusinessDay businessDay = new BusinessDay(ld.plusDays(i), new HashMap<Supplier, LogisticsObject>(), new ArrayList<LogisticsObject>(), new ArrayList<LogisticsObject>(), new HashMap<Country, Boolean>(), new HashMap<Bike, Integer>(), new HashMap<Bike, Integer>(), new HashMap<Bike, Integer>(), new HashMap<Component, Integer>());
+            bdList.add(businessDay);
+        }
+        return bdList;
+
     }
 
 

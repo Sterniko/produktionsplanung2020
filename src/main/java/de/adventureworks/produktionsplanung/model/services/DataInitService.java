@@ -82,6 +82,7 @@ public class DataInitService {
             data.setBusinessDays(businessDays);
 
 
+
              /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
              });
              Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
@@ -90,6 +91,15 @@ public class DataInitService {
              }
              */
 
+            /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
+            });
+            Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
+            for (BusinessDay bd : bdList) {
+                businessDays.put(bd.getDate(), bd);
+            }
+            */
+
+
 
 
             Customer customer1 = new Customer("Metro AG", Country.GERMANY);
@@ -97,7 +107,7 @@ public class DataInitService {
             customers.add(customer1);
 
             data.setCustomers(customers);
-            Map<LocalDate, BusinessDay> businessDayMap = new HashMap<>();
+
             Map<LocalDate, BusinessDay> bdMap = data.getBusinessDays();
 
 
