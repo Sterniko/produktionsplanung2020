@@ -57,13 +57,6 @@ public class DataInitService {
                 businessDays.put(bd.getDate(), bd);
             }
 
-            // TestZwecke
-
-
-
-
-
-
             data.setBusinessDays(businessDays);
 
 
@@ -84,6 +77,8 @@ public class DataInitService {
             data.setCustomers(customers);
 
             //addExampleWarehouse(data);
+
+
             addExampleShip(data);
         } catch (Exception e) {
             e.printStackTrace();
