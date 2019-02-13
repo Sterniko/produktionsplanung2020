@@ -52,4 +52,14 @@ public class ShipController {
         return "redirect:/showShips";
     }
 
+    //TODO erstmal habe ich hierrein getan damits niemnad sonst stört muss aber theoretish noch ein eigenen COntroller
+    //TODO bekommen oder andere Lösung---Sercan
+    @RequestMapping(value="/")
+    public String goHome(Model model){
+        return "home";
+    }
+
+
+
+
 }
