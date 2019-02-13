@@ -5,20 +5,11 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oracle.javafx.jmx.json.JSONReader;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import de.adventureworks.produktionsplanung.model.Data;
-import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
-import net.minidev.json.JSONArray;
-import net.minidev.json.writer.JsonReader;
-import org.apache.tomcat.jni.Local;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class JSONClass {
