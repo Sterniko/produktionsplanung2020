@@ -59,6 +59,8 @@ public class DataInitService {
             HashMap<LocalDate, HashMap<Country, Boolean>> workingDaysMap = JSONClass.getHoliday();
             for (BusinessDay bd : businessDayList) {
                 LocalDate ld = bd.getDate();
+
+                // Pending supplier amount
                 Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
                 for(Component c : data.getComponents()) {
                         Supplier s = c.getSupplier();
@@ -71,9 +73,35 @@ public class DataInitService {
                         }
 
                 }
+
+                // working days
                 HashMap<Country, Boolean> workingDays = workingDaysMap.get(ld);
+
+                // production maps
+                Map<Bike, Integer> plannedProduction = new HashMap<>();
+                Map<Bike, Integer> additonalProduction = new HashMap<>();
+                Map<Bike, Integer> actualProduction = new HashMap<>();
+                for(Bike bike : data.getBikes()){
+                    plannedProduction.put(bike, 0);
+                    additonalProduction.put(bike, 0);
+                    actualProduction.put(bike, 0);
+                }
+
+                //warehousestock
+                Map<Component, Integer> warehouseStock = new HashMap<>();
+                for(Component c : data.getComponents()){
+                    warehouseStock.put(c, 0);
+                }
+
+                //bd maps setzen
                 bd.setWorkingDays(workingDays);
                 bd.setPendingSupplierAmount(pendingSupplierAmount);
+                bd.setPlannedProduction(plannedProduction);
+                bd.setAdditionalProduction(additonalProduction);
+                bd.setActualProduction(actualProduction);
+                bd.setWarehouseStock(warehouseStock);
+
+                //bd in bd map wichsen
                 businessDays.put(bd.getDate(), bd);
             }
 
