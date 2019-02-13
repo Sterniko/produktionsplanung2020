@@ -152,8 +152,10 @@ public class JSONClass {
         LocalDate newYear = LocalDate.of(2019, 1, 1);
         for (int i = 0; i < 365; i++) {
             HashMap<Country, Boolean> holidayMap = new HashMap<>();
+            for(Country c :Country.values()){
+                holidayMap.put(c,false);
+            }
             dateMap.put(newYear.plusDays(i), holidayMap);
-
         }
 
 
@@ -212,13 +214,22 @@ public class JSONClass {
         JSONClass.insertHoliday(LocalDate.of(2019, 12, 9), Country.SPAIN, dateMap);
         JSONClass.insertHoliday(LocalDate.of(2019, 12, 25), Country.SPAIN, dateMap);
 
+        //TODO GEr hinzufügen
+
         return dateMap;
     }
 
     private static void insertHoliday(LocalDate localDate, Country country, HashMap<LocalDate, HashMap<Country, Boolean>> map) {
         HashMap<Country, Boolean> holidayMap = map.get(localDate);
         holidayMap.put(country, true);
+        //map.put(localDate,holidayMap);
     }
+
+
+
+
+
+
 
     public static List<BusinessDay> getBusinessDays() {
         List<BusinessDay> bdList = new ArrayList<>();

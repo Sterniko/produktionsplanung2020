@@ -54,7 +54,6 @@ public class DataInitService {
             List<BusinessDay> businessDayList = JSONClass.getBusinessDays();
 
 
-
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
             HashMap<LocalDate, HashMap<Country, Boolean>> workingDaysMap = JSONClass.getHoliday();
             for (BusinessDay bd : businessDayList) {
@@ -62,15 +61,15 @@ public class DataInitService {
 
                 // Pending supplier amount
                 Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
-                for(Component c : data.getComponents()) {
-                        Supplier s = c.getSupplier();
-                        if(pendingSupplierAmount.get(s) == null) {
-                            LogisticsObject lo = new LogisticsObject(s, 0, null);
-                            Map<Component, Integer> componentMap = new HashMap<>();
-                            componentMap.put(c, 0);
-                            lo.setComponents(componentMap);
-                            pendingSupplierAmount.put(s, lo);
-                        }
+                for (Component c : data.getComponents()) {
+                    Supplier s = c.getSupplier();
+                    if (pendingSupplierAmount.get(s) == null) {
+                        LogisticsObject lo = new LogisticsObject(s, 0, null);
+                        Map<Component, Integer> componentMap = new HashMap<>();
+                        componentMap.put(c, 0);
+                        lo.setComponents(componentMap);
+                        pendingSupplierAmount.put(s, lo);
+                    }
 
                 }
 
@@ -81,7 +80,7 @@ public class DataInitService {
                 Map<Bike, Integer> plannedProduction = new HashMap<>();
                 Map<Bike, Integer> additonalProduction = new HashMap<>();
                 Map<Bike, Integer> actualProduction = new HashMap<>();
-                for(Bike bike : data.getBikes()){
+                for (Bike bike : data.getBikes()) {
                     plannedProduction.put(bike, 0);
                     additonalProduction.put(bike, 0);
                     actualProduction.put(bike, 0);
@@ -89,7 +88,7 @@ public class DataInitService {
 
                 //warehousestock
                 Map<Component, Integer> warehouseStock = new HashMap<>();
-                for(Component c : data.getComponents()){
+                for (Component c : data.getComponents()) {
                     warehouseStock.put(c, 0);
                 }
 
@@ -126,8 +125,6 @@ public class DataInitService {
             */
 
 
-
-
             Customer customer1 = new Customer("Metro AG", Country.GERMANY);
             List<Customer> customers = new ArrayList<Customer>();
             customers.add(customer1);
@@ -142,7 +139,6 @@ public class DataInitService {
             e.printStackTrace();
         }
     }
-
 
     public Data getData() {
         return data;
@@ -187,7 +183,6 @@ public class DataInitService {
         data.setBusinessWeeks(weeks);
 
     }
-
 
     private static void addExampleShip(Data data) {
 
