@@ -5,7 +5,19 @@
     "lotSize" : 500,
     "leadTime" : 49,
     "country" : "CHINA",
-    "components" : null
+    "components" : [ {
+      "name" : "Fizik Tundra",
+      "supplier" : null
+    }, {
+      "name" : "Race Line",
+      "supplier" : null
+    }, {
+      "name" : "Spark",
+      "supplier" : null
+    }, {
+      "name" : "Speed Line",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Race Line",
@@ -14,7 +26,19 @@
     "lotSize" : 500,
     "leadTime" : 49,
     "country" : "CHINA",
-    "components" : null
+    "components" : [ {
+      "name" : "Fizik Tundra",
+      "supplier" : null
+    }, {
+      "name" : "Race Line",
+      "supplier" : null
+    }, {
+      "name" : "Spark",
+      "supplier" : null
+    }, {
+      "name" : "Speed Line",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Spark",
@@ -23,7 +47,19 @@
     "lotSize" : 500,
     "leadTime" : 49,
     "country" : "CHINA",
-    "components" : null
+    "components" : [ {
+      "name" : "Fizik Tundra",
+      "supplier" : null
+    }, {
+      "name" : "Race Line",
+      "supplier" : null
+    }, {
+      "name" : "Spark",
+      "supplier" : null
+    }, {
+      "name" : "Speed Line",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Speed Line",
@@ -32,6 +68,18 @@
     "lotSize" : 500,
     "leadTime" : 49,
     "country" : "CHINA",
-    "components" : null
+    "components" : [ {
+      "name" : "Fizik Tundra",
+      "supplier" : null
+    }, {
+      "name" : "Race Line",
+      "supplier" : null
+    }, {
+      "name" : "Spark",
+      "supplier" : null
+    }, {
+      "name" : "Speed Line",
+      "supplier" : null
+    } ]
   }
 } ]

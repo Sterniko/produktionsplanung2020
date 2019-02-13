@@ -31,8 +31,7 @@ public class DataInitService {
         ObjectMapper mapper = new ObjectMapper();
         try {
 
-            List<Supplier> supplierList = mapper.readValue(new File("supplier.json"), new TypeReference<List<Supplier>>() {
-            });
+            List<Supplier> supplierList = JSONClass.getSupplier();
             data.setSuppliers(supplierList);
 
             List<Frame> frameList = mapper.readValue(new File("frame.json"), new TypeReference<List<Frame>>() {
@@ -52,8 +51,28 @@ public class DataInitService {
             data.setBikes(bikeList);
 
             List<BusinessDay> businessDayList = JSONClass.getBusinessDays();
+
+
+
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
             for (BusinessDay bd : businessDayList) {
+
+                Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
+                for(Component c : data.getComponents()) {
+                        Supplier s = c.getSupplier();
+                        if(pendingSupplierAmount.get(s) == null) {
+                            LogisticsObject lo = new LogisticsObject(s, 0, null);
+                            Map<Component, Integer> componentMap = new HashMap<>();
+                            componentMap.put(c, 0);
+                            lo.setComponents(componentMap);
+                            pendingSupplierAmount.put(s, lo);
+                        }
+
+                }
+
+
+
+                bd.setPendingSupplierAmount(pendingSupplierAmount);
                 businessDays.put(bd.getDate(), bd);
             }
 

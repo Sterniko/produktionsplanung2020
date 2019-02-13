@@ -5,7 +5,16 @@
     "lotSize" : 10,
     "leadTime" : 7,
     "country" : "GERMANY",
-    "components" : null
+    "components" : [ {
+      "name" : "7005DB",
+      "supplier" : null
+    }, {
+      "name" : "7005TB",
+      "supplier" : null
+    }, {
+      "name" : "Monocoque",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "7005TB",
@@ -14,7 +23,16 @@
     "lotSize" : 10,
     "leadTime" : 7,
     "country" : "GERMANY",
-    "components" : null
+    "components" : [ {
+      "name" : "7005DB",
+      "supplier" : null
+    }, {
+      "name" : "7005TB",
+      "supplier" : null
+    }, {
+      "name" : "Monocoque",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Monocoque",
@@ -23,6 +41,15 @@
     "lotSize" : 10,
     "leadTime" : 7,
     "country" : "GERMANY",
-    "components" : null
+    "components" : [ {
+      "name" : "7005DB",
+      "supplier" : null
+    }, {
+      "name" : "7005TB",
+      "supplier" : null
+    }, {
+      "name" : "Monocoque",
+      "supplier" : null
+    } ]
   }
 } ]
