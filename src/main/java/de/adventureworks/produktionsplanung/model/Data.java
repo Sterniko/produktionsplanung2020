@@ -90,4 +90,5 @@ public class Data {
     public void setComponents(List<?> components) {
         this.components = (List<Component>)components;
     }
+
 }

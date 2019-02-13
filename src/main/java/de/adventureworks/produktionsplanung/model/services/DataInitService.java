@@ -31,7 +31,8 @@ public class DataInitService {
         ObjectMapper mapper = new ObjectMapper();
         try {
 
-            List<Supplier> supplierList = JSONClass.getSupplier();
+            List<Supplier> supplierList = mapper.readValue(new File("supplier.json"), new TypeReference<List<Supplier>>() {
+            });
             data.setSuppliers(supplierList);
 
             List<Frame> frameList = mapper.readValue(new File("frame.json"), new TypeReference<List<Frame>>() {
