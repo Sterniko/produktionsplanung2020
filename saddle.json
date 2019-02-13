@@ -3,7 +3,7 @@
   "supplier" : {
     "name" : "DengwongSaddles",
     "lotSize" : 500,
-    "leadTime" : 49,
+    "leadTime" : 34,
     "country" : "CHINA",
     "components" : [ {
       "name" : "Fizik Tundra",
@@ -24,7 +24,7 @@
   "supplier" : {
     "name" : "DengwongSaddles",
     "lotSize" : 500,
-    "leadTime" : 49,
+    "leadTime" : 34,
     "country" : "CHINA",
     "components" : [ {
       "name" : "Fizik Tundra",
@@ -45,7 +45,7 @@
   "supplier" : {
     "name" : "DengwongSaddles",
     "lotSize" : 500,
-    "leadTime" : 49,
+    "leadTime" : 34,
     "country" : "CHINA",
     "components" : [ {
       "name" : "Fizik Tundra",
@@ -66,7 +66,7 @@
   "supplier" : {
     "name" : "DengwongSaddles",
     "lotSize" : 500,
-    "leadTime" : 49,
+    "leadTime" : 34,
     "country" : "CHINA",
     "components" : [ {
       "name" : "Fizik Tundra",

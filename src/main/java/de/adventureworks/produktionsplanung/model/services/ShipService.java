@@ -4,6 +4,7 @@ import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.logistics.Delivery;
+import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,11 @@ public class ShipService {
     //TODO sollte eigentlich static sein---Sercan
 
 
-    public void deleteShip(Ship ship, LocalDate deleteDay,DataBean databean ){
+    public ShipService(DataBean dataBean) {
+        this.databean = dataBean;
+    }
+
+    public void deleteShip(Ship ship, LocalDate deleteDay, DataBean databean ){
         databean.getShips().remove(ship);
         //TODO placeOrder neu bestellen---Sercan
     }
@@ -76,6 +81,10 @@ public class ShipService {
             }
         }
         return nextAvailable;
+    }
+
+    public void fillShip(Ship ship, LogisticsObject logisticsObject){
+
     }
 
 }

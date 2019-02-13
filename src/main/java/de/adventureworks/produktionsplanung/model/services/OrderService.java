@@ -4,10 +4,14 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.external.Country;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.rmi.runtime.Log;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,8 +21,6 @@ import java.util.Map;
 @Service
 public class OrderService {
 
-    @Autowired
-    private DataBean dataBean;
 
     public static void placeOrder(Supplier supplier, BusinessDay bd, DataBean dataBean) {
 
@@ -40,30 +42,53 @@ public class OrderService {
 
 
         if ((orderedAmount) >= supplierLotsize) {
-            List list = bd.getSentDeliveries();
-            list.add(lo);
-            bd.setSentDeliveries(list);
-            OrderService.setDeliveryDate(lo, bd);
-            for(Component c : componentMap.keySet()){
-                componentMap.put(c, 0);
-            }
-            lo.setSumAmount(0);
-            lo.setComponents(componentMap);
-            pendingSupplierMap.put(supplier, lo);
-            bd.setPendingSupplierAmount(pendingSupplierMap);
 
-            LocalDate deliveryLocalDate = ArrivalCalculator.calculate(bd.getDate(), supplier.getLeadTime(), supplier.getCountry(), dataBean);
-            Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
-            BusinessDay deliveryDate = bdMap.get(deliveryLocalDate);
-            List<LogisticsObject> deliverList = deliveryDate.getSentDeliveries();
-            List<LogisticsObject> newList = new ArrayList<>();
-            for(LogisticsObject logisticsObject : deliverList){
-                newList.add(logisticsObject);
+            if(supplier.getCountry() == Country.CHINA){
+                LocalDate localDate = bd.getDate();
+                ShipService shipService = new ShipService(dataBean);
+                Ship ship = shipService.getNextShip(localDate);
+                shipService.fillShip(ship, lo);
+                LocalDate departureDate = ship.getDeparture();
+                LocalDate deliveryDate = ArrivalCalculator.calculate(departureDate, supplier.getLeadTime(), supplier.getCountry(), dataBean);
+                Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
+                BusinessDay departureDay = bdMap.get(departureDate);
+                BusinessDay arrivalDay = bdMap.get(deliveryDate);
+                List<LogisticsObject> sentDeliveriesList = departureDay.getSentDeliveries();
+                sentDeliveriesList.add(lo);
+                List<LogisticsObject> recievedDeliveriesList = arrivalDay.getReceivedDeliveries();
+                recievedDeliveriesList.add(lo);
+                OrderService.setDeliveryDate(lo);
+                System.out.println(deliveryDate);
+                System.out.println(ship);
+
+
             }
-            newList.add(lo);
-            deliveryDate.setReceivedDeliveries(newList);
-            bdMap.put(deliveryLocalDate, deliveryDate);
-            dataBean.setBusinessDays(bdMap);
+            else {
+                List<LogisticsObject>  list = bd.getSentDeliveries();
+                list.add(lo);
+                bd.setSentDeliveries(list);
+                OrderService.setDeliveryDate(lo);
+                for (Component c : componentMap.keySet()) {
+                    componentMap.put(c, 0);
+                }
+                lo.setSumAmount(0);
+                lo.setComponents(componentMap);
+                pendingSupplierMap.put(supplier, lo);
+                bd.setPendingSupplierAmount(pendingSupplierMap);
+
+                LocalDate deliveryLocalDate = ArrivalCalculator.calculate(bd.getDate(), supplier.getLeadTime(), supplier.getCountry(), dataBean);
+                Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
+                BusinessDay deliveryDate = bdMap.get(deliveryLocalDate);
+                List<LogisticsObject> deliverList = deliveryDate.getSentDeliveries();
+                List<LogisticsObject> newList = new ArrayList<>();
+                for (LogisticsObject logisticsObject : deliverList) {
+                    newList.add(logisticsObject);
+                }
+                newList.add(lo);
+                deliveryDate.setReceivedDeliveries(newList);
+                bdMap.put(deliveryLocalDate, deliveryDate);
+                dataBean.setBusinessDays(bdMap);
+            }
 
         }
 
@@ -123,7 +148,7 @@ public class OrderService {
     // Method Stub
     //TODO richtige Methode implementieren
 
-    private static void setDeliveryDate(LogisticsObject logisticsObject, BusinessDay bd) {
+    private static void setDeliveryDate(LogisticsObject logisticsObject) {
         Supplier supplier = logisticsObject.getSupplier();
         int leadTime = supplier.getLeadTime();
         System.out.println(leadTime + " Tage Später wird empfangen");
