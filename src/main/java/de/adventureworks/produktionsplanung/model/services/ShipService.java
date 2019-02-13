@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -44,4 +45,37 @@ public class ShipService {
         }
         return null;
     }
+
+
+    /**
+     * Rechnet aus welches Schiff noch nicht aus China abgefahren ist und als frühstes los fährt von gewünschten Date aus
+     * betrachtet
+     *
+     * @param todaysDate das Date von den aus bewertet wird welches Schiff als nächstes in Frage käme
+     *
+     * @return nächst mögliches aufbrechendes Schiff
+     */
+    public Ship getNextShip(LocalDate todaysDate){
+        List<Ship> ships = databean.getShips();
+        List<Ship> availableShips = new LinkedList<>();
+        for(Ship available: ships){
+            if(available.getDeparture().isAfter(todaysDate) || available.getDeparture().isEqual(todaysDate)){
+                availableShips.add(available);
+                //TODO frage ist ob auch schiffe die am heutigen Tag abfahren in frage kommen zweiter BoolTerm
+            }
+        }
+        if(availableShips==null){
+            System.out.println("Kein Schiff mehr Verfügbar");
+            return null;
+        }
+
+        Ship nextAvailable = availableShips.get(0);
+        for(Ship possibleEarlierShip:availableShips ){
+            if(possibleEarlierShip.getDeparture().isBefore(nextAvailable.getDeparture())){
+                nextAvailable=possibleEarlierShip;
+            }
+        }
+        return nextAvailable;
+    }
+
 }
