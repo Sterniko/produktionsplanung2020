@@ -57,7 +57,9 @@ public class WarehouseController {
         businessDay.setWarehouseStock(componentMap);
         OrderService.addToOrder(businessDay, componentMap);
         System.out.println(businessDay.getPendingSupplierAmount());
-        OrderService.placeOrder(dataBean.getComponents().get(0).getSupplier(), businessDay);
+        OrderService.placeOrder(dataBean.getSuppliers().get(0), businessDay);
+        OrderService.placeOrder(dataBean.getSuppliers().get(1), businessDay);
+        OrderService.placeOrder(dataBean.getSuppliers().get(2), businessDay);
         System.out.println(businessDay.getSentDeliveries());
 
     }

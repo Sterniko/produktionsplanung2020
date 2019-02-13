@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 import sun.rmi.runtime.Log;
 
@@ -17,92 +18,95 @@ import java.util.Map;
 public class OrderService {
 
     public static void placeOrder(Supplier supplier, BusinessDay bd) {
-        LogisticsObject lo = bd.getPendingSupplierAmount().get(supplier);
-        Map<Component, Integer> map = lo.getComponents();
-        if (bd.getPendingSupplierAmount().get(supplier) != null) {
 
-            int lotAmount = OrderService.getSumAmount(supplier, bd);
-            int sumAmount = 0;
-            int supplierLotsize = supplier.getLotSize();
-
-            for (Component c : map.keySet()) {
-
-                int amount = map.get(c);
-                sumAmount += amount;
-                OrderService.addAmount(supplier, bd, amount, c);
-
+        Supplier newSupplier = new Supplier();
+        Map<Supplier, LogisticsObject> helpMap = bd.getPendingSupplierAmount();
+        for(Supplier s : helpMap.keySet()){
+            if(s.getName().equals(supplier.getName())) {
+                newSupplier = s;
             }
-
-            if ((sumAmount + lotAmount) >= supplierLotsize) {
-                List list = bd.getSentDeliveries();
-                list.add(lo);
-                bd.setSentDeliveries(list);
-                OrderService.setDeliveryDate(lo, bd);
-                HashMap<Supplier, LogisticsObject> newMap = new HashMap<>();
-                bd.setPendingSupplierAmount(newMap);
-            }
-
-
         }
+        supplier =  newSupplier;
+        Map<Supplier, LogisticsObject> pendingSupplierMap = bd.getPendingSupplierAmount();
+        LogisticsObject lo = pendingSupplierMap.get(supplier);
+        Map<Component, Integer> componentMap = lo.getComponents();
+
+        int orderedAmount = OrderService.getSumAmount(supplier, bd);
+        int supplierLotsize = supplier.getLotSize();
+
+
+
+        if ((orderedAmount) >= supplierLotsize) {
+            List list = bd.getSentDeliveries();
+            list.add(lo);
+            bd.setSentDeliveries(list);
+            OrderService.setDeliveryDate(lo, bd);
+            for(Component c : componentMap.keySet()){
+                componentMap.put(c, 0);
+            }
+            lo.setSumAmount(0);
+            lo.setComponents(componentMap);
+            pendingSupplierMap.put(supplier, lo);
+            bd.setPendingSupplierAmount(pendingSupplierMap);
+        }
+
+
     }
+
 
     public static void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
-        for(Component c : map.keySet()) {
+        for (Component c : map.keySet()) {
+
+
             if (map.get(c) != null) {
-                int amount = map.get(c);
-                LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
-                Map<Component, Integer> componentMap = logisticsObject.getComponents();
-                if (!componentMap.containsKey(c)) {
-                    componentMap.put(c, amount);
-                } else {
-                    int oldAmount = componentMap.get(c);
-                    int newAmount = oldAmount + amount;
-                    componentMap.put(c, newAmount);
+                if (c.getSupplier().getName().equals("WernerRahmenGMBH")) {
+                    int addAmount = map.get(c);
+                    OrderService.addAmount(bd, addAmount, c);
 
                 }
+                if (c.getSupplier().getName().equals("Tenedores de Zaragoza")) {
+                    int addAmount = map.get(c);
+                    OrderService.addAmount(bd, addAmount, c);
+
+                }
+                if (c.getSupplier().getName().equals("DengwongSaddles")) {
+                    int addAmount = map.get(c);
+                    OrderService.addAmount(bd, addAmount, c);
+
+                }
+
+
             }
         }
     }
 
+
     private static int getSumAmount(Supplier supplier, BusinessDay bd) {
-        if (bd.getPendingSupplierAmount().get(supplier) != null) {
-            LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(supplier);
-            int sumAmount = logisticsObject.getSumAmount();
-            return sumAmount;
-        } else {
-            return 0;
-        }
+
+        LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(supplier);
+        int sumAmount = logisticsObject.getSumAmount();
+        return sumAmount;
+
     }
 
-    private static void addAmount(Supplier supplier, BusinessDay bd, int amount, Component component) {
-        Map<Supplier, LogisticsObject> map = bd.getPendingSupplierAmount();
-        LogisticsObject logisticsObject;
-        Map<Component, Integer> componentMap;
+    private static void addAmount(BusinessDay bd, int amount, Component component) {
 
-        if (map.get(supplier) != null) {
-            logisticsObject = map.get(supplier);
-            componentMap = logisticsObject.getComponents();
-        } else {
-            logisticsObject = new LogisticsObject(supplier);
-            logisticsObject.setSumAmount(0);
-            componentMap = new HashMap<>();
-            logisticsObject.setComponents(componentMap);
-        }
+        Map<Supplier, LogisticsObject> pendingSupplierAmount = bd.getPendingSupplierAmount();
+        LogisticsObject logisticsObject = pendingSupplierAmount.get(component.getSupplier());
+        Map<Component, Integer> componentMap = logisticsObject.getComponents();
 
         logisticsObject.setSumAmount(logisticsObject.getSumAmount() + amount);
         componentMap.put(component, amount);
         logisticsObject.setComponents(componentMap);
-
-        map.put(supplier, logisticsObject);
-
-        bd.setPendingSupplierAmount(map);
+        pendingSupplierAmount.put(component.getSupplier(), logisticsObject);
+        bd.setPendingSupplierAmount(pendingSupplierAmount);
     }
 
 
     // Method Stub
     //TODO richtige Methode implementieren
 
-    private static void setDeliveryDate(LogisticsObject logisticsObject, BusinessDay bd){
+    private static void setDeliveryDate(LogisticsObject logisticsObject, BusinessDay bd) {
         Supplier supplier = logisticsObject.getSupplier();
         int leadTime = supplier.getLeadTime();
         System.out.println(leadTime + " Tage Später wird empfangen");
