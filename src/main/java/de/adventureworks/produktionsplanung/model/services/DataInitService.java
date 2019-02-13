@@ -41,11 +41,11 @@ public class DataInitService {
 
             List<Saddle> saddleList = mapper.readValue(new File("saddle.json"), new TypeReference<List<Saddle>>() {
             });
-            data.setComponents(saddleList);
+            data.updateComponent(saddleList);
 
             ArrayList<Fork> forkList = mapper.readValue(new File("fork.json"), new TypeReference<List<Fork>>() {
             });
-            data.setComponents(forkList);
+            data.updateComponent(forkList);
 
             ArrayList<Bike> bikeList = mapper.readValue(new File("bikes.json"), new TypeReference<List<Bike>>() {
             });
