@@ -51,15 +51,7 @@ public class OrderService {
         for(Component c : map.keySet()) {
             if (map.get(c) != null) {
                 int amount = map.get(c);
-                LogisticsObject logisticsObject;
-                if(!bd.getPendingSupplierAmount().containsKey(c.getSupplier())){
-                    logisticsObject = new LogisticsObject(c.getSupplier());
-                    HashMap<Supplier, LogisticsObject> newPendingSupplierMap = new HashMap<>();
-                    newPendingSupplierMap.put(c.getSupplier(), logisticsObject);
-                }
-                else {
-                    logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
-                }
+                LogisticsObject logisticsObject = bd.getPendingSupplierAmount().get(c.getSupplier());
                 Map<Component, Integer> componentMap = logisticsObject.getComponents();
                 if (!componentMap.containsKey(c)) {
                     componentMap.put(c, amount);

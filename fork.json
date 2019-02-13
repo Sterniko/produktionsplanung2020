@@ -5,7 +5,28 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Fox32 F80",
@@ -14,7 +35,28 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Fox Talas140",
@@ -23,7 +65,28 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Rock Schox Reba",
@@ -32,7 +95,28 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Rock Schox Recon351",
@@ -41,7 +125,28 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "Rock Schox ReconSL",
@@ -50,7 +155,28 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 }, {
   "name" : "SR Suntour Raidon",
@@ -59,6 +185,27 @@
     "lotSize" : 75,
     "leadTime" : 14,
     "country" : "SPAIN",
-    "components" : null
+    "components" : [ {
+      "name" : "Fox32 F100",
+      "supplier" : null
+    }, {
+      "name" : "Fox32 F80",
+      "supplier" : null
+    }, {
+      "name" : "Fox Talas140",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Reba",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox Recon351",
+      "supplier" : null
+    }, {
+      "name" : "Rock Schox ReconSL",
+      "supplier" : null
+    }, {
+      "name" : "SR Suntour Raidon",
+      "supplier" : null
+    } ]
   }
 } ]

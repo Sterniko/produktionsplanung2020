@@ -45,32 +45,10 @@ public class JSONClass {
 
     private static ArrayList<Bike> getBike() {
 
-        List<Supplier> supplierList = new ArrayList<>();
-
-        supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null));
-        supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
-        supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
-        List<Component> frameList = new ArrayList<>();
-
-        supplierList.get(0);
-        frameList.add(new Frame("7005DB", supplierList.get(0)));
-        frameList.add(new Frame("7005TB", supplierList.get(0)));
-        frameList.add(new Frame("Monocoque", supplierList.get(0)));
-
-        List<Component> saddleList = new ArrayList<>();
-        saddleList.add(new Saddle("Fizik Tundra", supplierList.get(2)));
-        saddleList.add(new Saddle("Race Line", supplierList.get(2)));
-        saddleList.add(new Saddle("Spark", supplierList.get(2)));
-        saddleList.add(new Saddle("Speed Line", supplierList.get(2)));
-
-        List<Component> forkList = new ArrayList<>();
-        forkList.add(new Fork("Fox32 F100", supplierList.get(1)));
-        forkList.add(new Fork("Fox32 F80", supplierList.get(1)));
-        forkList.add(new Fork("Fox Talas140", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox Reba", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox Recon351", supplierList.get(1)));
-        forkList.add(new Fork("Rock Schox ReconSL", supplierList.get(1)));
-        forkList.add(new Fork("SR Suntour Raidon", supplierList.get(1)));
+        List<Supplier> supplierList = JSONClass.getSupplier();
+        List<Frame> frameList = JSONClass.getFrame();
+        List<Saddle> saddleList = JSONClass.getSaddle();
+        List<Fork> forkList = JSONClass.getFork();
         //Bikes
         ArrayList<Bike> bikeList = new ArrayList<>();
 
@@ -88,11 +66,8 @@ public class JSONClass {
 
     private static ArrayList<Frame> getFrame() {
 
-        List<Supplier> supplierList = new ArrayList<>();
+        List<Supplier> supplierList = JSONClass.getSupplier();
 
-        supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null));
-        supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
-        supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
         ArrayList<Frame> frameList = new ArrayList<>();
 
         frameList.add(new Frame("7005DB", supplierList.get(0)));
@@ -104,11 +79,7 @@ public class JSONClass {
 
     private static ArrayList<Saddle> getSaddle() {
 
-        List<Supplier> supplierList = new ArrayList<>();
-
-        supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null));
-        supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
-        supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
+        List<Supplier> supplierList = JSONClass.getSupplier();
 
         ArrayList<Saddle> saddleList = new ArrayList<>();
         saddleList.add(new Saddle("Fizik Tundra", supplierList.get(2)));
@@ -121,11 +92,7 @@ public class JSONClass {
 
     private static ArrayList<Fork> getFork() {
 
-        List<Supplier> supplierList = new ArrayList<>();
-
-        supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null));
-        supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
-        supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
+        List<Supplier> supplierList = JSONClass.getSupplier();
 
         ArrayList<Fork> forkList = new ArrayList<>();
         forkList.add(new Fork("Fox32 F100", supplierList.get(1)));
@@ -139,13 +106,41 @@ public class JSONClass {
         return forkList;
     }
 
-    private static ArrayList<Supplier> getSupplier() {
+    public static ArrayList<Supplier> getSupplier() {
+
+        List<Fork> forkList = new ArrayList<>();
+
+        forkList.add(new Fork("Fox32 F100", null));
+        forkList.add(new Fork("Fox32 F80", null));
+        forkList.add(new Fork("Fox Talas140", null));
+        forkList.add(new Fork("Rock Schox Reba", null));
+        forkList.add(new Fork("Rock Schox Recon351", null));
+        forkList.add(new Fork("Rock Schox ReconSL", null));
+        forkList.add(new Fork("SR Suntour Raidon", null));
+
+        List<Frame> frameList = new ArrayList<>();
+
+        frameList.add(new Frame("7005DB", null));
+        frameList.add(new Frame("7005TB", null));
+        frameList.add(new Frame("Monocoque", null));
+
+        List<Saddle> saddleList = new ArrayList<>();
+
+        saddleList.add(new Saddle("Fizik Tundra", null));
+        saddleList.add(new Saddle("Race Line", null));
+        saddleList.add(new Saddle("Spark", null));
+        saddleList.add(new Saddle("Speed Line", null));
+
 
         ArrayList<Supplier> supplierList = new ArrayList<>();
 
         supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null));
         supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
         supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
+
+        supplierList.get(0).setComponents(frameList);
+        supplierList.get(1).setComponents(forkList);
+        supplierList.get(2).setComponents(saddleList);
 
         return supplierList;
     }

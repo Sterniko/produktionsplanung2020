@@ -7,7 +7,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -17,7 +26,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -27,7 +57,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -39,7 +81,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -49,7 +100,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -59,7 +131,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -71,7 +155,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -81,7 +174,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -91,7 +205,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -103,7 +229,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -113,7 +248,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -123,7 +279,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -135,7 +303,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -145,7 +322,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -155,7 +353,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -167,7 +377,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -177,7 +396,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -187,7 +427,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -199,7 +451,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -209,7 +470,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -219,7 +501,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 }, {
@@ -231,7 +525,16 @@
       "lotSize" : 10,
       "leadTime" : 7,
       "country" : "GERMANY",
-      "components" : null
+      "components" : [ {
+        "name" : "7005DB",
+        "supplier" : null
+      }, {
+        "name" : "7005TB",
+        "supplier" : null
+      }, {
+        "name" : "Monocoque",
+        "supplier" : null
+      } ]
     }
   },
   "fork" : {
@@ -241,7 +544,28 @@
       "lotSize" : 75,
       "leadTime" : 14,
       "country" : "SPAIN",
-      "components" : null
+      "components" : [ {
+        "name" : "Fox32 F100",
+        "supplier" : null
+      }, {
+        "name" : "Fox32 F80",
+        "supplier" : null
+      }, {
+        "name" : "Fox Talas140",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Reba",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox Recon351",
+        "supplier" : null
+      }, {
+        "name" : "Rock Schox ReconSL",
+        "supplier" : null
+      }, {
+        "name" : "SR Suntour Raidon",
+        "supplier" : null
+      } ]
     }
   },
   "saddle" : {
@@ -251,7 +575,19 @@
       "lotSize" : 500,
       "leadTime" : 49,
       "country" : "CHINA",
-      "components" : null
+      "components" : [ {
+        "name" : "Fizik Tundra",
+        "supplier" : null
+      }, {
+        "name" : "Race Line",
+        "supplier" : null
+      }, {
+        "name" : "Spark",
+        "supplier" : null
+      }, {
+        "name" : "Speed Line",
+        "supplier" : null
+      } ]
     }
   }
 } ]
