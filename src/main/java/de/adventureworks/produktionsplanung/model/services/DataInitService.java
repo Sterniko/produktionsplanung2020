@@ -58,22 +58,7 @@ public class DataInitService {
             }
 
             // TestZwecke
-            Map<Component, Integer> wareHouseStockMap = new HashMap<>();
 
-            for (Component c : forkList) {
-                wareHouseStockMap.put(c, 100);
-            }
-            for (Component c : saddleList) {
-                wareHouseStockMap.put(c, 100);
-            }
-            for (Component c : frameList) {
-                wareHouseStockMap.put(c, 100);
-            }
-            for (int i = 0; i < 5; i++) {
-                BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null, null, null, null, null, null, null);
-                businessDays.put(bd.getDate(), bd);
-                bd.setWarehouseStock(wareHouseStockMap);
-            }
 
 
 
@@ -108,24 +93,6 @@ public class DataInitService {
 
             data.setCustomers(customers);
 
-            Map<LocalDate, BusinessDay> bdMap = data.getBusinessDays();
-
-
-            BusinessDay bday = bdMap.get(LocalDate.now());
-            Map<Component, Integer> wareHouseStockMap2 = new HashMap<>();
-            for (Component c : forkList) {
-                wareHouseStockMap2.put(c, 250);
-            }
-            for (Component c : saddleList) {
-                wareHouseStockMap2.put(c, 200);
-            }
-            for (Component c : frameList) {
-                wareHouseStockMap2.put(c, 300);
-            }
-            bday.setWarehouseStock(wareHouseStockMap2);
-            bdMap.put(LocalDate.now(), bday);
-            data.setBusinessDays(bdMap);
-            BusinessDay bda2y = bdMap.get(LocalDate.now());
             //addExampleWarehouse(data);
             addExampleShip(data);
         } catch (Exception e) {
