@@ -57,8 +57,8 @@ public class ArrivalCalculater {
                 if (!bd.getWorkingDays().get(country)) {
                     leadTime--;
                 }
-                temp = temp.plusDays(1);
             }
+            temp = temp.plusDays(1);
         }
         return temp;
     }
