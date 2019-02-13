@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 
 @Service
-public class ArrivalCalculater {
+public class ArrivalCalculator {
 
     /**
         Methode welche den LocalDate errechnet abhäning von leadTime und Land wann die Lieferung ankommt
@@ -23,6 +23,8 @@ public class ArrivalCalculater {
     public static LocalDate calculate(LocalDate sendDate, int leadTime, Country country, DataBean dataBean ) {
 
 
+        //TODO manchmal Nullpointer Exception
+        //TODO Ger hinzufügen
         LocalDate temp = sendDate;
         while (leadTime > 0) {
 

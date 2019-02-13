@@ -215,7 +215,7 @@ public class JSONClass {
         JSONClass.insertHoliday(LocalDate.of(2019, 12, 9), Country.SPAIN, dateMap);
         JSONClass.insertHoliday(LocalDate.of(2019, 12, 25), Country.SPAIN, dateMap);
 
-        //TODO GEr hinzufügen
+        //Germany
         JSONClass.insertHoliday(LocalDate.of(2019,1,1),Country.GERMANY,dateMap);
         JSONClass.insertHoliday(LocalDate.of(2019,4,19),Country.GERMANY,dateMap);
         JSONClass.insertHoliday(LocalDate.of(2019,4,21),Country.GERMANY,dateMap);
@@ -228,12 +228,10 @@ public class JSONClass {
         JSONClass.insertHoliday(LocalDate.of(2019,12,25),Country.GERMANY,dateMap);
         JSONClass.insertHoliday(LocalDate.of(2019,12,26),Country.GERMANY,dateMap);
 
-
-
-
-
-
-
+        LocalDate firstSunday = LocalDate.of(2019,1,6);
+        for(int i = 0; i< 364; i+=7 ){
+            JSONClass.insertHoliday(firstSunday.plusDays(i),Country.GERMANY,dateMap);
+        }
 
         return dateMap;
     }
