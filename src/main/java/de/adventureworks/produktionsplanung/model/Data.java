@@ -91,4 +91,10 @@ public class Data {
         this.components = (List<Component>)components;
     }
 
+    public void updateComponent(List<?> conmponents){
+        for(Component e: components){
+            this.components.add(e);
+        }
+    }
+
 }
