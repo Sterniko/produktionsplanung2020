@@ -15,16 +15,13 @@ import java.util.Objects;
 public class BusinessDay implements Comparable<BusinessDay> {
 
     private LocalDate date;
-
+    private BusinessWeek businessWeek;
 
     private Map<Supplier, LogisticsObject> pendingSupplierAmount;
     private List<LogisticsObject> sentDeliveries;
     private List<LogisticsObject> receivedDeliveries;
 
-
-
     private Map<Country, Boolean> workingDays;
-
     private Map<Bike, Integer> plannedProduction;
     private Map<Bike, Integer> additionalProduction;
     private Map<Bike, Integer> actualProduction;
@@ -117,6 +114,14 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public void setWarehouseStock(Map<Component, Integer> warehouseStock) {
         this.warehouseStock = warehouseStock;
+    }
+
+    public BusinessWeek getBusinessWeek() {
+        return businessWeek;
+    }
+
+    public void setBusinessWeek(BusinessWeek businessWeek) {
+        this.businessWeek = businessWeek;
     }
 
     @Override

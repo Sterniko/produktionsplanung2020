@@ -40,7 +40,7 @@ public class ProductionService {
 
 
     /**
-     * Constructor ProductionService could get different bikesPA or other %distribution of bikes or month
+     * Constructor ProductionService2 could get different bikesPA or other %distribution of bikes or month
      */
     public ProductionService(){
         this.monthPercentArr = new double[12];

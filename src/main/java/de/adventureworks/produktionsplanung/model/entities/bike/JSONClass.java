@@ -7,7 +7,6 @@ import java.util.*;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oracle.javafx.jmx.json.JSONReader;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import de.adventureworks.produktionsplanung.model.Data;
 import de.adventureworks.produktionsplanung.model.DataBean;
