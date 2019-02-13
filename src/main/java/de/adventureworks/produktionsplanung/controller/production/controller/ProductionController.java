@@ -47,13 +47,16 @@ public class ProductionController {
         //sort them
         Collections.sort(businessDayList, new Comparator<BusinessDay>() {
                     public int compare(BusinessDay o1, BusinessDay o2) {
-                        return o1.getDate().compareTo(o2.getDate());
+                        if(o1.getDate().isAfter(o2.getDate())){
+                            return 1;
+                        }
+                        return -1;
                     }
         });
 
         //work with them
         for(BusinessDay bd : businessDayList){
-            if(this.businessCalendar.isWorkingDay(bd.getDate())){
+            if(!this.businessCalendar.isWorkingDay(bd.getDate())){
                 workingDayMap.put(Country.GERMANY, Boolean.TRUE);
             }
             else{
