@@ -51,16 +51,13 @@ public class DataInitService {
             });
             data.setBikes(bikeList);
 
-
-
-            /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
-            });
+            List<BusinessDay> businessDayList = JSONClass.getBusinessDays();
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
-            for (BusinessDay bd : bdList) {
+            for (BusinessDay bd : businessDayList) {
                 businessDays.put(bd.getDate(), bd);
             }
-            */
 
+            // TestZwecke
             Map<Component, Integer> wareHouseStockMap = new HashMap<>();
 
             for (Component c : forkList) {
@@ -72,6 +69,28 @@ public class DataInitService {
             for (Component c : frameList) {
                 wareHouseStockMap.put(c, 100);
             }
+            for (int i = 0; i < 5; i++) {
+                BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null, null, null, null, null, null, null);
+                businessDays.put(bd.getDate(), bd);
+                bd.setWarehouseStock(wareHouseStockMap);
+            }
+
+
+
+
+
+            data.setBusinessDays(businessDays);
+
+
+            /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
+            });
+            Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
+            for (BusinessDay bd : bdList) {
+                businessDays.put(bd.getDate(), bd);
+            }
+            */
+
+
 
             Customer customer1 = new Customer("Metro AG", Country.GERMANY);
             List<Customer> customers = new ArrayList<Customer>();
@@ -79,25 +98,8 @@ public class DataInitService {
 
             data.setCustomers(customers);
             Map<LocalDate, BusinessDay> businessDayMap = new HashMap<>();
-            for (int i = 0; i < 5; i++) {
-                BusinessDay bd = new BusinessDay(LocalDate.now().plusDays(i), null, null, null, null, null, null, null, null);
-                businessDayMap.put(bd.getDate(), bd);
-                bd.setWarehouseStock(wareHouseStockMap);
-            }
-            data.setBusinessDays(businessDayMap);
-
+            
             Map<LocalDate, BusinessDay> bdMap = data.getBusinessDays();
-
-            // Robert testing stuff für warehouse nullpointer
-            BusinessDay bd = bdMap.get(LocalDate.now());
-            ArrayList<LogisticsObject> loList = new ArrayList<>();
-            LogisticsObject logisticsObject = new LogisticsObject(supplierList.get(1));
-            HashMap<Component, Integer> componentIntegerHashMap = new HashMap<>();
-            logisticsObject.setComponents(componentIntegerHashMap);
-            HashMap<Supplier, LogisticsObject> loMap = new HashMap<>();
-            loMap.put(supplierList.get(1), logisticsObject);
-            bd.setPendingSupplierAmount(loMap);
-            bd.setSentDeliveries(loList);
 
 
             BusinessDay bday = bdMap.get(LocalDate.now());

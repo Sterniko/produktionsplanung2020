@@ -234,7 +234,7 @@ public class JSONClass {
         holidayMap.put(country, true);
     }
 
-    private static List<BusinessDay> getBusinessDays() {
+    public static List<BusinessDay> getBusinessDays() {
         List<BusinessDay> bdList = new ArrayList<>();
         LocalDate ld = LocalDate.of(2019, 1, 1);
         for (int i = 0; i < 450; i++) {
