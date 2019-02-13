@@ -60,6 +60,15 @@ public class DataInitService {
             data.setBusinessDays(businessDays);
 
 
+
+             /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
+             });
+             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
+             for (BusinessDay bd : bdList) {
+                 businessDays.put(bd.getDate(), bd);
+             }
+             */
+
             /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
             });
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
@@ -67,6 +76,7 @@ public class DataInitService {
                 businessDays.put(bd.getDate(), bd);
             }
             */
+
 
 
 
