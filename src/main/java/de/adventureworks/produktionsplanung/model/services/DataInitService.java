@@ -2,6 +2,7 @@ package de.adventureworks.produktionsplanung.model.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import de.adventureworks.produktionsplanung.model.Data;
 import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
@@ -50,6 +51,12 @@ public class DataInitService {
             ArrayList<Bike> bikeList = mapper.readValue(new File("bikes.json"), new TypeReference<List<Bike>>() {
             });
             data.setBikes(bikeList);
+
+            mapper.registerModule(new JavaTimeModule());
+
+            ArrayList<Ship> shipList = mapper.readValue(new File("ships.json"), new TypeReference<List<Ship>>() {
+            });
+            data.setShips(shipList);
 
             List<BusinessDay> businessDayList = JSONClass.getBusinessDays();
 
@@ -134,7 +141,6 @@ public class DataInitService {
             //addExampleWarehouse(data);
 
 
-            addExampleShip(data);
         } catch (Exception e) {
             e.printStackTrace();
         }

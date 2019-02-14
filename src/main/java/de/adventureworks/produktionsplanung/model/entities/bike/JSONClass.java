@@ -6,8 +6,12 @@ import java.time.LocalDate;
 import java.util.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.apache.tomcat.jni.Local;
@@ -21,11 +25,12 @@ public class JSONClass {
         ArrayList<Frame> frameArrayList = JSONClass.getFrame();
         ArrayList<Saddle> saddleArrayList = JSONClass.getSaddle();
         ArrayList<Fork> forkArrayList = JSONClass.getFork();
+        ArrayList<Ship> shipArrayList = JSONClass.getShips();
         ArrayList<Supplier> supplierArrayList = JSONClass.getSupplier();
         List<BusinessDay> bdList = JSONClass.getBusinessDays();
         HashMap<LocalDate, HashMap<Country, Boolean>> holidayMap = JSONClass.getHoliday();
         ObjectMapper mapper = new ObjectMapper();
-
+        mapper.registerModule(new JavaTimeModule());
 
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("bikes.json"), bikeArrayList);
@@ -35,6 +40,8 @@ public class JSONClass {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("supplier.json"), supplierArrayList);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("holidays.json"), holidayMap);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("businessDays.json"), bdList);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("ships.json"), shipArrayList);
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -235,6 +242,45 @@ public class JSONClass {
 
         return dateMap;
     }
+    private static ArrayList<Ship> getShips(){
+        ArrayList<Ship> shipList = new ArrayList<>();
+        shipList.add(new Ship("CMA CGM ZHENG HE", LocalDate.of(2019, 1, 16), LocalDate.of(2019, 2, 14)));
+        shipList.add(new Ship("TAURUS", LocalDate.of(2019,1 , 21), LocalDate.of(2019,2 ,18 )));
+        shipList.add(new Ship("EVER GENIUS", LocalDate.of(2019, 1, 22), LocalDate.of(2019,2 ,19 )));
+        shipList.add(new Ship("APL VANDA", LocalDate.of(2019, 1, 22), LocalDate.of(2019,2 ,20 )));
+        shipList.add(new Ship("CMA CGM ANTOINE DE SAINT EXUPE", LocalDate.of(2019,1, 23), LocalDate.of(2019, 2,21 )));
+        shipList.add(new Ship("EVER GRADE", LocalDate.of(2019,1 ,31 ), LocalDate.of(2019,2 ,27 )));
+        shipList.add(new Ship("CMA CGM MAGELLAN", LocalDate.of(2019,1 ,30 ), LocalDate.of(2019,2, 27)));
+        shipList.add(new Ship("CMA CGM LOUIS BLERIOT", LocalDate.of(2019, 2,2 ), LocalDate.of(2019, 3, 1)));
+        shipList.add(new Ship("TOLEDO TRIUMPH", LocalDate.of(2019, 2, 4), LocalDate.of(2019,3 , 6)));
+        shipList.add(new Ship("TITAN", LocalDate.of(2019, 2, 5), LocalDate.of(2019, 3, 4)));
+        shipList.add(new Ship("APL CHANGI", LocalDate.of(2019, 2,8 ), LocalDate.of(2019, 3,8 )));
+        shipList.add(new Ship("CMA CGM VASCO DE GAMA", LocalDate.of(2019,2, 7), LocalDate.of(2019,3 , 8)));
+        shipList.add(new Ship("COSCO SHIPPING DENALI", LocalDate.of(2019, 2, 14), LocalDate.of(2019,3 , 15)));
+        shipList.add(new Ship("EVER GOODS", LocalDate.of(2019, 2, 11), LocalDate.of(2019, 3, 12)));
+        shipList.add(new Ship("CMA CGM JEAN MERMOZ", LocalDate.of(2019,2 , 14), LocalDate.of(2019,3 , 14)));
+        shipList.add(new Ship("TOKYO TRIUMPH", LocalDate.of(2019,2 ,18 ), LocalDate.of(2019,3 ,19 )));
+        shipList.add(new Ship("CMA CGM GEORG FORSTER", LocalDate.of(2019,2 , 19), LocalDate.of(2019,3 ,20 )));
+        shipList.add(new Ship("APL RAFFLES", LocalDate.of(2019, 3, 5), LocalDate.of(2019, 4,3 )));
+        shipList.add(new Ship("COSCO SHIPPING RHINE", LocalDate.of(2019,2 ,24 ), LocalDate.of(2019,3 , 24)));
+        shipList.add(new Ship("EVER GOLDEN", LocalDate.of(2019,2, 25), LocalDate.of(2019, 3, 27)));
+        shipList.add(new Ship("CMA CGM CHRISTOPHE COLOMB", LocalDate.of(2019, 2,26 ), LocalDate.of(2019,3 ,27 )));
+        shipList.add(new Ship("CMA CGM BOUGAINVILLE", LocalDate.of(2019,2 , 27), LocalDate.of(2019, 3, 28)));
+        shipList.add(new Ship("COSCO SHIPPING ANDES", LocalDate.of(2019, 3, 3), LocalDate.of(2019, 4, 1)));
+        shipList.add(new Ship("TEXAS TRIUMPH", LocalDate.of(2019, 3, 3), LocalDate.of(2019,4 ,2 )));
+        shipList.add(new Ship("CMA CGM ALEXANDER VON HUMBOLDT", LocalDate.of(2019, 3, 6), LocalDate.of(2019,4 , 4)));
+        shipList.add(new Ship("CMA CGM CORTE REAL", LocalDate.of(2019, 3, 12), LocalDate.of(2019, 4, 10)));
+        shipList.add(new Ship("THALASSA TYHI", LocalDate.of(2019, 3, 10), LocalDate.of(2019,4 , 8)));
+        shipList.add(new Ship("EVER GIFTED", LocalDate.of(2019,3 , 11), LocalDate.of(2019,4 , 9)));
+        shipList.add(new Ship("CMA CGM BENJAMIN FRANKLIN", LocalDate.of(2019,3 , 13), LocalDate.of(2019,4 , 11)));
+        shipList.add(new Ship("THALASSA ELPIDA", LocalDate.of(2019,3 ,17 ), LocalDate.of(2019, 4, 15)));
+        shipList.add(new Ship("THALASSA DOXA", LocalDate.of(2019,3 ,18 ), LocalDate.of(2019, 4, 16)));
+
+        return shipList;
+
+
+    }
+
 
     private static void insertHoliday(LocalDate localDate, Country country, HashMap<LocalDate, HashMap<Country, Boolean>> map) {
         HashMap<Country, Boolean> holidayMap = map.get(localDate);

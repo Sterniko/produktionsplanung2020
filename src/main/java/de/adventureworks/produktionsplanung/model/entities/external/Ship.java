@@ -20,6 +20,8 @@ public class Ship implements Comparable<Ship>{
     @Autowired
     DataBean databean;
 
+    public Ship() {
+    }
 
     public Ship(String name, LocalDate departure, LocalDate arrival) {
         this.name = name;
