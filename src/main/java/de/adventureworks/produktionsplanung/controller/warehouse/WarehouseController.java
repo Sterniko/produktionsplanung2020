@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.services.OrderService;
 import de.adventureworks.produktionsplanung.model.services.ProductionEngagementService;
+import de.adventureworks.produktionsplanung.model.services.SortService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -25,14 +27,21 @@ public class WarehouseController {
     @Autowired
     private ProductionEngagementService productionEngagementService;
 
+    @Autowired
+    private SortService sortService;
+
     public WarehouseController() {
 
     }
 
     @RequestMapping("/warehouse")
     public String getBusinessWeeks(Model model) {
+
+        List<BusinessDay> businessDayList = sortService.mapToListBusinessDays(dataBean.getBusinessDays());
+        businessDayList = sortService.sortBusinessDayList(businessDayList);
+
         model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
-        model.addAttribute("businessDays", dataBean.getBusinessDays());
+        model.addAttribute("businessDays", businessDayList);
         model.addAttribute("components", dataBean.getComponents());
         model.addAttribute("warehouseRequest", new WarehouseRequest());
         return "warehouse";
