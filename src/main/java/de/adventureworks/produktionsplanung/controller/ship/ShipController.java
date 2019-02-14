@@ -4,7 +4,6 @@ package de.adventureworks.produktionsplanung.controller.ship;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
-import de.adventureworks.produktionsplanung.model.services.ArrivalCalculator;
 import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorService;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
 import org.springframework.beans.factory.annotation.Autowired;

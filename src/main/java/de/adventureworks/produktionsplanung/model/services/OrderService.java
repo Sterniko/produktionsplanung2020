@@ -47,12 +47,9 @@ public class OrderService {
 
             if (supplier.getCountry() == Country.CHINA) {
                 LocalDate localDate = bd.getDate();
-                Ship ship = shipService.getNextShip(localDate);
-                shipService.fillShip(ship, lo);
-                LocalDate departureDate = ship.getDeparture();
-                LocalDate deliveryDate = ArrivalCalculator.calculate(departureDate, supplier.getLeadTime(), supplier.getCountry(), dataBean);
+                LocalDate deliveryDate = arrivalCalculatorService.calculateDeliveryFrom(localDate, Country.CHINA);
                 Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
-                BusinessDay departureDay = bdMap.get(departureDate);
+                BusinessDay departureDay = bdMap.get(localDate);
                 BusinessDay arrivalDay = bdMap.get(deliveryDate);
                 List<LogisticsObject> sentDeliveriesList = departureDay.getSentDeliveries();
                 sentDeliveriesList.add(lo);
@@ -60,7 +57,6 @@ public class OrderService {
                 recievedDeliveriesList.add(lo);
                 OrderService.setDeliveryDate(lo);
                 System.out.println(deliveryDate);
-                System.out.println(ship);
 
 
             } else {
@@ -76,7 +72,7 @@ public class OrderService {
                 pendingSupplierMap.put(supplier, lo);
                 bd.setPendingSupplierAmount(pendingSupplierMap);
 
-                LocalDate deliveryLocalDate = ArrivalCalculator.calculate(bd.getDate(), supplier.getLeadTime(), supplier.getCountry(), dataBean);
+                LocalDate deliveryLocalDate = arrivalCalculatorService.calculateDeliveryFrom(bd.getDate(), supplier.getCountry());
                 Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
                 BusinessDay deliveryDate = bdMap.get(deliveryLocalDate);
                 List<LogisticsObject> deliverList = deliveryDate.getSentDeliveries();
