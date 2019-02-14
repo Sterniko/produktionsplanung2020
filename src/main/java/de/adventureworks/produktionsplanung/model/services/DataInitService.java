@@ -126,16 +126,19 @@ public class DataInitService {
                 for(BusinessDay bd : businessDayList){
 
                     int week = this.businessCalendar.getCalendarWeekFromDate(bd.getDate());
-                    //TODO : JAHRE.. --> Workaround für 2019 !! Unbedingt was für 2020 überlegen!!!! Brauche BusinessWeeks für Marketing Tests...
+                    //TODO : JAHRE -> 2019 KW 1 .. 2020 KW 1 ... in BW speichern ?!
                     if(week == i){
                         if( bd.getDate().getYear() == 2019 && bd.getDate().getMonthValue() == 1){
                             bw.setYear(2019);
                             businessDayToWeekList.add(bd);
+
                         }
-                        else if(bd.getDate().getYear() == 2019){
+                        else if( bd.getDate().getYear() == 2019 && week != 1 ){
                             bw.setYear(2019);
                             businessDayToWeekList.add(bd);
                         }
+
+
                     }
                     bw.setCalendarWeek(i);
                 }

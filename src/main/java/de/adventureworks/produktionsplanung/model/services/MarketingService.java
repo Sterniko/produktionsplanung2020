@@ -13,6 +13,7 @@ import java.util.Map;
 public class MarketingService {
 
     public static HashMap<Bike,Integer> getWeeklyPlannedProduction(LocalDate today, BusinessWeek businessWeek) {
+
         HashMap<Bike, Integer> weekPlan = new HashMap<>();
         int weekAllrounder = 0;
         int weekCompetition = 0;
@@ -22,7 +23,6 @@ public class MarketingService {
         int weekMarathon = 0;
         int weekPerformance = 0;
         int weekTrail = 0 ;
-
 
         for (BusinessDay bd : businessWeek.getDays()) {
             for (Map.Entry entry : bd.getPlannedProduction().entrySet()) {
