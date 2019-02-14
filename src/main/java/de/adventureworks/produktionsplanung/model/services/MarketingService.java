@@ -13,7 +13,7 @@ import java.util.Map;
 public class MarketingService {
 
     public static HashMap<Bike,Integer> getWeeklyPlannedProduction(LocalDate today, BusinessWeek businessWeek) {
-        HashMap<Bike, Integer> newWeeklyPlanning = new HashMap<>();
+        HashMap<Bike, Integer> weekPlan = new HashMap<>();
         int weekAllrounder = 0;
         int weekCompetition = 0;
         int weekDownhill = 0;
@@ -23,41 +23,40 @@ public class MarketingService {
         int weekPerformance = 0;
         int weekTrail = 0 ;
 
-        //TODO: WOchenplanung holen Für jedes Bike die WochenPlanung speichern
 
         for (BusinessDay bd : businessWeek.getDays()) {
             for (Map.Entry entry : bd.getPlannedProduction().entrySet()) {
                 Bike bike = (Bike) entry.getKey();
                 switch (bike.getName()) {
                     case ("MTBAllrounder"):
-                        newWeeklyPlanning.put(bike, weekAllrounder += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekAllrounder += (Integer) entry.getValue());
                         break;
                     case ("MTBCompetition"):
-                        newWeeklyPlanning.put(bike, weekCompetition += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekCompetition += (Integer) entry.getValue());
                         break;
                     case ("MTBDownhill"):
-                        newWeeklyPlanning.put(bike, weekDownhill += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekDownhill += (Integer) entry.getValue());
                         break;
                     case ("MTBExtreme"):
-                        newWeeklyPlanning.put(bike, weekExtreme += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekExtreme += (Integer) entry.getValue());
                         break;
                     case ("MTBFreeride"):
-                        newWeeklyPlanning.put(bike, weekFreeride += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekFreeride += (Integer) entry.getValue());
                         break;
                     case ("MTBMarathon"):
-                        newWeeklyPlanning.put(bike, weekMarathon += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekMarathon += (Integer) entry.getValue());
                         break;
                     case ("MTBPerformance"):
-                        newWeeklyPlanning.put(bike, weekPerformance += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekPerformance += (Integer) entry.getValue());
                         break;
                     case ("MTBTrail"):
-                        newWeeklyPlanning.put(bike, weekTrail += (Integer) entry.getValue());
+                        weekPlan.put(bike, weekTrail += (Integer) entry.getValue());
                         break;
                 }
 
             }
         }
-        return newWeeklyPlanning;
+        return weekPlan;
     }
     public static HashMap<Bike,Integer> addAmountToBusinessWeek(HashMap<Bike,Integer> weeklyPlannig, Map<Bike, Integer> bikesToAdd){
         HashMap<Bike,Integer> newWeekPlan = new HashMap<>();
