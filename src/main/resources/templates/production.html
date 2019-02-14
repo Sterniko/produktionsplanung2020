@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <style>
+        #trDate{
+            border-bottom:1px solid;
+        }
+        #trDate{
+            font-size: 1.5em;
+        }
+        #trBikes{
+            font-family: "Times New Roman";
+            border: 1px solid black;
+        }
+        .tdClass  {
+            border-right: 1px solid black;
+            border-left: 1px solid black;
+        }
+        #tdChange{
+            border-bottom: 1px solid black;
+        }
+
+    </style>
     <meta charset="UTF-8">
     <title>Produktion</title>
 </head>
@@ -8,67 +30,52 @@
 
 <h1>Produktion</h1>
 <div class ="produktion">
-    <table border = "1">
-        <tr>
-            <th>Datum</th>
-            <th>Planned Production Bike 1</th>
-            <th>Planned Production Bike 2</th>
-            <th>Planned Production Bike 3</th>
-            <th>Planned Production Bike 4</th>
-            <th>Planned Production Bike 5</th>
-            <th>Planned Production Bike 6</th>
-            <th>Planned Production Bike 7</th>
-            <th>Planned Production Bike 8</th>
-            <th>Actual Production Bike 1</th>
-            <th>Actual Production Bike 2</th>
-            <th>Actual Production Bike 3</th>
-            <th>Actual Production Bike 4</th>
-            <th>Actual Production Bike 5</th>
-            <th>Actual Production Bike 6</th>
-            <th>Actual Production Bike 7</th>
-            <th>Actual Production Bike 8</th>
-            <th>Additional Production Bike 1</th>
-            <th>Additional Production Bike 2</th>
-            <th>Additional Production Bike 3</th>
-            <th>Additional Production Bike 4</th>
-            <th>Additional Production Bike 5</th>
-            <th>Additional Production Bike 6</th>
-            <th>Additional Production Bike 7</th>
-            <th>Additional Production Bike 8</th>
-            <th>Warehouse Slot 1</th>
-            <th>Warehouse Slot 2</th>
-            <th>Warehouse Slot 3</th>
-            <th>Warehouse Slot 4</th>
-            <th>Warehouse Slot 5</th>
-            <th>Warehouse Slot 6</th>
-            <th>Warehouse Slot 7</th>
-            <th>Warehouse Slot 8</th>
-            <th>Warehouse Slot 9</th>
-            <th>Warehouse Slot 10</th>
-            <th>Warehouse Slot 11</th>
-            <th>Warehouse Slot 12</th>
-            <th>Warehouse Slot 13</th>
-            <th>Warehouse Slot 14</th>
+    <table id="tblProduction" class="table-striped">
+
+    <th:block th:each="bd : ${businessDays}">
+        <tr id="trDate">
+            <td></td>
+            <td></td>
+            <td><th th:text="${bd.getDate()}"></th> </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
+        <tr id="trBikes">
+            <th class="tdClass" th:each="planned : ${bd.getPlannedProduction().entrySet()}">
+                <span id="bikes" th:text="${planned.key.getName()}"></span>
+            </th>
+        </tr>
+            <td class="tdClass" th:each="planned : ${bd.getPlannedProduction().entrySet()}">
+                <span>  Planned : </span>
+                <span th:text="${planned.getValue()}"></span>
+            </td>
+        <tr >
+            <td class="tdClass" th:each="actual : ${bd.getActualProduction().entrySet()}">
+                <span>  Actual : </span>
+                <span th:text="${actual.getValue()}"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="tdClass" id="tdChange" th:each="additional : ${bd.getAdditionalProduction().entrySet()}">
+                <div th:if="${additional.getValue() == 0}" style="color:black">
+                    <span> Change : </span>
+                    <span th:text="${additional.getValue()}"></span>
+                </div>
+                <div th:if="${additional.getValue() < 0}" style="color:red">
+                    <span> Change : </span>
+                    <span th:text="${additional.getValue()}"></span>
+                </div>
+                <div  th:if="${additional.getValue() > 0}" style="color:green">
+                    <span> Change : </span>
+                    <span th:text="${additional.getValue()}"></span>
+                </div>
+            </td>
+        </tr>
+    </th:block>
 
-         <tr th:each="bd: ${businessDays}">
-             <td th:text="${bd.getDate().toString()}"></td>
-             <td th:each="entry : ${bd.getPlannedProduction()}">
-              <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
-                </td>
-             <td th:each="entry : ${bd.getActualProduction()}">
-                 <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
-             <td th:each="entry : ${bd.getAdditionalProduction()}">
-                 <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
-             </td>
-             <td th:each="entry : ${bd.getWarehouseStock()}">
-                 <span th:text="${entry.key.getName()}"></span> = <span th:text="${entry.value}"></span>
-             </td>
-
-          </tr>
-
-    </table>
+</table>
 </div>
-
 </body>
 </html>
