@@ -24,14 +24,17 @@ public class OrderService {
 
     public static void placeOrder(Supplier supplier, BusinessDay bd, DataBean dataBean) {
 
+        //TODO Den Neuen Service ArrivalCalculatorService verwenden und den alten dafür löschen
+        ShipService shipService = new ShipService(dataBean);
+        ArrivalCalculatorService arrivalCalculatorService = new ArrivalCalculatorService(shipService, dataBean);
         Supplier newSupplier = new Supplier();
         Map<Supplier, LogisticsObject> helpMap = bd.getPendingSupplierAmount();
-        for(Supplier s : helpMap.keySet()){
-            if(s.getName().equals(supplier.getName())) {
+        for (Supplier s : helpMap.keySet()) {
+            if (s.getName().equals(supplier.getName())) {
                 newSupplier = s;
             }
         }
-        supplier =  newSupplier;
+        supplier = newSupplier;
         Map<Supplier, LogisticsObject> pendingSupplierMap = bd.getPendingSupplierAmount();
         LogisticsObject lo = pendingSupplierMap.get(supplier);
         Map<Component, Integer> componentMap = lo.getComponents();
@@ -40,12 +43,10 @@ public class OrderService {
         int supplierLotsize = supplier.getLotSize();
 
 
-
         if ((orderedAmount) >= supplierLotsize) {
 
-            if(supplier.getCountry() == Country.CHINA){
+            if (supplier.getCountry() == Country.CHINA) {
                 LocalDate localDate = bd.getDate();
-                ShipService shipService = new ShipService(dataBean);
                 Ship ship = shipService.getNextShip(localDate);
                 shipService.fillShip(ship, lo);
                 LocalDate departureDate = ship.getDeparture();
@@ -62,9 +63,8 @@ public class OrderService {
                 System.out.println(ship);
 
 
-            }
-            else {
-                List<LogisticsObject>  list = bd.getSentDeliveries();
+            } else {
+                List<LogisticsObject> list = bd.getSentDeliveries();
                 list.add(lo);
                 bd.setSentDeliveries(list);
                 OrderService.setDeliveryDate(lo);
@@ -89,17 +89,12 @@ public class OrderService {
                 bdMap.put(deliveryLocalDate, deliveryDate);
                 dataBean.setBusinessDays(bdMap);
             }
-
         }
-
-
     }
 
 
     public static void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
         for (Component c : map.keySet()) {
-
-
             if (map.get(c) != null) {
                 if (c.getSupplier().getName().equals("WernerRahmenGMBH")) {
                     int addAmount = map.get(c);
@@ -116,8 +111,6 @@ public class OrderService {
                     OrderService.addAmount(bd, addAmount, c);
 
                 }
-
-
             }
         }
     }

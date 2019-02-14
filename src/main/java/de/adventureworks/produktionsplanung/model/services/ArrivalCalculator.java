@@ -14,19 +14,19 @@ import java.time.LocalDate;
 public class ArrivalCalculator {
 
     /**
-        Methode welche den LocalDate errechnet abhäning von leadTime und Land wann die Lieferung ankommt
+        Methode welche den LocalDate errechnet abhäning von duration und Land wann die Lieferung ankommt
 
         @param sendDate das Datum an wann die Lieferung abgeschickt wird
-        @param leadTime die Dauer wie lange die Lieferung dauert (Steht im Supplier)
+        @param duration die Dauer wie lange die Lieferung dauert (Steht im Supplier)
         @param country das Land aus dem die Lieferung kommt (Steht im Supplier)
      */
-    public static LocalDate calculate(LocalDate sendDate, int leadTime, Country country, DataBean dataBean ) {
+    public static LocalDate calculate(LocalDate sendDate, int duration, Country country, DataBean dataBean ) {
 
 
         //TODO manchmal Nullpointer Exception
         //TODO Ger hinzufügen
         LocalDate temp = sendDate;
-        while (leadTime > 0) {
+        while (duration > 0) {
 
             BusinessDay bd = dataBean.getBusinessDay(temp);
 
@@ -34,33 +34,33 @@ public class ArrivalCalculator {
             if (Country.CHINA == country) {
                 if (temp.getDayOfYear() - sendDate.getDayOfYear() < 2) {
                     if (!bd.getWorkingDays().get(country)) {
-                        leadTime--;
+                        duration--;
                     }
                 } else if (temp.getDayOfYear() - sendDate.getDayOfYear() > 32) {
                     if (!bd.getWorkingDays().get(Country.GERMANY)) {
-                        leadTime--;
+                        duration--;
                     }
                 } else {
-                    leadTime--;
+                    duration--;
                 }
 
             } else if (Country.USA == country) {
                 if (temp.getDayOfYear() - sendDate.getDayOfYear() < 2) {
                     if (!bd.getWorkingDays().get(country)) {
-                        leadTime--;
+                        duration--;
                     }
                 } else if (temp.getDayOfYear() - sendDate.getDayOfYear() > 16) {
                     if (!bd.getWorkingDays().get(Country.GERMANY)) {
-                        leadTime--;
+                        duration--;
                     }
                 } else {
-                    leadTime--;
+                    duration--;
                 }
             } else if (Country.SPAIN == country) {
-                return temp.plusDays(leadTime);
+                return temp.plusDays(duration);
             } else {
                 if (!bd.getWorkingDays().get(country)) {
-                    leadTime--;
+                    duration--;
                 }
             }
             temp = temp.plusDays(1);
