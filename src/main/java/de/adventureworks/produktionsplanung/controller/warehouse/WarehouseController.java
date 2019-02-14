@@ -47,6 +47,7 @@ public class WarehouseController {
 
     @RequestMapping(value = "/warehouse", method = RequestMethod.POST)
     public void updateComponentStock(WarehouseRequest warehouseRequest) {
+        System.out.println(warehouseRequest);
 
         LocalDate date = warehouseRequest.getDate();
         BusinessDay businessDay = dataBean.getBusinessDay(date);
