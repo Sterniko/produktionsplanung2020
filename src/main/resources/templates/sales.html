@@ -8,15 +8,19 @@
 
     <form method="POST" th:action="@{/sales}" th:object="${salesRequest}">
 
+        Platzierungsdatum: <input type="date" th:field="*{placementDate}" />
+        <br>
         Ankunftsdatum beim Kunden: <input type="date" th:field="*{customerDeliveryDate}" />
         <br>
 
         Fahrrad:
-        <select th:field="*{bike}">
-            <option th:each="bike : ${bikes}" th:value="${bike.name}" th:text="${bike.name}">
-            </option>
-        </select>
-        <br>
+
+        <span th:each="bike: ${bikes}">
+            <span th:utext="${bike.name}" ></span>
+            <input type="number" th:field="*{bikeMap[__${bike.name}__]}" />
+            <br>
+        </span>
+
 
         Kundenland:
         <select th:field="*{country}">
@@ -25,8 +29,6 @@
         </select>
         <br>
 
-        Anzahl:
-        <input type="number" th:field="*{amount}">
 
         <button type="submit" name="submit" value="value">This is a link that sends a POST request</button>
 

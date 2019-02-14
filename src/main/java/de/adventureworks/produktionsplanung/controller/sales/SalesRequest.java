@@ -4,17 +4,36 @@ import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 public class SalesRequest {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate placementDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate customerDeliveryDate;
     private Country country;
-    private String bike;
-    private int amount;
+    private Map<String, Integer> bikeMap;
+    boolean prio;
 
 
     public SalesRequest() {
+    }
+
+    public SalesRequest(LocalDate placementDate, LocalDate customerDeliveryDate, Country country, Map<String, Integer> bikeMap, boolean prio) {
+        this.placementDate = placementDate;
+        this.customerDeliveryDate = customerDeliveryDate;
+        this.country = country;
+        this.bikeMap = bikeMap;
+        this.prio = prio;
+    }
+
+    public LocalDate getPlacementDate() {
+        return placementDate;
+    }
+
+    public void setPlacementDate(LocalDate placementDate) {
+        this.placementDate = placementDate;
     }
 
     public LocalDate getCustomerDeliveryDate() {
@@ -33,29 +52,30 @@ public class SalesRequest {
         this.country = country;
     }
 
-    public String getBike() {
-        return bike;
+    public Map<String, Integer> getBikeMap() {
+        return bikeMap;
     }
 
-    public void setBike(String bike) {
-        this.bike = bike;
+    public void setBikeMap(Map<String, Integer> bikeMap) {
+        this.bikeMap = bikeMap;
     }
 
-    public int getAmount() {
-        return amount;
+    public boolean isPrio() {
+        return prio;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setPrio(boolean prio) {
+        this.prio = prio;
     }
 
     @Override
     public String toString() {
         return "SalesRequest{" +
-                "customerDeliveryDate=" + customerDeliveryDate +
+                "placementDate=" + placementDate +
+                ", customerDeliveryDate=" + customerDeliveryDate +
                 ", country=" + country +
-                ", bike=" + bike +
-                ", amount=" + amount +
+                ", bikeMap=" + bikeMap +
+                ", prio=" + prio +
                 '}';
     }
 }
