@@ -272,7 +272,7 @@ public class ProductionService {
                         else {
                             int amountToAdd =  amountPlannedProduction - minComp;
 
-                            setProductionForNextDay(bd.getDate(), bike, amountToAdd);
+                            //setProductionForNextDay(bd.getDate(), bike, amountToAdd);
                             actualProduction.put(bike, minComp);
                             additionalProduction.put(bike, minComp - amountPlannedProduction);
 

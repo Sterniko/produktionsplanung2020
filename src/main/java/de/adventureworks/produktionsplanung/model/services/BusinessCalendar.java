@@ -205,11 +205,11 @@ public class BusinessCalendar {
      * @param date to Check in which week
      * @return week of year as Long
      */
-    public Long getCalendarWeekFromDate(LocalDate date){
+    public int getCalendarWeekFromDate(LocalDate date){
         Calendar cal = Calendar.getInstance();
         Date udate = java.sql.Date.valueOf(date);
         cal.setTime(udate);
-        Long week = Long.valueOf(cal.get(Calendar.WEEK_OF_YEAR));
+        int week = cal.get(Calendar.WEEK_OF_YEAR);
         return week;
     }
 

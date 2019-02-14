@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Marketing</title>
+
+    <style>.smallerDiv {
+        float: left;
+        margin: auto;
+        padding: 20px;
+        width: 45%;
+    }</style>
+</head>
+<body>
+
+<div class="container">
+    <br>
+    <h1>Marketing Nachfrage erhöhen</h1>
+    <br>
+
+
+    <div class="smallerDiv container">
+        <form method="POST" th:action="@{/marketing}" th:object="${marketingRequest}">
+            <div class="form-group form-control-sm">
+                <label>Eintragungsdatum:</label>
+                <input class="form-control" type="date" th:field="*{placementDate}" required/>
+                <label>Woche:</label>
+                <input class="form-control" type="number" th:field="*{businessWeek}" required/>
+                <br>
+
+                <label>Fahrrad eintragen um Nachfrage zu erhöhen: </label>
+                <br>
+                <label>Fahrräder: </label>
+                <br>
+                    <span th:each="bike: ${bikes}">
+                        <span th:utext="${bike.name}">:</span>
+                        <input class="form-control" type="number" th:field="*{bikeMap[__${bike.name}__]}" required/>
+                         <br>
+                    </span>
+                </br>
+                </br>
+                <button class="btn btn-success" type="submit" name="submit" value="value">Nachfrage erhöhen</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

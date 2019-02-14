@@ -14,6 +14,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.apache.tomcat.jni.Local;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -25,6 +26,9 @@ import java.util.*;
 public class DataInitService {
 
     private Data data;
+
+    @Autowired
+    BusinessCalendar businessCalendar;
 
     @PostConstruct
     public void init() {
@@ -112,6 +116,35 @@ public class DataInitService {
             }
 
             data.setBusinessDays(businessDays);
+
+            List<BusinessWeek> businessWeekList = new ArrayList<>();
+            //Set BusinessWeeks
+            for(int i = 1 ; i< 53; i++){
+                List<BusinessDay> businessDayToWeekList = new ArrayList<>();
+
+                BusinessWeek bw = new BusinessWeek();
+                for(BusinessDay bd : businessDayList){
+
+                    int week = this.businessCalendar.getCalendarWeekFromDate(bd.getDate());
+                    //TODO : JAHRE.. --> Workaround für 2019 !! Unbedingt was für 2020 überlegen!!!! Brauche BusinessWeeks für Marketing Tests...
+                    if(week == i){
+                        if( bd.getDate().getYear() == 2019 && bd.getDate().getMonthValue() == 1){
+                            bw.setYear(2019);
+                            businessDayToWeekList.add(bd);
+                        }
+                        else if(bd.getDate().getYear() == 2019){
+                            bw.setYear(2019);
+                            businessDayToWeekList.add(bd);
+                        }
+                    }
+                    bw.setCalendarWeek(i);
+                }
+                bw.setDays(businessDayToWeekList);
+                businessWeekList.add(bw);
+
+            }
+            data.setBusinessWeeks(businessWeekList);
+
 
 
 
