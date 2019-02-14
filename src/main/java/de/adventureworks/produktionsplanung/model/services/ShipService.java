@@ -3,7 +3,6 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
-import de.adventureworks.produktionsplanung.model.entities.logistics.Delivery;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,12 +32,12 @@ public class ShipService {
 
     public void delayShip(Ship ship, LocalDate newArrival){
         ship.setArrival(newArrival);
-        for (Delivery e : ship.getDeliveries()) {
-            LocalDate oldDate = e.getArrival();
-            BusinessDay oldBDay =  this.databean.getBusinessDay(oldDate);
+        for (LogisticsObject e : ship.getDeliveries()) {
+            //LocalDate oldDate = e.getArrival();
+            BusinessDay oldBDay =  this.databean.getBusinessDay(ship.getArrival());
             oldBDay.getReceivedDeliveries().remove(e);
             this.databean.getBusinessDay(newArrival).getReceivedDeliveries().add(e);
-            e.setArrival(newArrival);
+            //e.setArrival(newArrival);
         }
     }
 
@@ -84,8 +83,13 @@ public class ShipService {
         return nextAvailable;
     }
 
-    public void fillShip(Ship ship, LogisticsObject logisticsObject){
-
+    public void fillShip(Ship ship, LogisticsObject lo){
+        ship.addOrder(lo);
+    }
+    public void fillShip(Ship ship,List<LogisticsObject> loList){
+        for(LogisticsObject e: loList){
+            fillShip(ship, e);
+        }
     }
 
 }

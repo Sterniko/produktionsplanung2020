@@ -1,8 +1,7 @@
 package de.adventureworks.produktionsplanung.model.entities.external;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
-import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
-import de.adventureworks.produktionsplanung.model.entities.logistics.Delivery;
+import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ public class Ship implements Comparable<Ship>{
     private String name;
     private LocalDate departure;
     private LocalDate arrival;
-    private List<Delivery> deliveries;
+    private List<LogisticsObject> deliveries;
 
     @Autowired
     DataBean databean;
@@ -87,31 +86,32 @@ public class Ship implements Comparable<Ship>{
     }
 
 
-    public void addOrder(Delivery order){
+    public void addOrder(LogisticsObject order){
+        if(deliveries==null){deliveries= new ArrayList<>();}
         deliveries.add(order);
     }
 
-    public void deleteOrder(Delivery order){
+    public void deleteOrder(LogisticsObject order){
         deliveries.remove(order);
     }
 
-    public void addOrders(List<Delivery> newOrders){
-        for(Delivery e : newOrders){
+    public void addOrders(List<LogisticsObject> newOrders){
+        for(LogisticsObject e : newOrders){
             addOrder(e);
         }
     }
 
-    public void deleteOrders(List<Delivery> toDelete){
-        for(Delivery e: toDelete){
+    public void deleteOrders(List<LogisticsObject> toDelete){
+        for(LogisticsObject e: toDelete){
             deleteOrder(e);
         }
     }
 
-    public List<Delivery> getDeliveries() {
+    public List<LogisticsObject> getDeliveries() {
         return deliveries;
     }
 
-    public void setDeliveries(List<Delivery> deliveries) {
+    public void setDeliveries(List<LogisticsObject> deliveries) {
         this.deliveries = deliveries;
     }
 
