@@ -1,14 +1,13 @@
 package de.adventureworks.produktionsplanung.model.services;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.*;
 
 @Service
 public class ProductionEngagementService {
@@ -46,4 +45,8 @@ public class ProductionEngagementService {
 
     }
 
+
+    public boolean placeCustomrOrder(LocalDate placeDate, LocalDate finishProductionDate, Map<Bike, Integer> bikes,boolean hasPrio){
+        return true;
+    }
 }

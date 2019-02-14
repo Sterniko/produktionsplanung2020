@@ -27,6 +27,8 @@ public class SalesService {
 
     public boolean checkIfOrderPossible(LocalDate today, LocalDate arrivalDate, Country country) {
 
+
+        //TODO Lager prüfen
         ArrivalCalculatorService acs = new ArrivalCalculatorService(new ShipService(dataBean), dataBean);
 
         LocalDate earlierstSaddleArrival = acs.calculateDeliveryFrom(today, Country.CHINA);
