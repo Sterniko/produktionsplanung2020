@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 @Controller
 public class SalesController {
@@ -37,12 +38,12 @@ public class SalesController {
     @RequestMapping(value = "/sales", method = RequestMethod.POST)
     public void postAdditionalProduction(SalesRequest salesRequest) {
 
+        System.out.println(salesRequest);
         Country country = salesRequest.getCountry();
         LocalDate customerDeliveryDate = salesRequest.getCustomerDeliveryDate();
         LocalDate sendingDate = null; //TODO: Methode für spätestes sendingdate
-        Bike bike = RequestMapper.mapBike(salesRequest.getBike(), dataBean.getBikes());
-        int amount = salesRequest.getAmount();
-
+        Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(salesRequest.getBikeMap(), dataBean.getBikes());
+        boolean isPrio = RequestMapper.mapStringToBoolean(salesRequest.getPrio());
         BusinessDay deliveryDay = dataBean.getBusinessDay(customerDeliveryDate);
 
 

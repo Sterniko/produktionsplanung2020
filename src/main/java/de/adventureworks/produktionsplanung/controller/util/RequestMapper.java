@@ -29,14 +29,17 @@ public class RequestMapper {
         return returnMap;
     }
 
-    public static Bike mapBike(String bikeName, List<Bike> bikes) {
+    public static Map<Bike, Integer> mapBikeStringMap(Map<String, Integer> bikeNameMap, List<Bike> bikes) {
 
-        for (Bike bike: bikes) {
-            if (bike.getName().equals(bikeName)) {
-                return bike;
+        Map<Bike,Integer> returnMap = new HashMap<>();
+        for(String bikeName: bikeNameMap.keySet()) {
+            for(Bike bike: bikes) {
+                if (bike.getName().equals(bikeName)) {
+                    returnMap.put(bike, bikeNameMap.get(bikeName));
+                }
             }
         }
-        return null;
+        return returnMap;
 
     }
 
@@ -49,6 +52,11 @@ public class RequestMapper {
         }
         return null;
 
+    }
+
+
+    public static boolean mapStringToBoolean(String s){
+        return Boolean.valueOf(s);
     }
 
 }

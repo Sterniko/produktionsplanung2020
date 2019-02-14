@@ -6,32 +6,42 @@
 </head>
 <body>
 
-    <form method="POST" th:action="@{/sales}" th:object="${salesRequest}">
+<form method="POST" th:action="@{/sales}" th:object="${salesRequest}">
 
-        Ankunftsdatum beim Kunden: <input type="date" th:field="*{customerDeliveryDate}" />
-        <br>
+    Platzierungsdatum: <input type="date" th:field="*{placementDate}"/>
+    <br>
+    Ankunftsdatum beim Kunden: <input type="date" th:field="*{customerDeliveryDate}"/>
+    <br>
 
-        Fahrrad:
-        <select th:field="*{bike}">
-            <option th:each="bike : ${bikes}" th:value="${bike.name}" th:text="${bike.name}">
-            </option>
-        </select>
-        <br>
+    Fahrrad:
 
-        Kundenland:
-        <select th:field="*{country}">
-            <option th:each="country : ${countries}" th:value="${country}" th:text="${country}">
-            </option>
-        </select>
-        <br>
-
-        Anzahl:
-        <input type="number" th:field="*{amount}">
-
-        <button type="submit" name="submit" value="value">This is a link that sends a POST request</button>
+    <span th:each="bike: ${bikes}">
+            <span th:utext="${bike.name}"></span>
+            <input type="number" th:field="*{bikeMap[__${bike.name}__]}"/>
+            <br>
+        </span>
 
 
-    </form>
+    Kundenland:
+    <select th:field="*{country}">
+        <option th:each="country : ${countries}" th:value="${country}" th:text="${country}">
+        </option>
+    </select>
+    <br>
+
+
+    Hat Prio:
+    <select th:field="*{prio}">
+        <option value="true">true
+        </option>
+        <option value="false">false
+        </option>
+    </select>
+    <br>
+    <button type="submit" name="submit" value="value">This is a link that sends a POST request</button>
+
+
+</form>
 
 </body>
 </html>
