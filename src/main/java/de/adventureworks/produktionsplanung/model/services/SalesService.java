@@ -20,21 +20,35 @@ import java.util.Map;
 public class SalesService {
 
     private DataBean dataBean;
+    @Autowired
+    private ProductionEngagementService pES;
 
     public SalesService(DataBean dataBean) {
         this.dataBean = dataBean;
     }
 
-    public boolean checkIfOrderPossible(LocalDate today, LocalDate arrivalDate, Country country) {
-
-
-        //TODO Lager prüfen
+    public boolean checkIfOrderPossible(LocalDate today, LocalDate arrivalDate, Country country,  Map<Bike, Integer> bikes ,boolean hasPrio) {
         ArrivalCalculatorService acs = new ArrivalCalculatorService(new ShipService(dataBean), dataBean);
+        LocalDate latestPossibleSentDate = acs.calculateLatestPossibleSendDate(arrivalDate, country);
+        if (pES.placeCustomrOrder(today, latestPossibleSentDate,bikes, hasPrio)) {
+            //TODO dem Warehouse bzw Produktion bescheid geben dass wir sachen entwenden und neu bestellen
+            return true;
+        } else {
 
-        LocalDate earlierstSaddleArrival = acs.calculateDeliveryFrom(today, Country.CHINA);
-        LocalDate latestShipmentDate = acs.calculateLatestPossibleSendDate(arrivalDate, country);
 
-        return !earlierstSaddleArrival.isAfter(latestShipmentDate);
+            return false;
+            /* LocalDate earlierstSaddleArrival = acs.calculateDeliveryFrom(today, Country.CHINA);
+            LocalDate latestShipmentDate = acs.calculateLatestPossibleSendDate(arrivalDate, country);
+
+            if(!earlierstSaddleArrival.isAfter(latestShipmentDate)){
+                //ODO platz in der Production
+                return true;
+            }else{
+                return false;
+            }
+            */
+        }
     }
+
 
 }
