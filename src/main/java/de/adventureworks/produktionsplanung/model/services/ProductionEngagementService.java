@@ -2,7 +2,10 @@ package de.adventureworks.produktionsplanung.model.services;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
+import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,4 +52,21 @@ public class ProductionEngagementService {
     public boolean placeCustomrOrder(LocalDate placeDate, LocalDate finishProductionDate, Map<Bike, Integer> bikes,boolean hasPrio){
         return true;
     }
+
+
+    public void deleteShip(Ship ship, LocalDate deleteDay){
+
+    }
+    public void delayShip(Ship ship, LocalDate deleteDay, LocalDate newArrival){
+
+    }
+    public void setWarehouseEntries(LocalDate today, Map<Component, Integer> stockForDay){
+
+    }
+    public void changeProductionWeek(LocalDate today, BusinessWeek week, Map<Bike,Integer> newProduction){
+
+    }
+
+
+
 }

@@ -42,7 +42,8 @@ public class ShipService {
             oldBDay.getReceivedDeliveries().remove(e);
             this.databean.getBusinessDay(newArrival).getReceivedDeliveries().add(e);
             //TODO BuisnessDay sicherstellen das  databean.getBusinessDay(newArrival).getReceivedDeliveries() nie null ist
-            //e.setArrival(newArrival);
+
+            //ProductionEngagementService.clacNew();
         }
     }
 
