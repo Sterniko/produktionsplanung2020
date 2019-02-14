@@ -6,14 +6,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import de.adventureworks.produktionsplanung.model.Data;
 import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
-import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,37 +34,37 @@ public class DataInitService {
         ObjectMapper mapper = new ObjectMapper();
         try {
 
-            List<Supplier> supplierList = mapper.readValue(new File("supplier.json"), new TypeReference<List<Supplier>>() {
+            List<Supplier> supplierList = mapper.readValue(new File("JSONs/supplier.json"), new TypeReference<List<Supplier>>() {
             });
             data.setSuppliers(supplierList);
 
-            List<Frame> frameList = mapper.readValue(new File("frame.json"), new TypeReference<List<Frame>>() {
+            List<Frame> frameList = mapper.readValue(new File("JSONs/frame.json"), new TypeReference<List<Frame>>() {
             });
             data.setComponents(frameList);
 
-            List<Saddle> saddleList = mapper.readValue(new File("saddle.json"), new TypeReference<List<Saddle>>() {
+            List<Saddle> saddleList = mapper.readValue(new File("JSONs/saddle.json"), new TypeReference<List<Saddle>>() {
             });
             data.updateComponent(saddleList);
 
-            ArrayList<Fork> forkList = mapper.readValue(new File("fork.json"), new TypeReference<List<Fork>>() {
+            ArrayList<Fork> forkList = mapper.readValue(new File("JSONs/fork.json"), new TypeReference<List<Fork>>() {
             });
             data.updateComponent(forkList);
 
-            ArrayList<Bike> bikeList = mapper.readValue(new File("bikes.json"), new TypeReference<List<Bike>>() {
+            ArrayList<Bike> bikeList = mapper.readValue(new File("JSONs/bikes.json"), new TypeReference<List<Bike>>() {
             });
             data.setBikes(bikeList);
 
             mapper.registerModule(new JavaTimeModule());
 
-            ArrayList<Ship> shipList = mapper.readValue(new File("ships.json"), new TypeReference<List<Ship>>() {
+            ArrayList<Ship> shipList = mapper.readValue(new File("JSONs/ships.json"), new TypeReference<List<Ship>>() {
             });
             data.setShips(shipList);
 
-            List<BusinessDay> businessDayList = JSONClass.getBusinessDays();
+            List<BusinessDay> businessDayList = JSONService.getBusinessDays();
 
 
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
-            HashMap<LocalDate, HashMap<Country, Boolean>> workingDaysMap = JSONClass.getHoliday();
+            HashMap<LocalDate, HashMap<Country, Boolean>> workingDaysMap = JSONService.getHoliday();
             for (BusinessDay bd : businessDayList) {
                 LocalDate ld = bd.getDate();
 
