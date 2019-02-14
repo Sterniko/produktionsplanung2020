@@ -31,22 +31,9 @@ public class SalesService {
         ArrivalCalculatorService acs = new ArrivalCalculatorService(new ShipService(dataBean), dataBean);
         LocalDate latestPossibleSentDate = acs.calculateLatestPossibleSendDate(arrivalDate, country);
         if (pES.placeCustomrOrder(today, latestPossibleSentDate,bikes, hasPrio)) {
-            //TODO dem Warehouse bzw Produktion bescheid geben dass wir sachen entwenden und neu bestellen
             return true;
         } else {
-
-
             return false;
-            /* LocalDate earlierstSaddleArrival = acs.calculateDeliveryFrom(today, Country.CHINA);
-            LocalDate latestShipmentDate = acs.calculateLatestPossibleSendDate(arrivalDate, country);
-
-            if(!earlierstSaddleArrival.isAfter(latestShipmentDate)){
-                //ODO platz in der Production
-                return true;
-            }else{
-                return false;
-            }
-            */
         }
     }
 

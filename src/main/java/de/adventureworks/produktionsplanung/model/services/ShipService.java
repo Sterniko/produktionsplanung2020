@@ -71,7 +71,6 @@ public class ShipService {
         for(Ship available: ships){
             if(available.getDeparture().isAfter(todaysDate) || available.getDeparture().isEqual(todaysDate)){
                 availableShips.add(available);
-                //TODO frage ist ob auch schiffe die am heutigen Tag abfahren in frage kommen zweiter BoolTerm
             }
         }
         if(availableShips==null){
