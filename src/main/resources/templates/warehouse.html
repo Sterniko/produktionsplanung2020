@@ -12,14 +12,22 @@
         #dtHorizontalVerticalExample th, td {
             white-space: nowrap;
         }
+
+        .smallerDiv {
+            float: left;
+            margin: auto;
+            padding: 2px;
+            width: 35%;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Warehouse</title>
 </head>
 <body>
 
-<div id="warehouseDiv" >
-    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%" border="1">
+<div id="warehouseDiv">
+    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+           width="100%" border="1">
         <tr>
             <th>Woche</th>
             <td colspan="7" th:each="week: ${businessWeeks}">
@@ -28,8 +36,8 @@
         </tr>
         <tr>
             <th>Datum</th>
-                <td th:each="bd: ${businessDays}">
-                    <p th:each="entry: ${bd.getWorkingDays()}">
+            <td th:each="bd: ${businessDays}">
+                <p th:each="entry: ${bd.getWorkingDays()}">
                         <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
                                 <span th:if="${entry.getValue()}">
                                     <span style="color:red" th:utext="${bd.getDate()}"></span>
@@ -39,9 +47,9 @@
                                 </span>
                         </span>
 
-                    </p>
+                </p>
 
-                </td>
+            </td>
         </tr>
 
         <tr th:each="component: ${components}">
@@ -56,22 +64,22 @@
 </div>
 </br>
 
+
+<div class="smallerDiv container">
     <form class="form-group form-control-sm" method="POST" th:action="@{/warehouse}" th:object="${warehouseRequest}">
         <div class="form-group form-control-sm">
             <span>Datum:</span>
-                <input type="date" th:field="*{date}" />
-                </br>
-                <span th:each="component: ${components}">
-                    <br>
-                        <span th:utext="${component.name}" ></span>:
-                        <input type="number" th:field="*{warehouseMap[__${component.name}__]}" />
-
+            <input type="date" th:field="*{date}" class="form-control" required/>
+            <span th:each="component: ${components}">
+                        <span th:utext="${component.name}"></span>:
+                        <input type="number" th:field="*{warehouseMap[__${component.name}__]}" class="form-control" required/>
                 </span>
-                </br>
+            </br>
             <button type="submit" class="btn btn-primary" name="submit" value="value">Change Components</button>
+            </br>
+            </br>
         </div>
-
     </form>
-
+</div>
 </body>
 </html>
