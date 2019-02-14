@@ -6,20 +6,52 @@
     <title>Schiff Uebersicht</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-    <style>.column {
-        float: left;
-        margin: auto;
-        padding: 20px;
-        width: 45%;
-    }</style>
+    <style>
+        .column {
+            float: left;
+            margin: auto;
+            padding: 20px;
+            width: 45%;
+        }
+
+        a {
+            color: aliceblue;
+        }
+
+        a:hover {
+            color: darkgray;
+        }
+
+    </style>
 
 
 </head>
 <body>
+<div class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <span class="text-muted">
+        <div class="links">
+        <a href="/">Home</a>
+        <a href="/showShips">Schiffe</a>
+        <a href="/warehouse">Warehouse</a>
+        <a href="/production">Production</a>
+        <a href="/sales">Kundenbestellung</a>
+        <a href="/">Lieferungen</a>
+        </div>
+        </span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+</div>
 
 
 <div class="container">
-
     </br>
     </br>
     <h1>Schiff Übersicht</h1>
@@ -58,7 +90,8 @@
             <form method="POST" th:action="@{/updateShip}" th:object="${updateShipRequest}">
                 <label>Schiff wählen:</label>
                 <select th:field="*{name}" class="form-control" id="schff">
-                    <option th:each="schiff: ${schiffe}" th:value="${schiff.name}"><span th:text="|${schiff.name}|"></span></option>
+                    <option th:each="schiff: ${schiffe}" th:value="${schiff.name}"><span
+                            th:text="|${schiff.name}|"></span></option>
                 </select>
                 <br>
                 <label>Neue Ankunftszeit:</label>
@@ -74,8 +107,9 @@
             <br>
             <form method="POST" th:action="@{/deleteShip}" th:object="${deleteShipRequest}">
                 <label>Schiff wählen:</label>
-                <select th:field="*{name}" class="form-control"  id="schffdel">
-                    <option th:each="schiff: ${schiffe}" th:value="${schiff.name}"><span th:text="|${schiff.name}|"></span></option>
+                <select th:field="*{name}" class="form-control" id="schffdel">
+                    <option th:each="schiff: ${schiffe}" th:value="${schiff.name}"><span
+                            th:text="|${schiff.name}|"></span></option>
                 </select>
                 <br>
                 <br>
