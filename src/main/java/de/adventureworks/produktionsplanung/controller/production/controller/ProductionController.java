@@ -5,6 +5,7 @@ package de.adventureworks.produktionsplanung.controller.production.controller;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
+import de.adventureworks.produktionsplanung.model.services.SortService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,7 @@ import de.adventureworks.produktionsplanung.controller.production.model.Producti
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+
 
 @Controller
 public class ProductionController {
@@ -30,6 +30,9 @@ public class ProductionController {
     @Autowired
     BusinessCalendar businessCalendar;
 
+    @Autowired
+    SortService sortService;
+
     public ProductionController() {
 
     }
@@ -41,28 +44,13 @@ public class ProductionController {
         Map<Country, Boolean> workingDayMap = new HashMap<>();
 
         //get BusinessDays
-        for(Map.Entry<LocalDate, BusinessDay> entry : this.productionModel.getBusinessDays().entrySet()){
-            businessDayList.add(entry.getValue());
-        }
+        businessDayList = sortService.mapToListBusinessDays(this.productionModel.getBusinessDays());
         //sort them
-        Collections.sort(businessDayList, new Comparator<BusinessDay>() {
-                    public int compare(BusinessDay o1, BusinessDay o2) {
-                        if(o1.getDate().isAfter(o2.getDate())){
-                            return 1;
-                        }
-                        return -1;
-                    }
-        });
+        businessDayList = sortService.sortBusinessDayList(businessDayList);
 
         //work with them
         for(BusinessDay bd : businessDayList){
-            if(!this.businessCalendar.isWorkingDay(bd.getDate())){
-                workingDayMap.put(Country.GERMANY, Boolean.TRUE);
-            }
-            else{
-                workingDayMap.put(Country.GERMANY, Boolean.FALSE);
-            }
-            bd.setWorkingDays(workingDayMap);
+
 
             LocalDate date = bd.getDate();
             this.productionService.setProductionForDay(date);
