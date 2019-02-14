@@ -54,4 +54,9 @@ public class RequestMapper {
 
     }
 
+
+    public static boolean mapStringToBoolean(String s){
+        return Boolean.valueOf(s);
+    }
+
 }

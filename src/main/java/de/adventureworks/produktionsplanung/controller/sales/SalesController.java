@@ -43,7 +43,7 @@ public class SalesController {
         LocalDate customerDeliveryDate = salesRequest.getCustomerDeliveryDate();
         LocalDate sendingDate = null; //TODO: Methode für spätestes sendingdate
         Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(salesRequest.getBikeMap(), dataBean.getBikes());
-
+        boolean isPrio = RequestMapper.mapStringToBoolean(salesRequest.getPrio());
         BusinessDay deliveryDay = dataBean.getBusinessDay(customerDeliveryDate);
 
 

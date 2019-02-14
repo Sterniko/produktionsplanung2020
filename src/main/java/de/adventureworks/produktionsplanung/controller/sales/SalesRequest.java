@@ -14,13 +14,13 @@ public class SalesRequest {
     private LocalDate customerDeliveryDate;
     private Country country;
     private Map<String, Integer> bikeMap;
-    boolean prio;
+    String prio;
 
 
     public SalesRequest() {
     }
 
-    public SalesRequest(LocalDate placementDate, LocalDate customerDeliveryDate, Country country, Map<String, Integer> bikeMap, boolean prio) {
+    public SalesRequest(LocalDate placementDate, LocalDate customerDeliveryDate, Country country, Map<String, Integer> bikeMap, String prio) {
         this.placementDate = placementDate;
         this.customerDeliveryDate = customerDeliveryDate;
         this.country = country;
@@ -60,11 +60,11 @@ public class SalesRequest {
         this.bikeMap = bikeMap;
     }
 
-    public boolean isPrio() {
+    public String getPrio() {
         return prio;
     }
 
-    public void setPrio(boolean prio) {
+    public void setPrio(String prio) {
         this.prio = prio;
     }
 
@@ -78,4 +78,5 @@ public class SalesRequest {
                 ", prio=" + prio +
                 '}';
     }
+
 }

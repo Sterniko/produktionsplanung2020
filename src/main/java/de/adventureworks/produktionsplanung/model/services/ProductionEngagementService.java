@@ -45,7 +45,7 @@ public class ProductionEngagementService {
 
     }
 
-
+    //placeDate today finishProdutionDate = arrivalBeimKunden - lieferZeit
     public boolean placeCustomrOrder(LocalDate placeDate, LocalDate finishProductionDate, Map<Bike, Integer> bikes,boolean hasPrio){
         return true;
     }
