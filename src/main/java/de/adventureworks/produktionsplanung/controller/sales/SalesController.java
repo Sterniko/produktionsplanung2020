@@ -36,7 +36,7 @@ public class SalesController {
     }
 
     @RequestMapping(value = "/sales", method = RequestMethod.POST)
-    public void postAdditionalProduction(SalesRequest salesRequest) {
+    public String postAdditionalProduction(SalesRequest salesRequest) {
 
         System.out.println(salesRequest);
         Country country = salesRequest.getCountry();
@@ -45,8 +45,7 @@ public class SalesController {
         Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(salesRequest.getBikeMap(), dataBean.getBikes());
         boolean isPrio = RequestMapper.mapStringToBoolean(salesRequest.getPrio());
         BusinessDay deliveryDay = dataBean.getBusinessDay(customerDeliveryDate);
-
-
+        return "redirect:/sales";
     }
 
 }

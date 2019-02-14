@@ -3,45 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Sales</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <style>.smallerDiv {
+        float: left;
+        margin: auto;
+        padding: 20px;
+        width: 45%;
+    }</style>
 </head>
 <body>
-
-<form method="POST" th:action="@{/sales}" th:object="${salesRequest}">
-
-    Platzierungsdatum: <input type="date" th:field="*{placementDate}"/>
+<div class="container">
     <br>
-    Ankunftsdatum beim Kunden: <input type="date" th:field="*{customerDeliveryDate}"/>
+    <h1>Sales</h1>
     <br>
-
-    Fahrrad:
-
-    <span th:each="bike: ${bikes}">
+    <form method="POST" th:action="@{/sales}" th:object="${salesRequest}">
+        <div class="smallerDiv">
+            <label>Fahrrad:</label>
+            <span th:each="bike: ${bikes}">
             <span th:utext="${bike.name}"></span>
-            <input type="number" th:field="*{bikeMap[__${bike.name}__]}"/>
-            <br>
+            <input class="form-control" type="number" th:field="*{bikeMap[__${bike.name}__]}" required/>
         </span>
+        </div>
+        <div class="smallerDiv">
+            <label>Kundenland:</label>
+            <select class="form-control" th:field="*{country}">
+                <option th:each="country : ${countries}" th:value="${country}" th:text="${country}">
+                </option>
+            </select>
 
+            <label>Hat Prio:</label>
+            <select class="form-control" th:field="*{prio}">
+                <option value="true">Ja
+                </option>
+                <option value="false">Nein
+                </option>
+            </select>
 
-    Kundenland:
-    <select th:field="*{country}">
-        <option th:each="country : ${countries}" th:value="${country}" th:text="${country}">
-        </option>
-    </select>
-    <br>
+            <label>Platzierungsdatum:</label>
+            <input class="form-control" type="date" th:field="*{placementDate}" required/>
 
-
-    Hat Prio:
-    <select th:field="*{prio}">
-        <option value="true">true
-        </option>
-        <option value="false">false
-        </option>
-    </select>
-    <br>
-    <button type="submit" name="submit" value="value">This is a link that sends a POST request</button>
-
-
-</form>
+            <label>Ankunftsdatum beim Kunden:</label>
+            <input class="form-control" type="date" th:field="*{customerDeliveryDate}" required/>
+            <br>
+            <button class="btn btn-success" type="submit" name="submit" value="value">Bestellung aufgeben</button>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
