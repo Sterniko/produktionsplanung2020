@@ -27,6 +27,10 @@ public class ShipService {
 
     public void deleteShip(Ship ship, LocalDate deleteDay, DataBean databean ){
         databean.getShips().remove(ship);
+        for (LogisticsObject e : ship.getDeliveries()) {
+            BusinessDay bDay =  this.databean.getBusinessDay(ship.getArrival());
+            bDay.getReceivedDeliveries().remove(e);
+        }
         //TODO placeOrder neu bestellen---Sercan
     }
 
@@ -37,6 +41,7 @@ public class ShipService {
             BusinessDay oldBDay =  this.databean.getBusinessDay(ship.getArrival());
             oldBDay.getReceivedDeliveries().remove(e);
             this.databean.getBusinessDay(newArrival).getReceivedDeliveries().add(e);
+            //TODO BuisnessDay sicherstellen das  databean.getBusinessDay(newArrival).getReceivedDeliveries() nie null ist
             //e.setArrival(newArrival);
         }
     }
