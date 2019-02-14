@@ -2,11 +2,9 @@ package de.adventureworks.produktionsplanung.model.services.productionTrial;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -18,8 +16,6 @@ public class ProductionService2 {
     public void simulateInitialProduction(Map<Bike, Double> bikeProductionShareMap, double[] monthPercentArr, int bikesPA) {
 
     }
-
-
 
 
 }
