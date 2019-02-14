@@ -25,33 +25,14 @@ public class SalesService {
         this.dataBean = dataBean;
     }
 
-    public LocalDate checkIfOrderPossible(LocalDate today, LocalDate arrivalDate, Country country, Bike bike, int amount) {
+    public boolean checkIfOrderPossible(LocalDate today, LocalDate arrivalDate, Country country) {
 
         ArrivalCalculatorService acs = new ArrivalCalculatorService(new ShipService(dataBean), dataBean);
-        BusinessDay todayBD = dataBean.getBusinessDay(today);
-
-
-        /*
-        Fork fork = (Fork) bike.getFork();
-        Frame frame = (Frame) bike.getFrame();
-        Saddle saddle = (Saddle) bike.getSaddle();
-
-        Map<Component, Integer> componentMap = new HashMap<>();
-        componentMap.put(fork, amount);
-        componentMap.put(frame, amount);
-        componentMap.put(saddle, amount);
-        */
 
         LocalDate earlierstSaddleArrival = acs.calculateDeliveryFrom(today, Country.CHINA);
         LocalDate latestShipmentDate = acs.calculateLatestPossibleSendDate(arrivalDate, country);
 
-        if(earlierstSaddleArrival.isAfter(latestShipmentDate)){
-            System.out.println("Ihr vollpfosten ist zu spät");
-        }
-        else{
-            System.out.println("ist nicht zu spät funktioniert super");
-        }
-
-        return null;
+        return !earlierstSaddleArrival.isAfter(latestShipmentDate);
     }
+
 }
