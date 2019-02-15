@@ -111,6 +111,8 @@ public class OrderService {
         Map<Component, Integer> componentMap = logisticsObject.getComponents();
 
         logisticsObject.setSumAmount(logisticsObject.getSumAmount() + amount);
+        int oldamount = componentMap.get(component);
+        amount *= oldamount;
         componentMap.put(component, amount);
         logisticsObject.setComponents(componentMap);
         pendingSupplierAmount.put(component.getSupplier(), logisticsObject);
