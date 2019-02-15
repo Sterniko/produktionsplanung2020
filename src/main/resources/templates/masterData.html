@@ -32,8 +32,8 @@
     <br>
 
 
-    <div class="smallerDiv container">
-        <form method="POST" th:action="@{/masterData}" th:object="${masterDataRequest}">
+    <div class="container">
+        <form method="POST" th:action="@{/postProductionValues}" th:object="${masterDataRequest}">
             <div class="form-group form-control-sm">
                 <br>
                 <label>Yearly:</label>
@@ -46,21 +46,29 @@
                 <td th:text="${hourlyCapacity}"></td>
                 </p>
                 <input class="form-control" type="number" th:field="*{hourlyCapacity}" required/>
+                <button class="btn btn-primary" type="submit" name="submit" value="value">Produktionsvorgaben ändern
+                </button>
+
+            </div>
+        </form>
+        <div>
+            <form method="POST" th:action="@{/postBikeValues}" th:object="${masterDataRequest}">
+                <div class="form-group form-control-sm">
 
                 <span th:each="bike:${bikes}">
                     <br>
                     <td th:text="${bike.name}"></td>
                     <br>
-                    <input class="form-control" type="number" step="0.01" th:field="*{+}" required/>
+                    <input class="form-control" type="number" step="0.01"
+                           th:field="*{bikeProductionShares[__${bike.name}__]}" required/>
                 </span>
-
-
-                <br>
-
-
-                <button class="btn btn-primary" type="submit" name="submit" value="value">Stammdaten ändern</button>
-            </div>
-        </form>
+                    <br>
+                    <button class="btn btn-primary" type="submit" name="submit" value="value">Bikes ändern</button>
+                    <br>
+                    <br>
+                </div>
+            </form>
+        </div>
     </div>
     <div th:replace="fragments/scripts :: script"></div>
 </div>

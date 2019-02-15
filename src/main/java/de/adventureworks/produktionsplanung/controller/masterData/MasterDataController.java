@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.Map;
+
 @Controller
 public class MasterDataController {
 
@@ -27,14 +29,24 @@ public class MasterDataController {
         return "masterData";
     }
 
-    @RequestMapping(value = "/masterData", method = RequestMethod.POST)
-    public String postMasterData(MasterDataRequest masterDataRequest) {
+    @RequestMapping(value = "/postProductionValues", method = RequestMethod.POST)
+    public String postProductionValues(MasterDataRequest masterDataRequest) {
 
         int yearlyProduction = masterDataRequest.getYearlyCapacity();
         int hourlyCapacity = masterDataRequest.getHourlyCapacity();
 
         dataBean.setHourlyCapacity(hourlyCapacity);
         dataBean.setYearlyProduction(yearlyProduction);
+
+
+        return "redirect:/masterData";
+    }
+
+    @RequestMapping(value = "/postBikeValues", method = RequestMethod.POST)
+    public String postBikeValues(MasterDataRequest masterDataRequest) {
+
+        Map<String, Double> bikeMap = masterDataRequest.getBikeProductionShares();
+        System.out.println(bikeMap);
 
 
         return "redirect:/masterData";
