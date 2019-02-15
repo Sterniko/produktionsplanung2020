@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:fragment="Menu">
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+                <span class="text-muted">
+            <div class="links">
+            <a href="/">Home</a>
+            <a href="/showShips">Schiffe</a>
+            <a href="/warehouse">Lager</a>
+            <a href="/production">Produktion</a>
+            <a href="/sales">Kundenbestellung</a>
+            <a href="/marketing">Marketing</a>
+            <a href="/deliveries">Lieferungen</a>
+            </div>
+            </span>
+            </div>
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+</div>
+
+
+</html>
