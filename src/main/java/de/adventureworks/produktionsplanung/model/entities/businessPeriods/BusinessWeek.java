@@ -1,12 +1,14 @@
 package de.adventureworks.produktionsplanung.model.entities.businessPeriods;
 
-import java.util.List;
-import java.util.Objects;
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
+
+import java.util.*;
 
 public class BusinessWeek implements Comparable<BusinessWeek> {
 
     private List<BusinessDay> days;
     private int calendarWeek;
+    private Map<Bike, Integer> plannedProduction;
 
 
 
@@ -15,14 +17,22 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
 
     private int workingHours;
 
-
-    public BusinessWeek(List<BusinessDay> days, int calendarWeek, int workingHours) {
+    public BusinessWeek(List<BusinessDay> days, int calendarWeek, Map<Bike, Integer> plannedProduction, int workingHours) {
         this.days = days;
         this.calendarWeek = calendarWeek;
+        this.plannedProduction = plannedProduction;
         this.workingHours = workingHours;
     }
 
-    public BusinessWeek(){}
+    public BusinessWeek(){
+        days = new ArrayList<>();
+        plannedProduction = new HashMap<>();
+    }
+
+    public BusinessWeek(int calendarWeek) {
+        this();
+        this.calendarWeek = calendarWeek;
+    }
 
 
     public int getWorkingHours() {
@@ -74,6 +84,14 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
 
     public void setCalendarWeek(int calendarWeek) {
         this.calendarWeek = calendarWeek;
+    }
+
+    public Map<Bike, Integer> getPlannedProduction() {
+        return plannedProduction;
+    }
+
+    public void setPlannedProduction(Map<Bike, Integer> plannedProduction) {
+        this.plannedProduction = plannedProduction;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package de.adventureworks.produktionsplanung.model.entities.bike;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Bike {
@@ -49,6 +51,14 @@ public class Bike {
 
     public void setSaddle(Saddle saddle) {
         this.saddle = saddle;
+    }
+
+    public List<Component> getComponents() {
+        List<Component> components = new ArrayList<>();
+        components.add(fork);
+        components.add(frame);
+        components.add(saddle);
+        return components;
     }
 
     @Override
