@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,11 +65,12 @@ public class OrderService {
                     deliveryDate.setReceivedDeliveries(newList);
                     bdMap.put(deliveryLocalDate, deliveryDate);
                     dataBean.setBusinessDays(bdMap);
+                    Map<Component, Integer> newComponentMap = new HashMap<>();
                     for (Component c : componentMap.keySet()) {
-                        componentMap.put(c, 0);
+                        newComponentMap.put(c, 0);
                     }
                     LogisticsObject newLo = new LogisticsObject();
-                    newLo.setComponents(componentMap);
+                    newLo.setComponents(newComponentMap);
                     pendingSupplierMap.put(supplier, newLo);
                     bd.setPendingSupplierAmount(pendingSupplierMap);
 
@@ -135,6 +137,7 @@ public class OrderService {
         logisticsObject.setComponents(componentMap);
         pendingSupplierAmount.put(component.getSupplier(), logisticsObject);
         bd.setPendingSupplierAmount(pendingSupplierAmount);
+        System.out.println("hi");
     }
 
 
