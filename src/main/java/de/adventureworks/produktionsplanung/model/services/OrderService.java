@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,13 @@ public class OrderService {
                 }
                 newRecievedList.add(lo);
                 dataBean.getBusinessDay(arrivalDate).setReceivedDeliveries(newRecievedList);
+
+                Map<Component, Integer> newComponentMap = new HashMap<>();
+
+                for (Component c : componentMap.keySet()) {
+                    newComponentMap.put(c, 0);
+                }
+                lo.setComponents(newComponentMap);
 
             }
         }
