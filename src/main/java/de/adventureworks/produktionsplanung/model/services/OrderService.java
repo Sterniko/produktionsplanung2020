@@ -52,6 +52,7 @@ public class OrderService {
                     newComponentMap.put(c, 0);
                 }
                 lo.setComponents(newComponentMap);
+                lo.setSumAmount(0);
 
             }
         }
