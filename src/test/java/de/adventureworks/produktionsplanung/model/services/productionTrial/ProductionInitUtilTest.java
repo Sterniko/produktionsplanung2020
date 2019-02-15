@@ -2,7 +2,6 @@ package de.adventureworks.produktionsplanung.model.services.productionTrial;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.services.DataInitService;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,7 +16,7 @@ import java.util.*;
 
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration (classes = {DataBean.class, DataInitService.class})
-public class HelperMethodsTest {
+public class ProductionInitUtilTest {
 
     @Autowired
     private DataBean dataBean;
@@ -89,7 +88,7 @@ public class HelperMethodsTest {
         @Test
         public void TestGetAbsoluteMonthlyProduction () {
 
-            Map<Integer, Map<Bike, Integer>> absoluteProduction = HelperMethods.getAbsoluteMonthlyProduction(relativeBikeProduction, monthPercentArr, yearlyProduction);
+            Map<Integer, Map<Bike, Integer>> absoluteProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(relativeBikeProduction, monthPercentArr, yearlyProduction);
             System.out.println(absoluteProduction);
 
             int sum = calculateSumOfYearlyProduction(absoluteProduction);
@@ -103,9 +102,9 @@ public class HelperMethodsTest {
 
         @Test
         public void testGetDailyFromMonthlyProduction() {
-            Map<Integer, Map<Bike, Integer>> monthlyProduction = HelperMethods.getAbsoluteMonthlyProduction(relativeBikeProduction, monthPercentArr, yearlyProduction);
+            Map<Integer, Map<Bike, Integer>> monthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(relativeBikeProduction, monthPercentArr, yearlyProduction);
 
-            Map<LocalDate, Map<Bike, Integer>> dailyProduction = HelperMethods.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2019);
+            Map<LocalDate, Map<Bike, Integer>> dailyProduction = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2019);
 
             System.out.println(dailyProduction);
 
@@ -139,6 +138,7 @@ public class HelperMethodsTest {
 
         }
 
+/*
         @Test
         public void testBusinessWeeks() {
 
@@ -169,6 +169,7 @@ public class HelperMethodsTest {
             }
 
         }
+*/
 
         private static int calculateSumOfYearlyProduction(Map<Integer, Map<Bike, Integer>> yearlyProduction) {
 

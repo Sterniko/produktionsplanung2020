@@ -23,15 +23,20 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     private Map<Country, Boolean> workingDays;
     private Map<Bike, Integer> plannedProduction;
+    private Map<Bike, Integer> productionOverhang;
     private Map<Bike, Integer> additionalProduction;
     private Map<Bike, Integer> actualProduction;
 
     private Map<Component, Integer> warehouseStock;
 
     public BusinessDay(){
+        productionOverhang = new HashMap<>();
     }
 
     public BusinessDay(LocalDate date, Map<Supplier, LogisticsObject> pendingSupplierAmount, List<LogisticsObject> sentDeliveries, List<LogisticsObject> receivedDeliveries, Map<Country, Boolean> workingDays, Map<Bike, Integer> plannedProduction, Map<Bike, Integer> additionalProduction, Map<Bike, Integer> actualProduction, Map<Component, Integer> warehouseStock) {
+        productionOverhang = new HashMap<>();
+
+
         this.date = date;
         this.pendingSupplierAmount = pendingSupplierAmount;
         this.sentDeliveries = sentDeliveries;
@@ -122,6 +127,14 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public void setBusinessWeek(BusinessWeek businessWeek) {
         this.businessWeek = businessWeek;
+    }
+
+    public Map<Bike, Integer> getProductionOverhang() {
+        return productionOverhang;
+    }
+
+    public void setProductionOverhang(Map<Bike, Integer> productionOverhang) {
+        this.productionOverhang = productionOverhang;
     }
 
     @Override

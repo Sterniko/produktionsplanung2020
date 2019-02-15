@@ -1,20 +1,16 @@
 package de.adventureworks.produktionsplanung.model.services.productionTrial;
 
-import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.bike.Component;
-import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import org.springframework.stereotype.Service;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
 @Service
-public final class HelperMethods {
+public final class ProductionInitUtil {
 
-    private HelperMethods() {
+    private ProductionInitUtil() {
 
     }
 
@@ -68,17 +64,20 @@ public final class HelperMethods {
 
         BusinessCalendar businessCalendar = new BusinessCalendar();
         LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
-        LocalDate lastDayOfYear = LocalDate.of(year, 12, 31);
+        LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
 
         Map<Integer, List<LocalDate>> workingDaysInMonth = new HashMap<>();
+        List<LocalDate> offDays = new ArrayList<>();
 
-        for (LocalDate date = firstDayOfYear; date.isBefore(lastDayOfYear); date = date.plusDays(1)) {
+        for (LocalDate date = firstDayOfYear; date.isBefore(firstDayOfNextYear); date = date.plusDays(1)) {
+            Integer monthValue = date.getMonthValue();
             if (businessCalendar.isWorkingDay(date)) {
-                Integer monthValue = date.getMonthValue();
                 if (!workingDaysInMonth.containsKey(monthValue)) {
                     workingDaysInMonth.put(monthValue, new ArrayList<>());
                 }
                 workingDaysInMonth.get(monthValue).add(date);
+            } else {
+                offDays.add(date);
             }
         }
 
@@ -88,11 +87,13 @@ public final class HelperMethods {
             int workingDaysNo = workingDaysInMonth.get(monthValue).size();
             Map<Bike, Integer> productionToBeDistributed = yearlyProduction.get(monthValue);
 
-            // initializing Map for every day
+            // initializing Map for every working day
             for (LocalDate date : workingDaysInMonth.get(monthValue)) {
                 dailyProductionMap.put(date, new HashMap<>());
 
             }
+
+
             //Distribution of monthly to daily production
 
             Stack<Bike> notEvenlyDistributableStack = new Stack<Bike>();
@@ -110,6 +111,7 @@ public final class HelperMethods {
                 for (int i = 0; i < notEvenlyDistributable; i++) {
                     notEvenlyDistributableStack.push(bike);
                 }
+
 
             }
 
@@ -129,11 +131,21 @@ public final class HelperMethods {
 
         }
 
+        Set<Bike> bikesToBeProduced = yearlyProduction.get(1).keySet();
+        Map<Bike, Integer> emptyBikeProdMap = new HashMap<>();
+        for (Bike bike : bikesToBeProduced) {
+            emptyBikeProdMap.put(bike, 0);
+        }
+
+        for (LocalDate date : offDays) {
+            dailyProductionMap.put(date, new HashMap<>(emptyBikeProdMap));
+        }
+
         return dailyProductionMap;
 
     }
 
-    static List<BusinessWeek> createBusinessWeeksFromWorkingDayProduction(Map<LocalDate, Map<Bike, Integer>> dailyProduction, int year, DataBean dataBean) {
+/*    static List<BusinessWeek> createBusinessWeeksFromWorkingDayProduction(Map<LocalDate, Map<Bike, Integer>> dailyProduction, int year, DataBean dataBean) {
 
         List<BusinessWeek> businessWeeks = new ArrayList<>();
 
@@ -169,5 +181,5 @@ public final class HelperMethods {
         }
 
         return businessWeeks;
-    }
+    }*/
 }
