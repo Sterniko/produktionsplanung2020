@@ -51,8 +51,10 @@ public class OrderService {
                 for (Component c : componentMap.keySet()) {
                     newComponentMap.put(c, 0);
                 }
-                lo.setComponents(newComponentMap);
-                lo.setSumAmount(0);
+                LogisticsObject logisticsObject = new LogisticsObject();
+                logisticsObject.setComponents(newComponentMap);
+                logisticsObject.setSumAmount(0);
+
 
             }
         }
