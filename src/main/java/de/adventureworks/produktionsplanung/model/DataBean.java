@@ -1,9 +1,6 @@
 package de.adventureworks.produktionsplanung.model;
 
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.bike.Fork;
-import de.adventureworks.produktionsplanung.model.entities.bike.Frame;
-import de.adventureworks.produktionsplanung.model.entities.bike.Saddle;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
@@ -12,7 +9,6 @@ import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.services.DataInitService;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -90,5 +86,19 @@ public class DataBean {
         return data.getComponents();
     }
 
+    public List<Integer> getShifts() {
+        return data.getShifts();
+    }
 
+    public void setShifts(List<Integer> shifts) {
+        data.setShifts(shifts);
+    }
+
+    public int getHourlyCapacity() {
+        return data.getHourlyCapacity();
+    }
+
+    public void setHourlyCapacity(int hourlyCapacity) {
+        data.setHourlyCapacity(hourlyCapacity);
+    }
 }
