@@ -67,7 +67,10 @@ public class WarehouseController {
                 warehouseRequest.getWarehouseMap(), dataBean.getComponents());
 
         businessDay.setWarehouseStock(componentMap);
-        
+
+        orderService.addToOrder(businessDay, componentMap);
+        orderService.placeOrder(businessDay);
+        System.out.println("h");
     }
 
 
