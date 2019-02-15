@@ -100,6 +100,20 @@ public class OrderService {
         }
     }
 
+    public static void addPendingSupplierAmountToDay(Map<Supplier, LogisticsObject> addedPendingSupplierAmount, BusinessDay bd, DataBean dataBean) {
+
+
+        for (Supplier s : addedPendingSupplierAmount.keySet()) {
+            LogisticsObject lo = addedPendingSupplierAmount.get(s);
+            Map<Component, Integer> componentMap = lo.getComponents();
+            for (Component c : componentMap.keySet()) {
+                int amount = componentMap.get(c);
+                OrderService.addAmount(bd, amount, c);
+            }
+
+        }
+    }
+
 
     private static int getSumAmount(Supplier supplier, BusinessDay bd) {
 
