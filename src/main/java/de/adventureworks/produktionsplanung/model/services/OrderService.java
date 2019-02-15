@@ -43,6 +43,8 @@ public class OrderService {
                 for (LogisticsObject logisticsObject : oldRecievedList) {
                     newRecievedList.add(logisticsObject);
                 }
+                lo.setDepartureDate(bd.getDate());
+                lo.setArrivalDate(arrivalDate);
                 newRecievedList.add(lo);
                 dataBean.getBusinessDay(arrivalDate).setReceivedDeliveries(newRecievedList);
 
