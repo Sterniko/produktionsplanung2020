@@ -1,0 +1,4502 @@
+{
+  "2019-01-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-21": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-01-01": {
+    "USA": true,
+    "CHINA": true,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-01-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-18": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-06": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-05": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-04": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-02-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-02-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-03-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2020-03-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-07": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-06": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-05": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-04-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-27": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-05-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-07": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-06-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-04": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-07-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-08-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-13": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-02": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-09-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-14": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-03": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-02": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-10-01": {
+    "USA": false,
+    "CHINA": true,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-28": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-25": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-22": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-12": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-11": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-11": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-11-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-11-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-31": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-30": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-29": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-28": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-27": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-26": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-25": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-25": {
+    "USA": true,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": true,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-24": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-23": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-22": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-21": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-20": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-19": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-18": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-17": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-16": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-15": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-14": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-13": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-12": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-11": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-10": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-09": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-08": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-07": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-06": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": true,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-05": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-04": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-03": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-02": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2018-12-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": false,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  },
+  "2019-12-01": {
+    "USA": false,
+    "CHINA": false,
+    "SPAIN": false,
+    "GERMANY": true,
+    "FRANCE": false,
+    "SWITZERLAND": false,
+    "AUSTRIA": false
+  }
+}

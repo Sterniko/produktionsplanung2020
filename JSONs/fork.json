@@ -1,0 +1,275 @@
+[
+  {
+    "name": "Fox32 F100",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "Fox32 F80",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "Fox Talas140",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "Rock Schox Reba",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "Rock Schox Recon351",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "Rock Schox ReconSL",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  },
+  {
+    "name": "SR Suntour Raidon",
+    "supplier": {
+      "name": "Tenedores de Zaragoza",
+      "lotSize": 75,
+      "leadTime": 14,
+      "country": "SPAIN",
+      "components": [
+        {
+          "name": "Fox32 F100",
+          "supplier": null
+        },
+        {
+          "name": "Fox32 F80",
+          "supplier": null
+        },
+        {
+          "name": "Fox Talas140",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Reba",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox Recon351",
+          "supplier": null
+        },
+        {
+          "name": "Rock Schox ReconSL",
+          "supplier": null
+        },
+        {
+          "name": "SR Suntour Raidon",
+          "supplier": null
+        }
+      ]
+    }
+  }
+]
