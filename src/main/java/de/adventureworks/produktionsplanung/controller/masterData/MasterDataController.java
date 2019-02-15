@@ -1,6 +1,8 @@
 package de.adventureworks.produktionsplanung.controller.masterData;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
+import de.adventureworks.produktionsplanung.model.services.MasterDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,9 @@ public class MasterDataController {
     @Autowired
     private DataBean dataBean;
 
+    @Autowired
+    private MasterDataService masterDataService;
+
     public MasterDataController() {
     }
 
@@ -25,6 +30,7 @@ public class MasterDataController {
         model.addAttribute("yearlyProduction", dataBean.getYearlyProduction());
         model.addAttribute("bikes", dataBean.getBikes());
         model.addAttribute("masterDataRequest", new MasterDataRequest());
+        model.addAttribute("months", masterDataService.getMonthList());
 
         return "masterData";
     }
@@ -45,12 +51,24 @@ public class MasterDataController {
     @RequestMapping(value = "/postBikeValues", method = RequestMethod.POST)
     public String postBikeValues(MasterDataRequest masterDataRequest) {
 
-        Map<String, Double> bikeMap = masterDataRequest.getBikeProductionShares();
-        System.out.println(bikeMap);
+        Map<String, Double> stringBikeMap = masterDataRequest.getBikeProductionShares();
+        Map<Bike, Double> bikeMap = masterDataService.convertStringToBikes(stringBikeMap);
+        dataBean.setBikeProductionShares(bikeMap);
+
+        return "redirect:/masterData";
+    }
+
+    @RequestMapping(value = "/postMonthValues", method = RequestMethod.POST)
+    public String postMonthsValues(MasterDataRequest masterDataRequest) {
+
+        Map<String, Double> stringMonthMap = masterDataRequest.getMonthProductionShares();
+        Map<Integer, Double> doubleMonthMap = masterDataService.convertMonthsStringToDouble(stringMonthMap);
+        dataBean.setMonthlyProductionShares(doubleMonthMap);
 
 
         return "redirect:/masterData";
     }
+
 
 
 }
