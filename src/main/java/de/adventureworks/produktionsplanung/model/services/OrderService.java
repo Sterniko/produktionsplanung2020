@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,8 +18,10 @@ import java.util.Map;
 @Service
 public class OrderService {
 
+    @Autowired
+    private DataBean dataBean;
 
-    public static void placeOrder(BusinessDay bd, DataBean dataBean) {
+    public void placeOrder(BusinessDay bd) {
 
         ShipService shipService = new ShipService(dataBean);
         ArrivalCalculatorService arrivalCalculatorService = new ArrivalCalculatorService(shipService, dataBean);
