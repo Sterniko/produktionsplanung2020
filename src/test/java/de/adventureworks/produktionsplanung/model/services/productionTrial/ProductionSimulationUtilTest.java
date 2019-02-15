@@ -79,37 +79,34 @@ public class ProductionSimulationUtilTest {
     @Test
     public void tryToAchieveDailyProductionTest() {
         Map<Bike, Integer> kaufen1 = new HashMap<>();
+        Map<Bike, Integer> kaufen2 = new HashMap<>();
+
         kaufen1.put(bikeA, 10);
         kaufen1.put(bikeB, 50);
-        Map<Bike, Integer> kaufen2 = new HashMap<>();
         kaufen2.put(bikeA, 5);
         kaufen2.put(bikeB, 5);
 
-
         Map<Bike, Integer> ergebnis1 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen1, warehouse, 65);
-        initWareHouse();
         Map<Bike, Integer> ergebnis2 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen1, warehouse, 55);
-        initWareHouse();
         Map<Bike, Integer> ergebnis3 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen2, warehouse, 55);
 
         Map<Bike, Integer> expected1 = new HashMap<>();
+        Map<Bike, Integer> expected2 = new HashMap<>();
+        Map<Bike, Integer> expected3 = new HashMap<>();
+
         expected1.put(bikeA, 9);
         expected1.put(bikeB, 50);
-        Map<Bike, Integer> expected2 = new HashMap<>();
-        expected2.put(bikeA, 9);
-        expected2.put(bikeB, 46);
-        Map<Bike, Integer> expected3 = new HashMap<>();
+        expected2.put(bikeA, 5);
+        expected2.put(bikeB, 50);
         expected3.put(bikeA, 5);
         expected3.put(bikeB, 5);
 
-
-
-        assertEquals(expected1,ergebnis1);
-        //assertEquals(expected2,ergebnis2);
-        assertEquals(expected3,ergebnis3);
+        assertEquals(expected1, ergebnis1);
+        assertEquals(expected2, ergebnis2);
+        assertEquals(expected3, ergebnis3);
     }
 
-    private void initWareHouse(){
+    private void initWareHouse() {
         warehouse = new HashMap<>();
         warehouse.put(frameA, 10);
         warehouse.put(forkA, 10);
@@ -120,56 +117,59 @@ public class ProductionSimulationUtilTest {
     }
 
     @Test
-    public void countingBikesTest(){
+    public void countingBikesTest() {
         Map<Bike, Integer> kaufen1 = new HashMap<>();
+        Map<Bike, Integer> kaufen2 = new HashMap<>();
+
         kaufen1.put(bikeA, 10);
         kaufen1.put(bikeB, 50);
-        Map<Bike, Integer> kaufen2 = new HashMap<>();
         kaufen2.put(bikeA, 5);
         kaufen2.put(bikeB, 5);
-        kaufen2.put(new Bike(),0);
+        kaufen2.put(new Bike(), 0);
 
-        assertEquals(60,ProductionSimulationUtil.countBikes(kaufen1));
-        assertEquals(10,ProductionSimulationUtil.countBikes(kaufen2));
+        assertEquals(60, ProductionSimulationUtil.countBikes(kaufen1));
+        assertEquals(10, ProductionSimulationUtil.countBikes(kaufen2));
 
     }
 
     @Test
-    public void MapCalcTest(){
+    public void MapCalcTest() {
         Map<Bike, Integer> kaufen1 = new HashMap<>();
+        Map<Bike, Integer> kaufen2 = new HashMap<>();
+        Map<Bike, Integer> expected = new HashMap<>();
+        Map<Bike, Integer> expected1 = new HashMap<>();
+        Bike bikeC = new Bike("bikeC", null, null, null);
+
         kaufen1.put(bikeA, 10);
         kaufen1.put(bikeB, 50);
-        Map<Bike, Integer> kaufen2 = new HashMap<>();
         kaufen2.put(bikeA, 5);
         kaufen2.put(bikeB, 5);
-        Bike bikeC= new Bike("bikeC", null, null, null);
-        kaufen1.put(bikeC,30);
+        kaufen1.put(bikeC, 30);
 
-        Map<Bike, Integer> expected = new HashMap<>();
         expected.put(bikeA, 5);
         expected.put(bikeB, 45);
-        expected.put(bikeC,30);
-        assertEquals(expected,ProductionSimulationUtil.substractMaps(kaufen1,kaufen2));
-
-        //soll Exception werfen
-        try{
-            ProductionSimulationUtil.substractMaps(kaufen2,kaufen1);
-            assertEquals(true,false);
-        }catch(IllegalArgumentException e){
-            assertEquals(true,true);
-        }
-
-/*
-        Map<Bike, Integer> expected1 = new HashMap<>();
+        expected.put(bikeC, 30);
         expected1.put(bikeA, 15);
         expected1.put(bikeB, 55);
-        expected1.put(bikeC,30);
-        assertEquals(expected1,ProductionSimulationUtil.addMaps(kaufen1,kaufen2));
+        expected1.put(bikeC, 30);
 
-*/
+
+        assertEquals(expected1, ProductionSimulationUtil.addMaps(kaufen1, kaufen2));
+        assertEquals(expected, ProductionSimulationUtil.substractMaps(kaufen1, kaufen2));
+        try {
+            ProductionSimulationUtil.substractMaps(kaufen2, kaufen1);
+            assertEquals(true, false);
+        } catch (IllegalArgumentException e) {
+            assertEquals(true, true);
+        }
 
     }
 
+
+    @Test
+    public void substractProductionFromWarehouseTest(){
+
+    }
 
 
 }
