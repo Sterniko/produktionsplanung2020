@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Marketing</title>
+    <title>Stammdaten</title>
 
     <style>
         a {
@@ -28,7 +28,7 @@
 </div>
 <div class="container">
     <br>
-    <h1>Marketing Nachfrage erhöhen</h1>
+    <h1>Stammdaten verändern</h1>
     <br>
 
 
@@ -37,15 +37,21 @@
             <div class="form-group form-control-sm">
                 <br>
                 <label>Yearly:</label>
+                <p>Current yearly production: =
+                <td th:text="${yearlyProduction}"></td>
+                </p>
                 <input class="form-control" type="number" th:field="*{yearlyCapacity}" required/>
                 <label>Hourly:</label>
+                <p>Current hourly capacity =
+                <td th:text="${hourlyCapacity}"></td>
+                </p>
                 <input class="form-control" type="number" th:field="*{hourlyCapacity}" required/>
 
 
                 <br>
 
 
-                <button class="btn btn-primary" type="submit" name="submit" value="value">Nachfrage erhöhen</button>
+                <button class="btn btn-primary" type="submit" name="submit" value="value">Stammdaten ändern</button>
             </div>
         </form>
     </div>
