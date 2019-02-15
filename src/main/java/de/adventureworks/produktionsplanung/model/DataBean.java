@@ -101,4 +101,28 @@ public class DataBean {
     public void setHourlyCapacity(int hourlyCapacity) {
         data.setHourlyCapacity(hourlyCapacity);
     }
+
+    public int getYearlyProduction() {
+        return data.getYearlyProduction();
+    }
+
+    public void setYearlyProduction(int yearlyProduction) {
+        data.setYearlyProduction(yearlyProduction);
+    }
+
+    public Map<Bike, Double> getBikeProductionShares() {
+        return data.getBikeProductionShares();
+    }
+
+    public void setBikeProductionShares(Map<Bike, Double> bikeProductionShares) {
+        data.setBikeProductionShares(bikeProductionShares);
+    }
+
+    public Map<Integer, Double> getMonthlyProductionShares() {
+        return data.getMonthlyProductionShares();
+    }
+
+    public void setMonthlyProductionShares(Map<Integer, Double> monthlyProductionShares) {
+        data.setMonthlyProductionShares(monthlyProductionShares);
+    }
 }

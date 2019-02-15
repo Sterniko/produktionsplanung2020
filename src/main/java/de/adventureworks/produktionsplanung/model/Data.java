@@ -26,8 +26,11 @@ public class Data {
     private List<Component> components;
     private List<Integer> shifts;
     private int hourlyCapacity;
+    private int yearlyProduction;
+    private Map<Bike, Double> bikeProductionShares;
+    private Map<Integer, Double> monthlyProductionShares;
 
-    public Data(Map<LocalDate, BusinessDay> businessDays, List<BusinessWeek> businessWeeks, List<Ship> ships, List<Customer> customers, List<Supplier> suppliers, List<Bike> bikes, List<Component> components, List<Integer> shifts, int hourlyCapacity) {
+    public Data(Map<LocalDate, BusinessDay> businessDays, List<BusinessWeek> businessWeeks, List<Ship> ships, List<Customer> customers, List<Supplier> suppliers, List<Bike> bikes, List<Component> components, List<Integer> shifts, int hourlyCapacity, int yearlyProduction, Map<Bike, Double> bikeProductionShares, Map<Integer, Double> monthlyProductionShares) {
         this.businessDays = businessDays;
         this.businessWeeks = businessWeeks;
         this.ships = ships;
@@ -37,6 +40,9 @@ public class Data {
         this.components = components;
         this.shifts = shifts;
         this.hourlyCapacity = hourlyCapacity;
+        this.yearlyProduction = yearlyProduction;
+        this.bikeProductionShares = bikeProductionShares;
+        this.monthlyProductionShares = monthlyProductionShares;
     }
 
     public Data() {}
@@ -118,5 +124,29 @@ public class Data {
 
     public void setHourlyCapacity(int hourlyCapacity) {
         this.hourlyCapacity = hourlyCapacity;
+    }
+
+    public int getYearlyProduction() {
+        return yearlyProduction;
+    }
+
+    public void setYearlyProduction(int yearlyProduction) {
+        this.yearlyProduction = yearlyProduction;
+    }
+
+    public Map<Bike, Double> getBikeProductionShares() {
+        return bikeProductionShares;
+    }
+
+    public void setBikeProductionShares(Map<Bike, Double> bikeProductionShares) {
+        this.bikeProductionShares = bikeProductionShares;
+    }
+
+    public Map<Integer, Double> getMonthlyProductionShares() {
+        return monthlyProductionShares;
+    }
+
+    public void setMonthlyProductionShares(Map<Integer, Double> monthlyProductionShares) {
+        this.monthlyProductionShares = monthlyProductionShares;
     }
 }
