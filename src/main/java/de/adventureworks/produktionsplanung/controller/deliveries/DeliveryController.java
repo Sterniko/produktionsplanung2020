@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +32,21 @@ public class DeliveryController {
         //sort them
         businessDayList = sortService.sortBusinessDayList(businessDayList);
 
+
+
         model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
         model.addAttribute("businessDays", businessDayList);
 
 
         return "deliveries";
+    }
+
+    @RequestMapping(value = "/deliveries", method = RequestMethod.POST)
+    public String setDelivery(Model model) {
+        //Post Map Component,Integer -> Neue Bestellung
+        //Post
+
+        return "deliveries";
+
     }
 }

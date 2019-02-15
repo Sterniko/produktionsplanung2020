@@ -3,6 +3,7 @@ package de.adventureworks.produktionsplanung.model.entities.logistics;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Objects;
 
@@ -11,6 +12,10 @@ public class LogisticsObject {
     private Supplier supplier;
     private int sumAmount;
     private Map<Component, Integer> components;
+
+
+    private LocalDate arrivalDate;
+    private LocalDate departureDate;
 
     public LogisticsObject(){}
 
@@ -48,6 +53,21 @@ public class LogisticsObject {
         this.components = components;
     }
 
+    public LocalDate getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(LocalDate arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
