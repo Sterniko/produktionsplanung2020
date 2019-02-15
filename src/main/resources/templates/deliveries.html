@@ -21,7 +21,7 @@
                 <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
                 <td th:each="lo : ${bd.getSentDeliveries()}">
                     <span>ID:</span>
-                    <span th:utext="${lo.getId()}"></span>
+                    <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
                     <br>
                     <span>Supplier:</span>
                     <span th:utext="${lo.getSupplier().getName()}"></span>
@@ -34,8 +34,7 @@
                         <span th:utext="${lo.getComponents().get(comp)}"></span>
                         <input class="form-control" value="0" type="number" th:field="*{compMap[__${comp.getName()}__]}" required/>
                     </p>
-                    <span>ID:</span>
-                    <input class="form-control" type="number" th:field="*{id}" required/>
+
 
                     <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern</button>
 
@@ -48,7 +47,7 @@
                 <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
                     <td th:each="lo : ${bd.getReceivedDeliveries()}">
                         <span>ID:</span>
-                        <span th:utext="${lo.getId()}"></span>
+                        <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
                         <br>
                         <span>Supplier:</span>
                         <span th:utext="${lo.getSupplier().getName()}"></span>
@@ -61,8 +60,6 @@
                             <span th:utext="${lo.getComponents().get(comp)}"></span>
                             <input class="form-control" value="0" type="number" th:field="*{compMap[__${comp.getName()}__]}" required/>
                         </p>
-                        <span>ID:</span>
-                        <input class="form-control" type="number" th:field="*{id}" required/>
 
                         <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern</button>
                     </td>
