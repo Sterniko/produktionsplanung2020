@@ -61,11 +61,73 @@ public class DataInitService {
             data.setShips(shipList);
 
             ArrayList<Integer> shiftList = new ArrayList<>();
+
             shiftList.add(7);
             shiftList.add(14);
             shiftList.add(21);
-            data.setHourlyCapacity(65);
+
             data.setShifts(shiftList);
+
+            Map<Bike, Double> bikeProductionShares = new HashMap<>();
+
+            for (Bike bike : bikeList) {
+                switch (bike.getName()) {
+                    case ("MTBAllrounder"):
+                        bikeProductionShares.put(bike, 0.3);
+                        break;
+                    case ("MTBCompetition"):
+                        bikeProductionShares.put(bike, 0.15);
+                        break;
+                    case ("MTBDownhill"):
+                        bikeProductionShares.put(bike, 0.1);
+                        break;
+                    case ("MTBExtreme"):
+                        bikeProductionShares.put(bike, 0.07);
+                        break;
+                    case ("MTBFreeride"):
+                        bikeProductionShares.put(bike, 0.05);
+                        break;
+                    case ("MTBMarathon"):
+                        bikeProductionShares.put(bike, 0.08);
+                        break;
+                    case ("MTBPerformance"):
+                        bikeProductionShares.put(bike, 0.12);
+                        break;
+                    case ("MTBTrail"):
+
+                        bikeProductionShares.put(bike, 0.13);
+                        break;
+                }
+            }
+
+            data.setBikeProductionShares(bikeProductionShares);
+
+            Map<Integer, Double> monthlyProductionShares = new HashMap<>();
+
+            double[] monthPercentArr = new double[12];
+
+            monthPercentArr[0] = 0.04;
+            monthPercentArr[1] = 0.06;
+            monthPercentArr[2] = 0.1;
+            monthPercentArr[3] = 0.16;
+            monthPercentArr[4] = 0.14;
+            monthPercentArr[5] = 0.13;
+            monthPercentArr[6] = 0.12;
+            monthPercentArr[7] = 0.09;
+            monthPercentArr[8] = 0.06;
+            monthPercentArr[9] = 0.03;
+            monthPercentArr[10] = 0.04;
+            monthPercentArr[11] = 0.03;
+
+            for (int i = 1; i < 13; i++) {
+                monthlyProductionShares.put(i, monthPercentArr[i - 1]);
+            }
+
+            data.setMonthlyProductionShares(monthlyProductionShares);
+
+            data.setHourlyCapacity(65);
+
+            data.setYearlyProduction(185000);
             List<BusinessDay> businessDayList = JSONService.getBusinessDays();
 
 
@@ -123,21 +185,20 @@ public class DataInitService {
 
             List<BusinessWeek> businessWeekList = new ArrayList<>();
             //Set BusinessWeeks
-            for(int i = 1 ; i< 53; i++){
+            for (int i = 1; i < 53; i++) {
                 List<BusinessDay> businessDayToWeekList = new ArrayList<>();
 
                 BusinessWeek bw = new BusinessWeek();
-                for(BusinessDay bd : businessDayList){
+                for (BusinessDay bd : businessDayList) {
 
                     int week = this.businessCalendar.getCalendarWeekFromDate(bd.getDate());
                     //TODO : JAHRE -> 2019 KW 1 .. 2020 KW 1 ... in BW speichern ?!
-                    if(week == i){
-                        if( bd.getDate().getYear() == 2019 && bd.getDate().getMonthValue() == 1){
+                    if (week == i) {
+                        if (bd.getDate().getYear() == 2019 && bd.getDate().getMonthValue() == 1) {
                             bw.setYear(2019);
                             businessDayToWeekList.add(bd);
 
-                        }
-                        else if( bd.getDate().getYear() == 2019 && week != 1 ){
+                        } else if (bd.getDate().getYear() == 2019 && week != 1) {
                             bw.setYear(2019);
                             businessDayToWeekList.add(bd);
                         }

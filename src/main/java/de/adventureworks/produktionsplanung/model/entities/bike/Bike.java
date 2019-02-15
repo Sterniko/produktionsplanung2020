@@ -66,15 +66,12 @@ public class Bike {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bike bike = (Bike) o;
-        return Objects.equals(name, bike.name) &&
-                Objects.equals(frame, bike.frame) &&
-                Objects.equals(fork, bike.fork) &&
-                Objects.equals(saddle, bike.saddle);
+        return Objects.equals(name, bike.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, frame, fork, saddle);
+        return Objects.hash(name);
     }
 
     @Override
