@@ -71,21 +71,18 @@ public class Supplier {
         this.components = (List<Component>) components;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Supplier supplier = (Supplier) o;
-        return lotSize == supplier.lotSize &&
-                leadTime == supplier.leadTime &&
-                Objects.equals(name, supplier.name) &&
-                country == supplier.country &&
-                Objects.equals(components, supplier.components);
+        return Objects.equals(name, supplier.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, lotSize, leadTime, country, components);
+        return Objects.hash(name);
     }
 
     @Override
