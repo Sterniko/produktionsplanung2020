@@ -36,7 +36,7 @@ public class MasterDataController {
         dataBean.setYearlyProduction(yearlyProduction);
 
 
-        return "redirect:/marketing";
+        return "redirect:/masterData";
     }
 
 
