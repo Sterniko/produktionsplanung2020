@@ -61,23 +61,28 @@ public final class ProductionSimulationUtil {
         return warehouseStock;
     }
 
+
+
     //gibt maximale mögliche Produktion zurück. Wenn dailyShouldProduction möglich ist, ist sie der Rückgabewert. Effektiv wird die actualProduction berechnet.
     static Map<Bike, Integer> tryToAchieveDailyProduction(Map<Bike, Integer> dailyShouldProduction, Map<Component, Integer> wareHouseStock, int maxProdCapacity) {
         int cap = maxProdCapacity;
+        Map<Component, Integer> wareHouseStockCopy = new HashMap<>(wareHouseStock);
         Map<Bike ,Integer> actuallyPossibleProduction = new HashMap<>();
+
         for (Bike bike : dailyShouldProduction.keySet()) {
             int achievdProductions = 1;
             List<Component> neededComponents = bike.getComponents();
             int neededAmount = dailyShouldProduction.get(bike);
             for (int i = 0; i < neededAmount && cap > 0; i++) {
-                int forkAmount= wareHouseStock.get(neededComponents.get(0));
-                int frameAmount=wareHouseStock.get(neededComponents.get(1));
-                int saddleAmount= wareHouseStock.get(neededComponents.get(2));
+                int forkAmount= wareHouseStockCopy.get(neededComponents.get(0));
+                int frameAmount=wareHouseStockCopy.get(neededComponents.get(1));
+                int saddleAmount= wareHouseStockCopy.get(neededComponents.get(2));
                 if (forkAmount>0&&frameAmount>0&&saddleAmount>0) {
-                    wareHouseStock.put(neededComponents.get(0),forkAmount-1);
-                    wareHouseStock.put(neededComponents.get(1),frameAmount-1);
-                    wareHouseStock.put(neededComponents.get(2),saddleAmount-1);
+                    wareHouseStockCopy.put(neededComponents.get(0),forkAmount-1);
+                    wareHouseStockCopy.put(neededComponents.get(1),frameAmount-1);
+                    wareHouseStockCopy.put(neededComponents.get(2),saddleAmount-1);
                     actuallyPossibleProduction.put(bike,achievdProductions++);
+                    cap--;
                 }
             }
         }
@@ -92,22 +97,22 @@ public final class ProductionSimulationUtil {
         return sum;
     }
 
-
     static Map<Component, Integer> substractProductionFromWarehouse(Map<Bike, Integer> production, Map<Component, Integer> warehouse) {
+        Map<Component, Integer> result= new HashMap(warehouse);
         for(Bike bike: production.keySet()){
             List<Component> bikeComponent = bike.getComponents();
             for(Component component: bikeComponent){
+                if(warehouse.get(component)==null){throw new IllegalArgumentException("Die Komponente ist gar nicht auf Lager");}
                 int compStock= warehouse.get(component);
                 int subtractAmount= production.get(bike);
                 if(subtractAmount>compStock){
                     throw new IllegalArgumentException("Du wolltest mehr löschen als überhaupt da war,... du Penner!");
                 }
-                warehouse.put(component,compStock-subtractAmount);
+                result.put(component,compStock-subtractAmount);
             }
         }
-        return warehouse;
+        return result;
     }
-
 
     static <T> Map<T, Integer> addMaps(Map<T, Integer> map1, Map<T, Integer> map2) {
         Map<T,Integer> result= new HashMap<>();
@@ -128,6 +133,7 @@ public final class ProductionSimulationUtil {
     }
 
     static <T> Map<T, Integer> substractMaps(Map<T, Integer> minuend, Map<T, Integer> subtrahend){
+        Map<T, Integer> result= new HashMap<>(minuend);
         for(T e: subtrahend.keySet()){
             if(!minuend.containsKey(e)){
                 throw new IllegalArgumentException("Die du willst ein Element aus der Map löschen was gar nicht vorhanden ist");
@@ -136,11 +142,11 @@ public final class ProductionSimulationUtil {
                 throw new IllegalArgumentException("Du möchtest mehr aus der Map löschen als vorhanden ist, das Problem ist bei"+e);
             }
             else{
-                int actualValue= minuend.get(e);
-                minuend.put(e,actualValue-subtrahend.get(e));
+                int actualValue= result.get(e);
+                result.put(e,actualValue-subtrahend.get(e));
             }
         }
-        return minuend;
+        return result;
     }
 
 
