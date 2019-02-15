@@ -4,14 +4,12 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
-import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +22,7 @@ public class OrderService {
         ShipService shipService = new ShipService(dataBean);
         ArrivalCalculatorService arrivalCalculatorService = new ArrivalCalculatorService(shipService, dataBean);
         for (Supplier supplier : dataBean.getSuppliers()) {
+
             Map<Supplier, LogisticsObject> pendingSupplierMap = bd.getPendingSupplierAmount();
             LogisticsObject lo = pendingSupplierMap.get(supplier);
             Map<Component, Integer> componentMap = lo.getComponents();
@@ -34,48 +33,18 @@ public class OrderService {
 
             if ((orderedAmount) >= supplierLotsize) {
 
-                if (supplier.getCountry() == Country.CHINA) {
-                    LocalDate localDate = bd.getDate();
-                    LocalDate deliveryDate = arrivalCalculatorService.calculateDeliveryFrom(localDate, Country.CHINA);
-                    Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
-                    BusinessDay departureDay = bdMap.get(localDate);
-                    BusinessDay arrivalDay = bdMap.get(deliveryDate);
-                    List<LogisticsObject> sentDeliveriesList = departureDay.getSentDeliveries();
-                    sentDeliveriesList.add(lo);
-                    List<LogisticsObject> recievedDeliveriesList = arrivalDay.getReceivedDeliveries();
-                    recievedDeliveriesList.add(lo);
-                    OrderService.setDeliveryDate(lo);
-                    System.out.println(deliveryDate);
-
-
-                } else {
-                    List<LogisticsObject> list = bd.getSentDeliveries();
-                    list.add(lo);
-                    bd.setSentDeliveries(list);
-                    OrderService.setDeliveryDate(lo);
-                    LocalDate deliveryLocalDate = arrivalCalculatorService.calculateDeliveryFrom(bd.getDate(), supplier.getCountry());
-                    Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
-                    BusinessDay deliveryDate = bdMap.get(deliveryLocalDate);
-                    List<LogisticsObject> deliverList = deliveryDate.getSentDeliveries();
-                    List<LogisticsObject> newList = new ArrayList<>();
-                    for (LogisticsObject logisticsObject : deliverList) {
-                        newList.add(logisticsObject);
-                    }
-                    newList.add(lo);
-                    deliveryDate.setReceivedDeliveries(newList);
-                    bdMap.put(deliveryLocalDate, deliveryDate);
-                    dataBean.setBusinessDays(bdMap);
-                    Map<Component, Integer> newComponentMap = new HashMap<>();
-                    for (Component c : componentMap.keySet()) {
-                        newComponentMap.put(c, 0);
-                    }
-                    LogisticsObject newLo = new LogisticsObject();
-                    newLo.setComponents(newComponentMap);
-                    pendingSupplierMap.put(supplier, newLo);
-                    bd.setPendingSupplierAmount(pendingSupplierMap);
-
-
+                List<LogisticsObject> oldSentList = bd.getSentDeliveries();
+                LocalDate arrivalDate = arrivalCalculatorService.calculateDeliveryFrom(bd.getDate(), supplier.getCountry());
+                System.out.println(arrivalDate);
+                oldSentList.add(lo);
+                List<LogisticsObject> oldRecievedList = dataBean.getBusinessDay(arrivalDate).getReceivedDeliveries();
+                List<LogisticsObject> newRecievedList = new ArrayList<>();
+                for (LogisticsObject logisticsObject : oldRecievedList) {
+                    newRecievedList.add(logisticsObject);
                 }
+                newRecievedList.add(lo);
+                dataBean.getBusinessDay(arrivalDate).setReceivedDeliveries(newRecievedList);
+
             }
         }
     }
@@ -137,7 +106,6 @@ public class OrderService {
         logisticsObject.setComponents(componentMap);
         pendingSupplierAmount.put(component.getSupplier(), logisticsObject);
         bd.setPendingSupplierAmount(pendingSupplierAmount);
-        System.out.println("hi");
     }
 
 
