@@ -29,15 +29,24 @@ public class MasterDataController {
         return "masterData";
     }
 
-    @RequestMapping(value = "/masterData", method = RequestMethod.POST)
-    public String postMasterData(MasterDataRequest masterDataRequest) {
-        Map<String,Double> bikeMap = masterDataRequest.getBikeProductionShares();
-        System.out.println(bikeMap);
+    @RequestMapping(value = "/postProductionValues", method = RequestMethod.POST)
+    public String postProductionValues(MasterDataRequest masterDataRequest) {
+
         int yearlyProduction = masterDataRequest.getYearlyCapacity();
         int hourlyCapacity = masterDataRequest.getHourlyCapacity();
 
         dataBean.setHourlyCapacity(hourlyCapacity);
         dataBean.setYearlyProduction(yearlyProduction);
+
+
+        return "redirect:/masterData";
+    }
+
+    @RequestMapping(value = "/postBikeValues", method = RequestMethod.POST)
+    public String postBikeValues(MasterDataRequest masterDataRequest) {
+
+        Map<String, Double> bikeMap = masterDataRequest.getBikeProductionShares();
+        System.out.println(bikeMap);
 
 
         return "redirect:/masterData";
