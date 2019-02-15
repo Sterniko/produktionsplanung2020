@@ -52,14 +52,6 @@ public class OrderService {
                     list.add(lo);
                     bd.setSentDeliveries(list);
                     OrderService.setDeliveryDate(lo);
-                    for (Component c : componentMap.keySet()) {
-                        componentMap.put(c, 0);
-                    }
-                    lo.setSumAmount(0);
-                    lo.setComponents(componentMap);
-                    pendingSupplierMap.put(supplier, lo);
-                    bd.setPendingSupplierAmount(pendingSupplierMap);
-
                     LocalDate deliveryLocalDate = arrivalCalculatorService.calculateDeliveryFrom(bd.getDate(), supplier.getCountry());
                     Map<LocalDate, BusinessDay> bdMap = dataBean.getBusinessDays();
                     BusinessDay deliveryDate = bdMap.get(deliveryLocalDate);
@@ -72,6 +64,15 @@ public class OrderService {
                     deliveryDate.setReceivedDeliveries(newList);
                     bdMap.put(deliveryLocalDate, deliveryDate);
                     dataBean.setBusinessDays(bdMap);
+                    for (Component c : componentMap.keySet()) {
+                        componentMap.put(c, 0);
+                    }
+                    LogisticsObject newLo = new LogisticsObject();
+                    newLo.setComponents(componentMap);
+                    pendingSupplierMap.put(supplier, newLo);
+                    bd.setPendingSupplierAmount(pendingSupplierMap);
+
+
                 }
             }
         }
