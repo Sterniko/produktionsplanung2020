@@ -130,6 +130,7 @@ public class DataInitService {
             data.setYearlyProduction(185000);
             List<BusinessDay> businessDayList = JSONService.getBusinessDays();
 
+            int logisticObjectCounter = 0;
 
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
             HashMap<LocalDate, HashMap<Country, Boolean>> workingDaysMap = JSONService.getHoliday();
@@ -141,7 +142,8 @@ public class DataInitService {
                 for (Component c : data.getComponents()) {
                     Supplier s = c.getSupplier();
                     if (pendingSupplierAmount.get(s) == null) {
-                        LogisticsObject lo = new LogisticsObject(s, 0, null);
+                        LogisticsObject lo = new LogisticsObject(s, 0, null, logisticObjectCounter);
+                        logisticObjectCounter++;
                         Map<Component, Integer> componentMap = new HashMap<>();
                         componentMap.put(c, 0);
                         lo.setComponents(componentMap);

@@ -12,17 +12,20 @@ public class LogisticsObject {
     private Supplier supplier;
     private int sumAmount;
     private Map<Component, Integer> components;
+    private int id;
 
 
     private LocalDate arrivalDate;
     private LocalDate departureDate;
 
-    public LogisticsObject(){}
+    public LogisticsObject() {
+    }
 
-    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components) {
+    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components, int id) {
         this.supplier = supplier;
         this.sumAmount = sumAmount;
         this.components = components;
+        this.id = id;
     }
 
     public LogisticsObject(Supplier supplier) {
@@ -68,6 +71,15 @@ public class LogisticsObject {
     public void setDepartureDate(LocalDate departureDate) {
         this.departureDate = departureDate;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
