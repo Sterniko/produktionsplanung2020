@@ -40,7 +40,7 @@ public class ProductionSimulationUtilTest {
         frameA = new Frame("Frame a", null);
         frameB = new Frame("Frame b", null);
         forkA = new Fork("Fork a", null);
-        forkB = new Fork("Fork a", null);
+        forkB = new Fork("Fork b", null);
         saddleA = new Saddle("Saddle a", null);
         saddleB = new Saddle("Saddle b", null);
         bikeA = new Bike("BikeA", frameA, forkA, saddleA);
@@ -106,16 +106,6 @@ public class ProductionSimulationUtilTest {
         assertEquals(expected3, ergebnis3);
     }
 
-    private void initWareHouse() {
-        warehouse = new HashMap<>();
-        warehouse.put(frameA, 10);
-        warehouse.put(forkA, 10);
-        warehouse.put(saddleA, 9);
-        warehouse.put(frameB, 100);
-        warehouse.put(forkB, 100);
-        warehouse.put(saddleB, 200);
-    }
-
     @Test
     public void countingBikesTest() {
         Map<Bike, Integer> kaufen1 = new HashMap<>();
@@ -168,8 +158,56 @@ public class ProductionSimulationUtilTest {
 
     @Test
     public void substractProductionFromWarehouseTest(){
+        Map<Bike, Integer> delete1 = new HashMap<>();
+        Map<Bike, Integer> delete2 = new HashMap<>();
+        Map<Bike, Integer> delete3 = new HashMap<>();
+        Map<Bike, Integer> delete4 = new HashMap<>();
+
+        Bike bikeC = new Bike("bikeC",null,null,null);
+
+        delete1.put(bikeA, 9);
+        delete1.put(bikeB, 50);
+        delete2.put(bikeA, 10000);
+        delete2.put(bikeB, 50);
+        delete3.put(bikeA, 10);
+        delete3.put(bikeB, 50);
+        delete3.put(bikeC,1);
+
+        Map<Component, Integer> excpect1 = new HashMap<>();
+
+        excpect1.put(frameA, 1);
+        excpect1.put(forkA, 1);
+        excpect1.put(saddleA, 0);
+        excpect1.put(frameB, 50);
+        excpect1.put(forkB, 50);
+        excpect1.put(saddleB, 150);
+
+        assertEquals(excpect1,ProductionSimulationUtil.substractProductionFromWarehouse(delete1,warehouse));
+        try {
+            ProductionSimulationUtil.substractProductionFromWarehouse(delete2,warehouse);
+            assertEquals(true,false);
+        }catch(Exception e){
+            assertEquals(true,true);
+        }
+        try {
+            ProductionSimulationUtil.substractProductionFromWarehouse(delete3,warehouse);
+            assertEquals(true,false);
+        }catch(Exception e){
+            assertEquals(true,true);
+        }
+
+
 
     }
 
+    private void initWareHouse() {
+        warehouse = new HashMap<>();
+        warehouse.put(frameA, 10);
+        warehouse.put(forkA, 10);
+        warehouse.put(saddleA, 9);
 
+        warehouse.put(frameB, 100);
+        warehouse.put(forkB, 100);
+        warehouse.put(saddleB, 200);
+    }
 }
