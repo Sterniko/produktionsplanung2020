@@ -2,10 +2,12 @@ package de.adventureworks.produktionsplanung.controller.ship;
 
 
 import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorService;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionSimulationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 @Controller
 public class ShipController {
@@ -58,13 +61,5 @@ public class ShipController {
     public String goHome(Model model) {
         return "home";
     }
-
-    @RequestMapping(value = "/aaaa")
-    public String CalcTest(Model model) {
-        ArrivalCalculatorService arrivalCalculatorService = new ArrivalCalculatorService(service, dataBean);
-        System.out.println(arrivalCalculatorService.calculateDeliveryFrom(LocalDate.of(2019, 1, 22), Country.CHINA));
-        return "home";
-    }
-
 
 }
