@@ -2,6 +2,7 @@ package de.adventureworks.produktionsplanung.model.services.productionTrial;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
+import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import de.adventureworks.produktionsplanung.model.services.DataInitService;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @RunWith( SpringJUnit4ClassRunner.class )
-@ContextConfiguration (classes = {DataBean.class, DataInitService.class})
+@ContextConfiguration (classes = {DataBean.class, DataInitService.class, BusinessCalendar.class})
 public class ProductionInitUtilTest {
 
     @Autowired
