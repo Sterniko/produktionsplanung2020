@@ -89,7 +89,7 @@ public class OrderService {
         }
     }
 
-    public static void addPendingSupplierAmountToDay(Map<Supplier, LogisticsObject> addedPendingSupplierAmount, BusinessDay bd, DataBean dataBean) {
+    public void addPendingSupplierAmountToDay(Map<Supplier, LogisticsObject> addedPendingSupplierAmount, BusinessDay bd) {
 
 
         for (Supplier s : addedPendingSupplierAmount.keySet()) {
