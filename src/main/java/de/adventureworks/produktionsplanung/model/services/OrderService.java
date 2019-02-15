@@ -54,6 +54,7 @@ public class OrderService {
                 LogisticsObject logisticsObject = new LogisticsObject();
                 logisticsObject.setComponents(newComponentMap);
                 logisticsObject.setSumAmount(0);
+                pendingSupplierMap.put(supplier, logisticsObject);
 
 
             }
