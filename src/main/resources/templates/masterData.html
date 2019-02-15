@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Marketing</title>
+
+    <style>
+        a {
+            color: aliceblue;
+        }
+
+        a:hover {
+            color: darkgray;
+        }
+
+        .smallerDiv {
+            float: left;
+            margin: auto;
+            padding: 20px;
+            width: 45%;
+        }</style>
 </head>
 <body>
+<div>
+    <div th:replace="fragments/menu :: Menu"></div>
+</div>
 <div class="container">
     <br>
     <h1>Marketing Nachfrage erhöhen</h1>
@@ -12,20 +33,17 @@
 
 
     <div class="smallerDiv container">
-        <form method="POST" th:action="@{/marketing}" th:object="${marketingRequest}">
+        <form method="POST" th:action="@{/masterData}" th:object="${masterDataRequest}">
             <div class="form-group form-control-sm">
-                <label>Eintragungsdatum:</label>
-                <input class="form-control" type="date" th:field="*{placementDate}" required/>
                 <br>
-                <label>Woche:</label>
-                <input class="form-control" type="number" th:field="*{businessWeek}" required/>
+                <label>Yearly:</label>
+                <input class="form-control" type="number" th:field="*{yearlyCapacity}" required/>
+                <label>Hourly:</label>
+                <input class="form-control" type="number" th:field="*{hourlyCapacity}" required/>
+
 
                 <br>
-                <span th:each="bike: ${bikes}">
-                        <span th:utext="${bike.name}">:</span>
-                        <input class="form-control" type="number" th:field="*{bikeMap[__${bike.name}__]}" required/>
-                         <br>
-                    </span>
+
 
                 <button class="btn btn-primary" type="submit" name="submit" value="value">Nachfrage erhöhen</button>
             </div>
