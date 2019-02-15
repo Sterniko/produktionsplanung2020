@@ -216,6 +216,32 @@ public class DataInitService {
             data.setBusinessWeeks(businessWeekList);
 
 
+            HashMap<Component,Integer> delivery = new HashMap<>();
+            delivery.put(data.getComponents().get(1),50);
+            delivery.put(data.getComponents().get(2),50);
+            LogisticsObject lo = new LogisticsObject(supplierList.get(1),100,delivery,1);
+            LogisticsObject lo2 = new LogisticsObject(supplierList.get(1),100,delivery,2);
+            List<LogisticsObject> send = new ArrayList<>();
+            List<LogisticsObject> send2 = new ArrayList<>();
+            lo.setArrivalDate(LocalDate.now());
+            lo2.setArrivalDate(LocalDate.now());
+            lo.setDepartureDate(LocalDate.now().plusDays(9));
+            lo2.setDepartureDate(LocalDate.now().plusDays(9));
+
+            send.add(lo);
+
+            businessDays.get(LocalDate.now()).setSentDeliveries(send);
+            businessDays.get(LocalDate.now().plusDays(9)).setReceivedDeliveries(send);
+            send2.add(lo2);
+
+            businessDays.get(LocalDate.now().plusDays(1)).setSentDeliveries(send2);
+            List<LogisticsObject> send3 = new ArrayList<>();
+            send3.add(lo);
+            send3.add(lo2);
+            businessDays.get(LocalDate.now().plusDays(9)).setReceivedDeliveries(send3);
+            //   businessDayList.get(1).setReceivedDeliveries();
+            //    orderService = new OrderService();
+            //   orderService.placeOrder(businessDayList.get(100));
 
 
              /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
