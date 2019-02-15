@@ -246,8 +246,8 @@ public class JSONService {
         JSONService.insertHoliday(LocalDate.of(2019, 12, 25), Country.GERMANY, dateMap);
         JSONService.insertHoliday(LocalDate.of(2019, 12, 26), Country.GERMANY, dateMap);
 
-        LocalDate firstSunday = LocalDate.of(2019, 1, 6);
-        for (int i = 0; i < 364; i += 7) {
+        LocalDate firstSunday = LocalDate.of(2018, 11, 4);
+        for (int i = 0; i < 426; i += 7) {
             JSONService.insertHoliday(firstSunday.plusDays(i), Country.GERMANY, dateMap);
         }
 
