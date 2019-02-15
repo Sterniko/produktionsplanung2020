@@ -21,6 +21,7 @@ public class MasterDataController {
     public String getMasterData(Model model) {
         model.addAttribute("hourlyCapacity", dataBean.getHourlyCapacity());
         model.addAttribute("yearlyProduction", dataBean.getYearlyProduction());
+        model.addAttribute("bikes", dataBean.getBikes());
         model.addAttribute("masterDataRequest", new MasterDataRequest());
 
         return "masterData";

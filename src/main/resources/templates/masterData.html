@@ -47,6 +47,13 @@
                 </p>
                 <input class="form-control" type="number" th:field="*{hourlyCapacity}" required/>
 
+                <span th:each="bike:${bikes}">
+                    <br>
+                    <td th:text="${bike.name}"></td>
+                    <br>
+                    <input class="form-control" type="number" step="0.01" th:field="*{+}" required/>
+                </span>
+
 
                 <br>
 
