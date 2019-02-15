@@ -9,6 +9,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -107,6 +108,7 @@ public class Data {
     }
 
     public void setShifts(List<Integer> shifts) {
+        Collections.sort(shifts);
         this.shifts = shifts;
     }
 

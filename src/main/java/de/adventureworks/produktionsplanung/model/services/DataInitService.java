@@ -60,6 +60,12 @@ public class DataInitService {
             });
             data.setShips(shipList);
 
+            ArrayList<Integer> shiftList = new ArrayList<>();
+            shiftList.add(7);
+            shiftList.add(14);
+            shiftList.add(21);
+            data.setHourlyCapacity(65);
+            data.setShifts(shiftList);
             List<BusinessDay> businessDayList = JSONService.getBusinessDays();
 
 
