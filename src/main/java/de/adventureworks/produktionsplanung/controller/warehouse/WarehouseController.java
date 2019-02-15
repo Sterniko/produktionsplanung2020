@@ -30,6 +30,9 @@ public class WarehouseController {
     @Autowired
     private SortService sortService;
 
+    @Autowired
+    private OrderService orderService;
+
     public WarehouseController() {
 
     }
@@ -64,6 +67,7 @@ public class WarehouseController {
                 warehouseRequest.getWarehouseMap(), dataBean.getComponents());
 
         businessDay.setWarehouseStock(componentMap);
+        
     }
 
 

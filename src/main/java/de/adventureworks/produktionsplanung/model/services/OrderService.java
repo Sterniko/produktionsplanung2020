@@ -67,7 +67,7 @@ public class OrderService {
     }
 
 
-    public static void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
+    public void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
         for (Component c : map.keySet()) {
             if (map.get(c) != null) {
                 if (c.getSupplier().getName().equals("WernerRahmenGMBH")) {

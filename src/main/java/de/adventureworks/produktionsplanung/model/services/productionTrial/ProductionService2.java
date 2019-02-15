@@ -82,7 +82,7 @@ public class ProductionService2 {
 
                 System.out.println(orderBusinessDay);
 
-                OrderService.addToOrder(orderBusinessDay, supplierSortedComponents.get(s));
+                orderService.addToOrder(orderBusinessDay, supplierSortedComponents.get(s));
 
                 System.out.println("r");
             }
