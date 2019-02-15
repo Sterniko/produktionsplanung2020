@@ -12,7 +12,7 @@ public class MasterDataRequest {
 
     private Map<Integer, Double> monthProductionShares;
 
-    private String bike;
+    private String requestBike;
 
     private double bikeDouble;
 
@@ -21,6 +21,38 @@ public class MasterDataRequest {
     private double monthDouble;
 
     public MasterDataRequest() {
+    }
+
+    public String getRequestBike() {
+        return requestBike;
+    }
+
+    public void setRequestBike(String requestBike) {
+        this.requestBike = requestBike;
+    }
+
+    public double getBikeDouble() {
+        return bikeDouble;
+    }
+
+    public void setBikeDouble(double bikeDouble) {
+        this.bikeDouble = bikeDouble;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public double getMonthDouble() {
+        return monthDouble;
+    }
+
+    public void setMonthDouble(double monthDouble) {
+        this.monthDouble = monthDouble;
     }
 
     public int getHourlyCapacity() {

@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.Map;
+
 @Controller
 public class MasterDataController {
 
@@ -29,7 +31,8 @@ public class MasterDataController {
 
     @RequestMapping(value = "/masterData", method = RequestMethod.POST)
     public String postMasterData(MasterDataRequest masterDataRequest) {
-
+        Map<String,Double> bikeMap = masterDataRequest.getBikeProductionShares();
+        System.out.println(bikeMap);
         int yearlyProduction = masterDataRequest.getYearlyCapacity();
         int hourlyCapacity = masterDataRequest.getHourlyCapacity();
 
