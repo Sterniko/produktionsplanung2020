@@ -15,7 +15,7 @@ public final class ProductionInitUtil {
     }
 
 
-    static Map<Integer, Map<Bike, Integer>> getAbsoluteMonthlyProduction(Map<Bike, Double> relativeBikeProduction, double[] monthPercentArr, int yearlyProduction) {
+    static Map<Integer, Map<Bike, Integer>> getAbsoluteMonthlyProduction(Map<Bike, Double> relativeBikeProduction, Map<Integer, Double> monthlyProductionShares, int yearlyProduction) {
 
         //welches Bike wird im gesamten Jahr wie oft hergestellt
         Map<Bike, Integer> absoluteYearlyBikeProduction = new HashMap<>();
@@ -23,16 +23,15 @@ public final class ProductionInitUtil {
 
         for (Bike bike : relativeBikeProduction.keySet()) {
 
-
             absoluteYearlyBikeProduction.put(bike, (int) Math.round(yearlyProduction * relativeBikeProduction.get(bike)));
         }
 
         //zusätzlich auf Monate aufgeschlüsselt
         Map<Integer, Map<Bike, Integer>> absoluteProduction = new HashMap<>();
 
-        int monthNumber = 1;
-        for (double percentage : monthPercentArr) {//jeder Iterationsschritt ist 1 Monat
+        for (int monthNumber = 1; monthNumber < 13; monthNumber++) {//jeder Iterationsschritt ist 1 Monat
             Map<Bike, Integer> monthlyProductionMap = new HashMap<>();
+            double percentage = monthlyProductionShares.get(monthNumber);
 
             double overhang = 0;
             for (Bike bike : absoluteYearlyBikeProduction.keySet()) {//jeder Iterationsschritt ist 1 Fahrradproduktion im Monat
@@ -52,7 +51,6 @@ public final class ProductionInitUtil {
             }
 
             absoluteProduction.put(monthNumber, monthlyProductionMap);
-            monthNumber++;
         }
 
 

@@ -22,6 +22,7 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
         this.calendarWeek = calendarWeek;
         this.plannedProduction = plannedProduction;
         this.workingHours = workingHours;
+        Collections.sort(days);
     }
 
     public BusinessWeek(){
@@ -56,6 +57,8 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
 
     public void setDays(List<BusinessDay> days) {
         this.days = days;
+        Collections.sort(days);
+
     }
 
     @Override
@@ -92,6 +95,11 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
 
     public void setPlannedProduction(Map<Bike, Integer> plannedProduction) {
         this.plannedProduction = plannedProduction;
+    }
+
+    public BusinessDay getEarliestWorkingDay() {
+        //TODO checken nach Arbeitstagen
+        return this.days.get(0);
     }
 
     @Override

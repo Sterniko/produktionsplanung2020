@@ -4,8 +4,10 @@ import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import de.adventureworks.produktionsplanung.model.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,9 +26,13 @@ public class ProductionService2 {
     @Autowired
     OrderService orderService;
 
-    public void simulateInitialProduction(Map<Bike, Double> relativeBikeProduction, double[] monthPercentArr, int yearlyProduction, int year) {
+    @Autowired
+    private BusinessCalendar businessCalendar;
 
-        Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(relativeBikeProduction, monthPercentArr, yearlyProduction);
+    public void simulateInitialProduction(int year) {
+
+        Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(
+                dataBean.getBikeProductionShares(), dataBean.getMonthlyProductionShares(), dataBean.getYearlyProduction());
         Map<LocalDate, Map<Bike, Integer>> dailyProductionForYear = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(absoluteMonthlyProduction, year);
 
         for (LocalDate date : dailyProductionForYear.keySet()) {
@@ -47,6 +53,20 @@ public class ProductionService2 {
 
         //set deliveries
         setDeliveriesFromPlannedProduction(null, firstDayOfYear);
+
+
+        List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
+        Collections.sort(dates);
+        for (LocalDate date : dates) {
+            if (businessCalendar.isWorkingDay(date)) {
+                simulateDay(dataBean.getBusinessDay(date), null);
+                System.out.println(date + ": " + dataBean.getBusinessDay(date).getPlannedProduction());
+
+            }
+
+        }
+
+
 
 
         System.out.println("break");
@@ -109,23 +129,50 @@ public class ProductionService2 {
     }
 
     //after Order are set
-    private void simulateDay(BusinessDay businessDay) {
-        //TODO Schichten implementieren
-        int maxCap = 21 * 65;
+    private void simulateDay(BusinessDay businessDay, LocalDate maximumBackDate) {
+        List<Integer> shifts = dataBean.getShifts();
+        int maxShift = shifts.get(shifts.size()-1);
+        int maxCap;
+        boolean weeklyShiftsAlreadySet = maximumBackDate != null && maximumBackDate.isAfter(businessDay.getBusinessWeek().getEarliestWorkingDay().getDate());
+
+        if (weeklyShiftsAlreadySet) {
+            maxCap = businessDay.getBusinessWeek().getWorkingHours();
+        } else {
+            maxCap = dataBean.getHourlyCapacity() * maxShift;
+        }
+
         BusinessDay nextBusinessDay = dataBean.getBusinessDay(businessDay.getDate().plusDays(1));
-
-
         Map<Component, Integer> wareHouseStockAfterDeliveries = addDeliveriesToWarehouseStock(businessDay.getWarehouseStock(), businessDay.getReceivedDeliveries());
 
         Map<Bike, Integer> dailyShouldProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
 
+        //TODO Prio Betsellungen implementieren
         Map<Bike, Integer> actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap);
+
+        if (! weeklyShiftsAlreadySet) {
+            //TODO auslagern
+            int neededShift = shifts.get(0);
+            double neededCap = countBikes(actualDailyProduction) / dataBean.getHourlyCapacity();
+            for (int i = 0; i < shifts.size(); i++) {
+                if (neededCap > shifts.get(i)) {
+                    neededShift = shifts.get(Math.max(i, shifts.size() - 1));
+                }
+            }
+
+            BusinessWeek businessWeek = businessDay.getBusinessWeek();
+            if (businessWeek.getWorkingHours() < neededShift) {
+                businessWeek.setWorkingHours(neededShift);
+            }
+        }
+
+        businessDay.setActualProduction(actualDailyProduction);
 
 
         if (countBikes(dailyShouldProduction) != countBikes(actualDailyProduction)) {
             //soll kann nicht erfüllt werden
             nextBusinessDay.setProductionOverhang(substractMaps(dailyShouldProduction, actualDailyProduction));
         }
+
 
         Map<Component, Integer> newWarehouseStock = substractProductionFromWarehouse(actualDailyProduction, wareHouseStockAfterDeliveries);
         businessDay.setWarehouseStock(newWarehouseStock);
