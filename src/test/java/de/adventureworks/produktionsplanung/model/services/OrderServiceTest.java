@@ -15,11 +15,14 @@ import java.time.LocalDate;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {DataBean.class, DataInitService.class, BusinessCalendar.class})
+@ContextConfiguration(classes = {DataBean.class, DataInitService.class, BusinessCalendar.class, OrderService.class})
 public class OrderServiceTest {
 
     @Autowired
     private DataBean dataBean;
+
+    @Autowired
+    private OrderService orderService;
 
     @Test
     public void test() {
@@ -44,7 +47,7 @@ public class OrderServiceTest {
         businessDayMap.put(LocalDate.now(), bd);
         dataBean.setBusinessDays(businessDayMap);
 
-        OrderService.placeOrder(bd, dataBean);
+        orderService.placeOrder(bd);
         System.out.println("b");
     }
 }

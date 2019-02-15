@@ -101,8 +101,8 @@ public class ProductionService2 {
         Map<Supplier, LogisticsObject> addPendingSupplierMap = new HashMap<>();
         for (LocalDate date : allSortetLocalDays) {
             BusinessDay businessDay = dataBean.getBusinessDay(date);
-            OrderService.addPendingSupplierAmountToDay(addPendingSupplierMap, businessDay, dataBean);
-            OrderService.placeOrder(businessDay, dataBean);
+            orderService.addPendingSupplierAmountToDay(addPendingSupplierMap, businessDay);
+            orderService.placeOrder(businessDay);
             addPendingSupplierMap = businessDay.getPendingSupplierAmount();
         }
 
