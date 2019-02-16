@@ -30,18 +30,20 @@ public class ProductionService2 {
     private BusinessCalendar businessCalendar;
 
 
-    public void simulateInitialProduction(int year) {
+    public void simulateWholeProduction(int year) {
 
+        //Jahresproduction auf Monatsproduktion
         Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(
                 dataBean.getBikeProductionShares(), dataBean.getMonthlyProductionShares(), dataBean.getYearlyProduction());
+
+        //Monats- aufTagesproduktion
         Map<LocalDate, Map<Bike, Integer>> dailyProductionForYear = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(absoluteMonthlyProduction, year);
 
+        //Tagesproduktion als plannedProduktion setzen
         for (LocalDate date : dailyProductionForYear.keySet()) {
             dataBean.getBusinessDay(date).setPlannedProduction(
                     dailyProductionForYear.get(date)
             );
-
-
         }
 
 

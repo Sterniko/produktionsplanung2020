@@ -84,7 +84,8 @@
             </p>
             <br>
             <span>ID:</span>
-            <input type="hidden" class="form-control" th:field="*{id}" th:value="${lo.id}"/>
+            <span th:utext="${lo.getId()}"></span>
+            <input class="form-control" th:field="*{equalsId}" th:value="${lo.getId()}"/>
             <br>
             <br>
             <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern

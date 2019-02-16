@@ -10,7 +10,7 @@ public class DeliveryRequest {
 
     private Map<String, Integer> compMap;
 
-    private String id;
+    private String equalsid;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
@@ -20,16 +20,16 @@ public class DeliveryRequest {
 
     public DeliveryRequest(Map<String, Integer> compMap, String id, LocalDate date) {
         this.compMap = compMap;
-        this.id = id;
+        this.equalsid = id;
         this.date = date;
     }
 
-    public String getId() {
-        return id;
+    public String getEqualsId() {
+        return equalsid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setEqualsId(String id) {
+        this.equalsid = id;
     }
 
     public Map<String, Integer> getCompMap() {
