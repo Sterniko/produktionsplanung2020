@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,32 +57,13 @@ public class DeliveryController {
     @RequestMapping(value = "/deliveries", method = RequestMethod.POST)
     public String setDelivery(DeliveryRequest deliveryRequest) {
 
-        HashMap<Component, Integer> helperMap;
-        HashMap<BusinessDay, LogisticsObject> bdLoMap;
-
-        //Get Post Data
-        //Post Map Component,Integer -> Neue Bestellung
-        //Post deliveryID -> Für diese Bestellung
-
-        System.out.println(deliveryRequest.getTestField());
-
+        BusinessDay businessDay = new BusinessDay();
         String deliveryID = deliveryRequest.getId();
         //TODO : Int in Map auf < 0 prüfen!!!! sonst -werte in Bestellung ....
         Map<Component, Integer> compMap = RequestMapper.mapComponentStringMap(deliveryRequest.getCompMap(), dataBean.getComponents());
-        int sumAmount = 0;
-        List<BusinessDay> businessDays = deliveryService.getBusinessDayToDeliveryID(deliveryID);
+        deliveryService.startEvent(deliveryID, businessDay, compMap);
 
-        businessDays = sortService.sortBusinessDayList(businessDays);
 
-        if ((businessDays.size() > 1)) {
-            BusinessDay departureDay = businessDays.get(0);
-            BusinessDay arrivalDay = businessDays.get(1);
-            List<LogisticsObject> sentDeliveries = departureDay.getSentDeliveries();
-            List<LogisticsObject> receivedDeliveries = arrivalDay.getReceivedDeliveries();
-
-            deliveryService.setNewDelivery(sentDeliveries, deliveryID, compMap);
-            deliveryService.setNewDelivery(receivedDeliveries, deliveryID, compMap);
-        }
         return "redirect:/deliveries?idSent=10101010";
     }
 }

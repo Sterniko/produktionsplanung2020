@@ -42,7 +42,6 @@ public class OrderServiceTest {
             lo.setComponents(componentMap);
             pendingSupplierMap.put(s, lo);
 
-
         }
         bd.setPendingSupplierAmount(pendingSupplierMap);
         businessDayMap.put(LocalDate.now(), bd);

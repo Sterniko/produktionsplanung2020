@@ -4,11 +4,13 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.events.DeliveryChangeEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -18,41 +20,37 @@ public class DeliveryService {
     @Autowired
     DataBean dataBean;
 
-    public List<BusinessDay> getBusinessDayToDeliveryID(String deliveryID) {
-
-        List<BusinessDay> businessDays = new ArrayList<>();
-
-        for(Map.Entry bd : dataBean.getBusinessDays().entrySet()){
-            BusinessDay dayToCheck = (BusinessDay) bd.getValue();
-
-            for(LogisticsObject received : dayToCheck.getReceivedDeliveries()){
-                if(received.getId() == deliveryID){
-                    businessDays.add((BusinessDay)bd.getValue());
-                }
-            }
-            for(LogisticsObject sent : dayToCheck.getSentDeliveries()){
-                if(sent.getId() == deliveryID){
-                    businessDays.add((BusinessDay)bd.getValue());
-                }
-            }
-        }
-        return businessDays;
+    public void startEvent(String id, BusinessDay businessDay, Map<Component, Integer> compMap) {
+        DeliveryChangeEvent deliveryChangeEvent = new DeliveryChangeEvent(id, compMap);
+        List<IEvent> eventList = businessDay.getEventList();
+        eventList.add(deliveryChangeEvent);
     }
 
-    public void setNewDelivery(List<LogisticsObject> logisticsObjectList, String deliveryID, Map<Component, Integer> compMap) {
-        int sumAmount = 0;
-        for(LogisticsObject delivery :logisticsObjectList){
-            sumAmount = 0;
-            if(delivery.getId() == deliveryID){
-                delivery.setComponents(compMap);
+    public LogisticsObject getDeliveryToDeliveryID(String deliveryID) {
+
+        BusinessDay arrivalDay = getArrivalDateToDeliveryID(deliveryID);
+
+        List<LogisticsObject> receivedDeliveries = arrivalDay.getReceivedDeliveries();
+
+        LogisticsObject returningLogisticObject = null;
+
+        for (LogisticsObject lo : receivedDeliveries) {
+            if (lo.getId().equals(deliveryID)) {
+                returningLogisticObject = lo;
             }
-            for(Map.Entry entry : delivery.getComponents().entrySet()){
-                sumAmount += (Integer) entry.getValue();
-            }
-            delivery.setSumAmount(sumAmount);
         }
+        return returningLogisticObject;
 
     }
+
+    public BusinessDay getArrivalDateToDeliveryID(String deliveryID) {
+        String arrivalDateString = deliveryID.substring(0, 10);
+        LocalDate arrivalDate = LocalDate.parse(arrivalDateString);
+        BusinessDay arrivalDay = dataBean.getBusinessDay(arrivalDate);
+
+        return arrivalDay;
+    }
+
 
     public LogisticsObject getLoByID(String deliveryID) {
         for(Map.Entry bd : dataBean.getBusinessDays().entrySet()){
