@@ -15,6 +15,7 @@
             padding-top: 5px;
             text-decoration: none;
         }
+
     </style>
 </head>
 <body>
@@ -22,20 +23,20 @@
     <div th:replace="fragments/menu :: Menu"></div>
 </div>
 <div>
-    <table id="tblDeliveries">
+    <table id="tblDeliveries" class="table table-striped table-bordered table-sm">
+        <thead>
+        <th>Date</th>
+        <th>Sent Deliveries</th>
+        <th>Received Deliveries</th>
+        </thead>
         <th:block th:each="bd : ${businessDays}">
-         <tr>
-            <th>Date</th>
-            <th>Sent Deliveries</th>
-            <th>Received Deliveries</th>
-         </tr>
+            <tbody>
             <tr>
                 <td th:text="${bd.getDate()}">></td>
                 <div th:if="${bd.getSentDeliveries().size() == 0} ">
                    <td> 0 </td>
                 </div>
-
-                <td th:each="lo : ${bd.getSentDeliveries()}">
+                <td style="color : blue;" th:each="lo : ${bd.getSentDeliveries()}">
                     <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
                     <span>ID:</span>
                     <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
@@ -59,12 +60,12 @@
                     </form>
 
                 </td>
-
                 <div th:if="${bd.getReceivedDeliveries().size() == 0} ">
                     <td> 0 </td>
                 </div>
 
-                    <td th:each="lo : ${bd.getReceivedDeliveries()}">
+
+                    <td style="color:green" th:each="lo : ${bd.getReceivedDeliveries()}">
                         <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
                         <span>ID:</span>
                         <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
@@ -87,7 +88,7 @@
                         <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern</button>
                 </form>
                     </td>
-
+            </tbody>
             </th:block>
         </table>
     </form>
