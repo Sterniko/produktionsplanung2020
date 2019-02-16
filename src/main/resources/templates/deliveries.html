@@ -18,8 +18,9 @@
                 <div th:if="${bd.getSentDeliveries().size() == 0} ">
                    <td> 0 </td>
                 </div>
-                <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
+
                 <td th:each="lo : ${bd.getSentDeliveries()}">
+                    <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
                     <span>ID:</span>
                     <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
                     <br>
@@ -34,18 +35,21 @@
                         <span th:utext="${lo.getComponents().get(comp)}"></span>
                         <input class="form-control" value="0" type="number" th:field="*{compMap[__${comp.getName()}__]}" required/>
                     </p>
-
-
+                        <br>
+                    <span>ID:</span>
+                    <input th:field="*{id}"/>
+                        <br>
                     <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern</button>
-
+                    </form>
 
                 </td>
-                </form>
+
                 <div th:if="${bd.getReceivedDeliveries().size() == 0} ">
                     <td> 0 </td>
                 </div>
-                <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
+
                     <td th:each="lo : ${bd.getReceivedDeliveries()}">
+                        <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
                         <span>ID:</span>
                         <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
                         <br>
@@ -60,10 +64,14 @@
                             <span th:utext="${lo.getComponents().get(comp)}"></span>
                             <input class="form-control" value="0" type="number" th:field="*{compMap[__${comp.getName()}__]}" required/>
                         </p>
-
+                            <br>
+                            <span>ID:</span>
+                            <input th:field="*{id}"/>
+                            <br>
                         <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern</button>
-                    </td>
                 </form>
+                    </td>
+
             </th:block>
         </table>
     </form>
