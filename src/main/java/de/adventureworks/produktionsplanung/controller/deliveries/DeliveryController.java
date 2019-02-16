@@ -1,6 +1,5 @@
 package de.adventureworks.produktionsplanung.controller.deliveries;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
@@ -9,18 +8,12 @@ import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsOb
 import de.adventureworks.produktionsplanung.model.services.DeliveryService;
 import de.adventureworks.produktionsplanung.model.services.SortService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.rmi.runtime.Log;
 
-import javax.jws.WebParam;
-import java.beans.Expression;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +36,7 @@ public class DeliveryController {
     }
 
     @RequestMapping(value= "/deliveries")
-    public String getMarketing(Model model, @RequestParam int idSent) {
+    public String getMarketing(Model model, @RequestParam String idSent) {
 
         LogisticsObject lo = deliveryService.getLoByID(idSent);
 
@@ -74,7 +67,7 @@ public class DeliveryController {
 
         System.out.println(deliveryRequest.getTestField());
 
-        int deliveryID = deliveryRequest.getId();
+        String deliveryID = deliveryRequest.getId();
         //TODO : Int in Map auf < 0 prüfen!!!! sonst -werte in Bestellung ....
         Map<Component, Integer> compMap = RequestMapper.mapComponentStringMap(deliveryRequest.getCompMap(), dataBean.getComponents());
         int sumAmount = 0;

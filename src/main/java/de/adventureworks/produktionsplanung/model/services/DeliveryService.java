@@ -8,9 +8,7 @@ import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsOb
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +18,7 @@ public class DeliveryService {
     @Autowired
     DataBean dataBean;
 
-    public List<BusinessDay> getBusinessDayToDeliveryID(int deliveryID){
+    public List<BusinessDay> getBusinessDayToDeliveryID(String deliveryID) {
 
         List<BusinessDay> businessDays = new ArrayList<>();
 
@@ -41,7 +39,7 @@ public class DeliveryService {
         return businessDays;
     }
 
-    public void setNewDelivery(List<LogisticsObject> logisticsObjectList, int deliveryID, Map<Component,Integer> compMap){
+    public void setNewDelivery(List<LogisticsObject> logisticsObjectList, String deliveryID, Map<Component, Integer> compMap) {
         int sumAmount = 0;
         for(LogisticsObject delivery :logisticsObjectList){
             sumAmount = 0;
@@ -56,7 +54,7 @@ public class DeliveryService {
 
     }
 
-    public LogisticsObject getLoByID(int deliveryID){
+    public LogisticsObject getLoByID(String deliveryID) {
         for(Map.Entry bd : dataBean.getBusinessDays().entrySet()){
             BusinessDay dayToCheck = (BusinessDay) bd.getValue();
 

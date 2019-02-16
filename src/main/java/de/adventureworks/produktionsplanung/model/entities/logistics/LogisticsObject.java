@@ -12,7 +12,7 @@ public class LogisticsObject {
     private Supplier supplier;
     private int sumAmount;
     private Map<Component, Integer> components;
-    private int id;
+    private String id;
 
 
     private LocalDate arrivalDate;
@@ -21,18 +21,16 @@ public class LogisticsObject {
     public LogisticsObject() {
     }
 
-    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components, int id) {
+    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components) {
         this.supplier = supplier;
         this.sumAmount = sumAmount;
         this.components = components;
-        this.id = id;
     }
 
-    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components, int id, LocalDate arrivalDate, LocalDate departureDate) {
+    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components, LocalDate arrivalDate, LocalDate departureDate) {
         this.supplier = supplier;
         this.sumAmount = sumAmount;
         this.components = components;
-        this.id = id;
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
     }
@@ -81,11 +79,11 @@ public class LogisticsObject {
         this.departureDate = departureDate;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return toString();
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

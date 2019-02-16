@@ -96,7 +96,7 @@ public class OrderService {
         for (Component c : dataBean.getComponents()) {
             Supplier s = c.getSupplier();
             if (pendingSupplierAmount.get(s) == null) {
-                LogisticsObject lo = new LogisticsObject(s, 0, null, 0);
+                LogisticsObject lo = new LogisticsObject(s, 0, null);
                 Map<Component, Integer> componentMap = new HashMap<>();
                 componentMap.put(c, 0);
                 lo.setComponents(componentMap);
