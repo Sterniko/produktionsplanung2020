@@ -60,8 +60,6 @@ public class OrderService {
                 logisticsObject.setComponents(newComponentMap);
                 logisticsObject.setSumAmount(0);
                 pendingSupplierMap.put(supplier, logisticsObject);
-
-
             }
         }
     }

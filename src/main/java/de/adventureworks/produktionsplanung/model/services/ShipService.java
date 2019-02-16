@@ -17,8 +17,6 @@ public class ShipService {
 
     @Autowired
     private DataBean databean;
-    //TODO sollte eigentlich static sein---Sercan
-
 
 
     public ShipService(DataBean dataBean) {
