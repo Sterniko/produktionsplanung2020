@@ -91,6 +91,18 @@ public class OrderService {
 
     public void addPendingSupplierAmountToDay(Map<Supplier, LogisticsObject> addedPendingSupplierAmount, BusinessDay bd) {
 
+        Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
+        for (Component c : dataBean.getComponents()) {
+            Supplier s = c.getSupplier();
+            if (pendingSupplierAmount.get(s) == null) {
+                LogisticsObject lo = new LogisticsObject(s, 0, null, 0);
+                Map<Component, Integer> componentMap = new HashMap<>();
+                componentMap.put(c, 0);
+                lo.setComponents(componentMap);
+                pendingSupplierAmount.put(s, lo);
+            }
+
+        }
 
         for (Supplier s : addedPendingSupplierAmount.keySet()) {
             LogisticsObject lo = addedPendingSupplierAmount.get(s);
@@ -100,6 +112,10 @@ public class OrderService {
                 OrderService.addAmount(bd, amount, c);
             }
 
+        }
+        LocalDate dayBefore = bd.getDate().minusDays(1);
+        if (dayBefore.isAfter(LocalDate.of(2018, 10, 31))) {
+            dataBean.getBusinessDay(dayBefore).setPendingSupplierAmount(pendingSupplierAmount);
         }
     }
 
