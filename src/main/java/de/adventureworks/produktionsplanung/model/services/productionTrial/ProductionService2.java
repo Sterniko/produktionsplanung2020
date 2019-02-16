@@ -48,13 +48,6 @@ public class ProductionService2 {
         LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
         LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
 
-/*
-        for (LocalDate date = firstDayOfYear; date.isBefore(firstDayOfNextYear); date = date.plusDays(1)) {
-            System.out.println(date);
-            calculateProductionForDay(dataBean.getBusinessDay(date), null);
-        }
-*/
-
         //set deliveries
         setDeliveriesFromPlannedProduction(null, firstDayOfYear);
 
