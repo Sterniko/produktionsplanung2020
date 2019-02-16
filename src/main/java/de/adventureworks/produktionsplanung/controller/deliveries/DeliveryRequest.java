@@ -14,6 +14,8 @@ public class DeliveryRequest {
     private Map<String, Integer> compMap;
     private int id;
 
+    private String testField = "AFA";
+
 
     public DeliveryRequest() {
     }
@@ -29,6 +31,14 @@ public class DeliveryRequest {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTestField() {
+        return testField;
+    }
+
+    public void setTestField(String testField) {
+        this.testField = testField;
     }
 
     public Map<String, Integer> getCompMap() {

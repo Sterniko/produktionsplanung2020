@@ -110,7 +110,7 @@ public class LogisticsObject {
         String componentString = "";
 
         for (Component component : components.keySet()) {
-            componentString = componentString.concat(component.toString());
+            componentString = componentString.concat(component.getName().toString());
             componentString = componentString.concat(components.get(component).toString());
         }
 

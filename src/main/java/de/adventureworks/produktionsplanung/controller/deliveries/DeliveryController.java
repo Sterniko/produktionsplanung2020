@@ -72,6 +72,8 @@ public class DeliveryController {
         //Post Map Component,Integer -> Neue Bestellung
         //Post deliveryID -> Für diese Bestellung
 
+        System.out.println(deliveryRequest.getTestField());
+
         int deliveryID = deliveryRequest.getId();
         //TODO : Int in Map auf < 0 prüfen!!!! sonst -werte in Bestellung ....
         Map<Component, Integer> compMap = RequestMapper.mapComponentStringMap(deliveryRequest.getCompMap(), dataBean.getComponents());

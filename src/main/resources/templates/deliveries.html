@@ -85,6 +85,7 @@
             <br>
             <span>ID:</span>
             <input class="form-control" th:field="*{id}"/>
+            <input type="hidden" class="form-control" th:field="*{testField}" th:value="${lo.testField}"/>
             <br>
             <br>
             <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern
