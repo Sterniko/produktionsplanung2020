@@ -39,7 +39,10 @@ public class ProductionService2 {
             dataBean.getBusinessDay(date).setPlannedProduction(
                     dailyProductionForYear.get(date)
             );
+
+
         }
+
 
         LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
         LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
@@ -58,15 +61,10 @@ public class ProductionService2 {
         List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
         Collections.sort(dates);
         for (LocalDate date : dates) {
-            if (businessCalendar.isWorkingDay(date)) {
                 simulateDay(dataBean.getBusinessDay(date), null);
-                System.out.println(date + ": " + dataBean.getBusinessDay(date).getPlannedProduction());
-
-            }
+                //System.out.println(date + ": " + dataBean.getBusinessDay(date).getPlannedProduction());
 
         }
-
-
 
 
         System.out.println("break");
@@ -130,56 +128,72 @@ public class ProductionService2 {
 
     //after Order are set
     private void simulateDay(BusinessDay businessDay, LocalDate maximumBackDate) {
-        List<Integer> shifts = dataBean.getShifts();
-        int maxShift = shifts.get(shifts.size()-1);
-        int maxCap;
-        boolean weeklyShiftsAlreadySet = maximumBackDate != null && maximumBackDate.isAfter(businessDay.getBusinessWeek().getEarliestWorkingDay().getDate());
-
-        if (weeklyShiftsAlreadySet) {
-            maxCap = businessDay.getBusinessWeek().getWorkingHours();
-        } else {
-            maxCap = dataBean.getHourlyCapacity() * maxShift;
-        }
-
-        BusinessDay nextBusinessDay = dataBean.getBusinessDay(businessDay.getDate().plusDays(1));
+        //Warehouse
         Map<Component, Integer> wareHouseStockAfterDeliveries = addDeliveriesToWarehouseStock(businessDay.getWarehouseStock(), businessDay.getReceivedDeliveries());
 
-        Map<Bike, Integer> dailyShouldProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
 
-        //TODO Prio Betsellungen implementieren
-        Map<Bike, Integer> actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap);
+        BusinessDay nextBusinessDay = dataBean.getBusinessDay(businessDay.getDate().plusDays(1));
+        Map<Bike, Integer> actualDailyProduction = new HashMap<>();
 
-        if (! weeklyShiftsAlreadySet) {
-            //TODO auslagern
-            int neededShift = shifts.get(0);
-            double neededCap = countBikes(actualDailyProduction) / dataBean.getHourlyCapacity();
-            for (int i = 0; i < shifts.size(); i++) {
-                if (neededCap > shifts.get(i)) {
-                    neededShift = shifts.get(Math.max(i, shifts.size() - 1));
+
+        //Production only in days with Businessweek
+        if (businessDay.getBusinessWeek() != null) {
+            List<Integer> shifts = dataBean.getShifts();
+            int maxShift = shifts.get(shifts.size() - 1);
+            int maxCap;
+
+            boolean weeklyShiftsAlreadySet = maximumBackDate != null && maximumBackDate.isAfter(businessDay.getBusinessWeek().getEarliestWorkingDay().getDate());
+
+            if (weeklyShiftsAlreadySet) {
+                maxCap = businessDay.getBusinessWeek().getWorkingHours();
+            } else {
+                maxCap = dataBean.getHourlyCapacity() * maxShift;
+            }
+
+
+            Map<Bike, Integer> dailyShouldProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
+
+            //TODO Prio Betsellungen implementieren
+            actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap);
+
+            if (!weeklyShiftsAlreadySet) {
+                //TODO auslagern
+                int neededShift = shifts.get(0);
+                double neededCap = countBikes(actualDailyProduction) / dataBean.getHourlyCapacity();
+                for (int i = 0; i < shifts.size(); i++) {
+                    if (neededCap > shifts.get(i)) {
+                        neededShift = shifts.get(Math.max(i, shifts.size() - 1));
+                    }
+                }
+
+                BusinessWeek businessWeek = businessDay.getBusinessWeek();
+                if (businessWeek.getWorkingHours() < neededShift) {
+                    businessWeek.setWorkingHours(neededShift);
                 }
             }
 
-            BusinessWeek businessWeek = businessDay.getBusinessWeek();
-            if (businessWeek.getWorkingHours() < neededShift) {
-                businessWeek.setWorkingHours(neededShift);
+            businessDay.setActualProduction(actualDailyProduction);
+
+
+            if (countBikes(dailyShouldProduction) != countBikes(actualDailyProduction)) {
+                //soll kann nicht erfüllt werden
+                if (nextBusinessDay != null) {
+                    nextBusinessDay.setProductionOverhang(substractMaps(dailyShouldProduction, actualDailyProduction));
+                }
             }
+
+
         }
-
-        businessDay.setActualProduction(actualDailyProduction);
-
-
-        if (countBikes(dailyShouldProduction) != countBikes(actualDailyProduction)) {
-            //soll kann nicht erfüllt werden
-            nextBusinessDay.setProductionOverhang(substractMaps(dailyShouldProduction, actualDailyProduction));
-        }
-
 
         Map<Component, Integer> newWarehouseStock = substractProductionFromWarehouse(actualDailyProduction, wareHouseStockAfterDeliveries);
+
         businessDay.setWarehouseStock(newWarehouseStock);
-        nextBusinessDay.setWarehouseStock(newWarehouseStock);
+        if (nextBusinessDay != null) {
+            nextBusinessDay.setWarehouseStock(new HashMap<>(newWarehouseStock));
+
+        }
 
 
     }
-
 
 }

@@ -54,11 +54,16 @@ public final class ProductionSimulationUtil {
 
     static Map<Component, Integer> addDeliveriesToWarehouseStock(Map<Component, Integer> warehouseStock, List<LogisticsObject> deliveries) {
         for (LogisticsObject lo : deliveries) {
-            for (Component component : lo.getComponents().keySet()) {
-                warehouseStock.put(component, lo.getComponents().get(component));
+            Map<Component, Integer> newComponents = lo.getComponents();
+            for(Component c: newComponents.keySet()) {
+                if (! warehouseStock.containsKey( c)) {
+                    warehouseStock.put(c, newComponents.get(c));
+                } else {
+                    warehouseStock.put(c, warehouseStock.get(c) + newComponents.get(c));
+                }
             }
         }
-        return warehouseStock;
+        return new HashMap<>(warehouseStock);
     }
 
 
@@ -98,7 +103,17 @@ public final class ProductionSimulationUtil {
     }
 
     static Map<Component, Integer> substractProductionFromWarehouse(Map<Bike, Integer> production, Map<Component, Integer> warehouse) {
-        Map<Component, Integer> result= new HashMap(warehouse);
+
+        for (Bike bike: production.keySet()) {
+            for (Component c: bike.getComponents()) {
+                warehouse.put(c, warehouse.get(c) - production.get(bike));
+            }
+
+        }
+
+        return new HashMap<>(warehouse);
+
+        /*Map<Component, Integer> result= new HashMap(warehouse);
         for(Bike bike: production.keySet()){
             List<Component> bikeComponent = bike.getComponents();
             for(Component component: bikeComponent){
@@ -111,7 +126,7 @@ public final class ProductionSimulationUtil {
                 result.put(component,compStock-subtractAmount);
             }
         }
-        return result;
+        return result;*/
     }
 
     static <T> Map<T, Integer> addMaps(Map<T, Integer> map1, Map<T, Integer> map2) {

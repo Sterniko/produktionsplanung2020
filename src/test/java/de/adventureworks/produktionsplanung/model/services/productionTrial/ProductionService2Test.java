@@ -36,62 +36,6 @@ public class ProductionService2Test {
 
     private int yearlyProduction;
 
-    @Before
-    public void init() {
-
-        relativeBikeProduction= new HashMap<>();
-
-        for (Bike bike : dataBean.getBikes()) {
-            switch (bike.getName()) {
-                case ("MTBAllrounder"):
-                    relativeBikeProduction.put(bike, 0.3);
-                    break;
-                case ("MTBCompetition"):
-                    relativeBikeProduction.put(bike, 0.15);
-                    break;
-                case ("MTBDownhill"):
-                    relativeBikeProduction.put(bike, 0.1);
-                    break;
-                case ("MTBExtreme"):
-                    relativeBikeProduction.put(bike, 0.07);
-                    break;
-                case ("MTBFreeride"):
-                    relativeBikeProduction.put(bike, 0.05);
-                    break;
-                case ("MTBMarathon"):
-                    relativeBikeProduction.put(bike, 0.08);
-                    break;
-                case ("MTBPerformance"):
-                    relativeBikeProduction.put(bike, 0.12);
-                    break;
-                case ("MTBTrail"):
-
-                    relativeBikeProduction.put(bike, 0.13);
-                    break;
-            }
-        }
-
-        yearlyProduction = 185000;
-
-
-        monthPercentArr = new double[12];
-
-        this.monthPercentArr[0] = 0.04;
-        this.monthPercentArr[1] = 0.06;
-        this.monthPercentArr[2] = 0.1;
-        this.monthPercentArr[3] = 0.16;
-        this.monthPercentArr[4] = 0.14;
-        this.monthPercentArr[5] = 0.13;
-        this.monthPercentArr[6] = 0.12;
-        this.monthPercentArr[7] = 0.09;
-        this.monthPercentArr[8] = 0.06;
-        this.monthPercentArr[9] = 0.03;
-        this.monthPercentArr[10] = 0.04;
-        this.monthPercentArr[11] = 0.03;
-
-
-
-    }
 
     @Test
     public void testProductionForDay() {
@@ -99,6 +43,10 @@ public class ProductionService2Test {
 
         List<LocalDate> sortedDays = new ArrayList<LocalDate>(dataBean.getBusinessDays().keySet());
         Collections.sort(sortedDays);
+
+        int absoultePlannedP = 0;
+        int absoluteActualP = 0;
+
         for (LocalDate date: sortedDays) {
             BusinessDay businessDay = dataBean.getBusinessDay(date);
             System.out.print(businessDay.getDate());
@@ -114,11 +62,44 @@ public class ProductionService2Test {
                 System.out.print(", ");
 
             }
-
             System.out.println();
+            int plannedProdsum = 0;
+            for (Bike b: businessDay.getPlannedProduction().keySet()) {
+                plannedProdsum+= businessDay.getPlannedProduction().get(b);
+            }
+            System.out.println("plannedP: " + plannedProdsum);
+            absoultePlannedP += plannedProdsum;
+            int prodsum = 0;
+            for (Bike b: businessDay.getActualProduction().keySet()) {
+                prodsum+= businessDay.getActualProduction().get(b);
+            }
+            System.out.println("actualP: " + prodsum);
+            absoluteActualP += prodsum;
+
+            if (plannedProdsum != prodsum) {
+                System.out.println("############################################BINBEHINDERTSCHWULUNDSINGLE###########################################################");
+            }
+
+            int warehouseSum = 0;
+
+            for (Component c: businessDay.getWarehouseStock().keySet()) {
+                warehouseSum+= businessDay.getWarehouseStock().get(c);
+            }
+            System.out.println("warehouse: " + warehouseSum);
+
         }
 
-        System.out.println("e");
+        System.out.println("ABSOLUTE PLANNED:" + absoultePlannedP);
+        System.out.println("ABSOLUTE ACTUAL:" + absoluteActualP);
+
+        int sumProd = 0;
+        for (LocalDate date: dataBean.getBusinessDays().keySet()) {
+            for(Bike bike: dataBean.getBusinessDays().get(date).getPlannedProduction().keySet()) {
+                sumProd += dataBean.getBusinessDays().get(date).getPlannedProduction().get(bike);
+            }
+        }
+
+        System.out.println("SUM PLANNED" + sumProd);
 
     }
 }

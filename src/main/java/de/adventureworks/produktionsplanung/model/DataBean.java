@@ -28,7 +28,11 @@ public class DataBean {
 
     //Methode neu, brauche ich Sercan
     public BusinessDay getBusinessDay(LocalDate date){
-        return data.getBusinessDays().get(date);
+        if (data.getBusinessDays().containsKey(date)) {
+            return data.getBusinessDays().get(date);
+        } else {
+            return null;
+        }
     }
 
     public Map<LocalDate, BusinessDay> getBusinessDays() {

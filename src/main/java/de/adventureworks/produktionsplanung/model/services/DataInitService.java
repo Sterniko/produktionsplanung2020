@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -187,6 +188,7 @@ public class DataInitService {
 
             List<BusinessWeek> businessWeekList = new ArrayList<>();
             //Set BusinessWeeks
+/*
             for (int i = 1; i < 53; i++) {
                 List<BusinessDay> businessDayToWeekList = new ArrayList<>();
 
@@ -213,6 +215,34 @@ public class DataInitService {
                 businessWeekList.add(bw);
 
             }
+*/
+
+            LocalDate firstDayOfYear = LocalDate.of(2019, 1, 1);
+            LocalDate nextYearfirstDay = LocalDate.of(2020, 1, 1);
+
+            int weekCounter = 1;
+            BusinessWeek businessWeek = new BusinessWeek(weekCounter);
+            Map<LocalDate,BusinessDay> businessDayMap = data.getBusinessDays();
+
+
+            for (LocalDate date = firstDayOfYear; date.isBefore(nextYearfirstDay); date = date.plusDays(1)) {
+                BusinessDay currentBusinessDay = businessDayMap.get(date);
+
+                businessWeek.getDays().add(currentBusinessDay);
+                currentBusinessDay.setBusinessWeek(businessWeek);
+
+                if (date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {//save and init new BusinessWeek
+                    businessWeekList.add(businessWeek);
+                    weekCounter++;
+                    businessWeek = new BusinessWeek(weekCounter);
+                }
+
+            }
+            if (!businessWeek.getDays().isEmpty()) {
+                businessWeekList.add(businessWeek);
+            }
+
+
             data.setBusinessWeeks(businessWeekList);
 
 
