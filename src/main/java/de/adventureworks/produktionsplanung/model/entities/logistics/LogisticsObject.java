@@ -112,6 +112,13 @@ public class LogisticsObject {
             componentString = componentString.concat(components.get(component).toString());
         }
 
-        return (arrivalDate.toString() + departureDate.toString() + componentString);
+        if (departureDate != null) {
+            componentString = departureDate.toString().concat(componentString);
+        }
+        if (arrivalDate != null) {
+            componentString = arrivalDate.toString().concat(componentString);
+        }
+
+        return (componentString);
     }
 }
