@@ -11,12 +11,8 @@ import java.util.Map;
 public class DeliveryRequest {
 
 
-
-
-
     private Map<String, Integer> compMap;
     private int id;
-
 
 
     public DeliveryRequest() {
@@ -42,10 +38,6 @@ public class DeliveryRequest {
     public void setCompMap(Map<String, Integer> compMap) {
         this.compMap = compMap;
     }
-
-
-
-
 
 
     @Override

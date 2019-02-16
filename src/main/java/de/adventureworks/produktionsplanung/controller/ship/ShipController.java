@@ -37,10 +37,9 @@ public class ShipController {
     @RequestMapping(value = "/deleteShip", method = RequestMethod.POST)
     public String GetShips(DeleteShipRequest deleteShipRequest) {
         String shipName = deleteShipRequest.getName();
-        //Ship ship = RequestMapper.mapShip(shipName, dataBean.getShips());
-        //TODO Service hier als Klasse verwendet -.- ---Sercan
+        LocalDate deleteDay = deleteShipRequest.getDeleteDate();
         Ship ship = service.getShipByName(shipName);
-        service.deleteShip(ship, LocalDate.now(), dataBean);
+        service.deleteShip(ship, deleteDay, dataBean);
         return "redirect:/showShips";
     }
 

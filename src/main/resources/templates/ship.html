@@ -20,6 +20,9 @@
 
         a:hover {
             color: darkgray;
+            border-top: 3px solid aliceblue;
+            padding-top: 5px;
+            text-decoration: none;
         }
 
     </style>
@@ -93,9 +96,8 @@
                             th:text="|${schiff.name}|"></span></option>
                 </select>
                 <br>
-                <br>
-                <br>
-                <br>
+                <label>Löschzeitpunkt:</label>
+                <input type="date" th:field="*{deleteDate}" class="date-picker date-picker-popup form-control">
                 <br>
                 <input type="submit" class="btn btn-danger" value="Löschen">
             </form>
