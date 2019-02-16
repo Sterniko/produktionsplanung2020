@@ -3,7 +3,6 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
-import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -73,7 +72,7 @@ public class ArrivalCalculatorService {
         return today;
     }
 
-    private LocalDate addWorkingDays(LocalDate date, Country country, int amount) {
+    public LocalDate addWorkingDays(LocalDate date, Country country, int amount) {
         LocalDate today = date;
         BusinessDay bd;
         for (int i = 0; i < amount; ) {

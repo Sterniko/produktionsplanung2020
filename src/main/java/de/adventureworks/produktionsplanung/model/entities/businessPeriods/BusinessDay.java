@@ -2,15 +2,13 @@ package de.adventureworks.produktionsplanung.model.entities.businessPeriods;
 
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class BusinessDay implements Comparable<BusinessDay> {
 
@@ -29,6 +27,8 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     private Map<Component, Integer> warehouseStock;
 
+    private List<IEvent> eventList;
+
     public BusinessDay(){
         productionOverhang = new HashMap<>();
     }
@@ -46,6 +46,7 @@ public class BusinessDay implements Comparable<BusinessDay> {
         this.additionalProduction = additionalProduction;
         this.actualProduction = actualProduction;
         this.warehouseStock = warehouseStock;
+        eventList = new ArrayList<>();
     }
 
     public LocalDate getDate() {
@@ -135,6 +136,14 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public void setProductionOverhang(Map<Bike, Integer> productionOverhang) {
         this.productionOverhang = productionOverhang;
+    }
+
+    public List<IEvent> getEventList() {
+        return eventList;
+    }
+
+    public void setEventList(List<IEvent> eventList) {
+        this.eventList = eventList;
     }
 
     @Override

@@ -2,11 +2,13 @@ package de.adventureworks.produktionsplanung.model.services;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.ShipDeleteEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.eventHandle.EventHandleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -19,6 +21,9 @@ public class ShipService {
     private DataBean databean;
     //TODO sollte eigentlich static sein---Sercan
 
+    @Autowired
+    private EventHandleService eventHandleService;
+
 
 
     public ShipService(DataBean dataBean) {
@@ -26,12 +31,11 @@ public class ShipService {
     }
 
     public void deleteShip(Ship ship, LocalDate deleteDay, DataBean databean ){
-        databean.getShips().remove(ship);
-        for (LogisticsObject e : ship.getDeliveries()) {
-            BusinessDay bDay =  this.databean.getBusinessDay(ship.getArrival());
-            bDay.getReceivedDeliveries().remove(e);
-        }
-        //TODO placeOrder neu bestellen---Sercan
+        ShipDeleteEvent event = new ShipDeleteEvent(ship);
+        BusinessDay businessDay = databean.getBusinessDay(deleteDay);
+        List<IEvent> eventList = businessDay.getEventList();
+        eventList.add(event);
+
     }
 
     public void delayShip(Ship ship, LocalDate newArrival){
