@@ -7,19 +7,23 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <style>
-        a{
+        a {
             color: aliceblue;
         }
-        a:hover{
-            color: darkgray;
-        }
 
+
+        a:hover {
+            color: darkgray;
+            border-top: 3px solid aliceblue;
+            padding-top: 5px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
 
 <div>
-    <div th:replace="fragments/menu :: Menu"></div>
+    <div class="headerHref" th:replace="fragments/menu :: Menu"></div>
 </div>
 
 
