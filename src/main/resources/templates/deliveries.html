@@ -16,6 +16,12 @@
             padding-top: 5px;
             text-decoration: none;
         }
+        #date{
+            font-size: 26px;
+        }
+        #tblDeliveries{
+            background-color: beige;
+        }
     </style>
 </head>
 <body>
@@ -27,29 +33,27 @@
     <h1>Lieferungen</h1>
     <br>
     <br>
-    <div style=" overflow-y: scroll;height:550px; width:500px" class="">
-        <table id="tblDeliveries" class="table table-striped">
-            <thead class="thead-dark">
-            <tr>
-                <th>Date</th>
-                <th>Sent Deliveries</th>
-                <th>Received Deliveries</th>
-            </tr>
-            </thead>
-
+    <div style=" overflow-x: scroll;height:300px; width:750px">
+        <table id="tblDeliveries" class="table">
             <th:block th:each="bd : ${businessDays}">
+                <tr id="trDate">
+                    <th id="date" th:text="${bd.getDate()}"></th>
+                </tr>
                 <tr>
-                    <td th:text="${bd.getDate()}"></td>
+                    <td>Sent Deliveries </td>
                     <th:block th:each="lo : ${bd.getSentDeliveries()}">
-
-                    <td>
-                        <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning" th:text="${lo.getId()}"></a>
-                    </td>
+                        <td>
+                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning" th:text="${lo.getId()}"></a>
+                        </td>
                     </th:block>
+                </tr>
+                <tr>
+                    <td>Received Deliveries </td>
                     <th:block th:each="lo : ${bd.getReceivedDeliveries()}">
-                    <td>
-                        <a th:href="@{${deliveries}(idRecived=${lo.getId()})}" class="btn btn-danger" th:text="${lo.getId()}"></a>
-                    </td>
+
+                        <td>
+                            <a th:href="@{${deliveries}(idRecived=${lo.getId()})}" class="btn btn-danger" th:text="${lo.getId()}"></a>
+                        </td>
                     </th:block>
                 </tr>
             </th:block>

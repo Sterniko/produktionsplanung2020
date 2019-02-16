@@ -60,22 +60,20 @@ public class DeliveryController {
     @RequestMapping(value = "/deliveries", method = RequestMethod.POST)
     public String setDelivery(DeliveryRequest deliveryRequest) {
 
-
         HashMap<Component,Integer> helperMap;
         HashMap<BusinessDay,LogisticsObject> bdLoMap;
-
 
         //Get Post Data
         //Post Map Component,Integer -> Neue Bestellung
         //Post deliveryID -> Für diese Bestellung
 
         int deliveryID = deliveryRequest.getId();
+        //TODO : Int in Map auf < 0 prüfen!!!! sonst -werte in Bestellung ....
         Map<Component, Integer> compMap = RequestMapper.mapComponentStringMap(deliveryRequest.getCompMap(), dataBean.getComponents());
         int sumAmount = 0;
         List<BusinessDay> businessDays = deliveryService.getBusinessDayToDeliveryID(deliveryID);
 
         businessDays = sortService.sortBusinessDayList(businessDays);
-
 
         if((businessDays.size() > 1)){
             BusinessDay departureDay = businessDays.get(0);
@@ -91,4 +89,5 @@ public class DeliveryController {
         return "redirect:/deliveries";
 
     }
+
 }

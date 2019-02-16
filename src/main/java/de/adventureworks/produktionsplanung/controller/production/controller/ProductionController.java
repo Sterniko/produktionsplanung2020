@@ -48,17 +48,6 @@ public class ProductionController {
         //sort them
         businessDayList = sortService.sortBusinessDayList(businessDayList);
 
-        //work with them
-        for(BusinessDay bd : businessDayList){
-
-
-            LocalDate date = bd.getDate();
-            this.productionService.setProductionForDay(date);
-        }
-        //After Planned Production is set -> CheckForComponents!
-        for(BusinessDay bd2 : businessDayList){
-            this.productionService.checkComponentsForDay(bd2);
-        }
 
         model.addAttribute("businessDays",businessDayList);
 
