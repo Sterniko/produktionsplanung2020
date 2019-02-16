@@ -36,70 +36,22 @@
                 <th>Received Deliveries</th>
             </tr>
             </thead>
+
             <th:block th:each="bd : ${businessDays}">
                 <tr>
                     <td th:text="${bd.getDate()}"></td>
-                    <div th:if="${bd.getSentDeliveries().size() == 0} ">
-                        <td> 0</td>
-                    </div>
+                    <th:block th:each="lo : ${bd.getSentDeliveries()}">
 
-                    <td th:each="lo : ${bd.getSentDeliveries()}">
-                        <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
-                            <span>ID:</span>
-                            <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
-                            <br>
-                            <span>Supplier:</span>
-                            <span th:utext="${lo.getSupplier().getName()}"></span>
-                            <br>
-                            <span>Amount:</span>
-                            <span th:utext="${lo.getSumAmount()}"></span>
-                            <p th:each="comp: ${lo.getComponents().keySet()}">
-                                <br>
-                                <span th:utext="${comp.getName()}">:</span>
-                                <span th:utext="${lo.getComponents().get(comp)}"></span>
-                                <input class="form-control" value="0" type="number"
-                                       th:field="*{compMap[__${comp.getName()}__]}" required/>
-                            </p>
-                            <br>
-                            <span>ID:</span>
-                            <input th:field="*{id}"/>
-                            <br>
-                            <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern
-                            </button>
-                        </form>
-
+                    <td>
+                        <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning" th:text="${lo.getId()}"></a>
                     </td>
-
-                    <div th:if="${bd.getReceivedDeliveries().size() == 0} ">
-                        <td> 0</td>
-                    </div>
-
-                    <td th:each="lo : ${bd.getReceivedDeliveries()}">
-                        <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
-                            <span>ID:</span>
-                            <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
-                            <br>
-                            <span>Supplier:</span>
-                            <span th:utext="${lo.getSupplier().getName()}"></span>
-                            <br>
-                            <span>Amount:</span>
-                            <span th:utext="${lo.getSumAmount()}"></span>
-                            <p th:each="comp: ${lo.getComponents().keySet()}">
-                                <br>
-                                <span th:utext="${comp.getName()}">:</span>
-                                <span th:utext="${lo.getComponents().get(comp)}"></span>
-                                <input class="form-control" value="0" type="number"
-                                       th:field="*{compMap[__${comp.getName()}__]}" required/>
-                            </p>
-                            <br>
-                            <span>ID:</span>
-                            <input th:field="*{id}"/>
-                            <br>
-                            <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern
-                            </button>
-                        </form>
+                    </th:block>
+                    <th:block th:each="lo : ${bd.getReceivedDeliveries()}">
+                    <td>
+                        <a th:href="@{${deliveries}(idRecived=${lo.getId()})}" class="btn btn-danger" th:text="${lo.getId()}"></a>
                     </td>
-                    </form>
+                    </th:block>
+                </tr>
             </th:block>
         </table>
     </div>
