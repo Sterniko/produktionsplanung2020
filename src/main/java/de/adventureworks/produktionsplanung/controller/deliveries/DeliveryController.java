@@ -88,23 +88,6 @@ public class DeliveryController {
 
         }
 
-
-
-
-
-
-
-
-
-
-
-     //   arrivalDay.setReceivedDeliveries(newListArrival);
-       // departureDay.setSentDeliveries(newListDeparture);
-
-
-        //Lo.arrival.setReceivedDel -> iteriere durch alle received bis eine gefunden die so ist wie diese! überschreibe mit New Map Comp
-        //Lo.departure.setSendReceived -> iteriere durch alle send bis eine gefunden die so ist wie diese! überschreibe mit New Map Comp
-
         return "redirect:/deliveries";
 
     }

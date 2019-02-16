@@ -8,6 +8,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class MarketingServiceTest {
     private MarketingService marketingService;
 
     //TODO: ADD test that will fail
+
+
     @Test
     public void testMarketing() {
         HashMap<Bike,Integer> helperMap;
