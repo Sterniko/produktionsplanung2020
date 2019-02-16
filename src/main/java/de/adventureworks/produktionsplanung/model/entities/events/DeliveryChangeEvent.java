@@ -7,20 +7,20 @@ import java.util.Map;
 
 public class DeliveryChangeEvent implements IEvent {
 
-    private LocalDate receiveDate;
+    private String id;
 
-    private Map<Component, Integer> lostComponents;
+    private Map<Component, Integer> newComponents;
 
-    public DeliveryChangeEvent(LocalDate receiveDate, Map<Component, Integer> lostComponents) {
-        this.receiveDate = receiveDate;
-        this.lostComponents = lostComponents;
+    public DeliveryChangeEvent(String id, Map<Component, Integer> newComponents) {
+        this.id = id;
+        this.newComponents = newComponents;
     }
 
-    public LocalDate getReceiveDate() {
-        return receiveDate;
+    public String getId() {
+        return id;
     }
 
-    public Map<Component, Integer> getLostComponents() {
-        return lostComponents;
+    public Map<Component, Integer> getNewComponents() {
+        return newComponents;
     }
 }

@@ -12,33 +12,23 @@ public class DeliveryRequest {
 
 
     private Map<String, Integer> compMap;
-    private int id;
-
-    private String testField = "AFA";
+    private String id;
 
 
     public DeliveryRequest() {
     }
 
-    public DeliveryRequest(Map<String, Integer> compMap, int id) {
+    public DeliveryRequest(Map<String, Integer> compMap, String id) {
         this.compMap = compMap;
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getTestField() {
-        return testField;
-    }
-
-    public void setTestField(String testField) {
-        this.testField = testField;
     }
 
     public Map<String, Integer> getCompMap() {
