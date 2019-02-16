@@ -56,4 +56,17 @@ public class DeliveryService {
 
     }
 
+    public LogisticsObject getLoByID(int deliveryID){
+        for(Map.Entry bd : dataBean.getBusinessDays().entrySet()){
+            BusinessDay dayToCheck = (BusinessDay) bd.getValue();
+
+            for(LogisticsObject received : dayToCheck.getReceivedDeliveries()){
+                if(received.getId() == deliveryID){
+                    return received;
+                }
+            }
+        }
+        return null;
+    }
+
 }

@@ -12,10 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import sun.rmi.runtime.Log;
 
+import javax.jws.WebParam;
 import java.beans.Expression;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -35,24 +38,26 @@ public class DeliveryController {
     @Autowired
     DeliveryService deliveryService;
 
-    public DeliveryController(){
+    public DeliveryController() {
 
     }
-    @RequestMapping("/deliveries")
-    public String getMarketing(Model model) {
+
+    @RequestMapping(value= "/deliveries")
+    public String getMarketing(Model model, @RequestParam int idSent) {
+
+        LogisticsObject lo = deliveryService.getLoByID(idSent);
+
         List<BusinessDay> businessDayList = new ArrayList<>();
         //get BusinessDays
         businessDayList = sortService.mapToListBusinessDays(dataBean.getBusinessDays());
         //sort them
         businessDayList = sortService.sortBusinessDayList(businessDayList);
 
-
-
+        model.addAttribute("idSent",idSent);
+        model.addAttribute("lo",lo);
         model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
         model.addAttribute("businessDays", businessDayList);
-
         model.addAttribute("deliveryRequest", new DeliveryRequest());
-
 
         return "deliveries";
     }
@@ -60,8 +65,8 @@ public class DeliveryController {
     @RequestMapping(value = "/deliveries", method = RequestMethod.POST)
     public String setDelivery(DeliveryRequest deliveryRequest) {
 
-        HashMap<Component,Integer> helperMap;
-        HashMap<BusinessDay,LogisticsObject> bdLoMap;
+        HashMap<Component, Integer> helperMap;
+        HashMap<BusinessDay, LogisticsObject> bdLoMap;
 
         //Get Post Data
         //Post Map Component,Integer -> Neue Bestellung
@@ -75,19 +80,15 @@ public class DeliveryController {
 
         businessDays = sortService.sortBusinessDayList(businessDays);
 
-        if((businessDays.size() > 1)){
+        if ((businessDays.size() > 1)) {
             BusinessDay departureDay = businessDays.get(0);
             BusinessDay arrivalDay = businessDays.get(1);
             List<LogisticsObject> sentDeliveries = departureDay.getSentDeliveries();
             List<LogisticsObject> receivedDeliveries = arrivalDay.getReceivedDeliveries();
 
-            deliveryService.setNewDelivery(sentDeliveries,deliveryID,compMap);
-            deliveryService.setNewDelivery(receivedDeliveries,deliveryID,compMap);
-
+            deliveryService.setNewDelivery(sentDeliveries, deliveryID, compMap);
+            deliveryService.setNewDelivery(receivedDeliveries, deliveryID, compMap);
         }
-
-        return "redirect:/deliveries";
-
+        return "redirect:/deliveries?idSent=10101010";
     }
-
 }

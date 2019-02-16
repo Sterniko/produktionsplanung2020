@@ -16,11 +16,13 @@
             padding-top: 5px;
             text-decoration: none;
         }
-        #date{
+
+        #date {
             font-size: 26px;
         }
-        #tblDeliveries{
-            background-color: beige;
+
+        #tblDeliveries {
+            background-color: whitesmoke;
         }
     </style>
 </head>
@@ -32,33 +34,71 @@
     <br>
     <h1>Lieferungen</h1>
     <br>
-    <br>
-    <div style=" overflow-x: scroll;height:300px; width:750px">
+    <div style=" overflow-x: scroll;height:300px;">
         <table id="tblDeliveries" class="table">
             <th:block th:each="bd : ${businessDays}">
                 <tr id="trDate">
                     <th id="date" th:text="${bd.getDate()}"></th>
                 </tr>
                 <tr>
-                    <td>Sent Deliveries </td>
+                    <td>Sent Deliveries</td>
                     <th:block th:each="lo : ${bd.getSentDeliveries()}">
                         <td>
-                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning" th:text="${lo.getId()}"></a>
+                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning"
+                               th:text="${lo.getId()}"></a>
                         </td>
                     </th:block>
                 </tr>
                 <tr>
-                    <td>Received Deliveries </td>
+                    <td>Received Deliveries</td>
                     <th:block th:each="lo : ${bd.getReceivedDeliveries()}">
 
                         <td>
-                            <a th:href="@{${deliveries}(idRecived=${lo.getId()})}" class="btn btn-danger" th:text="${lo.getId()}"></a>
+                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-success"
+                               th:text="${lo.getId()}"></a>
                         </td>
                     </th:block>
                 </tr>
             </th:block>
         </table>
     </div>
+
+    <div th:if="${lo!=null}" style="width:500px;">
+        <br>
+        <h2>Lieferung ändern</h2>
+        <form method="POST" th:action="@{/deliveries}" th:object="${deliveryRequest}">
+            <span>ID:</span>
+            <span th:field="*{id}" th:value="${lo.getId()}" th:utext="${lo.getId()}"></span>
+            <br>
+            <span>Supplier:</span>
+            <span th:utext="${lo.getSupplier().getName()}"></span>
+            <br>
+            <span>Amount:</span>
+            <span th:utext="${lo.getSumAmount()}"></span>
+            <p th:each="comp: ${lo.getComponents().keySet()}">
+                <br>
+                <span th:utext="${comp.getName()}">:</span>
+                <span th:utext="${lo.getComponents().get(comp)}"></span>
+                <input class="form-control" value="0" type="number"
+                       th:field="*{compMap[__${comp.getName()}__]}" required/>
+            </p>
+            <br>
+            <span>ID:</span>
+            <input class="form-control" th:field="*{id}"/>
+            <br>
+            <br>
+            <button class="btn btn-primary" type="submit" name="submit" value="value">Bestellung ändern
+            </button>
+            <br>
+        </form>
+        <br>
+    </div>
+    <div th:if="${idSent==10101010}" style="width:500px;">
+        <br>
+        <h2>Änderung wurde vorgenommen</h2>
+        <br>
+    </div>
+
 </div>
 <div th:replace="fragments/scripts :: script"></div>
 </body>
