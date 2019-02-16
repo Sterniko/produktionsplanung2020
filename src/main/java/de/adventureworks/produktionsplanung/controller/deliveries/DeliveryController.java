@@ -57,13 +57,13 @@ public class DeliveryController {
     @RequestMapping(value = "/deliveries", method = RequestMethod.POST)
     public String setDelivery(DeliveryRequest deliveryRequest) {
 
-        BusinessDay businessDay = new BusinessDay();
+        BusinessDay businessDay = dataBean.getBusinessDay(deliveryRequest.getDate());
         String deliveryID = deliveryRequest.getId();
         //TODO : Int in Map auf < 0 prüfen!!!! sonst -werte in Bestellung ....
         Map<Component, Integer> compMap = RequestMapper.mapComponentStringMap(deliveryRequest.getCompMap(), dataBean.getComponents());
         deliveryService.startEvent(deliveryID, businessDay, compMap);
 
 
-        return "redirect:/deliveries?idSent=none";
+        return "redirect:/deliveries?idSent=10101010";
     }
 }

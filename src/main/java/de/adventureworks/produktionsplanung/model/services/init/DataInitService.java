@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.Data;
 import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
@@ -175,6 +176,8 @@ public class DataInitService {
                     warehouseStock.put(c, 0);
                 }
 
+                List<IEvent> eventList = new ArrayList<>();
+
                 //bd maps setzen
                 bd.setWorkingDays(workingDays);
                 bd.setPendingSupplierAmount(pendingSupplierAmount);
@@ -182,6 +185,7 @@ public class DataInitService {
                 bd.setAdditionalProduction(additonalProduction);
                 bd.setActualProduction(actualProduction);
                 bd.setWarehouseStock(warehouseStock);
+                bd.setEventList(eventList);
 
                 //bd in bd map wichsen
                 businessDays.put(bd.getDate(), bd);
