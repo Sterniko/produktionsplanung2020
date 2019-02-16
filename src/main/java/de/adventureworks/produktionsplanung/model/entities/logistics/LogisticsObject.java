@@ -28,6 +28,15 @@ public class LogisticsObject {
         this.id = id;
     }
 
+    public LogisticsObject(Supplier supplier, int sumAmount, Map<Component, Integer> components, int id, LocalDate arrivalDate, LocalDate departureDate) {
+        this.supplier = supplier;
+        this.sumAmount = sumAmount;
+        this.components = components;
+        this.id = id;
+        this.arrivalDate = arrivalDate;
+        this.departureDate = departureDate;
+    }
+
     public LogisticsObject(Supplier supplier) {
         this.supplier = supplier;
     }
@@ -97,10 +106,14 @@ public class LogisticsObject {
 
     @Override
     public String toString() {
-        return "LogisticsObject{" +
-                "supplier=" + supplier +
-                ", sumAmount=" + sumAmount +
-                ", components=" + components +
-                '}';
+
+        String componentString = "";
+
+        for (Component component : components.keySet()) {
+            componentString = componentString.concat(component.toString());
+            componentString = componentString.concat(components.get(component).toString());
+        }
+
+        return (arrivalDate.toString() + departureDate.toString() + componentString);
     }
 }
