@@ -29,6 +29,7 @@ public class ProductionService2 {
     @Autowired
     private BusinessCalendar businessCalendar;
 
+
     public void simulateInitialProduction(int year) {
 
         Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(

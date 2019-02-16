@@ -6,9 +6,8 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
-import de.adventureworks.produktionsplanung.model.services.DataInitService;
 import de.adventureworks.produktionsplanung.model.services.OrderService;
-import org.junit.Before;
+import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDate;
-import java.util.*;
-
-import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 @RunWith( SpringJUnit4ClassRunner.class )
 @ContextConfiguration(classes = {DataBean.class, DataInitService.class, ProductionService2.class, OrderService.class, BusinessCalendar.class})

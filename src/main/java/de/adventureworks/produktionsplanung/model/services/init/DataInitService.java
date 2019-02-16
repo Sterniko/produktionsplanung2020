@@ -1,4 +1,4 @@
-package de.adventureworks.produktionsplanung.model.services;
+package de.adventureworks.produktionsplanung.model.services.init;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,6 +12,8 @@ import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
+import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
+import de.adventureworks.produktionsplanung.model.services.JSONService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,7 @@ public class DataInitService {
 
     @Autowired
     BusinessCalendar businessCalendar;
+
 
     @PostConstruct
     public void init() {
@@ -245,7 +248,7 @@ public class DataInitService {
 
             data.setBusinessWeeks(businessWeekList);
 
-
+            /*
             HashMap<Component,Integer> delivery = new HashMap<>();
             delivery.put(data.getComponents().get(1),50);
             delivery.put(data.getComponents().get(2),50);
@@ -272,7 +275,7 @@ public class DataInitService {
             //   businessDayList.get(1).setReceivedDeliveries();
             //    orderService = new OrderService();
             //   orderService.placeOrder(businessDayList.get(100));
-
+            */
 
              /*ArrayList<BusinessDay> bdList = mapper.readValue(new File("businessDays.json"), new TypeReference<List<BusinessDay>>() {
              });

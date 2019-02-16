@@ -3,7 +3,7 @@ package de.adventureworks.produktionsplanung.model.services.productionTrial;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
-import de.adventureworks.produktionsplanung.model.services.DataInitService;
+import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

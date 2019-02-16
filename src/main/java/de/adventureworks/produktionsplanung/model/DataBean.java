@@ -6,7 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.external.Customer;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
-import de.adventureworks.produktionsplanung.model.services.DataInitService;
+import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
