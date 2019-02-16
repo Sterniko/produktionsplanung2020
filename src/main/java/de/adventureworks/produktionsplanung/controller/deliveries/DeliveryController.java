@@ -37,7 +37,7 @@ public class DeliveryController {
     @RequestMapping(value= "/deliveries")
     public String getMarketing(Model model, @RequestParam String idSent) {
 
-        LogisticsObject lo = deliveryService.getLoByID(idSent);
+        LogisticsObject lo = deliveryService.getDeliveryToDeliveryID(idSent);
 
         List<BusinessDay> businessDayList = new ArrayList<>();
         //get BusinessDays
@@ -64,6 +64,6 @@ public class DeliveryController {
         deliveryService.startEvent(deliveryID, businessDay, compMap);
 
 
-        return "redirect:/deliveries?idSent=10101010";
+        return "redirect:/deliveries?idSent=none";
     }
 }

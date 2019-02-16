@@ -27,7 +27,7 @@ public class DeliveryService {
     }
 
     public LogisticsObject getDeliveryToDeliveryID(String deliveryID) {
-
+        if(deliveryID.equals("none")){return null;}
         BusinessDay arrivalDay = getArrivalDateToDeliveryID(deliveryID);
 
         List<LogisticsObject> receivedDeliveries = arrivalDay.getReceivedDeliveries();
@@ -44,6 +44,7 @@ public class DeliveryService {
     }
 
     public BusinessDay getArrivalDateToDeliveryID(String deliveryID) {
+
         String arrivalDateString = deliveryID.substring(0, 10);
         LocalDate arrivalDate = LocalDate.parse(arrivalDateString);
         BusinessDay arrivalDay = dataBean.getBusinessDay(arrivalDate);
