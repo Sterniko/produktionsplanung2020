@@ -146,7 +146,7 @@ public class DataInitService {
                 for (Component c : data.getComponents()) {
                     Supplier s = c.getSupplier();
                     if (pendingSupplierAmount.get(s) == null) {
-                        LogisticsObject lo = new LogisticsObject(s, 0, null, logisticObjectCounter);
+                        LogisticsObject lo = new LogisticsObject(s, 0, null);
                         logisticObjectCounter++;
                         Map<Component, Integer> componentMap = new HashMap<>();
                         componentMap.put(c, 0);

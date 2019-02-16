@@ -1,6 +1,5 @@
 package de.adventureworks.produktionsplanung.model.services;
 
-import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
@@ -13,9 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import sun.rmi.runtime.Log;
 
-import javax.annotation.sql.DataSourceDefinition;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,7 +35,7 @@ public class DeliveryServiceTest {
 
     BusinessDay departureBD;
     BusinessDay arrivalBD;
-    int deliveryID;
+    String deliveryID;
     HashMap<Component,Integer> compMap;
     @Before
     public void init(){
@@ -47,7 +44,7 @@ public class DeliveryServiceTest {
         for(Component c : dataBean.getComponents()){
             compMap.put(c,10);
         }
-        deliveryID = 1;
+        deliveryID = "Hallo";
         LogisticsObject lo = new LogisticsObject();
         lo.setSumAmount(140);
         lo.setDepartureDate(LocalDate.now());
