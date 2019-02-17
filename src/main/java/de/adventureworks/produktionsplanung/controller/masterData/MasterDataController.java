@@ -3,6 +3,7 @@ package de.adventureworks.produktionsplanung.controller.masterData;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.services.MasterDataService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ public class MasterDataController {
 
     @Autowired
     private MasterDataService masterDataService;
+
+    @Autowired
+    private ProductionService2 productionService2;
 
     public MasterDataController() {
     }
@@ -44,6 +48,7 @@ public class MasterDataController {
         dataBean.setHourlyCapacity(hourlyCapacity);
         dataBean.setYearlyProduction(yearlyProduction);
 
+        productionService2.simulateWholeProduction();
 
         return "redirect:/masterData";
     }
