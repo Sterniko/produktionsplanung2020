@@ -8,6 +8,10 @@
     <style>
         #warehouseDiv {
             font-family: "Times New Roman";
+            overflow-y: scroll;
+            margin-left: 178px;
+            margin-top: -1563px;
+
         }
         #tblWareHouse th, td {
             white-space: nowrap;
@@ -30,6 +34,15 @@
         #btnSave{
             width:100px;
         }
+        #sideBar{
+            width: 170px;
+        }
+        #tdBike{
+            height: 33px;
+        }
+        #thDate{
+            height: 64px;
+        }
 
     </style>
     <meta charset="UTF-8">
@@ -45,18 +58,69 @@
 
 <br>
 <h1>Produktion</h1>
+
+<div id="sideBar">
+
+        <table class="table table-striped table-bordered table-sm">
+            <tr>
+                <th>Woche</th>
+            </tr>
+            <tr>
+                <th id="thDate">Datum</th>
+            </tr>
+
+            <th:block th:each="bike: ${bikes}">
+                <tr>
+                    <th th:utext="${bike.name}"></th>
+                    <tr>
+                        <td>
+                            Planproduktion
+                        </td>
+                    </tr>
+                    <tr>
+                         <td>
+                            Zusatzproduktion
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Istproduktion
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Fehlbetrag
+                        </td>
+                    <tr>
+                </tr>
+            </th:block>
+            <tr>
+                <th>Schicht</th>
+            </tr>
+            <tr>
+                <td>Summe Planproduktion</td>
+            </tr>
+            <tr>
+                <td style="height:30px"></td>
+            </tr>
+            <tr>
+                <td>Summe Istproduktion</td>
+            </tr>
+
+        </table>
+
+    </th:block>
+
+</div>
 <div id="warehouseDiv" style="overflow-y: scroll;">
     <table id="tblWareHouse" class="table table-striped table-bordered table-sm" cellspacing="0"
            width="100%" border="1">
         <tr>
-            <th>Woche</th>
             <span th:each="week: ${businessWeeks}" >
-
                 <td th:utext="'KW ' + |${week.getCalendarWeek()}|" th:colspan="${week.days.size()}"></td>
             </span>
         </tr>
         <tr>
-            <th>Datum</th>
             <td th:each="bd: ${businessDays}">
                 <p th:each="entry: ${bd.getWorkingDays()}">
                         <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
@@ -75,31 +139,24 @@
 
         <span th:each="bike: ${bikes}">
             <tr>
-                <th>
-                    <span th:utext="${bike.name}"></span>
-                </th>
+                <td id="tdBike"></td>
             </tr>
             <tr>
-                <td>Planproduktion</td>
                 <td th:each="bd2: ${businessDays}">
                     <span th:utext="|${bd2.plannedProduction.get(bike)}|"></span>
                 </td>
             </tr>
             <tr>
-                <td>Zusatzproduktion</td>
                 <td th:each="bd2: ${businessDays}">
                     <span th:utext="|${bd2.additionalProduction.get(bike)}|"></span>
                 </td>
             </tr>
             <tr>
-            <tr>
-                <td>Istproduktion</td>
                 <td th:each="bd2: ${businessDays}">
                     <span th:utext="|${bd2.actualProduction.get(bike)}|"></span>
                 </td>
             </tr>
             <tr>
-                <td>Fehlbetrag</td>
                 <td th:each="bd2: ${businessDays}">
                     <span th:utext="|${bd2.getPlannedAndAdditionalMinusActualProduction().get(bike)}|"></span>
                 </td>
@@ -108,7 +165,6 @@
         </span>
 
         <tr>
-            <th>Schicht</th>
             <span th:each="week: ${businessWeeks}" >
 
                 <td th:utext="|${week.getWorkingHours() + ' Stunden'}|" th:colspan="${week.days.size()}"></td>
@@ -116,27 +172,23 @@
         </tr>
 
         <tr>
-            <td>Summe Planproduktion</td>
             <span th:each="day: ${businessDays}" >
                 <td th:utext="${day.getSumOfPlannedDailyProduction()}"></td>
             </span>
         </tr>
         <tr>
-            <td></td>
             <span th:each="week: ${businessWeeks}" >
                 <td th:utext="|${week.getSumOfPlannedProduction() }|" th:colspan="${week.days.size()}"></td>
             </span>
         </tr>
 
         <tr>
-            <td>Summe Istproduktion</td>
             <span th:each="day: ${businessDays}" >
                 <td th:utext="${day.getSumOfActualDailyProduction()}"></td>
             </span>
         </tr>
 
         <tr>
-            <td></td>
             <span th:each="week: ${businessWeeks}" >
                 <td th:utext="|${week.getSumOfActualProduction() }|" th:colspan="${week.days.size()}"></td>
             </span>
