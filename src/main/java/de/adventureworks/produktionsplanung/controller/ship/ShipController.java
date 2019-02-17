@@ -75,7 +75,7 @@ public class ShipController {
 
         productionService2.simulateWholeProduction();
 
-        return "redirect:/home";
+        return "redirect:/";
     }
 
 }
