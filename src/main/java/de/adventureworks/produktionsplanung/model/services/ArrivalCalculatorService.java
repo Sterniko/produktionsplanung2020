@@ -3,6 +3,7 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -83,6 +84,11 @@ public class ArrivalCalculatorService {
             today = today.plusDays(1);
         }
         return today;
+    }
+
+    public Ship getNextAvailabeShip(LocalDate date){
+        LocalDate startDateWithWorkingDays = addWorkingDays(date, Country.CHINA, 2);
+        return shipService.getNextShip(startDateWithWorkingDays);
     }
 
 }
