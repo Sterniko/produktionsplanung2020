@@ -137,8 +137,8 @@ public class EventHandleService {
 
 
         //Order increased Production.
-        for(Bike b: increaseAmount.keySet()) {
-            for (Component c: b.getComponents()) {
+        for (Bike b : increaseAmount.keySet()) {
+            for (Component c : b.getComponents()) {
                 LocalDate mondayMinusLeadTime = weeksMonday.minusDays(c.getSupplier().getLeadTime());
                 LocalDate orderDate;
                 if (changeDate.getDate().isBefore(mondayMinusLeadTime)) {
@@ -155,36 +155,36 @@ public class EventHandleService {
         }
 
 
-
-        Map<LocalDate,Map<Bike, Integer>> dateWithAdditionDisributed= new HashMap();
+        Map<LocalDate, Map<Bike, Integer>> dateWithAdditionDisributed = new HashMap();
         //Befüllt die Map mit der Verteilung
-        for(int i = 0; i< workingDays; i++){
-            BusinessDay currentBD= dataBean.getBusinessDay(work);
-            if(!work.isAfter(changeDate.getDate())){
+        for (int i = 0; i < workingDays; i++) {
+            BusinessDay currentBD = dataBean.getBusinessDay(work);
+            if (!work.isAfter(changeDate.getDate())) {
                 workingDays--;
+            } else if (!currentBD.getWorkingDays().get(Country.GERMANY)) {
+                dateWithAdditionDisributed.put(work, new HashMap<>());
             }
-            else if(!currentBD.getWorkingDays().get(Country.GERMANY)){
-                dateWithAdditionDisributed.put(work,new HashMap<>());
-            }
-            work= work.plusDays(1);
+            work = work.plusDays(1);
         }
 
         //SONST wird durch null geteilt
-        if(workingDays<1){return;}
+        if (workingDays < 1) {
+            return;
+        }
 
-        for(LocalDate currentDate: dateWithAdditionDisributed.keySet()) {
+        for (LocalDate currentDate : dateWithAdditionDisributed.keySet()) {
             for (Map.Entry entry : increaseAmount.entrySet()) {
                 int wholeDayAddition = (int) (entry.getValue()) / workingDays;
-                Map<Bike, Integer> currentMap =  dateWithAdditionDisributed.get(currentDate);
-                currentMap.put((Bike)entry.getKey(),wholeDayAddition);
+                Map<Bike, Integer> currentMap = dateWithAdditionDisributed.get(currentDate);
+                currentMap.put((Bike) entry.getKey(), wholeDayAddition);
             }
         }
         for (Map.Entry entry : increaseAmount.entrySet()) {
-            for (int i = 0; i < (int)(entry.getValue())%workingDays; i++) {
-                List<LocalDate> workingWeek= new ArrayList<>(dateWithAdditionDisributed.keySet());
-                LocalDate currentDay= workingWeek.get(i);
+            for (int i = 0; i < (int) (entry.getValue()) % workingDays; i++) {
+                List<LocalDate> workingWeek = new ArrayList<>(dateWithAdditionDisributed.keySet());
+                LocalDate currentDay = workingWeek.get(i);
                 int currentStock = dateWithAdditionDisributed.get(currentDay).get(entry.getKey());
-                dateWithAdditionDisributed.get(currentDay).put((Bike)entry.getKey(),currentStock+1);
+                dateWithAdditionDisributed.get(currentDay).put((Bike) entry.getKey(), currentStock + 1);
             }
 
         }
@@ -192,17 +192,57 @@ public class EventHandleService {
 
 
         //befüllen des BussniesDays
-        for(LocalDate currentDay : dateWithAdditionDisributed.keySet()){
-            BusinessDay currentBD= dataBean.getBusinessDay(currentDay);
-            Map<Bike , Integer> newtoAdd = dateWithAdditionDisributed.get(currentDay);
-            currentBD.setAdditionalProduction(ProductionSimulationUtil.addMaps(newtoAdd,currentBD.getAdditionalProduction()));
+        for (LocalDate currentDay : dateWithAdditionDisributed.keySet()) {
+            BusinessDay currentBD = dataBean.getBusinessDay(currentDay);
+            Map<Bike, Integer> newtoAdd = dateWithAdditionDisributed.get(currentDay);
+            currentBD.setAdditionalProduction(ProductionSimulationUtil.addMaps(newtoAdd, currentBD.getAdditionalProduction()));
         }
     }
 
-    public void handleCustomerOrderEvent(CustomerOrderEvent customerOrderEvent, BusinessDay businessDay) {
+    public void handleCustomerOrderEvent(CustomerOrderEvent customerOrderEvent, BusinessDay changeDate) {
+        LocalDate latestPossibleSentDate = customerOrderEvent.getDueProductionDate();
+        LocalDate today = changeDate.getDate();
+        boolean isPrio = customerOrderEvent.isPrio();
+        Map<Component, Integer> componetsToAdd = customerOrderEvent.getOrderAmount();
+        int workDays = 0;
+        int allDays = 0;
+        LocalDate tempDate = today;
+
+
+        // counts workingDays and allDays
+        while (tempDate.isEqual(latestPossibleSentDate) || tempDate.isBefore(latestPossibleSentDate)) {
+            if (tempDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
+                if (isSaturdayWorkingDay(dataBean.getBusinessDay(tempDate))) {
+                    workDays++;
+                }
+            } else if (dataBean.getBusinessDay(tempDate).getWorkingDays().get(Country.GERMANY)) {
+                workDays++;
+            }
+            tempDate = tempDate.plusDays(1);
+            allDays++;
+        }
+
+
+
+
 
     }
 
+
+
+
+
+
+    public static boolean isSaturdayWorkingDay(BusinessDay bd) {
+        if (bd.getDate().getDayOfWeek() == DayOfWeek.SATURDAY) {
+            for (Integer entry : bd.getPlannedProduction().values()) {
+                if (entry != 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public static boolean isSaturdayWorkingDay(BusinessWeek bW) {
         for (BusinessDay bd : bW.getDays()) {
@@ -230,9 +270,4 @@ public class EventHandleService {
         }
         return count;
     }
-
-
-    //TODO samstage auf holidays prüfen
-
-
 }

@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
+import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
 import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,8 @@ public class ShipController {
     private ShipService service;
     @Autowired
     ProductionService2 productionService2;
+    @Autowired
+    private DataInitService dataInitService;
 
 
     @RequestMapping(value = "/showShips")
@@ -73,9 +76,10 @@ public class ShipController {
             bd.setEventList(eventList);
         }
 
+        //dataInitService.init();
         productionService2.simulateWholeProduction();
 
-        return "redirect:/home";
+        return "redirect:/";
     }
 
 }
