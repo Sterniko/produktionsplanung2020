@@ -110,6 +110,8 @@ public class EventHandleService {
 
         BusinessWeek bW = productionIncreaseEvent.getBusinessWeek();
         Map<Bike, Integer> increaseAmount = productionIncreaseEvent.getIncreaseAmount();
+
+
         boolean isSaturday = isSaturdayWorkingDay(bW);
         int amountOfHolidays = countHolidays(bW);
         int workingDays = 6;
@@ -135,6 +137,28 @@ public class EventHandleService {
         //
 
         LocalDate work = weeksMonday;
+
+
+        //Order increased Production.
+        for(Bike b: increaseAmount.keySet()) {
+            for (Component c: b.getComponents()) {
+                LocalDate mondayMinusLeadTime = weeksMonday.minusDays(c.getSupplier().getLeadTime());
+                LocalDate orderDate;
+                if (changeDate.getDate().isBefore(mondayMinusLeadTime)) {
+                    orderDate = mondayMinusLeadTime;
+                } else {
+                    orderDate = weeksMonday;
+                }
+
+                Map<Component, Integer> orderMap = new HashMap<>();
+                orderMap.put(c, increaseAmount.get(b));
+
+                orderService.addToOrder(dataBean.getBusinessDay(orderDate), orderMap);
+            }
+        }
+
+
+
         Map<LocalDate,Map<Bike, Integer>> dateWithAdditionDisributed= new HashMap();
         //Befüllt die Map mit der Verteilung
         for(int i = 0; i< workingDays; i++){
