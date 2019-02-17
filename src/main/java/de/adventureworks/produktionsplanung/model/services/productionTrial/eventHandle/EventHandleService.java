@@ -6,10 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
-import de.adventureworks.produktionsplanung.model.entities.events.DeliveryChangeEvent;
-import de.adventureworks.produktionsplanung.model.entities.events.ProductionIncreaseEvent;
-import de.adventureworks.produktionsplanung.model.entities.events.ShipDeleteEvent;
-import de.adventureworks.produktionsplanung.model.entities.events.WarehouseChangeEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.*;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
@@ -201,6 +198,11 @@ public class EventHandleService {
             currentBD.setAdditionalProduction(ProductionSimulationUtil.addMaps(newtoAdd,currentBD.getAdditionalProduction()));
         }
     }
+
+    public void handleCustomerOrderEvent(CustomerOrderEvent customerOrderEvent, BusinessDay businessDay) {
+
+    }
+
 
     public static boolean isSaturdayWorkingDay(BusinessWeek bW) {
         for (BusinessDay bd : bW.getDays()) {
