@@ -68,10 +68,15 @@ public class EventHandleService {
         DeliveryChangeEvent deliveryEvent = (DeliveryChangeEvent) event;
         String deliveryID = deliveryEvent.getId();
         Map<Component, Integer> compMap = deliveryEvent.getNewComponents();
+        int amount = 0;
+        for(Component component : compMap.keySet()){
+            amount += compMap.get(component);
+        }
 
         LogisticsObject lo = deliveryService.getDeliveryToDeliveryID(deliveryID);
         Map<Component, Integer> orderMap = new HashMap<>(lo.getComponents());
         lo.setComponents(compMap);
+        lo.setSumAmount(amount);
 
         for (Component c : orderMap.keySet()) {
             orderMap.put(c, orderMap.get(c) - compMap.get(c));
