@@ -69,15 +69,35 @@
 
             </td>
         </tr>
-<!--
-        <tr th:each="component: ${components}">
-            <th>
-                <span th:utext="${component.name}"></span>
-            </th>
-            <td th:each="bd2: ${businessDays}">
-                <span th:utext="|${bd2.warehouseStock.get(component)}|"></span>
-            </td>
-        </tr> -->
+
+        <span th:each="bike: ${bikes}">
+            <tr>
+                <th>
+                    <span th:utext="${bike.name}"></span>
+                </th>
+            </tr>
+            <tr>
+                <td>Planproduktion</td>
+                <td th:each="bd2: ${businessDays}">
+                    <span th:utext="|${bd2.plannedProduction.get(bike)}|"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Istproduktion</td>
+                <td th:each="bd2: ${businessDays}">
+                    <span th:utext="|${bd2.actualProduction.get(bike)}|"></span>
+                </td>
+            </tr>
+
+        </span>
+
+        <tr>
+            <th>Schichten</th>
+            <span th:each="week: ${businessWeeks}" >
+
+                <td th:utext="|${week.getWorkingHours()}|" th:colspan="${week.days.size()}"></td>
+            </span>
+        </tr>
     </table>
 </div>
 

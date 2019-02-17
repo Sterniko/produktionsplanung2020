@@ -84,9 +84,9 @@ public class ProductionSimulationUtilTest {
         kaufen2.put(bikeA, 5);
         kaufen2.put(bikeB, 5);
 
-        Map<Bike, Integer> ergebnis1 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen1, warehouse, 65);
-        Map<Bike, Integer> ergebnis2 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen1, warehouse, 55);
-        Map<Bike, Integer> ergebnis3 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen2, warehouse, 55);
+        Map<Bike, Integer> ergebnis1 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen1, warehouse, 65, dataBean.getBikes());
+        Map<Bike, Integer> ergebnis2 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen1, warehouse, 55, dataBean.getBikes());
+        Map<Bike, Integer> ergebnis3 = ProductionSimulationUtil.tryToAchieveDailyProduction(kaufen2, warehouse, 55, dataBean.getBikes());
 
         Map<Bike, Integer> expected1 = new HashMap<>();
         Map<Bike, Integer> expected2 = new HashMap<>();
