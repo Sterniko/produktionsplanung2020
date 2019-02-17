@@ -147,7 +147,7 @@ public final class ProductionSimulationUtil {
         return result;
     }
 
-    static <T> Map<T, Integer> substractMaps(Map<T, Integer> minuend, Map<T, Integer> subtrahend){
+    public static <T> Map<T, Integer> substractMaps(Map<T, Integer> minuend, Map<T, Integer> subtrahend) {
         Map<T, Integer> result= new HashMap<>(minuend);
         for(T e: subtrahend.keySet()){
             if(!minuend.containsKey(e)){

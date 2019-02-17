@@ -69,6 +69,9 @@ public class ProductionService2 {
             ship.setDeliveries(new ArrayList<>());
         }
 
+        LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
+
+
         Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
         List<Supplier> supplierList = dataBean.getSuppliers();
         List<Component> componentList;
@@ -97,7 +100,6 @@ public class ProductionService2 {
         }
 
 
-        LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
         LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
 
 
@@ -158,17 +160,24 @@ public class ProductionService2 {
         Map<LocalDate, BusinessDay> businessDayMap = dataBean.getBusinessDays();
         List<LocalDate> allSortetLocalDays = new ArrayList<>(businessDayMap.keySet());
         Collections.sort(allSortetLocalDays);
+        //init first warehouseStock with 0s.
+        Map<Component, Integer> initWarehouseMap = new HashMap<>();
+        for (Component c: dataBean.getComponents()) {
+            initWarehouseMap.put(c,0);
+        }
+
         for (LocalDate date : allSortetLocalDays) {
             BusinessDay businessDay = dataBean.getBusinessDay(date);
             businessDay.setSentDeliveries(new ArrayList<>());
             businessDay.setReceivedDeliveries(new ArrayList<>());
-            businessDay.setWarehouseStock(new HashMap<>());
+            businessDay.setWarehouseStock(new HashMap<>(initWarehouseMap));
         }
         Map<Supplier, LogisticsObject> addPendingSupplierMap = new HashMap<>();
         for (LocalDate date : allSortetLocalDays) {
             BusinessDay businessDay = dataBean.getBusinessDay(date);
             orderService.addPendingSupplierAmountToDay(addPendingSupplierMap, businessDay);
 
+            List<IEvent> eventsToBeDeleted = new ArrayList<>();
             for (IEvent event : businessDay.getEventList()) {
 
                 if (event instanceof ShipDeleteEvent) {
@@ -177,12 +186,14 @@ public class ProductionService2 {
                     try {
                         eventHandleService.handleDeliveryChangeEvent(event, businessDay);
                     } catch (DeliveryNotFoundException e) {
-                        //TODO HANDLE
-                        System.out.println("SCHWULUNDSINGEL");
+                        eventsToBeDeleted.add(event);
                     }
                 } else if (event instanceof ProductionIncreaseEvent) {
 
                 }
+            }
+            for (IEvent event: eventsToBeDeleted) {
+                businessDay.getEventList().remove(event);
             }
 
             orderService.placeOrder(businessDay);
