@@ -36,8 +36,8 @@ public class SalesService {
     }
 
 
-    public void startEvent(LocalDate finishDate, boolean isPrio, Map<Bike, Integer> order, BusinessDay businessDay) {
-        PlaceCustomerOrderEvent placeCustomerOrderEvent = new PlaceCustomerOrderEvent(finishDate, order, isPrio);
+    public void startEvent(LocalDate finishDate, Map<Bike, Integer> order, BusinessDay businessDay) {
+        PlaceCustomerOrderEvent placeCustomerOrderEvent = new PlaceCustomerOrderEvent(finishDate, order);
         List<IEvent> eventList = businessDay.getEventList();
         eventList.add(placeCustomerOrderEvent);
     }

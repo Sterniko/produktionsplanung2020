@@ -53,7 +53,7 @@ public class SalesController {
         Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(salesRequest.getBikeMap(), dataBean.getBikes());
         boolean isPrio = RequestMapper.mapStringToBoolean(salesRequest.getPrio());
 
-        salesService.startEvent(customerDeliveryDate, isPrio, bikeMap, dataBean.getBusinessDay(sendingDate));
+        salesService.startEvent(customerDeliveryDate, bikeMap, dataBean.getBusinessDay(sendingDate));
         productionService2.simulateWholeProduction();
 
 
