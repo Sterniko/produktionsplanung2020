@@ -93,6 +93,7 @@ public class ProductionService2 {
             dataBean.getBusinessDay(date).setPendingSupplierAmount(new HashMap<>(pendingSupplierAmount));
             dataBean.getBusinessDay(date).setActualProduction(new HashMap<>(emptyProdMap));
             dataBean.getBusinessDay(date).setAdditionalProduction(new HashMap<>(emptyProdMap));
+            dataBean.getBusinessDay(date).setPrioProduction(new HashMap<>(emptyProdMap));
 
         }
 
@@ -195,6 +196,8 @@ public class ProductionService2 {
                     }
                 } else if (event instanceof ProductionIncreaseEvent) {
                     eventHandleService.handleProductionIncreaseEvent((ProductionIncreaseEvent) event, businessDay);
+                } else if (event instanceof  CustomerOrderEvent) {
+                    eventHandleService.handleCustomerOrderEvent((CustomerOrderEvent) event, businessDay);
                 }
             }
             for (IEvent event: eventsToBeDeleted) {
