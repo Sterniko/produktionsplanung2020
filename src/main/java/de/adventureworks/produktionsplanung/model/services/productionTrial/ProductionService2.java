@@ -208,6 +208,14 @@ public class ProductionService2 {
 
     //after Order are set
     private void simulateDay(BusinessDay businessDay, LocalDate maximumBackDate) {
+
+        //Wasserschaden
+        for (IEvent event : businessDay.getEventList()) {
+            if (event instanceof WarehouseChangeEvent) {
+                eventHandleService.handleWarehouseChangeEvent((WarehouseChangeEvent) event, businessDay);
+            }
+        }
+
         //Warehouse
         Map<Component, Integer> wareHouseStockAfterDeliveries = addDeliveriesToWarehouseStock(businessDay.getWarehouseStock(), businessDay.getReceivedDeliveries());
 
