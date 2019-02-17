@@ -35,10 +35,9 @@ public class ProductionService2 {
     private EventHandleService eventHandleService;
 
 
-
     public void handleEvent(IEvent event, BusinessDay bd) {
 
-         if (event instanceof PlaceCustomerOrderEvent) {
+        if (event instanceof PlaceCustomerOrderEvent) {
 
         }
 
@@ -49,7 +48,7 @@ public class ProductionService2 {
     }
 
 
-        public void simulateWholeProduction(int year) {
+    public void simulateWholeProduction(int year) {
 
         //Jahresproduction auf Monatsproduktion
         Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(
@@ -69,19 +68,39 @@ public class ProductionService2 {
         LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
         LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
 
-        //set deliveries
-        setDeliveriesFromPlannedProduction(null, firstDayOfYear);
-
 
         List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
         Collections.sort(dates);
         BusinessDay lastDay = null;
+
+        Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
+        List<Supplier> supplierList = dataBean.getSuppliers();
+        List<Component> componentList;
+
         for (LocalDate date : dates) {
-                simulateDay(dataBean.getBusinessDay(date), null);
-                //System.out.println(date + ": " + dataBean.getBusinessDay(date).getPlannedProduction());
-                lastDay = dataBean.getBusinessDay(date);
+            for (Supplier supplier : supplierList) {
+                componentList = supplier.getComponents();
+                LogisticsObject lo = new LogisticsObject();
+                Map<Component, Integer> componentIntegerMap = new HashMap<>();
+                for(int i = 0; i<componentList.size(); i++){
+                    componentIntegerMap.put(componentList.get(i), 0);
+                }
+                lo.setComponents(new HashMap<>(componentIntegerMap));
+                pendingSupplierAmount.put(supplier, lo);
+            }
+            dataBean.getBusinessDay(date).setPendingSupplierAmount(pendingSupplierAmount);
         }
-        lastDay.setPendingSupplierAmount(new HashMap<>());
+
+
+        //set deliveries
+        setDeliveriesFromPlannedProduction(null, firstDayOfYear);
+
+
+        for (LocalDate date : dates) {
+            simulateDay(dataBean.getBusinessDay(date), null);
+            //System.out.println(date + ": " + dataBean.getBusinessDay(date).getPlannedProduction());
+            lastDay = dataBean.getBusinessDay(date);
+        }
 
 
         System.out.println("break");
@@ -141,13 +160,13 @@ public class ProductionService2 {
                 System.out.println("hi");
             }
 
-            for (IEvent event: businessDay.getEventList()) {
+            for (IEvent event : businessDay.getEventList()) {
 
                 if (event instanceof ShipDeleteEvent) {
                     eventHandleService.handleShipDeleteEvent(event, businessDay);
                 } else if (event instanceof DeliveryChangeEvent) {
                     eventHandleService.handleDeliveryChangeEvent(event, businessDay);
-                }  else if (event instanceof ProductionIncreaseEvent) {
+                } else if (event instanceof ProductionIncreaseEvent) {
 
                 }
             }

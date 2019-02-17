@@ -135,6 +135,20 @@ public class DataInitService {
             data.setYearlyProduction(185000);
             List<BusinessDay> businessDayList = JSONService.getBusinessDays();
 
+            Map<Supplier, List<Component>> supplierListMap = new HashMap<>();
+
+            for(Component component : data.getComponents()) {
+                if(!supplierListMap.containsKey(component.getSupplier())) {
+                    supplierListMap.put(component.getSupplier(), new ArrayList<Component>());
+                }
+                    supplierListMap.get(component.getSupplier()).add(component);
+
+
+            }
+            for (Supplier s : supplierList) {
+                s.setComponents(supplierListMap.get(s));
+            }
+            
             int logisticObjectCounter = 0;
 
             Map<LocalDate, BusinessDay> businessDays = new HashMap<>();
@@ -186,6 +200,7 @@ public class DataInitService {
                 bd.setActualProduction(actualProduction);
                 bd.setWarehouseStock(warehouseStock);
                 bd.setEventList(eventList);
+
 
                 //bd in bd map wichsen
                 businessDays.put(bd.getDate(), bd);

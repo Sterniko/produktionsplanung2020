@@ -99,7 +99,7 @@ public class OrderService {
                 int amount = componentMap.get(c);
                 OrderService.addAmount(bd, amount, c);
             }
-
+            /*
             LocalDate dayBefore = bd.getDate().minusDays(1);
             BusinessDay businessDay = dataBean.getBusinessDay(dayBefore);
             Map<Supplier, LogisticsObject> pendingSupplierAmount = businessDay.getPendingSupplierAmount();
@@ -114,6 +114,7 @@ public class OrderService {
             if (dayBefore.isAfter(LocalDate.of(2018, 10, 31))) {
                 dataBean.getBusinessDay(dayBefore).setPendingSupplierAmount(pendingSupplierAmount);
             }
+            */
 
 
         }

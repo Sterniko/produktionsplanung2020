@@ -4,8 +4,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 
 import java.time.LocalDate;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class LogisticsObject {
 
@@ -107,8 +106,10 @@ public class LogisticsObject {
 
         String componentString = "";
 
-        for (Component component : components.keySet()) {
-            componentString = componentString.concat(component.getName().toString());
+        Queue<Component> keyQueue = new ArrayDeque<>(components.keySet());
+        while(!keyQueue.isEmpty()){
+            Component component = keyQueue.poll();
+            componentString = componentString.concat(component.getName());
             componentString = componentString.concat(components.get(component).toString());
         }
 
