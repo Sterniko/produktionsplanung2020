@@ -30,7 +30,7 @@ public class ShipService {
         this.databean = dataBean;
     }
 
-    public void deleteShip(Ship ship, LocalDate deleteDay, DataBean databean ){
+    public void startEvent(Ship ship, LocalDate deleteDay, DataBean databean) {
         ShipDeleteEvent event = new ShipDeleteEvent(ship);
         BusinessDay businessDay = databean.getBusinessDay(deleteDay);
         List<IEvent> eventList = businessDay.getEventList();
