@@ -193,7 +193,7 @@ public class ProductionService2 {
                         eventsToBeDeleted.add(event);
                     }
                 } else if (event instanceof ProductionIncreaseEvent) {
-
+                    eventHandleService.handleProductionIncreaseEvent((ProductionIncreaseEvent) event, businessDay);
                 }
             }
             for (IEvent event: eventsToBeDeleted) {
