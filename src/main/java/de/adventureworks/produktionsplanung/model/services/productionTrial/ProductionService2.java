@@ -37,14 +37,6 @@ public class ProductionService2 {
     private EventHandleService eventHandleService;
 
 
-    public void handleEvent(IEvent event, BusinessDay bd) {
-
-        if (event instanceof PlaceCustomerOrderEvent) {
-
-        }
-
-    }
-
     public void simulateWholeProduction() {
         simulateWholeProduction(2019);
     }
@@ -71,6 +63,11 @@ public class ProductionService2 {
 
         LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
 
+        Map<Bike, Integer> emptyProdMap = new HashMap<>();
+        for (Bike bike: dataBean.getBikes()) {
+            emptyProdMap.put(bike, 0);
+        }
+
 
         Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
         List<Supplier> supplierList = dataBean.getSuppliers();
@@ -89,6 +86,8 @@ public class ProductionService2 {
                 pendingSupplierAmount.put(supplier, lo);
             }
             dataBean.getBusinessDay(date).setPendingSupplierAmount(new HashMap<>(pendingSupplierAmount));
+            dataBean.getBusinessDay(date).setActualProduction(new HashMap<>(emptyProdMap));
+
         }
 
 
@@ -230,7 +229,7 @@ public class ProductionService2 {
             Map<Bike, Integer> dailyShouldProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
 
             //TODO Prio Betsellungen implementieren
-            actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap);
+            actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap, dataBean.getBikes());
 
             if (!weeklyShiftsAlreadySet) {
                 //TODO auslagern
@@ -238,7 +237,7 @@ public class ProductionService2 {
                 double neededCap = countBikes(actualDailyProduction) / dataBean.getHourlyCapacity();
                 for (int i = 0; i < shifts.size(); i++) {
                     if (neededCap > shifts.get(i)) {
-                        neededShift = shifts.get(Math.max(i, shifts.size() - 1));
+                        neededShift = shifts.get(Math.min(i +1 , shifts.size() - 1));
                     }
                 }
 

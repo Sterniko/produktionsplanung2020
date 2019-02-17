@@ -69,11 +69,13 @@ public final class ProductionSimulationUtil {
 
 
     //gibt maximale mögliche Produktion zurück. Wenn dailyShouldProduction möglich ist, ist sie der Rückgabewert. Effektiv wird die actualProduction berechnet.
-    static Map<Bike, Integer> tryToAchieveDailyProduction(Map<Bike, Integer> dailyShouldProduction, Map<Component, Integer> wareHouseStock, int maxProdCapacity) {
+    static Map<Bike, Integer> tryToAchieveDailyProduction(Map<Bike, Integer> dailyShouldProduction, Map<Component, Integer> wareHouseStock, int maxProdCapacity,List<Bike> allProduciableBikes) {
         int cap = maxProdCapacity;
         Map<Component, Integer> wareHouseStockCopy = new HashMap<>(wareHouseStock);
         Map<Bike ,Integer> actuallyPossibleProduction = new HashMap<>();
-
+        for(Bike bike: allProduciableBikes){
+         actuallyPossibleProduction.put(bike,0);
+        }
         for (Bike bike : dailyShouldProduction.keySet()) {
             int achievdProductions = 1;
             List<Component> neededComponents = bike.getComponents();

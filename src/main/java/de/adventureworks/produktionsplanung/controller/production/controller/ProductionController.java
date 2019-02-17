@@ -34,6 +34,7 @@ public class ProductionController {
 
         model.addAttribute("businessDays", dataBean.getSortedBusinessDaysInYear());
         model.addAttribute("businessWeeks", dataBean.getSortedBusinessWeeks());
+        model.addAttribute("bikes", dataBean.getBikes());
 
 
         return "production";

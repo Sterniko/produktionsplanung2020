@@ -39,6 +39,9 @@
 <div>
     <div th:replace="fragments/menu :: Menu"></div>
 </div>
+<br>
+<br>
+
 
 <br>
 <h1>Produktion</h1>
@@ -69,15 +72,57 @@
 
             </td>
         </tr>
-<!--
-        <tr th:each="component: ${components}">
-            <th>
-                <span th:utext="${component.name}"></span>
-            </th>
-            <td th:each="bd2: ${businessDays}">
-                <span th:utext="|${bd2.warehouseStock.get(component)}|"></span>
-            </td>
-        </tr> -->
+
+        <span th:each="bike: ${bikes}">
+            <tr>
+                <th>
+                    <span th:utext="${bike.name}"></span>
+                </th>
+            </tr>
+            <tr>
+                <td>Planproduktion</td>
+                <td th:each="bd2: ${businessDays}">
+                    <span th:utext="|${bd2.plannedProduction.get(bike)}|"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Istproduktion</td>
+                <td th:each="bd2: ${businessDays}">
+                    <span th:utext="|${bd2.actualProduction.get(bike)}|"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Fehlbetrag</td>
+                <td th:each="bd2: ${businessDays}">
+                    <span th:utext="|${bd2.getPlannedMinusActualProduction().get(bike)}|"></span>
+                </td>
+            </tr>
+
+        </span>
+
+        <tr>
+            <th>Schicht</th>
+            <span th:each="week: ${businessWeeks}" >
+
+                <td th:utext="|${week.getWorkingHours() + ' Stunden'}|" th:colspan="${week.days.size()}"></td>
+            </span>
+        </tr>
+
+        <tr>
+            <td>Summe Planproduktion</td>
+            <span th:each="day: ${businessDays}" >
+                <td th:utext="${day.getSumOfPlannedDailyProduction()}"></td>
+            </span>
+        </tr>
+
+        <tr>
+            <td>Summe Istproduktion</td>
+            <span th:each="day: ${businessDays}" >
+                <td th:utext="${day.getSumOfActualDailyProduction()}"></td>
+            </span>
+        </tr>
+
+
     </table>
 </div>
 
