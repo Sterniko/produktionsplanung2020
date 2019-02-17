@@ -3,10 +3,13 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.ProductionIncreaseEvent;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -73,6 +76,13 @@ public class MarketingService {
             }
         }
         return newWeekPlan;
+    }
+
+    public void startEvent(BusinessDay businessDay, Map<Bike, Integer> bikeMap, BusinessWeek bw) {
+        ProductionIncreaseEvent productionIncreaseEvent = new ProductionIncreaseEvent(bw, bikeMap);
+        List<IEvent> eventList = businessDay.getEventList();
+        eventList.add(productionIncreaseEvent);
+
     }
 
 }

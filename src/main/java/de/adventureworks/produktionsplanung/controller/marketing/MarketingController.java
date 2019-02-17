@@ -1,15 +1,12 @@
 package de.adventureworks.produktionsplanung.controller.marketing;
 
 
-import de.adventureworks.produktionsplanung.controller.sales.SalesRequest;
 import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
-
 import de.adventureworks.produktionsplanung.model.services.MarketingService;
-import de.adventureworks.produktionsplanung.model.services.ProductionEngagementService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +28,7 @@ public class MarketingController {
     private MarketingService marketingService;
 
     @Autowired
-    private ProductionEngagementService productionEngagementService;
+    private ProductionService2 productionService2;
 
     public MarketingController(){
 
@@ -57,11 +54,15 @@ public class MarketingController {
         BusinessWeek bW = this.dataBean.getBusinessWeeks().get(businessWeek - 1);
         Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(marketingRequest.getBikeMap(), dataBean.getBikes());
 
+        marketingService.startEvent(dataBean.getBusinessDay(today), bikeMap, bW);
+        productionService2.simulateWholeProduction();
 
+        /*
         helperMap = marketingService.getWeeklyPlannedProduction(today, bW);
         newWeeklyPlannedProduction = marketingService.addAmountToBusinessWeek(helperMap,bikeMap);
 
         productionEngagementService.changeProductionWeek(today,bW,newWeeklyPlannedProduction);
+        */
 
         return "redirect:/marketing";
     }
