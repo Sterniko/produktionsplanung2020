@@ -35,21 +35,8 @@ public class EventHandleService {
     public EventHandleService() {
     }
 
-    public void handleEvent(IEvent event, BusinessDay bd) {
 
-        if (event instanceof ShipDeleteEvent) {
-            handleShipDeleteEvent(event, bd);
-        } else if (event instanceof DeliveryChangeEvent) {
-            handleDeliveryChangeEvent(event, bd);
-        } else if (event instanceof PlaceCustomerOrderEvent) {
-
-        } else if (event instanceof ProductionIncreaseEvent) {
-
-        }
-
-    }
-
-    private void handleShipDeleteEvent(IEvent event, BusinessDay bd) {
+    public void handleShipDeleteEvent(IEvent event, BusinessDay bd) {
         ShipService shipService = new ShipService(dataBean);
         ArrivalCalculatorService acs = new ArrivalCalculatorService(shipService, dataBean);
         ShipDeleteEvent shipEvent = (ShipDeleteEvent) event;
@@ -63,7 +50,7 @@ public class EventHandleService {
         }
     }
 
-    private void handleDeliveryChangeEvent(IEvent event, BusinessDay bd) {
+    public void handleDeliveryChangeEvent(IEvent event, BusinessDay bd) {
 
         DeliveryChangeEvent deliveryEvent = (DeliveryChangeEvent) event;
         String deliveryID = deliveryEvent.getId();

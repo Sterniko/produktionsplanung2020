@@ -5,10 +5,12 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
+import de.adventureworks.produktionsplanung.model.entities.events.*;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import de.adventureworks.produktionsplanung.model.services.OrderService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.eventHandle.EventHandleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,25 @@ public class ProductionService2 {
 
     @Autowired
     private BusinessCalendar businessCalendar;
+
+    @Autowired
+    private EventHandleService eventHandleService;
+
+
+
+    public void handleEvent(IEvent event, BusinessDay bd) {
+
+        if (event instanceof ShipDeleteEvent) {
+            eventHandleService.handleShipDeleteEvent(event, bd);
+        } else if (event instanceof DeliveryChangeEvent) {
+            eventHandleService.handleDeliveryChangeEvent(event, bd);
+        } else if (event instanceof PlaceCustomerOrderEvent) {
+
+        } else if (event instanceof ProductionIncreaseEvent) {
+
+        }
+
+    }
 
 
     public void simulateWholeProduction(int year) {
