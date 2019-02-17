@@ -58,7 +58,7 @@ public class ProductionInitUtilTest {
         public void testGetDailyFromMonthlyProduction() {
             Map<Integer, Map<Bike, Integer>> monthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(relativeBikeProduction, monthProdDistrib, yearlyProduction);
 
-            Map<LocalDate, Map<Bike, Integer>> dailyProduction = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2019);
+            Map<LocalDate, Map<Bike, Integer>> dailyProduction = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2019, 100000, 100 );
 
             System.out.println(dailyProduction);
 

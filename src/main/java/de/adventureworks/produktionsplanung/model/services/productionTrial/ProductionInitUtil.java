@@ -4,6 +4,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -58,18 +59,46 @@ public final class ProductionInitUtil {
     }
 
 
-    static Map<LocalDate, Map<Bike, Integer>> getDailyWorkingDayProductionFromMonthlyProduction(Map<Integer, Map<Bike, Integer>> yearlyProduction, int year) {
+    static Map<LocalDate, Map<Bike, Integer>> getDailyWorkingDayProductionFromMonthlyProduction(Map<Integer, Map<Bike, Integer>> yearlyProduction, int year, int saturdayDailyProdBorder, int maxProdBorder) {
 
         BusinessCalendar businessCalendar = new BusinessCalendar();
         LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
         LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
+
+        Map<Integer, Boolean> monthSaturdayAllowedMap = new HashMap<>();
+        //Wenn die Tagproduktion ohne samstage über der borderprod liegt, wird samstagsarbeit erlaubt.
+        for (int i: yearlyProduction.keySet()) {
+            int sum = 0;
+            for (Bike bike: yearlyProduction.get(i).keySet()) {
+                sum += yearlyProduction.get(i).get(bike);
+            }
+            int workingDaysWithSaturday = 0;
+            LocalDate date = LocalDate.of(year, i, 1);
+            while(date.getMonth().getValue() == i) {
+                if (! (businessCalendar.isHoliday(date) || date.getDayOfWeek()== DayOfWeek.SUNDAY) ){
+                    workingDaysWithSaturday++;
+                }
+                date = date.plusDays(1);
+            }
+
+            int daysWithoutSaturday = businessCalendar.getWorkingDaysOutOfMonthAndYear(i, 2019);
+            int dailyProductionInMonthWithoutSaturday = sum / daysWithoutSaturday;
+            int dailyProductionWithSaturday = sum / workingDaysWithSaturday;
+
+            boolean saturdayWorkAllowed  = dailyProductionWithSaturday > maxProdBorder// Ohne Samstage wir dmehr als 21 Stunden/Tag produziert
+                    || (dailyProductionInMonthWithoutSaturday > saturdayDailyProdBorder && dailyProductionWithSaturday <= saturdayDailyProdBorder );
+
+            monthSaturdayAllowedMap.put(i,saturdayWorkAllowed);
+        }
+
 
         Map<Integer, List<LocalDate>> workingDaysInMonth = new HashMap<>();
         List<LocalDate> offDays = new ArrayList<>();
 
         for (LocalDate date = firstDayOfYear; date.isBefore(firstDayOfNextYear); date = date.plusDays(1)) {
             Integer monthValue = date.getMonthValue();
-            if (businessCalendar.isWorkingDay(date)) {
+            boolean saturdayWorkAllowed = monthSaturdayAllowedMap.get(monthValue);
+            if (businessCalendar.isWorkingDay(date) || (saturdayWorkAllowed && businessCalendar.isSaturday(date) && (!businessCalendar.isHoliday(date)))) {
                 if (!workingDaysInMonth.containsKey(monthValue)) {
                     workingDaysInMonth.put(monthValue, new ArrayList<>());
                 }
@@ -170,7 +199,7 @@ public final class ProductionInitUtil {
             if (date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {//save and init new BusinessWeek
                 businessWeeks.add(businessWeek);
                 weekCounter++;
-                businessWeek = new BusinessWeek(weekCounter);
+                businessWeek = new Bus575inessWeek(weekCounter);
             }
 
         }
