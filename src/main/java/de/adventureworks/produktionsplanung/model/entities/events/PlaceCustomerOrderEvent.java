@@ -11,12 +11,11 @@ public class PlaceCustomerOrderEvent implements IEvent {
 
     private Map<Bike, Integer> order;
 
-    private boolean isPrio;
 
-    public PlaceCustomerOrderEvent(LocalDate productionFinishDate, Map<Bike, Integer> order, boolean isPrio) {
+    public PlaceCustomerOrderEvent(LocalDate productionFinishDate, Map<Bike, Integer> order) {
         this.productionFinishDate = productionFinishDate;
         this.order = order;
-        this.isPrio = isPrio;
+
     }
 
     public LocalDate getProductionFinishDate() {
@@ -27,7 +26,5 @@ public class PlaceCustomerOrderEvent implements IEvent {
         return order;
     }
 
-    public boolean isPrio() {
-        return isPrio;
-    }
+
 }

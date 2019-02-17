@@ -44,12 +44,16 @@ public class ProductionService2 {
 
     public void simulateWholeProduction(int year) {
 
+        int saturdayProdMinBorder = dataBean.getShifts().get(1) * dataBean.getHourlyCapacity();
+        int saturdayProdMaxBorder = dataBean.getShifts().get(2) * dataBean.getHourlyCapacity();
+
         //Jahresproduction auf Monatsproduktion
         Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(
                 dataBean.getBikeProductionShares(), dataBean.getMonthlyProductionShares(), dataBean.getYearlyProduction());
 
         //Monats- aufTagesproduktion
-        Map<LocalDate, Map<Bike, Integer>> dailyProductionForYear = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(absoluteMonthlyProduction, year);
+        Map<LocalDate, Map<Bike, Integer>> dailyProductionForYear =
+                ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(absoluteMonthlyProduction, year, saturdayProdMinBorder, saturdayProdMaxBorder);
 
         //clear pendingsupplierAmount
         List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
