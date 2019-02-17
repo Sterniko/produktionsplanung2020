@@ -56,6 +56,20 @@ public class DataBean {
         return resultList;
     }
 
+    public List<BusinessDay> getBusinnesDayListFromDate(LocalDate startDate){
+        List<LocalDate> keyDates = new ArrayList<>(getBusinessDays().keySet());
+        List<BusinessDay> resultList = new ArrayList<>();
+        Collections.sort(keyDates);
+
+        for (LocalDate date: keyDates) {
+            if(date.isAfter(startDate)){
+                resultList.add(data.getBusinessDays().get(date));
+            }
+        }
+
+        return resultList;
+    }
+
     public Map<LocalDate, BusinessDay> getBusinessDays() {
         return data.getBusinessDays();
     }
