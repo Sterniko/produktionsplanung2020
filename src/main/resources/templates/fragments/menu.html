@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="Menu">
+<div th:fragment="Menu" style="position: fixed; width: 100%">
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
@@ -21,6 +21,7 @@
             </span>
             </div>
         </div>
+        <div style="position: fixed; width: 100%">
         <nav class="navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
                     aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +30,5 @@
         </nav>
     </div>
 </div>
-
-
+</div>
 </html>
