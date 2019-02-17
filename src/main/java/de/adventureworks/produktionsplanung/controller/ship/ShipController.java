@@ -43,7 +43,7 @@ public class ShipController {
         LocalDate deleteDay = deleteShipRequest.getDeleteDate();
         Ship ship = service.getShipByName(shipName);
         service.deleteShip(ship, deleteDay, dataBean);
-        productionService2.simulateWholeProduction();
+            productionService2.simulateWholeProduction();
         return "redirect:/showShips";
     }
 
