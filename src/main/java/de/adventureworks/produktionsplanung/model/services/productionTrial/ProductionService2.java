@@ -91,6 +91,7 @@ public class ProductionService2 {
             }
             dataBean.getBusinessDay(date).setPendingSupplierAmount(new HashMap<>(pendingSupplierAmount));
             dataBean.getBusinessDay(date).setActualProduction(new HashMap<>(emptyProdMap));
+            dataBean.getBusinessDay(date).setAdditionalProduction(new HashMap<>(emptyProdMap));
 
         }
 

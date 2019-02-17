@@ -52,7 +52,7 @@
             <th>Woche</th>
             <span th:each="week: ${businessWeeks}" >
 
-                <td th:utext="|${week.getCalendarWeek()}|" th:colspan="${week.days.size()}"></td>
+                <td th:utext="'KW ' + |${week.getCalendarWeek()}|" th:colspan="${week.days.size()}"></td>
             </span>
         </tr>
         <tr>
@@ -86,6 +86,13 @@
                 </td>
             </tr>
             <tr>
+                <td>Zusatzproduktion</td>
+                <td th:each="bd2: ${businessDays}">
+                    <span th:utext="|${bd2.additionalProduction.get(bike)}|"></span>
+                </td>
+            </tr>
+            <tr>
+            <tr>
                 <td>Istproduktion</td>
                 <td th:each="bd2: ${businessDays}">
                     <span th:utext="|${bd2.actualProduction.get(bike)}|"></span>
@@ -114,6 +121,12 @@
                 <td th:utext="${day.getSumOfPlannedDailyProduction()}"></td>
             </span>
         </tr>
+        <tr>
+            <td></td>
+            <span th:each="week: ${businessWeeks}" >
+                <td th:utext="|${week.getSumOfPlannedProduction() }|" th:colspan="${week.days.size()}"></td>
+            </span>
+        </tr>
 
         <tr>
             <td>Summe Istproduktion</td>
@@ -122,6 +135,12 @@
             </span>
         </tr>
 
+        <tr>
+            <td></td>
+            <span th:each="week: ${businessWeeks}" >
+                <td th:utext="|${week.getSumOfActualProduction() }|" th:colspan="${week.days.size()}"></td>
+            </span>
+        </tr>
 
     </table>
 </div>

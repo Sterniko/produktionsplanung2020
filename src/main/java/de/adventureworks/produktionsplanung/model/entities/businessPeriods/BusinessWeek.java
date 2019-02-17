@@ -102,6 +102,22 @@ public class BusinessWeek implements Comparable<BusinessWeek> {
         return this.days.get(0);
     }
 
+    public Integer getSumOfPlannedProduction() {
+        Integer sum = 0;
+        for (BusinessDay day: days) {
+            sum += day.getSumOfPlannedDailyProduction();
+        }
+        return sum;
+    }
+
+    public Integer getSumOfActualProduction() {
+        Integer sum = 0;
+        for (BusinessDay day: days) {
+            sum += day.getSumOfActualDailyProduction();
+        }
+        return sum;
+    }
+
     @Override
     public int compareTo(BusinessWeek o) {
         return calendarWeek -o.calendarWeek;
