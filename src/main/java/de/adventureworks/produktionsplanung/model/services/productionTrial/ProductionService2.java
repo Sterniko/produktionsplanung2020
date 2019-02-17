@@ -162,9 +162,6 @@ public class ProductionService2 {
         for (LocalDate date : allSortetLocalDays) {
             BusinessDay businessDay = dataBean.getBusinessDay(date);
             orderService.addPendingSupplierAmountToDay(addPendingSupplierMap, businessDay);
-            if (businessDay.getDate().isAfter(LocalDate.of(2019, 11, 28))) {
-                System.out.println("hi");
-            }
 
             for (IEvent event : businessDay.getEventList()) {
 

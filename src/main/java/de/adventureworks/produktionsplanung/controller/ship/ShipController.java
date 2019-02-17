@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorService;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionSimulationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,8 @@ public class ShipController {
     private DataBean dataBean;
     @Autowired
     private ShipService service;
+    @Autowired
+    ProductionService2 productionService2;
 
 
     @RequestMapping(value = "/showShips")
@@ -40,6 +43,7 @@ public class ShipController {
         LocalDate deleteDay = deleteShipRequest.getDeleteDate();
         Ship ship = service.getShipByName(shipName);
         service.deleteShip(ship, deleteDay, dataBean);
+        productionService2.simulateWholeProduction();
         return "redirect:/showShips";
     }
 
