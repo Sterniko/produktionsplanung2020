@@ -1,18 +1,15 @@
 package de.adventureworks.produktionsplanung.model.services;
 
 import de.adventureworks.produktionsplanung.model.DataBean;
-import de.adventureworks.produktionsplanung.model.entities.bike.*;
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.PlaceCustomerOrderEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
-import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
-import java.lang.reflect.MalformedParameterizedTypeException;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +17,7 @@ import java.util.Map;
 public class SalesService {
 
     private DataBean dataBean;
+
     @Autowired
     private ProductionEngagementService pES;
 
@@ -35,6 +33,13 @@ public class SalesService {
         } else {
             return false;
         }
+    }
+
+
+    public void startEvent(LocalDate finishDate, Map<Bike, Integer> order, BusinessDay businessDay) {
+        PlaceCustomerOrderEvent placeCustomerOrderEvent = new PlaceCustomerOrderEvent(finishDate, order);
+        List<IEvent> eventList = businessDay.getEventList();
+        eventList.add(placeCustomerOrderEvent);
     }
 
 

@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.services.SalesService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,12 @@ public class SalesController {
 
     @Autowired
     private DataBean dataBean;
+
+    @Autowired
+    private SalesService salesService;
+
+    @Autowired
+    private ProductionService2 productionService2;
 
     public SalesController() {
 
@@ -46,9 +53,9 @@ public class SalesController {
         Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(salesRequest.getBikeMap(), dataBean.getBikes());
         boolean isPrio = RequestMapper.mapStringToBoolean(salesRequest.getPrio());
 
+        salesService.startEvent(customerDeliveryDate, bikeMap, dataBean.getBusinessDay(sendingDate));
+        productionService2.simulateWholeProduction();
 
-        SalesService salesService = new SalesService(dataBean);
-        boolean orderPossible = salesService.checkIfOrderPossible(sendingDate, customerDeliveryDate, country, bikeMap, isPrio);
 
         return "redirect:/sales";
     }

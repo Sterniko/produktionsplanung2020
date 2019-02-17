@@ -2,13 +2,9 @@ package de.adventureworks.produktionsplanung.controller.ship;
 
 
 import de.adventureworks.produktionsplanung.model.DataBean;
-import de.adventureworks.produktionsplanung.model.entities.bike.Component;
-import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
-import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorService;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
 import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
-import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionSimulationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 @Controller
 public class ShipController {
@@ -42,8 +37,8 @@ public class ShipController {
         String shipName = deleteShipRequest.getName();
         LocalDate deleteDay = deleteShipRequest.getDeleteDate();
         Ship ship = service.getShipByName(shipName);
-        service.deleteShip(ship, deleteDay, dataBean);
-            productionService2.simulateWholeProduction();
+        service.startEvent(ship, deleteDay, dataBean);
+        productionService2.simulateWholeProduction();
         return "redirect:/showShips";
     }
 
@@ -55,6 +50,8 @@ public class ShipController {
         LocalDate newArrival = updateShipRequest.getNewArrival();
         //VIEL SPASS BEIM WEITERMACHEN :)
         service.delayShip(ship, newArrival);
+
+        productionService2.simulateWholeProduction();
         return "redirect:/showShips";
     }
 
