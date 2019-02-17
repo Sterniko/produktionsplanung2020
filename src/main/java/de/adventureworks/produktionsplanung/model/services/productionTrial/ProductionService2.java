@@ -181,10 +181,10 @@ public class ProductionService2 {
             for (IEvent event : businessDay.getEventList()) {
 
                 if (event instanceof ShipDeleteEvent) {
-                    eventHandleService.handleShipDeleteEvent(event, businessDay);
+                    eventHandleService.handleShipDeleteEvent((ShipDeleteEvent)event, businessDay);
                 } else if (event instanceof DeliveryChangeEvent) {
                     try {
-                        eventHandleService.handleDeliveryChangeEvent(event, businessDay);
+                        eventHandleService.handleDeliveryChangeEvent((DeliveryChangeEvent)event, businessDay);
                     } catch (DeliveryNotFoundException e) {
                         eventsToBeDeleted.add(event);
                     }

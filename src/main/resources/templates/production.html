@@ -4,29 +4,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <style>
-        #trDate {
-            border-bottom: 1px solid;
-        }
-
-        #trDate {
-            font-size: 1.5em;
-        }
-
-        #trBikes {
+        #warehouseDiv {
             font-family: "Times New Roman";
-            border: 1px solid black;
         }
-
-        .tdClass {
-            border-right: 1px solid black;
-            border-left: 1px solid black;
+        #tblWareHouse th, td {
+            white-space: nowrap;
         }
-
-        #tdChange {
-            border-bottom: 1px solid black;
+        .smallerDiv {
+            float: left;
+            margin: auto;
+            padding: 2px;
+            width: 35%;
         }
-
         a{
             color: aliceblue;
         }
@@ -36,69 +27,64 @@
             padding-top: 5px;
             text-decoration: none;
         }
+        #btnSave{
+            width:100px;
+        }
 
     </style>
     <meta charset="UTF-8">
-    <title>Produktion</title>
+    <title>Warehouse</title>
 </head>
 <body>
 <div>
     <div th:replace="fragments/menu :: Menu"></div>
 </div>
-<div class="container">
 
-    <h1>Produktion</h1>
-    <div class="produktion">
-        <table id="tblProduction" class="table-striped">
+<br>
+<h1>Produktion</h1>
+<div id="warehouseDiv" style="overflow-y: scroll;">
+    <table id="tblWareHouse" class="table table-striped table-bordered table-sm" cellspacing="0"
+           width="100%" border="1">
+        <tr>
+            <th>Woche</th>
+            <span th:each="week: ${businessWeeks}" >
 
-            <th:block th:each="bd : ${businessDays}">
-                <tr id="trDate">
-                    <td></td>
-                    <td></td>
-                    <td>
-                    <th th:text="${bd.getDate()}"></th>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr id="trBikes">
-                    <th class="tdClass" th:each="planned : ${bd.getPlannedProduction().entrySet()}">
-                        <span id="bikes" th:text="${planned.key.getName()}"></span>
-                    </th>
-                </tr>
-                <td class="tdClass" th:each="planned : ${bd.getPlannedProduction().entrySet()}">
-                    <span>  Planned : </span>
-                    <span th:text="${planned.getValue()}"></span>
-                </td>
-                <tr>
-                    <td class="tdClass" th:each="actual : ${bd.getActualProduction().entrySet()}">
-                        <span>  Actual : </span>
-                        <span th:text="${actual.getValue()}"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tdClass" id="tdChange" th:each="additional : ${bd.getAdditionalProduction().entrySet()}">
-                        <div th:if="${additional.getValue() == 0}" style="color:black">
-                            <span> Change : </span>
-                            <span th:text="${additional.getValue()}"></span>
-                        </div>
-                        <div th:if="${additional.getValue() < 0}" style="color:red">
-                            <span> Change : </span>
-                            <span th:text="${additional.getValue()}"></span>
-                        </div>
-                        <div th:if="${additional.getValue() > 0}" style="color:green">
-                            <span> Change : </span>
-                            <span th:text="${additional.getValue()}"></span>
-                        </div>
-                    </td>
-                </tr>
-            </th:block>
+                <td th:utext="|${week.getCalendarWeek()}|" th:colspan="${week.days.size()}"></td>
+            </span>
+        </tr>
+        <tr>
+            <th>Datum</th>
+            <td th:each="bd: ${businessDays}">
+                <p th:each="entry: ${bd.getWorkingDays()}">
+                        <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
+                                <span th:if="${entry.getValue()}">
+                                    <span style="color:red" th:utext="${bd.getDate()}"></span>
+                                </span>
+                                <span th:unless="${entry.getValue()}">
+                                    <span style="color:black" th:utext="${bd.getDate()}"></span>
+                                </span>
+                        </span>
 
-        </table>
-    </div>
+                </p>
+
+            </td>
+        </tr>
+<!--
+        <tr th:each="component: ${components}">
+            <th>
+                <span th:utext="${component.name}"></span>
+            </th>
+            <td th:each="bd2: ${businessDays}">
+                <span th:utext="|${bd2.warehouseStock.get(component)}|"></span>
+            </td>
+        </tr> -->
+    </table>
 </div>
-<div th:replace="fragments/scripts :: script"></div>
+
+
+
+
+
+
 </body>
 </html>

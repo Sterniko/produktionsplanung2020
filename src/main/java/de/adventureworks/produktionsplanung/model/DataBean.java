@@ -10,6 +10,8 @@ import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +35,25 @@ public class DataBean {
         } else {
             return null;
         }
+    }
+
+    public List<BusinessDay> getSortedBusinessDaysInYear(){
+        List<LocalDate> keyDates = new ArrayList<>(getBusinessDays().keySet());
+        List<BusinessDay> resultList = new ArrayList<>();
+        Collections.sort(keyDates);
+        for (LocalDate date: keyDates) {
+            if (date.getYear() == 2019) {
+                resultList.add(data.getBusinessDays().get(date));
+
+            }
+        }
+        return resultList;
+    }
+
+    public List<BusinessWeek> getSortedBusinessWeeks() {
+        List<BusinessWeek> resultList = data.getBusinessWeeks();
+        Collections.sort(resultList);
+        return resultList;
     }
 
     public Map<LocalDate, BusinessDay> getBusinessDays() {

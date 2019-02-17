@@ -2,6 +2,7 @@ package de.adventureworks.produktionsplanung.controller.production.controller;
 
 
 
+import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
@@ -22,16 +23,7 @@ import java.util.*;
 public class ProductionController {
 
     @Autowired
-    ProductionService productionService;
-
-    @Autowired
-    ProductionModel productionModel;
-
-    @Autowired
-    BusinessCalendar businessCalendar;
-
-    @Autowired
-    SortService sortService;
+    private DataBean dataBean;
 
     public ProductionController() {
 
@@ -39,17 +31,9 @@ public class ProductionController {
 
     @RequestMapping("/production")
     public String getCustomers(Model model) {
-        this.productionService.calculateRegularProduction();
-        List<BusinessDay> businessDayList = new ArrayList<>();
-        Map<Country, Boolean> workingDayMap = new HashMap<>();
 
-        //get BusinessDays
-        businessDayList = sortService.mapToListBusinessDays(this.productionModel.getBusinessDays());
-        //sort them
-        businessDayList = sortService.sortBusinessDayList(businessDayList);
-
-
-        model.addAttribute("businessDays",businessDayList);
+        model.addAttribute("businessDays", dataBean.getSortedBusinessDaysInYear());
+        model.addAttribute("businessWeeks", dataBean.getSortedBusinessWeeks());
 
 
         return "production";
