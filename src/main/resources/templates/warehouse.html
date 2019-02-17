@@ -27,6 +27,9 @@
             padding-top: 5px;
             text-decoration: none;
         }
+        #btnSave{
+            width:100px;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Warehouse</title>
@@ -36,7 +39,9 @@
     <div th:replace="fragments/menu :: Menu"></div>
 </div>
 
-
+<br>
+<h1>Lager</h1>
+<br>
 <div id="warehouseDiv" style="overflow-y: scroll;">
     <table id="tblWareHouse" class="table table-striped table-bordered table-sm" cellspacing="0"
            width="100%" border="1">
@@ -76,6 +81,7 @@
 </div>
 </br>
 
+<h2>Lager bearbeiten</h2>
 
 <div class="smallerDiv container">
     <form class="form-group form-control-sm" method="POST" th:action="@{/warehouse}" th:object="${warehouseRequest}">
@@ -87,7 +93,7 @@
                         <input type="number" th:field="*{warehouseMap[__${component.name}__]}" class="form-control" required/>
                 </span>
             </br>
-            <button type="submit" class="btn btn-primary" name="submit" value="value">Change Components</button>
+            <button id="btnSave" type="submit" name="submit" class="btn btn-dark" value="value"><i class="fa fa-save fa-2x"></i></button>
             </br>
             </br>
         </div>
