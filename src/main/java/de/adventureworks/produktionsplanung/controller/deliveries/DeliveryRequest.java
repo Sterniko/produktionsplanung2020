@@ -25,11 +25,11 @@ public class DeliveryRequest {
     }
 
     public String getEqualsId() {
-        return equalsid;
+        return equalsid.trim();
     }
 
     public void setEqualsId(String id) {
-        this.equalsid = id;
+        this.equalsid = id.trim();
     }
 
     public Map<String, Integer> getCompMap() {

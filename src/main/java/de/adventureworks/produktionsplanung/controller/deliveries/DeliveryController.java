@@ -7,6 +7,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import de.adventureworks.produktionsplanung.model.services.DeliveryService;
 import de.adventureworks.produktionsplanung.model.services.SortService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +30,9 @@ public class DeliveryController {
 
     @Autowired
     DeliveryService deliveryService;
+
+    @Autowired
+    private ProductionService2 productionService2;
 
     public DeliveryController() {
 
@@ -63,6 +67,7 @@ public class DeliveryController {
         Map<Component, Integer> compMap = RequestMapper.mapComponentStringMap(deliveryRequest.getCompMap(), dataBean.getComponents());
         deliveryService.startEvent(deliveryID, businessDay, compMap);
 
+        productionService2.simulateWholeProduction();
 
         return "redirect:/deliveries?idSent=none";
     }

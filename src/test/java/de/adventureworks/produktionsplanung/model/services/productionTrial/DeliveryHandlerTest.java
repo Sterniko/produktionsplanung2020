@@ -83,7 +83,7 @@ public class DeliveryHandlerTest {
         deliveryService.startEvent(Id, businessDay, components);
 
         IEvent dce = businessDay.getEventList().get(0);
-        eventHandleService.handleEvent(dce, businessDay);
+        //TODO eventHandleService.handleEvent(dce, businessDay);
 
         System.out.println("i");
     }

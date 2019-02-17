@@ -38,20 +38,18 @@ public class ProductionService2 {
 
     public void handleEvent(IEvent event, BusinessDay bd) {
 
-        if (event instanceof ShipDeleteEvent) {
-            eventHandleService.handleShipDeleteEvent(event, bd);
-        } else if (event instanceof DeliveryChangeEvent) {
-            eventHandleService.handleDeliveryChangeEvent(event, bd);
-        } else if (event instanceof PlaceCustomerOrderEvent) {
-
-        } else if (event instanceof ProductionIncreaseEvent) {
+         if (event instanceof PlaceCustomerOrderEvent) {
 
         }
 
     }
 
+    public void simulateWholeProduction() {
+        simulateWholeProduction(2019);
+    }
 
-    public void simulateWholeProduction(int year) {
+
+        public void simulateWholeProduction(int year) {
 
         //Jahresproduction auf Monatsproduktion
         Map<Integer, Map<Bike, Integer>> absoluteMonthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(
@@ -77,11 +75,13 @@ public class ProductionService2 {
 
         List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
         Collections.sort(dates);
+        BusinessDay lastDay = null;
         for (LocalDate date : dates) {
                 simulateDay(dataBean.getBusinessDay(date), null);
                 //System.out.println(date + ": " + dataBean.getBusinessDay(date).getPlannedProduction());
-
+                lastDay = dataBean.getBusinessDay(date);
         }
+        lastDay.setPendingSupplierAmount(new HashMap<>());
 
 
         System.out.println("break");
@@ -140,6 +140,18 @@ public class ProductionService2 {
             if (businessDay.getDate().isAfter(LocalDate.of(2019, 11, 28))) {
                 System.out.println("hi");
             }
+
+            for (IEvent event: businessDay.getEventList()) {
+
+                if (event instanceof ShipDeleteEvent) {
+                    eventHandleService.handleShipDeleteEvent(event, businessDay);
+                } else if (event instanceof DeliveryChangeEvent) {
+                    eventHandleService.handleDeliveryChangeEvent(event, businessDay);
+                }  else if (event instanceof ProductionIncreaseEvent) {
+
+                }
+            }
+
             orderService.placeOrder(businessDay);
             addPendingSupplierMap = businessDay.getPendingSupplierAmount();
         }
