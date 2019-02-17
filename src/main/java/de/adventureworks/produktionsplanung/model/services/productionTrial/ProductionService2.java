@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.events.*;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
@@ -62,6 +63,11 @@ public class ProductionService2 {
         List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
         Collections.sort(dates);
         BusinessDay lastDay = null;
+
+        //clear ship deliveries
+        for(Ship ship: dataBean.getShips()) {
+            ship.setDeliveries(new ArrayList<>());
+        }
 
         Map<Supplier, LogisticsObject> pendingSupplierAmount = new HashMap<>();
         List<Supplier> supplierList = dataBean.getSuppliers();
