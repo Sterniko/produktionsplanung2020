@@ -50,6 +50,8 @@ public class ShipController {
         LocalDate newArrival = updateShipRequest.getNewArrival();
         //VIEL SPASS BEIM WEITERMACHEN :)
         service.delayShip(ship, newArrival);
+
+        productionService2.simulateWholeProduction();
         return "redirect:/showShips";
     }
 
