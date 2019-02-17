@@ -18,7 +18,7 @@ import java.util.Map;
 public class MarketingService {
 
 
-    public static HashMap<Bike,Integer> getWeeklyPlannedProduction(LocalDate today, BusinessWeek businessWeek) {
+    public static HashMap<Bike,Integer> getWeeklyPlannedProduction(BusinessWeek businessWeek, boolean planned) {
 
         HashMap<Bike, Integer> weekPlan = new HashMap<>();
         int weekAllrounder = 0;
@@ -31,7 +31,13 @@ public class MarketingService {
         int weekTrail = 0 ;
 
         for (BusinessDay bd : businessWeek.getDays()) {
-            for (Map.Entry entry : bd.getPlannedProduction().entrySet()) {
+            Map<Bike,Integer> production= new HashMap<>();
+            if(planned){
+                production= bd.getPlannedProduction();
+            }else{
+                production= bd.getAdditionalProduction();
+            }
+            for (Map.Entry entry : production.entrySet()) {
                 Bike bike = (Bike) entry.getKey();
                 switch (bike.getName()) {
                     case ("MTBAllrounder"):
@@ -64,6 +70,11 @@ public class MarketingService {
         }
         return weekPlan;
     }
+
+
+
+
+
     public static Map<Bike,Integer> addAmountToBusinessWeek(Map<Bike,Integer> weeklyPlanning, Map<Bike, Integer> bikesToAdd){
 
         Map<Bike,Integer> newWeekPlan = ProductionSimulationUtil.addMaps(weeklyPlanning, bikesToAdd);

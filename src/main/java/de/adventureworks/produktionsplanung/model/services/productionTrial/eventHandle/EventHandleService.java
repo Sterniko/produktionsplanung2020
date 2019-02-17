@@ -20,7 +20,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -109,18 +111,71 @@ public class EventHandleService {
         BusinessWeek bW = productionIncreaseEvent.getBusinessWeek();
         Map<Bike, Integer> increaseAmount = productionIncreaseEvent.getIncreaseAmount();
         boolean isSaturday = isSaturdayWorkingDay(bW);
-        int amountOfHolidays= countHolidays(bW);
-        int workingDays= 5;
-        workingDays-= amountOfHolidays;
-        if(isSaturday){
+        int amountOfHolidays = countHolidays(bW);
+        int workingDays = 5;
+        workingDays -= amountOfHolidays;
+
+        if (isSaturday) {
             workingDays++;
-            //TODO was passiert wenn samstags arbeitstag ist
         }
 
+        /*int sumPlaned = ProductionSimulationUtil.countBikes(MarketingService.getWeeklyPlannedProduction(bW, true));
+        int sumAdditional = ProductionSimulationUtil.countBikes(MarketingService.getWeeklyPlannedProduction(bW, false));
+        int wholeProduction = sumPlaned + sumAdditional;*/
 
 
+        LocalDate weeksMonday = null;
+
+        //gibt mir den Montag
+        for (BusinessDay bD : bW.getDays()) {
+            if (bD.getDate().getDayOfWeek() == DayOfWeek.MONDAY) {
+                weeksMonday = bD.getDate();
+            }
+        }
+        //
+
+        LocalDate work = weeksMonday;
+        Map<LocalDate,Map<Bike, Integer>> dateWithAdditionDisributed= new HashMap();
+        //Befüllt die Map mit der Verteilung
+        for(int i = 0; i< workingDays; i++){
+            BusinessDay currentBD= dataBean.getBusinessDay(work);
+            if(!work.isAfter(changeDate.getDate())){
+                workingDays--;
+            }
+            else if(!currentBD.getWorkingDays().get(Country.GERMANY)){
+                dateWithAdditionDisributed.put(work,new HashMap<>());
+            }
+            work= work.plusDays(1);
+        }
+
+        //SONST wird durch null geteilt
+        if(workingDays<1){return;}
+
+        for(LocalDate currentDate: dateWithAdditionDisributed.keySet()) {
+            for (Map.Entry entry : increaseAmount.entrySet()) {
+                int wholeDayAddition = (int) (entry.getValue()) / workingDays;
+                Map<Bike, Integer> currentMap =  dateWithAdditionDisributed.get(currentDate);
+                currentMap.put((Bike)entry.getKey(),wholeDayAddition);
+            }
+        }
+        for (Map.Entry entry : increaseAmount.entrySet()) {
+            for (int i = 0; i < (int)(entry.getValue())%workingDays; i++) {
+                List<LocalDate> workingWeek= new ArrayList<>(dateWithAdditionDisributed.keySet());
+                LocalDate currentDay= workingWeek.get(i);
+                int currentStock = dateWithAdditionDisributed.get(currentDay).get(entry.getKey());
+                dateWithAdditionDisributed.get(currentDay).put((Bike)entry.getKey(),currentStock+1);
+            }
+
+        }
+        //
 
 
+        //befüllen des BussniesDays
+        for(LocalDate currentDay : dateWithAdditionDisributed.keySet()){
+            BusinessDay currentBD= dataBean.getBusinessDay(currentDay);
+            Map<Bike , Integer> newtoAdd = dateWithAdditionDisributed.get(currentDay);
+            currentBD.setAdditionalProduction(ProductionSimulationUtil.addMaps(newtoAdd,currentBD.getAdditionalProduction()));
+        }
     }
 
     public static boolean isSaturdayWorkingDay(BusinessWeek bW) {
@@ -135,19 +190,22 @@ public class EventHandleService {
         }
         return false;
     }
-    private int countHolidays(BusinessWeek bW){
-        int count= 0;
+
+    private int countHolidays(BusinessWeek bW) {
+        int count = 0;
         for (BusinessDay bd : bW.getDays()) {
-           for(Map.Entry entry :bd.getWorkingDays().entrySet()){
-               if(entry.getKey()==Country.GERMANY){
-                   if((boolean)entry.getValue()){
-                       count++;
-                   }
-               }
-           }
+            for (Map.Entry entry : bd.getWorkingDays().entrySet()) {
+                if (entry.getKey() == Country.GERMANY) {
+                    if ((boolean) entry.getValue()) {
+                        count++;
+                    }
+                }
+            }
         }
         return count;
     }
+
+
     //TODO samstage auf holidays prüfen
 
 

@@ -96,7 +96,7 @@ public final class ProductionSimulationUtil {
         return actuallyPossibleProduction;
     }
 
-    static int countBikes(Map<Bike, Integer> bikes) {
+    public static int countBikes(Map<Bike, Integer> bikes) {
         int sum= 0;
         for(Bike bike : bikes.keySet()){
            sum+= bikes.get(bike);
