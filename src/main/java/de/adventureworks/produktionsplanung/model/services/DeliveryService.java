@@ -36,7 +36,7 @@ public class DeliveryService {
 
         for (LogisticsObject lo : receivedDeliveries) {
             if (lo.getId().equals(deliveryID)) {
-                returningLogisticObject = lo;
+                return  lo;
             }
         }
         return returningLogisticObject;

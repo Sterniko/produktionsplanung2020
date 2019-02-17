@@ -52,7 +52,7 @@ public class EventHandleService {
         }
     }
 
-    public void handleDeliveryChangeEvent(IEvent event, BusinessDay bd) {
+    public void handleDeliveryChangeEvent(IEvent event, BusinessDay bd) throws DeliveryNotFoundException {
 
         DeliveryChangeEvent deliveryEvent = (DeliveryChangeEvent) event;
         String deliveryID = deliveryEvent.getId();
@@ -62,8 +62,11 @@ public class EventHandleService {
             amount += compMap.get(component);
         }
 
-
         LogisticsObject lo = deliveryService.getDeliveryToDeliveryID(deliveryID);
+
+        if (lo == null) {
+            throw new DeliveryNotFoundException(deliveryID);
+        }
         Map<Component, Integer> orderMap;
         orderMap = new HashMap<>(lo.getComponents());
 

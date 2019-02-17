@@ -10,6 +10,7 @@ import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import de.adventureworks.produktionsplanung.model.services.BusinessCalendar;
 import de.adventureworks.produktionsplanung.model.services.OrderService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.eventHandle.DeliveryNotFoundException;
 import de.adventureworks.produktionsplanung.model.services.productionTrial.eventHandle.EventHandleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,18 +58,7 @@ public class ProductionService2 {
         //Monats- aufTagesproduktion
         Map<LocalDate, Map<Bike, Integer>> dailyProductionForYear = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(absoluteMonthlyProduction, year);
 
-        //Tagesproduktion als plannedProduktion setzen
-        for (LocalDate date : dailyProductionForYear.keySet()) {
-            dataBean.getBusinessDay(date).setPlannedProduction(
-                    dailyProductionForYear.get(date)
-            );
-        }
-
-
-        LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
-        LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
-
-
+        //clear pendingsupplierAmount
         List<LocalDate> dates = new ArrayList<>(dataBean.getBusinessDays().keySet());
         Collections.sort(dates);
         BusinessDay lastDay = null;
@@ -86,10 +76,26 @@ public class ProductionService2 {
                     componentIntegerMap.put(componentList.get(i), 0);
                 }
                 lo.setComponents(new HashMap<>(componentIntegerMap));
+                lo.setSupplier(supplier);
                 pendingSupplierAmount.put(supplier, lo);
             }
-            dataBean.getBusinessDay(date).setPendingSupplierAmount(pendingSupplierAmount);
+            dataBean.getBusinessDay(date).setPendingSupplierAmount(new HashMap<>(pendingSupplierAmount));
         }
+
+
+        //Tagesproduktion als plannedProduktion setzen
+        for (LocalDate date : dailyProductionForYear.keySet()) {
+            dataBean.getBusinessDay(date).setPlannedProduction(
+                    dailyProductionForYear.get(date)
+            );
+        }
+
+
+        LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
+        LocalDate firstDayOfNextYear = LocalDate.of(year + 1, 1, 1);
+
+
+
 
 
         //set deliveries
@@ -165,7 +171,12 @@ public class ProductionService2 {
                 if (event instanceof ShipDeleteEvent) {
                     eventHandleService.handleShipDeleteEvent(event, businessDay);
                 } else if (event instanceof DeliveryChangeEvent) {
-                    eventHandleService.handleDeliveryChangeEvent(event, businessDay);
+                    try {
+                        eventHandleService.handleDeliveryChangeEvent(event, businessDay);
+                    } catch (DeliveryNotFoundException e) {
+                        //TODO HANDLE
+                        System.out.println("SCHWULUNDSINGEL");
+                    }
                 } else if (event instanceof ProductionIncreaseEvent) {
 
                 }
