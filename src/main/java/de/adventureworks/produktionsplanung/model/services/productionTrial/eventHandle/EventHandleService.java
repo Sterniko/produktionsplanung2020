@@ -123,7 +123,7 @@ public class EventHandleService {
 
     }
 
-    private boolean isSaturdayWorkingDay(BusinessWeek bW) {
+    public static boolean isSaturdayWorkingDay(BusinessWeek bW) {
         for (BusinessDay bd : bW.getDays()) {
             if (bd.getDate().getDayOfWeek() == DayOfWeek.SATURDAY) {
                 for (Integer entry : bd.getPlannedProduction().values()) {
