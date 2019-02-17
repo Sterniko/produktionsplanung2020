@@ -142,6 +142,33 @@ public class BusinessDay implements Comparable<BusinessDay> {
         return eventList;
     }
 
+    public Integer getSumOfPlannedDailyProduction() {
+        Integer sum = 0;
+        for (Bike bike: plannedProduction.keySet()) {
+            sum += plannedProduction.get(bike);
+        }
+        return sum;
+    }
+
+    public Integer getSumOfActualDailyProduction() {
+        Integer sum = 0;
+        for (Bike bike: actualProduction.keySet()) {
+            sum += actualProduction.get(bike);
+        }
+        return sum;
+    }
+
+    public Map<Bike, Integer> getPlannedMinusActualProduction() {
+        HashMap<Bike, Integer> resultMap = new HashMap<>();
+        for (Bike bike: plannedProduction.keySet()) {
+            if (actualProduction.containsKey(bike)) {
+                resultMap.put(bike, plannedProduction.get(bike) - actualProduction.get(bike));
+            }
+        }
+        return resultMap;
+    }
+
+
     public void setEventList(List<IEvent> eventList) {
         this.eventList = eventList;
     }

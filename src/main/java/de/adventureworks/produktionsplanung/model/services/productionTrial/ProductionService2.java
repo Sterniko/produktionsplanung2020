@@ -237,7 +237,7 @@ public class ProductionService2 {
                 double neededCap = countBikes(actualDailyProduction) / dataBean.getHourlyCapacity();
                 for (int i = 0; i < shifts.size(); i++) {
                     if (neededCap > shifts.get(i)) {
-                        neededShift = shifts.get(Math.max(i, shifts.size() - 1));
+                        neededShift = shifts.get(Math.min(i +1 , shifts.size() - 1));
                     }
                 }
 
