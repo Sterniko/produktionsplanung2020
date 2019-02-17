@@ -45,8 +45,7 @@ public class MarketingController {
     @RequestMapping(value = "/marketing", method = RequestMethod.POST)
     public String postMarketing(MarketingRequest marketingRequest) {
 
-        HashMap<Bike,Integer> helperMap;
-        HashMap<Bike,Integer> newWeeklyPlannedProduction;
+
 
         //Get Post Data
         LocalDate today = marketingRequest.getPlacementDate();
@@ -57,12 +56,6 @@ public class MarketingController {
         marketingService.startEvent(dataBean.getBusinessDay(today), bikeMap, bW);
         productionService2.simulateWholeProduction();
 
-        /*
-        helperMap = marketingService.getWeeklyPlannedProduction(today, bW);
-        newWeeklyPlannedProduction = marketingService.addAmountToBusinessWeek(helperMap,bikeMap);
-
-        productionEngagementService.changeProductionWeek(today,bW,newWeeklyPlannedProduction);
-        */
 
         return "redirect:/marketing";
     }

@@ -131,7 +131,7 @@ public final class ProductionSimulationUtil {
         return result;*/
     }
 
-    static <T> Map<T, Integer> addMaps(Map<T, Integer> map1, Map<T, Integer> map2) {
+    public static <T> Map<T, Integer> addMaps(Map<T, Integer> map1, Map<T, Integer> map2) {
         Map<T,Integer> result= new HashMap<>();
         for(T e: map1.keySet()){
             if(map2.containsKey(e)){

@@ -2,18 +2,18 @@ package de.adventureworks.produktionsplanung.model.services.productionTrial.even
 
 
 import de.adventureworks.produktionsplanung.model.DataBean;
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.events.DeliveryChangeEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.ProductionIncreaseEvent;
 import de.adventureworks.produktionsplanung.model.entities.events.ShipDeleteEvent;
 import de.adventureworks.produktionsplanung.model.entities.events.WarehouseChangeEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
-import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorService;
-import de.adventureworks.produktionsplanung.model.services.DeliveryService;
-import de.adventureworks.produktionsplanung.model.services.OrderService;
-import de.adventureworks.produktionsplanung.model.services.ShipService;
+import de.adventureworks.produktionsplanung.model.services.*;
 import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionSimulationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +34,12 @@ public class EventHandleService {
 
     @Autowired
     private DeliveryService deliveryService;
+
+    @Autowired
+    private MarketingService marketingService;
+
+   @Autowired
+   private ProductionEngagementService productionEngagementService;
 
 
     public EventHandleService() {
@@ -95,5 +101,16 @@ public class EventHandleService {
         orderService.addToOrder(bd, orderStock);
 
 
+    }
+
+    public void handleProductionIncreaseEvent(ProductionIncreaseEvent productionIncreaseEvent, BusinessDay bd){
+
+        BusinessWeek bW = productionIncreaseEvent.getBusinessWeek();
+        Map<Bike, Integer> increaseAmount = productionIncreaseEvent.getIncreaseAmount();
+
+        Map<Bike, Integer> helperMap = marketingService.getWeeklyPlannedProduction(bd.getDate(), bW);
+        Map<Bike, Integer> newWeeklyPlannedProduction = marketingService.addAmountToBusinessWeek(helperMap,increaseAmount);
+
+        productionEngagementService.changeProductionWeek(bd.getDate(),bW,newWeeklyPlannedProduction);
     }
 }
