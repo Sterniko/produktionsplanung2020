@@ -44,8 +44,10 @@ public class WarehouseController {
     @RequestMapping("/warehouse")
     public String getBusinessWeeks(Model model) {
 
-        List<BusinessDay> businessDayList = sortService.mapToListBusinessDays(dataBean.getBusinessDays());
+        List<BusinessDay> businessDayList = dataBean.getBusinnesDayListFromDate(LocalDate.of(2018,12,27));
         businessDayList = sortService.sortBusinessDayList(businessDayList);
+
+
 
         model.addAttribute("businessWeeks", dataBean.getBusinessWeeks());
         model.addAttribute("businessDays", businessDayList);
