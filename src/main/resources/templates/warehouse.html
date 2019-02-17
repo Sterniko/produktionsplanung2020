@@ -9,6 +9,7 @@
         #warehouseDiv {
             font-family: "Times New Roman";
         }
+
         #tblWareHouse th, td {
             white-space: nowrap;
         }
@@ -74,7 +75,18 @@
                 <span th:utext="${component.name}"></span>
             </th>
             <td th:each="bd2: ${businessDays}">
-                <span th:utext="|${bd2.warehouseStock.get(component)}|"></span>
+                <div style="background-color:yellow" th:if="${bd2.warehouseStock.get(component) < 20} and ${bd2.warehouseStock.get(component) != 0}">
+                    <span  th:utext="${bd2.warehouseStock.get(component)}"></span>
+                </div>
+
+                <div style="background-color:red" th:if="${bd2.warehouseStock.get(component) == 0}">
+                    <span  th:utext="${bd2.warehouseStock.get(component)}"></span>
+                </div>
+                <div style="background-color:green" th:if="${bd2.warehouseStock.get(component) >= 20 }">
+                    <span  th:utext="${bd2.warehouseStock.get(component)}"></span>
+                </div>
+
+
             </td>
         </tr>
     </table>
