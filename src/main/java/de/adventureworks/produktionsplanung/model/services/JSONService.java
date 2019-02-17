@@ -256,12 +256,15 @@ public class JSONService {
 
     private static ArrayList<Ship> getShips() {
         ArrayList<Ship> shipList = new ArrayList<>();
-        shipList.add(new Ship("SERO YACHT", LocalDate.of(2018, 11, 16), LocalDate.of(2018, 12, 14)));
-        shipList.add(new Ship("HEINZ KOLKHORST", LocalDate.of(2018, 11, 16), LocalDate.of(2018, 12, 14)));
-        shipList.add(new Ship("MSC SCHLIEPHAKE", LocalDate.of(2018, 11, 30), LocalDate.of(2018, 12, 27)));
-        shipList.add(new Ship("ERKAN GB", LocalDate.of(2018, 12, 2), LocalDate.of(2019, 1, 1)));
+        shipList.add(new Ship("MSC PRODUKTIONSPLANUNG", LocalDate.of(2018, 11, 16), LocalDate.of(2018, 12, 14)));
+        shipList.add(new Ship("APL VANDA 0", LocalDate.of(2018, 11, 16), LocalDate.of(2018, 12, 14)));
+        shipList.add(new Ship("TAURUS 0", LocalDate.of(2018, 11, 30), LocalDate.of(2018, 12, 27)));
+        shipList.add(new Ship("TITAN 0", LocalDate.of(2018, 12, 2), LocalDate.of(2019, 1, 1)));
         shipList.add(new Ship("EPPA ADAMAH", LocalDate.of(2018, 12, 4), LocalDate.of(2019, 1, 6)));
-        shipList.add(new Ship("HARTMANN", LocalDate.of(2018, 12, 11), LocalDate.of(2019, 1, 12)));
+        shipList.add(new Ship("MSC HARTMANN", LocalDate.of(2018, 12, 11), LocalDate.of(2019, 1, 12)));
+        shipList.add(new Ship("TEXAS TRIUMPH 0", LocalDate.of(2018, 12, 25), LocalDate.of(2019, 1, 25)));
+        shipList.add(new Ship("EVER GENIUS 0", LocalDate.of(2019, 1, 4), LocalDate.of(2019, 2, 3)));
+        shipList.add(new Ship("TOLEDO TRIUMPH 0", LocalDate.of(2019, 1, 11), LocalDate.of(2019, 2, 10)));
         shipList.add(new Ship("CMA CGM ZHENG HE", LocalDate.of(2019, 1, 16), LocalDate.of(2019, 2, 14)));
         shipList.add(new Ship("TAURUS", LocalDate.of(2019, 1, 21), LocalDate.of(2019, 2, 18)));
         shipList.add(new Ship("EVER GENIUS", LocalDate.of(2019, 1, 22), LocalDate.of(2019, 2, 19)));

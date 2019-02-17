@@ -1,6 +1,6 @@
 [
   {
-    "name": "SERO YACHT",
+    "name": "MSC PRODUKTIONSPLANUNG",
     "departure": [
       2018,
       11,
@@ -14,7 +14,7 @@
     "deliveries": []
   },
   {
-    "name": "HEINZ KOLKHORST",
+    "name": "APL VANDA 0",
     "departure": [
       2018,
       11,
@@ -28,7 +28,7 @@
     "deliveries": []
   },
   {
-    "name": "MSC SCHLIEPHAKE",
+    "name": "TAURUS 0",
     "departure": [
       2018,
       11,
@@ -42,7 +42,7 @@
     "deliveries": []
   },
   {
-    "name": "ERKAN GB",
+    "name": "TITAN 0",
     "departure": [
       2018,
       12,
@@ -70,7 +70,7 @@
     "deliveries": []
   },
   {
-    "name": "HARTMANN",
+    "name": "MSC HARTMANN",
     "departure": [
       2018,
       12,
@@ -80,6 +80,48 @@
       2019,
       1,
       12
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "TEXAS TRIUMPH 0",
+    "departure": [
+      2018,
+      12,
+      25
+    ],
+    "arrival": [
+      2019,
+      1,
+      25
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "EVER GENIUS 0",
+    "departure": [
+      2019,
+      1,
+      4
+    ],
+    "arrival": [
+      2019,
+      2,
+      3
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "TOLEDO TRIUMPH 0",
+    "departure": [
+      2019,
+      1,
+      11
+    ],
+    "arrival": [
+      2019,
+      2,
+      10
     ],
     "deliveries": []
   },
