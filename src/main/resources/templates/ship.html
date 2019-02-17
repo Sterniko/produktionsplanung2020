@@ -6,7 +6,8 @@
     <title>Schiff Uebersicht</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
           integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         .column {
             float: left;
@@ -26,6 +27,27 @@
             text-decoration: none;
         }
 
+
+        .table-fixed thead {
+            width: 97%;
+        }
+
+        .table-fixed tbody {
+            height: 230px;
+            overflow-y: auto;
+            width: 100%;
+        }
+
+        .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+            display: block;
+        }
+
+        .table-fixed tbody td, .table-fixed thead > tr > th {
+            float: left;
+            border-bottom-width: 0;
+        }
+
+
     </style>
 
 
@@ -43,17 +65,20 @@
     </br>
     </br>
 
-    <div style="overflow-y: scroll; height:200px;" class="">
-        <table class="table table-fixed table-striped">
+    <div style="height:200px;" class="">
+        <table class="table table-striped" style="padding-bottom: 0">
 
             <thead class="thead-dark">
             <tr>
-                <th>Name</th>
-                <th>Abfahrt</th>
-                <th>Ankunft</th>
+                <th style="padding-right: 200px">Name</th>
+                <th >Abfahrt</th>
+                <th >Ankunft</th>
             </tr>
             </thead>
+        </table>
 
+    <div style="overflow-y: scroll; height:200px; padding-top: 0" class="">
+        <table class="table table-striped" style="padding-top: 0">
             <tbody>
             <tr th:each="schiff: ${schiffe}">
                 <td>
@@ -64,8 +89,12 @@
             </tr>
             </tbody>
         </table>
-
     </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
 
     <div class="column-binder">
