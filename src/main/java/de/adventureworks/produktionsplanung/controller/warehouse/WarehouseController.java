@@ -9,6 +9,7 @@ import de.adventureworks.produktionsplanung.model.services.OrderService;
 import de.adventureworks.produktionsplanung.model.services.ProductionEngagementService;
 import de.adventureworks.produktionsplanung.model.services.SortService;
 import de.adventureworks.produktionsplanung.model.services.WarehouseService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +31,9 @@ public class WarehouseController {
 
     @Autowired
     private WarehouseService warehouseService;
+
+    @Autowired
+    private ProductionService2 productionService2;
 
 
 
@@ -67,6 +71,8 @@ public class WarehouseController {
                 warehouseRequest.getWarehouseMap(), dataBean.getComponents());
 
         warehouseService.startEvent(businessDay, warehouseStock);
+        productionService2.simulateWholeProduction();
+
 
         return "redirect:/warehouse";
 
