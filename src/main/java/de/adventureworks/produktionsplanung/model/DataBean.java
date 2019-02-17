@@ -149,6 +149,18 @@ public class DataBean {
         data.setYearlyProduction(yearlyProduction);
     }
 
+    public int getActualYearlyProduction() {
+        int sum = 0;
+        for (LocalDate date: data.getBusinessDays().keySet() ) {
+            BusinessDay businessDay = getBusinessDay(date);
+            for (Bike bike: businessDay.getActualProduction().keySet()) {
+                sum += businessDay.getActualProduction().get(bike);
+            }
+
+        }
+        return sum;
+    }
+
     public Map<Bike, Double> getBikeProductionShares() {
         return data.getBikeProductionShares();
     }
