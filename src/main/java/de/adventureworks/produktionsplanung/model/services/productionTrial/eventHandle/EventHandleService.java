@@ -91,7 +91,7 @@ public class EventHandleService {
         bd.setWarehouseStock(newWarehouseStock);
 
         Map<Component, Integer> orderStock = ProductionSimulationUtil.substractMaps(oldWarehouseStock, newWarehouseStock);
-        
+
         orderService.addToOrder(bd, orderStock);
 
 

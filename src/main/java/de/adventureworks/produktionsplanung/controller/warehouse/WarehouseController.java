@@ -8,6 +8,7 @@ import de.adventureworks.produktionsplanung.model.entities.businessPeriods.Busin
 import de.adventureworks.produktionsplanung.model.services.OrderService;
 import de.adventureworks.produktionsplanung.model.services.ProductionEngagementService;
 import de.adventureworks.produktionsplanung.model.services.SortService;
+import de.adventureworks.produktionsplanung.model.services.WarehouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,13 +26,12 @@ public class WarehouseController {
     private DataBean dataBean;
 
     @Autowired
-    private ProductionEngagementService productionEngagementService;
-
-    @Autowired
     private SortService sortService;
 
     @Autowired
-    private OrderService orderService;
+    private WarehouseService warehouseService;
+
+
 
     public WarehouseController() {
 
@@ -58,19 +58,18 @@ public class WarehouseController {
 */
 
     @RequestMapping(value = "/warehouse", method = RequestMethod.POST)
-    public void updateComponentStock(WarehouseRequest warehouseRequest) {
+    public String updateComponentStock(WarehouseRequest warehouseRequest) {
         System.out.println(warehouseRequest);
 
         LocalDate date = warehouseRequest.getDate();
         BusinessDay businessDay = dataBean.getBusinessDay(date);
-        Map<Component, Integer> componentMap = RequestMapper.mapComponentStringMap(
+        Map<Component, Integer> warehouseStock = RequestMapper.mapComponentStringMap(
                 warehouseRequest.getWarehouseMap(), dataBean.getComponents());
 
-        businessDay.setWarehouseStock(componentMap);
+        warehouseService.startEvent(businessDay, warehouseStock);
 
-        orderService.addToOrder(businessDay, componentMap);
-        orderService.placeOrder(businessDay);
-        System.out.println("h");
+        return "redirect:/warehouse";
+
     }
 
 

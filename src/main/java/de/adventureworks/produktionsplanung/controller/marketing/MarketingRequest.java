@@ -41,6 +41,7 @@ public class MarketingRequest {
         this.bikeMap = bikeMap;
     }
 
+
     public MarketingRequest() {
     }
 
