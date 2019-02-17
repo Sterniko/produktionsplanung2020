@@ -1874,5 +1874,75 @@
       27
     ],
     "deliveries": []
+  },
+  {
+    "name": "TITAN VII",
+    "departure": [
+      2019,
+      12,
+      1
+    ],
+    "arrival": [
+      2019,
+      12,
+      31
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "CMA CGM LOUIS BLERIOT VII",
+    "departure": [
+      2019,
+      12,
+      5
+    ],
+    "arrival": [
+      2020,
+      1,
+      4
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "EVER GOODS VII",
+    "departure": [
+      2019,
+      12,
+      12
+    ],
+    "arrival": [
+      2020,
+      1,
+      13
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "CMA CGM VASCO DE GAMA VII",
+    "departure": [
+      2019,
+      12,
+      20
+    ],
+    "arrival": [
+      2020,
+      1,
+      20
+    ],
+    "deliveries": []
+  },
+  {
+    "name": "APL FULLERTON VII",
+    "departure": [
+      2019,
+      12,
+      31
+    ],
+    "arrival": [
+      2020,
+      1,
+      31
+    ],
+    "deliveries": []
   }
 ]

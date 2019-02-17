@@ -32,13 +32,13 @@ public class JSONService {
         mapper.registerModule(new JavaTimeModule());
 
         try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/bikes.json"), bikeArrayList);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/frame.json"), frameArrayList);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/saddle.json"), saddleArrayList);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/fork.json"), forkArrayList);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/supplier.json"), supplierArrayList);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/holidays.json"), holidayMap);
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/businessDays.json"), bdList);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/bikes.json"), bikeArrayList);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/frame.json"), frameArrayList);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/saddle.json"), saddleArrayList);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/fork.json"), forkArrayList);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/supplier.json"), supplierArrayList);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/holidays.json"), holidayMap);
+            // mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/businessDays.json"), bdList);
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("JSONs/ships.json"), shipArrayList);
 
 
@@ -390,6 +390,11 @@ public class JSONService {
         shipList.add(new Ship("TEXAS TRIUMPH VI", LocalDate.of(2019, 11, 20), LocalDate.of(2019, 12, 18)));
         shipList.add(new Ship("CMA CGM BOUGAINVILLE VI", LocalDate.of(2019, 11, 22), LocalDate.of(2019, 12, 20)));
         shipList.add(new Ship("CMA CGM ALEXANDER VON HUMBOLD VI", LocalDate.of(2019, 11, 29), LocalDate.of(2019, 12, 27)));
+        shipList.add(new Ship("TITAN VII", LocalDate.of(2019, 12, 1), LocalDate.of(2019, 12, 31)));
+        shipList.add(new Ship("CMA CGM LOUIS BLERIOT VII", LocalDate.of(2019, 12, 5), LocalDate.of(2020, 1, 4)));
+        shipList.add(new Ship("EVER GOODS VII", LocalDate.of(2019, 12, 12), LocalDate.of(2020, 1, 13)));
+        shipList.add(new Ship("CMA CGM VASCO DE GAMA VII", LocalDate.of(2019, 12, 20), LocalDate.of(2020, 1, 20)));
+        shipList.add(new Ship("APL FULLERTON VII", LocalDate.of(2019, 12, 31), LocalDate.of(2020, 1, 31)));
 
 
         return shipList;

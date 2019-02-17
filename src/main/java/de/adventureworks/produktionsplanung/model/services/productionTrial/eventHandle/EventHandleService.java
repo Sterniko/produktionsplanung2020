@@ -4,7 +4,9 @@ package de.adventureworks.produktionsplanung.model.services.productionTrial.even
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
-import de.adventureworks.produktionsplanung.model.entities.events.*;
+import de.adventureworks.produktionsplanung.model.entities.events.DeliveryChangeEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.ShipDeleteEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
@@ -60,8 +62,11 @@ public class EventHandleService {
             amount += compMap.get(component);
         }
 
+
         LogisticsObject lo = deliveryService.getDeliveryToDeliveryID(deliveryID);
-        Map<Component, Integer> orderMap = new HashMap<>(lo.getComponents());
+        Map<Component, Integer> orderMap;
+        orderMap = new HashMap<>(lo.getComponents());
+
         lo.setComponents(compMap);
         lo.setSumAmount(amount);
 
