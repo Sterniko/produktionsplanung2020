@@ -112,7 +112,7 @@ public class EventHandleService {
         Map<Bike, Integer> increaseAmount = productionIncreaseEvent.getIncreaseAmount();
         boolean isSaturday = isSaturdayWorkingDay(bW);
         int amountOfHolidays = countHolidays(bW);
-        int workingDays = 5;
+        int workingDays = 6;
         workingDays -= amountOfHolidays;
 
         if (isSaturday) {

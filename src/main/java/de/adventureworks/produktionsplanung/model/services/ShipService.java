@@ -40,15 +40,16 @@ public class ShipService {
 
     public void delayShip(Ship ship, LocalDate newArrival){
         ship.setArrival(newArrival);
+        /*
         for (LogisticsObject e : ship.getDeliveries()) {
             //LocalDate oldDate = e.getArrival();
             BusinessDay oldBDay =  this.databean.getBusinessDay(ship.getArrival());
             oldBDay.getReceivedDeliveries().remove(e);
             this.databean.getBusinessDay(newArrival).getReceivedDeliveries().add(e);
             //TODO BuisnessDay sicherstellen das  databean.getBusinessDay(newArrival).getReceivedDeliveries() nie null ist
-
             //ProductionEngagementService.clacNew();
         }
+        */
     }
 
     public Ship getShipByName(String name){

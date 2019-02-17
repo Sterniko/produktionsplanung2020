@@ -46,11 +46,8 @@ public class ShipController {
     public String GetShips(UpdateShipRequest updateShipRequest) {
         String shipName = updateShipRequest.getName();
         Ship ship = service.getShipByName(shipName);
-        //Ship ship = RequestMapper.mapShip(shipName, dataBean.getShips());
         LocalDate newArrival = updateShipRequest.getNewArrival();
-        //VIEL SPASS BEIM WEITERMACHEN :)
         service.delayShip(ship, newArrival);
-
         productionService2.simulateWholeProduction();
         return "redirect:/showShips";
     }
