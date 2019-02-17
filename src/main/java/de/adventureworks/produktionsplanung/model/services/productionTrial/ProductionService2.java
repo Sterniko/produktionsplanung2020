@@ -6,6 +6,7 @@ import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessWeek;
 import de.adventureworks.produktionsplanung.model.entities.events.*;
+import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
@@ -224,8 +225,10 @@ public class ProductionService2 {
         Map<Bike, Integer> actualDailyProduction = new HashMap<>();
 
 
+        boolean isHoliday =  businessDay.getWorkingDays().get(Country.GERMANY);
+
         //Production only in days with Businessweek
-        if (businessDay.getBusinessWeek() != null) {
+        if (businessDay.getBusinessWeek() != null  && !isHoliday) {
             List<Integer> shifts = dataBean.getShifts();
             int maxShift = shifts.get(shifts.size() - 1);
             int maxCap;

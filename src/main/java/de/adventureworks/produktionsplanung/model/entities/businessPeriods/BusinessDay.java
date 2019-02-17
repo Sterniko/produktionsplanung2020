@@ -23,6 +23,7 @@ public class BusinessDay implements Comparable<BusinessDay> {
     private Map<Bike, Integer> plannedProduction;
     private Map<Bike, Integer> productionOverhang;
     private Map<Bike, Integer> additionalProduction;
+    private Map<Bike, Integer> prioProduction;
     private Map<Bike, Integer> actualProduction;
 
     private Map<Component, Integer> warehouseStock;
@@ -138,6 +139,14 @@ public class BusinessDay implements Comparable<BusinessDay> {
         this.productionOverhang = productionOverhang;
     }
 
+    public Map<Bike, Integer> getPrioProduction() {
+        return prioProduction;
+    }
+
+    public void setPrioProduction(Map<Bike, Integer> prioProduction) {
+        this.prioProduction = prioProduction;
+    }
+
     public List<IEvent> getEventList() {
         return eventList;
     }
@@ -158,11 +167,11 @@ public class BusinessDay implements Comparable<BusinessDay> {
         return sum;
     }
 
-    public Map<Bike, Integer> getPlannedMinusActualProduction() {
+    public Map<Bike, Integer> getPlannedAndAdditionalMinusActualProduction() {
         HashMap<Bike, Integer> resultMap = new HashMap<>();
         for (Bike bike: plannedProduction.keySet()) {
             if (actualProduction.containsKey(bike)) {
-                resultMap.put(bike, plannedProduction.get(bike) - actualProduction.get(bike));
+                resultMap.put(bike, plannedProduction.get(bike) + additionalProduction.get(bike) - actualProduction.get(bike) );
             }
         }
         return resultMap;

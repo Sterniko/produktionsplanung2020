@@ -101,7 +101,7 @@
             <tr>
                 <td>Fehlbetrag</td>
                 <td th:each="bd2: ${businessDays}">
-                    <span th:utext="|${bd2.getPlannedMinusActualProduction().get(bike)}|"></span>
+                    <span th:utext="|${bd2.getPlannedAndAdditionalMinusActualProduction().get(bike)}|"></span>
                 </td>
             </tr>
 
