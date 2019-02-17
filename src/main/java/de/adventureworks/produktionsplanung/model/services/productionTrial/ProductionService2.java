@@ -240,6 +240,7 @@ public class ProductionService2 {
 
 
             Map<Bike, Integer> dailyShouldProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
+            dailyShouldProduction = addMaps(dailyShouldProduction, businessDay.getAdditionalProduction());
 
             //TODO Prio Betsellungen implementieren
             actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap, dataBean.getBikes());
