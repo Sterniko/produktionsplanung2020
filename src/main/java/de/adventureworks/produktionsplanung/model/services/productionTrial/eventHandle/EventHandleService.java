@@ -5,8 +5,8 @@ import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.events.DeliveryChangeEvent;
-import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.events.ShipDeleteEvent;
+import de.adventureworks.produktionsplanung.model.entities.events.WarehouseChangeEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
@@ -14,6 +14,7 @@ import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorServ
 import de.adventureworks.produktionsplanung.model.services.DeliveryService;
 import de.adventureworks.produktionsplanung.model.services.OrderService;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
+import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionSimulationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,16 +35,19 @@ public class EventHandleService {
     @Autowired
     private DeliveryService deliveryService;
 
+
     public EventHandleService() {
     }
 
 
-    public void handleShipDeleteEvent(IEvent event, BusinessDay bd) {
+    public void handleShipDeleteEvent(ShipDeleteEvent event, BusinessDay bd) {
+
         ShipService shipService = new ShipService(dataBean);
         ArrivalCalculatorService acs = new ArrivalCalculatorService(shipService, dataBean);
-        ShipDeleteEvent shipEvent = (ShipDeleteEvent) event;
-        Ship ship = shipEvent.getShip();
-        dataBean.getShips().remove(shipEvent.getShip());
+
+
+        Ship ship = event.getShip();
+        dataBean.getShips().remove(event.getShip());
         for (LogisticsObject lo : ship.getDeliveries()) {
             LocalDate arrivalDay = dataBean.getBusinessDay(ship.getArrival()).getDate();
             LocalDate recievedDay = acs.addWorkingDays(arrivalDay, Country.GERMANY, 2);
@@ -52,11 +56,10 @@ public class EventHandleService {
         }
     }
 
-    public void handleDeliveryChangeEvent(IEvent event, BusinessDay bd) throws DeliveryNotFoundException {
+    public void handleDeliveryChangeEvent(DeliveryChangeEvent event, BusinessDay bd) throws DeliveryNotFoundException {
 
-        DeliveryChangeEvent deliveryEvent = (DeliveryChangeEvent) event;
-        String deliveryID = deliveryEvent.getId();
-        Map<Component, Integer> compMap = deliveryEvent.getNewComponents();
+        String deliveryID = event.getId();
+        Map<Component, Integer> compMap = event.getNewComponents();
         int amount = 0;
         for(Component component : compMap.keySet()){
             amount += compMap.get(component);
@@ -78,6 +81,19 @@ public class EventHandleService {
         }
 
         orderService.addToOrder(bd, orderMap);
+
+    }
+
+    public void handleWarehouseChangeEvent(WarehouseChangeEvent event, BusinessDay bd) {
+
+        Map<Component, Integer> newWarehouseStock = event.getNewWarehouseStock();
+        Map<Component, Integer> oldWarehouseStock = new HashMap<>(bd.getWarehouseStock());
+        bd.setWarehouseStock(newWarehouseStock);
+
+        Map<Component, Integer> orderStock = ProductionSimulationUtil.substractMaps(oldWarehouseStock, newWarehouseStock);
+        
+        orderService.addToOrder(bd, orderStock);
+
 
     }
 }
