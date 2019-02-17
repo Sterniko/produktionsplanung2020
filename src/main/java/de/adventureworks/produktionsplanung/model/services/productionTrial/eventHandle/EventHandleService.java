@@ -18,6 +18,7 @@ import de.adventureworks.produktionsplanung.model.services.productionTrial.Produ
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +39,8 @@ public class EventHandleService {
     @Autowired
     private MarketingService marketingService;
 
-   @Autowired
-   private ProductionEngagementService productionEngagementService;
+    @Autowired
+    private ProductionEngagementService productionEngagementService;
 
 
     public EventHandleService() {
@@ -67,7 +68,7 @@ public class EventHandleService {
         String deliveryID = event.getId();
         Map<Component, Integer> compMap = event.getNewComponents();
         int amount = 0;
-        for(Component component : compMap.keySet()){
+        for (Component component : compMap.keySet()) {
             amount += compMap.get(component);
         }
 
@@ -103,14 +104,51 @@ public class EventHandleService {
 
     }
 
-    public void handleProductionIncreaseEvent(ProductionIncreaseEvent productionIncreaseEvent, BusinessDay bd){
+    public void handleProductionIncreaseEvent(ProductionIncreaseEvent productionIncreaseEvent, BusinessDay changeDate) {
 
         BusinessWeek bW = productionIncreaseEvent.getBusinessWeek();
         Map<Bike, Integer> increaseAmount = productionIncreaseEvent.getIncreaseAmount();
+        boolean isSaturday = isSaturdayWorkingDay(bW);
+        int amountOfHolidays= countHolidays(bW);
+        int workingDays= 5;
+        workingDays-= amountOfHolidays;
+        if(isSaturday){
+            workingDays++;
+            //TODO was passiert wenn samstags arbeitstag ist
+        }
 
-        Map<Bike, Integer> helperMap = marketingService.getWeeklyPlannedProduction(bd.getDate(), bW);
-        Map<Bike, Integer> newWeeklyPlannedProduction = marketingService.addAmountToBusinessWeek(helperMap,increaseAmount);
 
-        productionEngagementService.changeProductionWeek(bd.getDate(),bW,newWeeklyPlannedProduction);
+
+
+
     }
+
+    private boolean isSaturdayWorkingDay(BusinessWeek bW) {
+        for (BusinessDay bd : bW.getDays()) {
+            if (bd.getDate().getDayOfWeek() == DayOfWeek.SATURDAY) {
+                for (Integer entry : bd.getPlannedProduction().values()) {
+                    if (entry != 0) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    private int countHolidays(BusinessWeek bW){
+        int count= 0;
+        for (BusinessDay bd : bW.getDays()) {
+           for(Map.Entry entry :bd.getWorkingDays().entrySet()){
+               if(entry.getKey()==Country.GERMANY){
+                   if((boolean)entry.getValue()){
+                       count++;
+                   }
+               }
+           }
+        }
+        return count;
+    }
+    //TODO samstage auf holidays prüfen
+
+
 }
