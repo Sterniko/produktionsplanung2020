@@ -4,6 +4,8 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.external.Country;
+import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
 import de.adventureworks.produktionsplanung.model.entities.logistics.LogisticsObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,10 @@ public class OrderService {
 
                 List<LogisticsObject> oldSentList = bd.getSentDeliveries();
                 LocalDate arrivalDate = arrivalCalculatorService.calculateDeliveryFrom(bd.getDate(), supplier.getCountry());
+                if (supplier.getCountry() == Country.CHINA) {
+                    Ship ship = arrivalCalculatorService.getNextAvailabeShip(bd.getDate());
+                    ship.addOrder(lo);
+                }
                 System.out.println(arrivalDate);
                 oldSentList.add(lo);
                 List<LogisticsObject> oldRecievedList = dataBean.getBusinessDay(arrivalDate).getReceivedDeliveries();
