@@ -9,9 +9,9 @@
         #warehouseDiv {
             font-family: "Times New Roman";
             overflow-y: scroll;
-            margin-left: 178px;
-            margin-top: -1563px;
-
+            position: relative;
+            top: -1370px;
+            left: 178px;
         }
         #tblWareHouse th, td {
             white-space: nowrap;
@@ -35,13 +35,15 @@
             width:100px;
         }
         #sideBar{
-            width: 170px;
+            position: relative;
+            top: 197px;
+            width: 177px;
         }
         #tdBike{
             height: 33px;
         }
         #thDate{
-            height: 64px;
+            height: 65px;
         }
 
     </style>
@@ -101,7 +103,7 @@
                 <td>Summe Planproduktion</td>
             </tr>
             <tr>
-                <td style="height:30px"></td>
+                <td style="height:33px"></td>
             </tr>
             <tr>
                 <td>Summe Istproduktion</td>
@@ -125,10 +127,10 @@
                 <p th:each="entry: ${bd.getWorkingDays()}">
                         <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
                                 <span th:if="${entry.getValue()}">
-                                    <span style="color:red" th:utext="${bd.getDate()}"></span>
+                                    <span  style="color:red;height:65px;" th:utext="${bd.getDate()}"></span>
                                 </span>
                                 <span th:unless="${entry.getValue()}">
-                                    <span style="color:black" th:utext="${bd.getDate()}"></span>
+                                    <span style="height:65px; color:black" th:utext="${bd.getDate()}"></span>
                                 </span>
                         </span>
 
