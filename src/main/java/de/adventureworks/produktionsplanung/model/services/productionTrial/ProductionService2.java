@@ -178,6 +178,7 @@ public class ProductionService2 {
             businessDay.setSentDeliveries(new ArrayList<>());
             businessDay.setReceivedDeliveries(new ArrayList<>());
             businessDay.setWarehouseStock(new HashMap<>(initWarehouseMap));
+            businessDay.setBeforeProductionWarehouseStock(new HashMap<>(initWarehouseMap));
         }
         Map<Supplier, LogisticsObject> addPendingSupplierMap = new HashMap<>();
         for (LocalDate date : allSortetLocalDays) {
