@@ -60,6 +60,8 @@ public class MasterDataController {
         Map<Bike, Double> bikeMap = masterDataService.convertStringToBikes(stringBikeMap);
         dataBean.setBikeProductionShares(bikeMap);
 
+        productionService2.simulateWholeProduction();
+
         return "redirect:/masterData";
     }
 
@@ -70,6 +72,7 @@ public class MasterDataController {
         Map<Integer, Double> doubleMonthMap = masterDataService.convertMonthsStringToDouble(stringMonthMap);
         dataBean.setMonthlyProductionShares(doubleMonthMap);
 
+        productionService2.simulateWholeProduction();
 
         return "redirect:/masterData";
     }
