@@ -80,12 +80,13 @@
             </th>
             <td>Nach Lieferungen</td>
             <td th:each="bd2: ${businessDays}">
-                <div style="background-color:#f06e01" th:if="${bd2.beforeProductionWarehouseStock.get(component) < 20} and ${bd2.warehouseStock.get(component) != 0}">
+                <div style="background-color:#f06e01"
+                     th:if="${bd2.beforeProductionWarehouseStock.get(component) < 20 && bd2.beforeProductionWarehouseStock.get(component) > 0} and ${bd2.warehouseStock.get(component) != 0}">
                     <span  th:utext="${bd2.beforeProductionWarehouseStock.get(component)}"></span>
                 </div>
 
-                <div style="background-color:#fd003b" th:if="${bd2.beforeProductionWarehouseStock.get(component) == 0}">
-                    <span  th:utext="${bd2.beforeProductionWarehouseStock.get(component)}"></span>
+                <div style="background-color:#fd003b" th:if="${bd2.beforeProductionWarehouseStock.get(component) <= 0}">
+                    <span>0</span>
                 </div>
                 <div style="background-color:#98eb98" th:if="${bd2.beforeProductionWarehouseStock.get(component) >= 20 }">
                     <span  th:utext="${bd2.beforeProductionWarehouseStock.get(component)}"></span>
