@@ -110,11 +110,11 @@ public class LogisticsObject {
     }
 
     public String printForReceivedDelivery() {
-        return supplier.getName() + " Sendung: " + departureDate + " Menge:" + getSumAmount();
+        return supplier.getName() + " Sendung: " + arrivalDate + " Menge:" + getSumAmount();
     }
 
     public String printForSentDelivery() {
-        return supplier.getName() + " Ankunft: " + arrivalDate + " Menge:" + getSumAmount();
+        return supplier.getName() + " Ankunft: " + departureDate + " Menge:" + getSumAmount();
     }
 
     @Override

@@ -17,10 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class EventHandleService {
@@ -193,7 +190,50 @@ public class EventHandleService {
     }
 
     public void handleCustomerOrderEvent(CustomerOrderEvent customerOrderEvent, BusinessDay changeDate) {
-        LocalDate latestPossibleSentDate = customerOrderEvent.getDueProductionDate();
+
+        List<BusinessDay> datesToBeDistributed = new ArrayList<>();
+
+        for (LocalDate iterDate = changeDate.getDate(); iterDate.isBefore(customerOrderEvent.getDueProductionDate()); iterDate = iterDate.plusDays(1)) {
+            if (containsProduction(dataBean.getBusinessDay(iterDate))) {
+                datesToBeDistributed.add(dataBean.getBusinessDay(iterDate));
+            }
+        }
+
+        Stack<Bike> distributionStack = new Stack<>();
+
+        for (Bike bike: customerOrderEvent.getOrderAmount().keySet()) {
+            for (int i= 0; i < customerOrderEvent.getOrderAmount().get(bike); i++) {
+                distributionStack.push(bike);
+            }
+        }
+
+
+        boolean isPrio =  customerOrderEvent.isPrio();
+
+
+        while (! distributionStack.isEmpty()) {
+
+            for (BusinessDay businessDay: datesToBeDistributed) {
+                if (!distributionStack.isEmpty()) {
+                    if (isPrio) {
+                        Map<Bike, Integer> addMap = businessDay.getPrioProduction();
+                        Bike bike = distributionStack.pop();
+                        addMap.put(bike, addMap.get(bike) + 1);
+                    } else {
+                        Map<Bike, Integer> addMap = businessDay.getAdditionalProduction();
+                        Bike bike = distributionStack.pop();
+                        addMap.put(bike, addMap.get(bike) + 1);
+
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        /*LocalDate latestPossibleSentDate = customerOrderEvent.getDueProductionDate();
         LocalDate today = changeDate.getDate();
         boolean isPrio = customerOrderEvent.isPrio();
         Map<Bike, Integer> bikesToAdd = customerOrderEvent.getOrderAmount();
@@ -245,7 +285,7 @@ public class EventHandleService {
             } else {
                 addBikes(currentBD.getAdditionalProduction(), bikesToAdd, addAmount);
             }
-        }
+        }*/
     }
 
 
@@ -257,6 +297,15 @@ public class EventHandleService {
                 amount--;
             }
         }
+    }
+
+    private boolean containsProduction(BusinessDay businessDay) {
+        for (Integer entry : businessDay.getPlannedProduction().values()) {
+            if (entry != 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isSaturdayWorkingDay(BusinessDay bd) {

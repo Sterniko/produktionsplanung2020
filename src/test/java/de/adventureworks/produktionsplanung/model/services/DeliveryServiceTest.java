@@ -70,6 +70,52 @@ public class DeliveryServiceTest {
         */
 
     }
+
+    @Test
+    public void printTest() {
+        LocalDate date = LocalDate.of(2019, 1, 1);
+        for (int i = 1; i<366; i++){
+            System.out.print("t" + i + " = \"" + date + "\";");
+        date = date.plusDays(1);
+    }
+
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print("t"+i+","  );
+        }
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print(Math.random() + "," );
+        }
+
+
+    }
+
+    @Test
+    public void printValues() {
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print("var p" + i + " = " + "/*[[${p" + i + "}]]*/2;");
+        }
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print("p" + i + "," );
+        }
+        System.out.println();
+
+        for (int i = 1; i < 366; i++) {
+            System.out.print("var c" + i + " = " + "/*[[${c" + i + "}]]*/2;");
+        }
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print("c" + i + "," );
+        }
+
+
+
+        System.out.println();
+    }
+
     @Test
     public void testSetNewDelivery(){
 

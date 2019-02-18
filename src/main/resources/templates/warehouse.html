@@ -56,6 +56,7 @@
         </tr>
         <tr>
             <th>Datum</th>
+            <td></td>
             <td th:each="bd: ${businessDays}">
                 <p th:each="entry: ${bd.getWorkingDays()}">
                         <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
@@ -72,10 +73,29 @@
             </td>
         </tr>
 
-        <tr th:each="component: ${components}">
+        <span th:each="component: ${components}">
+        <tr >
             <th>
                 <span th:utext="${component.name}"></span>
             </th>
+            <td>Nach Lieferungen</td>
+            <td th:each="bd2: ${businessDays}">
+                <div style="background-color:#f06e01" th:if="${bd2.beforeProductionWarehouseStock.get(component) < 20} and ${bd2.warehouseStock.get(component) != 0}">
+                    <span  th:utext="${bd2.beforeProductionWarehouseStock.get(component)}"></span>
+                </div>
+
+                <div style="background-color:#fd003b" th:if="${bd2.beforeProductionWarehouseStock.get(component) == 0}">
+                    <span  th:utext="${bd2.beforeProductionWarehouseStock.get(component)}"></span>
+                </div>
+                <div style="background-color:#98eb98" th:if="${bd2.beforeProductionWarehouseStock.get(component) >= 20 }">
+                    <span  th:utext="${bd2.beforeProductionWarehouseStock.get(component)}"></span>
+                </div>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td></td><td>Nach Produktion</td>
             <td th:each="bd2: ${businessDays}">
                 <div style="background-color:#f06e01" th:if="${bd2.warehouseStock.get(component) < 20} and ${bd2.warehouseStock.get(component) != 0}">
                     <span  th:utext="${bd2.warehouseStock.get(component)}"></span>
@@ -91,6 +111,7 @@
 
             </td>
         </tr>
+        </span>
     </table>
 </div>
 </br>

@@ -3,6 +3,7 @@ package de.adventureworks.produktionsplanung.model.services;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
+import de.adventureworks.produktionsplanung.model.entities.events.CustomerOrderEvent;
 import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.events.PlaceCustomerOrderEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
@@ -36,9 +37,10 @@ public class SalesService {
     }
 
 
-    public void startEvent(LocalDate finishDate, Map<Bike, Integer> order, BusinessDay businessDay) {
-        PlaceCustomerOrderEvent placeCustomerOrderEvent = new PlaceCustomerOrderEvent(finishDate, order);
-        List<IEvent> eventList = businessDay.getEventList();
+    public void startEvent(boolean prio, Map<Bike, Integer> order, LocalDate dueDate, LocalDate businessDay) {
+        BusinessDay businessDay1 = dataBean.getBusinessDay(businessDay);
+        CustomerOrderEvent placeCustomerOrderEvent = new CustomerOrderEvent(prio, order, dueDate);
+        List<IEvent> eventList = businessDay1.getEventList();
         eventList.add(placeCustomerOrderEvent);
     }
 

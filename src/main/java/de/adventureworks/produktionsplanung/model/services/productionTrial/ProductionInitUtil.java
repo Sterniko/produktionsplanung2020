@@ -73,19 +73,26 @@ public final class ProductionInitUtil {
                 sum += yearlyProduction.get(i).get(bike);
             }
             int workingDaysWithSaturday = 0;
+            int workingDaysWithoutSaturday = 0;
             LocalDate date = LocalDate.of(year, i, 1);
             while(date.getMonth().getValue() == i) {
                 if (! (businessCalendar.isHoliday(date) || date.getDayOfWeek()== DayOfWeek.SUNDAY) ){
                     workingDaysWithSaturday++;
                 }
+                if(! (businessCalendar.isHoliday(date) || date.getDayOfWeek()== DayOfWeek.SUNDAY || date.getDayOfWeek()== DayOfWeek.SATURDAY )) {
+                    workingDaysWithoutSaturday++;
+                }
                 date = date.plusDays(1);
             }
 
-            int daysWithoutSaturday = businessCalendar.getWorkingDaysOutOfMonthAndYear(i, 2019);
-            int dailyProductionInMonthWithoutSaturday = sum / daysWithoutSaturday;
+            //int daysWithoutSaturday = businessCalendar.getWorkingDaysOutOfMonthAndYear(i, 2019);
+
+
+
+            int dailyProductionInMonthWithoutSaturday = sum / workingDaysWithoutSaturday;
             int dailyProductionWithSaturday = sum / workingDaysWithSaturday;
 
-            boolean saturdayWorkAllowed  = dailyProductionWithSaturday > maxProdBorder// Ohne Samstage wir dmehr als 21 Stunden/Tag produziert
+            boolean saturdayWorkAllowed  = dailyProductionInMonthWithoutSaturday > maxProdBorder// Ohne Samstage wir dmehr als 21 Stunden/Tag produziert
                     || (dailyProductionInMonthWithoutSaturday > saturdayDailyProdBorder && dailyProductionWithSaturday <= saturdayDailyProdBorder );
 
             monthSaturdayAllowedMap.put(i,saturdayWorkAllowed);
