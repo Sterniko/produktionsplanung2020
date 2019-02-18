@@ -101,6 +101,37 @@ public class ShipController {
         return "bikechart";
     }
 
+    @RequestMapping(value = "/warehousechart")
+    public String warehouse(Model model) {
+
+        LocalDate date = LocalDate.of(2019,1,1);
+        int i = 1;
+        int cumPlanAmount = 0;
+        int cumActualAmount = 0;
+        int additAmount = 0;
+        while (date.isBefore(LocalDate.of(2019,12,31))) {
+            BusinessDay businessDay = dataBean.getBusinessDay(date);
+
+            String name = "p" + i;
+            model.addAttribute(name, businessDay.getFrameStockNumber());
+
+            String cname = "c" + i;
+            model.addAttribute(cname, businessDay.getForkStockNumber());
+
+            String aname = "a" + i;
+            model.addAttribute(aname, businessDay.getSaddleStockNumber());
+
+
+
+            i++;
+
+            date = date.plusDays(1);
+        }
+
+
+        return "warehousechart";
+    }
+
 
     @RequestMapping(value = "/refresh")
     public String refresh(Model model) {
