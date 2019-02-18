@@ -111,6 +111,26 @@ public class DeliveryServiceTest {
             System.out.print("c" + i + "," );
         }
 
+        System.out.println();
+
+        for (int i = 1; i < 366; i++) {
+            System.out.print("var o" + i + " = " + "/*[[${o" + i + "}]]*/2;");
+        }
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print("o" + i + "," );
+        }
+
+        System.out.println();
+
+        for (int i = 1; i < 366; i++) {
+            System.out.print("var a" + i + " = " + "/*[[${a" + i + "}]]*/2;");
+        }
+        System.out.println();
+        for (int i = 1; i < 366; i++) {
+            System.out.print("a" + i + "," );
+        }
+
 
 
         System.out.println();

@@ -92,6 +92,12 @@
                  </td>
              </tr>
              <tr>
+                 <td>Prioproduktion</td>
+                 <td th:each="bd2: ${businessDays}">
+                     <span th:utext="|${bd2.prioProduction.get(bike)}|"></span>
+                 </td>
+             </tr>
+             <tr>
              <tr>
                  <td>Istproduktion</td>
                  <td th:each="bd2: ${businessDays}">

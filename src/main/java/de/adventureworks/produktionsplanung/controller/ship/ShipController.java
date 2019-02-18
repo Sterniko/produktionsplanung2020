@@ -74,14 +74,23 @@ public class ShipController {
         int i = 1;
         int cumPlanAmount = 0;
         int cumActualAmount = 0;
+        int additAmount = 0;
         while (date.isBefore(LocalDate.of(2019,12,31))) {
-                cumPlanAmount+= dataBean.getBusinessDay(date).getSumOfPlannedDailyProduction();
-                String name = "p" + i;
-                model.addAttribute(name, cumPlanAmount);
+            cumPlanAmount+= dataBean.getBusinessDay(date).getSumOfPlannedDailyProduction();
+            String name = "p" + i;
+            model.addAttribute(name, cumPlanAmount);
 
-                cumActualAmount += dataBean.getBusinessDay(date).getSumOfActualDailyProduction();
-                String cname = "c" + i;
-                model.addAttribute(cname, cumActualAmount);
+            cumActualAmount += dataBean.getBusinessDay(date).getSumOfActualDailyProduction();
+            String cname = "c" + i;
+            model.addAttribute(cname, cumActualAmount);
+
+            cumActualAmount += dataBean.getBusinessDay(date).getSumOfAdditionalProduction();
+            String aname = "a" + i;
+            model.addAttribute(cname, cumActualAmount);
+
+            String oname = "o" + i;
+            model.addAttribute(oname, dataBean.getBusinessDay(date).getProductionOverhangSum());
+
 
             i++;
 

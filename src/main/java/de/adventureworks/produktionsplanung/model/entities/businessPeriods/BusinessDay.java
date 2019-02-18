@@ -170,8 +170,16 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public Integer getSumOfActualDailyProduction() {
         Integer sum = 0;
-        for (Bike bike: actualProduction.keySet()) {
-            sum += actualProduction.get(bike);
+        for (Integer i: actualProduction.values()) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    public Integer getSumOfAdditionalProduction() {
+        Integer sum = 0;
+        for (Bike bike: additionalProduction.keySet()) {
+            sum += additionalProduction.get(bike);
         }
         return sum;
     }
@@ -185,6 +193,15 @@ public class BusinessDay implements Comparable<BusinessDay> {
         }
         return resultMap;
     }
+
+    public Integer getProductionOverhangSum() {
+        Integer sum = 0;
+        for (Integer i: productionOverhang.values()) {
+            sum+= i;
+        }
+        return sum;
+    }
+
 
 
     public void setEventList(List<IEvent> eventList) {

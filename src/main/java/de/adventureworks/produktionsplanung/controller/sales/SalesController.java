@@ -5,6 +5,7 @@ import de.adventureworks.produktionsplanung.controller.util.RequestMapper;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
+import de.adventureworks.produktionsplanung.model.services.ArrivalCalculatorService;
 import de.adventureworks.produktionsplanung.model.services.SalesService;
 import de.adventureworks.produktionsplanung.model.services.productionTrial.ProductionService2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class SalesController {
 
     @Autowired
     private ProductionService2 productionService2;
+
+    @Autowired
+    private ArrivalCalculatorService arrivalCalculatorService;
 
     public SalesController() {
 
@@ -55,7 +59,8 @@ public class SalesController {
 
         //TODO FINISHDATE BERECHNEN
 
-        salesService.startEvent(isPrio, bikeMap,  customerDeliveryDate, sendingDate);
+        LocalDate dueDate = arrivalCalculatorService.calculateLatestPossibleSendDate(customerDeliveryDate,salesRequest.getCountry());
+        salesService.startEvent(isPrio, bikeMap,  dueDate, sendingDate);
         productionService2.simulateWholeProduction();
 
 
