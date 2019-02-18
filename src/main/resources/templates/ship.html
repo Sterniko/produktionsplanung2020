@@ -110,7 +110,7 @@
                 </select>
                 <br>
                 <label>Neue Ankunftszeit:</label>
-                <input type="date" th:field="*{newArrival}" class="date-picker date-picker-popup form-control">
+                <input type="date" th:field="*{newArrival}" class="date-picker date-picker-popup form-control" required>
                 <br>
                 <input type="submit" class="btn btn-warning" value="Ändern">
 
@@ -128,7 +128,7 @@
                 </select>
                 <br>
                 <label>Löschzeitpunkt:</label>
-                <input type="date" th:field="*{deleteDate}" class="date-picker date-picker-popup form-control">
+                <input type="date" th:field="*{deleteDate}" class="date-picker date-picker-popup form-control" required>
                 <br>
                 <input type="submit" class="btn btn-danger" value="Löschen">
             </form>
