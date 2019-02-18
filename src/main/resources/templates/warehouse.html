@@ -9,8 +9,9 @@
         #wareHouseDiv {
             font-family: "Times New Roman";
             overflow-x: auto;
-            margin-left: 164px;
-            margin-top: -601.5px;
+            position: relative;
+            top: -561.5155px;
+            left: 164px;
 
         }
 
@@ -44,7 +45,11 @@
             height: 64px;
         }
         #sideBar{
-            width: 150px;
+            width: 165px;
+            position: sticky;
+            left: 0;
+            height: 562px;
+        }
         }
     </style>
     <meta charset="UTF-8">
@@ -86,14 +91,14 @@
 
         </tr>
         <tr>
-            <td th:each="bd: ${businessDays}">
+            <td th:each="bd: ${businessDays}" style="height:64px">
                 <p th:each="entry: ${bd.getWorkingDays()}">
                         <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
                                 <span th:if="${entry.getValue()}">
-                                    <span style="color:red" th:utext="${bd.getDate()}"></span>
+                                    <span style="color:red;" th:utext="${bd.getDate()}"></span>
                                 </span>
                                 <span th:unless="${entry.getValue()}">
-                                    <span style="color:black" th:utext="${bd.getDate()}"></span>
+                                    <span style="color:black;" th:utext="${bd.getDate()}"></span>
                                 </span>
                         </span>
 
