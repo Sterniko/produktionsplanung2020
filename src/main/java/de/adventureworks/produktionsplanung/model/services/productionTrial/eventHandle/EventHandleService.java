@@ -228,6 +228,7 @@ public class EventHandleService {
             if(isPrio){
                 //TODO hier aus der Map was ins untere einfügen
                 currentBD.getPrioProduction();
+
             }else{
                 //TODO hier aus der Map was ins untere einfügen
                 currentBD.getAdditionalProduction();
