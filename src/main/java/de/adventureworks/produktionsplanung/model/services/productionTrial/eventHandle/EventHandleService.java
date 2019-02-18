@@ -199,8 +199,8 @@ public class EventHandleService {
         Map<Bike, Integer> bikesToAdd = customerOrderEvent.getOrderAmount();
         int workDaysAmount = 0;
         int allDays = 0;
-        int bikesToAddAmount=ProductionSimulationUtil.countBikes(bikesToAdd);
-        List<LocalDate> workingDays= new ArrayList<>();
+        int bikesToAddAmount = ProductionSimulationUtil.countBikes(bikesToAdd);
+        List<LocalDate> workingDays = new ArrayList<>();
 
         LocalDate tempDate = today;
         // counts workingDays and allDays
@@ -218,37 +218,49 @@ public class EventHandleService {
             allDays++;
         }
 
-        if(workDaysAmount==0){return;}
+        if (workDaysAmount == 0) {
+            return;
+        }
 
 
         tempDate = today;
-        for(int i = 0; i<workDaysAmount; i++){
-            int addAmount= bikesToAddAmount/workDaysAmount;
+        for (int i = 0; i < workDaysAmount; i++) {
+            int addAmount = bikesToAddAmount / workDaysAmount;
             BusinessDay currentBD = dataBean.getBusinessDay(workingDays.get(i));
-            if(isPrio){
+            if (isPrio) {
                 //TODO hier aus der Map was ins untere einfügen
-                currentBD.getPrioProduction();
+                addBikes(currentBD.getPrioProduction(), bikesToAdd, addAmount);
 
-            }else{
+            } else {
                 //TODO hier aus der Map was ins untere einfügen
-                currentBD.getAdditionalProduction();
+                addBikes(currentBD.getAdditionalProduction(), bikesToAdd, addAmount);
             }
         }
 
 
         tempDate = today;
-        for(int i = 0; i<bikesToAddAmount%workDaysAmount; i++){
-            int addAmount= bikesToAddAmount%workDaysAmount;
+        for (int i = 0; i < bikesToAddAmount % workDaysAmount; i++) {
+            int addAmount = bikesToAddAmount % workDaysAmount;
             BusinessDay currentBD = dataBean.getBusinessDay(workingDays.get(i));
-            if(isPrio){
+            if (isPrio) {
                 //TODO hier aus der Map was ins untere einfügen
-                currentBD.getPrioProduction();
-            }else{
+                addBikes(currentBD.getPrioProduction(), bikesToAdd, addAmount);
+            } else {
                 //TODO hier aus der Map was ins untere einfügen
-                currentBD.getAdditionalProduction();
+                addBikes(currentBD.getAdditionalProduction(), bikesToAdd, addAmount);
             }
         }
+    }
 
+
+    private void addBikes(Map<Bike, Integer> destination, Map<Bike, Integer> additional, int amount) {
+        for (Bike bike : additional.keySet()) {
+            while (amount > 0 && additional.get(bike) > 0) {
+                additional.put(bike, additional.get(bike) - 1);
+                destination.put(bike, destination.get(bike) + 1);
+                amount--;
+            }
+        }
     }
 
 
