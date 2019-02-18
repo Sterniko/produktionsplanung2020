@@ -1,7 +1,6 @@
 package de.adventureworks.produktionsplanung.model.entities.businessPeriods;
 
-import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
-import de.adventureworks.produktionsplanung.model.entities.bike.Component;
+import de.adventureworks.produktionsplanung.model.entities.bike.*;
 import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
 import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Supplier;
@@ -120,6 +119,41 @@ public class BusinessDay implements Comparable<BusinessDay> {
         return warehouseStock;
     }
 
+    public Integer getFrameStockNumber() {
+        Integer number = 0;
+        for (Component c: warehouseStock.keySet()) {
+            if(c.getClass() == Frame.class) {
+                number += warehouseStock.get(c);
+            }
+        }
+        return number;
+
+    }
+
+    public Integer getSaddleStockNumber() {
+        Integer number = 0;
+        for (Component c: warehouseStock.keySet()) {
+            if(c.getClass() == Saddle.class) {
+                number += warehouseStock.get(c);
+            }
+        }
+        return number;
+
+
+    }
+
+    public Integer getForkStockNumber() {
+        Integer number = 0;
+        for (Component c: warehouseStock.keySet()) {
+            if(c.getClass() == Fork.class) {
+                number += warehouseStock.get(c);
+            }
+        }
+        return number;
+
+
+    }
+
     public void setWarehouseStock(Map<Component, Integer> warehouseStock) {
         this.warehouseStock = warehouseStock;
     }
@@ -170,8 +204,16 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public Integer getSumOfActualDailyProduction() {
         Integer sum = 0;
-        for (Bike bike: actualProduction.keySet()) {
-            sum += actualProduction.get(bike);
+        for (Integer i: actualProduction.values()) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    public Integer getSumOfAdditionalProduction() {
+        Integer sum = 0;
+        for (Bike bike: additionalProduction.keySet()) {
+            sum += additionalProduction.get(bike);
         }
         return sum;
     }
@@ -185,6 +227,15 @@ public class BusinessDay implements Comparable<BusinessDay> {
         }
         return resultMap;
     }
+
+    public Integer getProductionOverhangSum() {
+        Integer sum = 0;
+        for (Integer i: productionOverhang.values()) {
+            sum+= i;
+        }
+        return sum;
+    }
+
 
 
     public void setEventList(List<IEvent> eventList) {
