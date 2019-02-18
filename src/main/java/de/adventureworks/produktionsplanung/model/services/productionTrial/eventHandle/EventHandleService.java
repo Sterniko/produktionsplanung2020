@@ -259,23 +259,6 @@ public class EventHandleService {
         }
     }
 
-
-
-
-/*    public BusinessDay getNextWorkingDay(LocalDate date){
-        BusinessDay currentBD=dataBean.getBusinessDay(date);
-        if(date.getDayOfWeek()==DayOfWeek.SATURDAY){
-            if(isSaturdayWorkingDay(dataBean.getBusinessDay(date))){
-
-            }
-        }
-        if(currentBD.getWorkingDays().get(Country.GERMANY)){
-            return getNextWorkingDay(date.plusDays(1));
-        }
-
-    }*/
-
-
     public static boolean isSaturdayWorkingDay(BusinessDay bd) {
         if (bd.getDate().getDayOfWeek() == DayOfWeek.SATURDAY) {
             for (Integer entry : bd.getPlannedProduction().values()) {
