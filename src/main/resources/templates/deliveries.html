@@ -77,7 +77,7 @@
             <span>Amount:</span>
             <span th:utext="${lo.getSumAmount()}"></span>
 
-            <p><input class="form-control"  type="date" th:field="*{date}"></p>
+            <p><input class="form-control" type="date" th:field="*{date}" required></p>
             <p th:each="comp: ${lo.getComponents().keySet()}">
                 <br>
                 <span th:utext="${comp.getName()}">:</span>
