@@ -53,7 +53,6 @@ public class EventHandleService {
 
 
         Ship ship = event.getShip();
-        dataBean.getShips().remove(event.getShip());
         for (LogisticsObject lo : ship.getDeliveries()) {
             LocalDate arrivalDay = dataBean.getBusinessDay(ship.getArrival()).getDate();
             LocalDate recievedDay = acs.addWorkingDays(arrivalDay, Country.GERMANY, 2);

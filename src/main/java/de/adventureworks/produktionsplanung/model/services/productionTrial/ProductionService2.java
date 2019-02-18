@@ -94,6 +94,7 @@ public class ProductionService2 {
             dataBean.getBusinessDay(date).setActualProduction(new HashMap<>(emptyProdMap));
             dataBean.getBusinessDay(date).setAdditionalProduction(new HashMap<>(emptyProdMap));
             dataBean.getBusinessDay(date).setPrioProduction(new HashMap<>(emptyProdMap));
+            dataBean.getBusinessDay(date).setProductionOverhang(new HashMap<>(emptyProdMap));
 
         }
 
