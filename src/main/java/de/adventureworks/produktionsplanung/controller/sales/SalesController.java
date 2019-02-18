@@ -53,7 +53,9 @@ public class SalesController {
         Map<Bike, Integer> bikeMap = RequestMapper.mapBikeStringMap(salesRequest.getBikeMap(), dataBean.getBikes());
         boolean isPrio = RequestMapper.mapStringToBoolean(salesRequest.getPrio());
 
-        salesService.startEvent(customerDeliveryDate, bikeMap, dataBean.getBusinessDay(sendingDate));
+        //TODO FINISHDATE BERECHNEN
+
+        salesService.startEvent(isPrio, bikeMap,  customerDeliveryDate, sendingDate);
         productionService2.simulateWholeProduction();
 
 

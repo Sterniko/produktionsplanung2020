@@ -4,6 +4,7 @@ package de.adventureworks.produktionsplanung.controller.ship;
 import de.adventureworks.produktionsplanung.model.DataBean;
 import de.adventureworks.produktionsplanung.model.entities.businessPeriods.BusinessDay;
 import de.adventureworks.produktionsplanung.model.entities.events.IEvent;
+import de.adventureworks.produktionsplanung.model.entities.external.Country;
 import de.adventureworks.produktionsplanung.model.entities.external.Ship;
 import de.adventureworks.produktionsplanung.model.services.ShipService;
 import de.adventureworks.produktionsplanung.model.services.init.DataInitService;
@@ -64,6 +65,31 @@ public class ShipController {
     @RequestMapping(value = "/")
     public String goHome(Model model) {
         return "home";
+    }
+
+    @RequestMapping(value = "/bikechart")
+    public String charts(Model model) {
+
+        LocalDate date = LocalDate.of(2019,1,1);
+        int i = 1;
+        int cumPlanAmount = 0;
+        int cumActualAmount = 0;
+        while (date.isBefore(LocalDate.of(2019,12,31))) {
+                cumPlanAmount+= dataBean.getBusinessDay(date).getSumOfPlannedDailyProduction();
+                String name = "p" + i;
+                model.addAttribute(name, cumPlanAmount);
+
+                cumActualAmount += dataBean.getBusinessDay(date).getSumOfActualDailyProduction();
+                String cname = "c" + i;
+                model.addAttribute(cname, cumActualAmount);
+
+            i++;
+
+            date = date.plusDays(1);
+        }
+
+
+        return "bikechar";
     }
 
 

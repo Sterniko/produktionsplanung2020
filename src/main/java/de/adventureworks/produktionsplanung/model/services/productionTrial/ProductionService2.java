@@ -223,7 +223,7 @@ public class ProductionService2 {
 
         //Warehouse
         Map<Component, Integer> wareHouseStockAfterDeliveries = addDeliveriesToWarehouseStock(businessDay.getWarehouseStock(), businessDay.getReceivedDeliveries());
-
+        businessDay.setBeforeProductionWarehouseStock(new HashMap<>(wareHouseStockAfterDeliveries));
 
         BusinessDay nextBusinessDay = dataBean.getBusinessDay(businessDay.getDate().plusDays(1));
         Map<Bike, Integer> actualDailyProduction = new HashMap<>();
@@ -245,12 +245,16 @@ public class ProductionService2 {
                 maxCap = dataBean.getHourlyCapacity() * maxShift;
             }
 
+            Map<Bike, Integer> actualPrioProduction = tryToAchieveDailyProduction(businessDay.getPrioProduction(), wareHouseStockAfterDeliveries, maxCap, dataBean.getBikes());
+            wareHouseStockAfterDeliveries = substractProductionFromWarehouse(actualPrioProduction, wareHouseStockAfterDeliveries);
+            maxCap -= countBikes(actualPrioProduction);
 
-            Map<Bike, Integer> dailyShouldProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
-            dailyShouldProduction = addMaps(dailyShouldProduction, businessDay.getAdditionalProduction());
+            Map<Bike, Integer> dailyShouldWithoutPrioProduction = addMaps(businessDay.getPlannedProduction(), businessDay.getProductionOverhang());
+            dailyShouldWithoutPrioProduction = addMaps(dailyShouldWithoutPrioProduction, businessDay.getAdditionalProduction());
+            Map<Bike, Integer> dailyShouldWithPrioProduction = addMaps(dailyShouldWithoutPrioProduction, businessDay.getPrioProduction());
+            actualDailyProduction = tryToAchieveDailyProduction(dailyShouldWithoutPrioProduction, wareHouseStockAfterDeliveries, maxCap, dataBean.getBikes());
 
-            //TODO Prio Betsellungen implementieren
-            actualDailyProduction = tryToAchieveDailyProduction(dailyShouldProduction, wareHouseStockAfterDeliveries, maxCap, dataBean.getBikes());
+            actualDailyProduction = addMaps(actualDailyProduction, actualPrioProduction);
 
             if (!weeklyShiftsAlreadySet) {
                 //TODO auslagern
@@ -271,13 +275,18 @@ public class ProductionService2 {
             businessDay.setActualProduction(actualDailyProduction);
 
 
-            if (countBikes(dailyShouldProduction) != countBikes(actualDailyProduction)) {
+            if (countBikes(dailyShouldWithPrioProduction) != countBikes(actualDailyProduction)) {
                 //soll kann nicht erfüllt werden
                 if (nextBusinessDay != null) {
-                    nextBusinessDay.setProductionOverhang(substractMaps(dailyShouldProduction, actualDailyProduction));
+                    nextBusinessDay.setProductionOverhang(substractMaps(dailyShouldWithPrioProduction, actualDailyProduction));
                 }
             }
 
+
+        } else {
+            if (nextBusinessDay != null) {
+                nextBusinessDay.setProductionOverhang((new HashMap<>(businessDay.getProductionOverhang())));
+            }
 
         }
 

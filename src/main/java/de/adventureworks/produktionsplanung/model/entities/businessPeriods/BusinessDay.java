@@ -27,6 +27,7 @@ public class BusinessDay implements Comparable<BusinessDay> {
     private Map<Bike, Integer> actualProduction;
 
     private Map<Component, Integer> warehouseStock;
+    private Map<Component, Integer> beforeProductionWarehouseStock;
 
     private List<IEvent> eventList;
 
@@ -121,6 +122,14 @@ public class BusinessDay implements Comparable<BusinessDay> {
 
     public void setWarehouseStock(Map<Component, Integer> warehouseStock) {
         this.warehouseStock = warehouseStock;
+    }
+
+    public Map<Component, Integer> getBeforeProductionWarehouseStock() {
+        return beforeProductionWarehouseStock;
+    }
+
+    public void setBeforeProductionWarehouseStock(Map<Component, Integer> beforeProductionWarehouseStock) {
+        this.beforeProductionWarehouseStock = beforeProductionWarehouseStock;
     }
 
     public BusinessWeek getBusinessWeek() {
