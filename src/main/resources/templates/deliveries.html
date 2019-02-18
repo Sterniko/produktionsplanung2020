@@ -48,7 +48,7 @@
                     <th:block th:each="lo : ${bd.getSentDeliveries()}">
                         <td>
                             <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning"
-                               th:text="${lo.getId()}"></a>
+                               th:text="${lo.printForReceivedDelivery()}"></a>
                         </td>
                     </th:block>
                 </tr>
@@ -58,7 +58,7 @@
 
                         <td>
                             <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-success"
-                               th:text="${lo.getId()}"></a>
+                               th:text="${lo.printForSentDelivery()}"></a>
                         </td>
                     </th:block>
                 </tr>

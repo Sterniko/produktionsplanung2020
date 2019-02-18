@@ -101,6 +101,22 @@ public class LogisticsObject {
         return Objects.hash(supplier, sumAmount, components);
     }
 
+    private int componentSum() {
+        int sum = 0;
+        for (Integer i: components.values()) {
+           sum+=i;
+        }
+        return sum;
+    }
+
+    public String printForReceivedDelivery() {
+        return supplier.getName() + " Sendung: " + departureDate + " Menge:" + getSumAmount();
+    }
+
+    public String printForSentDelivery() {
+        return supplier.getName() + " Ankunft: " + arrivalDate + " Menge:" + getSumAmount();
+    }
+
     @Override
     public String toString() {
 
