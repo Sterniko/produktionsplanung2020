@@ -118,11 +118,6 @@ public class EventHandleService {
             workingDays++;
         }
 
-        /*int sumPlaned = ProductionSimulationUtil.countBikes(MarketingService.getWeeklyPlannedProduction(bW, true));
-        int sumAdditional = ProductionSimulationUtil.countBikes(MarketingService.getWeeklyPlannedProduction(bW, false));
-        int wholeProduction = sumPlaned + sumAdditional;*/
-
-
         LocalDate weeksMonday = null;
 
         //gibt mir den Montag
@@ -134,7 +129,6 @@ public class EventHandleService {
         //
 
         LocalDate work = weeksMonday;
-
 
         //Order increased Production.
         for (Bike b : increaseAmount.keySet()) {
@@ -203,34 +197,75 @@ public class EventHandleService {
         LocalDate latestPossibleSentDate = customerOrderEvent.getDueProductionDate();
         LocalDate today = changeDate.getDate();
         boolean isPrio = customerOrderEvent.isPrio();
-        Map<Component, Integer> componetsToAdd = customerOrderEvent.getOrderAmount();
-        int workDays = 0;
+        Map<Bike, Integer> bikesToAdd = customerOrderEvent.getOrderAmount();
+        int workDaysAmount = 0;
         int allDays = 0;
+        int bikesToAddAmount=ProductionSimulationUtil.countBikes(bikesToAdd);
+        List<LocalDate> workingDays= new ArrayList<>();
+
         LocalDate tempDate = today;
-
-
         // counts workingDays and allDays
         while (tempDate.isEqual(latestPossibleSentDate) || tempDate.isBefore(latestPossibleSentDate)) {
             if (tempDate.getDayOfWeek() == DayOfWeek.SATURDAY) {
                 if (isSaturdayWorkingDay(dataBean.getBusinessDay(tempDate))) {
-                    workDays++;
+                    workDaysAmount++;
+                    workingDays.add(tempDate);
                 }
             } else if (dataBean.getBusinessDay(tempDate).getWorkingDays().get(Country.GERMANY)) {
-                workDays++;
+                workDaysAmount++;
+                workingDays.add(tempDate);
             }
             tempDate = tempDate.plusDays(1);
             allDays++;
         }
 
+        if(workDaysAmount==0){return;}
 
 
+        tempDate = today;
+        for(int i = 0; i<workDaysAmount; i++){
+            int addAmount= bikesToAddAmount/workDaysAmount;
+            BusinessDay currentBD = dataBean.getBusinessDay(workingDays.get(i));
+            if(isPrio){
+                //TODO hier aus der Map was ins untere einfügen
+                currentBD.getPrioProduction();
+            }else{
+                //TODO hier aus der Map was ins untere einfügen
+                currentBD.getAdditionalProduction();
+            }
+        }
 
+
+        tempDate = today;
+        for(int i = 0; i<bikesToAddAmount%workDaysAmount; i++){
+            int addAmount= bikesToAddAmount%workDaysAmount;
+            BusinessDay currentBD = dataBean.getBusinessDay(workingDays.get(i));
+            if(isPrio){
+                //TODO hier aus der Map was ins untere einfügen
+                currentBD.getPrioProduction();
+            }else{
+                //TODO hier aus der Map was ins untere einfügen
+                currentBD.getAdditionalProduction();
+            }
+        }
 
     }
 
 
 
 
+/*    public BusinessDay getNextWorkingDay(LocalDate date){
+        BusinessDay currentBD=dataBean.getBusinessDay(date);
+        if(date.getDayOfWeek()==DayOfWeek.SATURDAY){
+            if(isSaturdayWorkingDay(dataBean.getBusinessDay(date))){
+
+            }
+        }
+        if(currentBD.getWorkingDays().get(Country.GERMANY)){
+            return getNextWorkingDay(date.plusDays(1));
+        }
+
+    }*/
 
 
     public static boolean isSaturdayWorkingDay(BusinessDay bd) {
