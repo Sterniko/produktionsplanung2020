@@ -228,11 +228,9 @@ public class EventHandleService {
             int addAmount = bikesToAddAmount / workDaysAmount;
             BusinessDay currentBD = dataBean.getBusinessDay(workingDays.get(i));
             if (isPrio) {
-                //TODO hier aus der Map was ins untere einfügen
                 addBikes(currentBD.getPrioProduction(), bikesToAdd, addAmount);
 
             } else {
-                //TODO hier aus der Map was ins untere einfügen
                 addBikes(currentBD.getAdditionalProduction(), bikesToAdd, addAmount);
             }
         }
@@ -243,10 +241,8 @@ public class EventHandleService {
             int addAmount = bikesToAddAmount % workDaysAmount;
             BusinessDay currentBD = dataBean.getBusinessDay(workingDays.get(i));
             if (isPrio) {
-                //TODO hier aus der Map was ins untere einfügen
                 addBikes(currentBD.getPrioProduction(), bikesToAdd, addAmount);
             } else {
-                //TODO hier aus der Map was ins untere einfügen
                 addBikes(currentBD.getAdditionalProduction(), bikesToAdd, addAmount);
             }
         }
