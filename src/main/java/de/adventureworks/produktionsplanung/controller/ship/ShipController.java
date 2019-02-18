@@ -89,7 +89,7 @@ public class ShipController {
         }
 
 
-        return "bikechar";
+        return "bikechart";
     }
 
 
