@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 
-<div th:fragment="Menu" style="position: fixed; width: 100%">
+<div th:fragment="Menu" style="position: fixed; z-index:10; width: 100%">
     <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
+        <div  class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
                 <span class="text-muted">
             <div class="links">
@@ -16,12 +16,14 @@
             <a href="/marketing" style="margin-right: 10px">Marketing <i class="fa fa-arrow-up"></i></a>
             <a href="/deliveries?idSent=none" style="margin-right: 10px">Lieferungen  <i class="fa fa-envelope"></i></a>
             <a href="/masterData" style="margin-right: 10px">Stammdaten  <i class="fa fa-database"></i></a>
+            <a href="/refresh" style="margin-left: 420px "> Refresh <i class="fa fa-refresh"></i></a>
+
 
             </div>
             </span>
             </div>
         </div>
-        <div style="position: fixed; width: 100%">
+        <div style="position: fixed;z-index:10; width: 100%">
         <nav class="navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
                     aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
