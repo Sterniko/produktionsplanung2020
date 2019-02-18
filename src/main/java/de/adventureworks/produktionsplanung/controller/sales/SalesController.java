@@ -57,7 +57,7 @@ public class SalesController {
         productionService2.simulateWholeProduction();
 
 
-        return "redirect:/sales";
+        return "redirect:/";
     }
 
 }

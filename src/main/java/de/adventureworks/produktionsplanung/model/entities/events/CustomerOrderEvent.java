@@ -1,5 +1,6 @@
 package de.adventureworks.produktionsplanung.model.entities.events;
 
+import de.adventureworks.produktionsplanung.model.entities.bike.Bike;
 import de.adventureworks.produktionsplanung.model.entities.bike.Component;
 
 import java.time.LocalDate;
@@ -9,11 +10,11 @@ public class CustomerOrderEvent implements IEvent {
 
     private boolean isPrio;
 
-    private Map<Component, Integer> orderAmount;
+    private Map<Bike, Integer> orderAmount;
 
     private LocalDate dueProductionDate;
 
-    public CustomerOrderEvent(boolean isPrio, Map<Component, Integer> orderAmount, LocalDate dueProductionDate) {
+    public CustomerOrderEvent(boolean isPrio, Map<Bike, Integer> orderAmount, LocalDate dueProductionDate) {
         this.isPrio = isPrio;
         this.orderAmount = orderAmount;
         this.dueProductionDate = dueProductionDate;
@@ -25,7 +26,7 @@ public class CustomerOrderEvent implements IEvent {
         return isPrio;
     }
 
-    public Map<Component, Integer> getOrderAmount() {
+    public Map<Bike, Integer> getOrderAmount() {
         return orderAmount;
     }
 
