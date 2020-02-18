@@ -19,7 +19,7 @@
             text-decoration: none;
         }
         .smallerDiv {
-            float: left;
+            text-align: center;
             margin: auto;
             padding: 20px;
             width: 30%;
@@ -37,8 +37,9 @@
 
 
     <br>
-    <h1>Stammdaten verändern</h1>
+    <h1><center>Stammdaten ändern</center></h1>
     <br>
+
 
 
     <div class="smallerDiv">
@@ -51,7 +52,8 @@
                            th:field="*{monthProductionShares[__${month}__]}" required/>
                 </span>
             <br>
-            <button class="btn btn-primary" type="submit" name="submit" value="value">Monate ändern</button>
+            <button class="btn btn-info" type="submit" name="submit" value="value">Speichern<i class="fa fa-check"></i></button>
+
         </form>
     </div>
     <div class="smallerDiv">
@@ -64,22 +66,21 @@
                            th:field="*{bikeProductionShares[__${bike.name}__]}" required/>
                 </span>
             <br>
-            <button class="btn btn-primary" type="submit" name="submit" value="value">Bikes ändern</button>
+            <button class="btn btn-info" type="submit" name="submit" value="value">Speichern<i class="fa fa-check"></i></button>
         </form>
     </div>
     <div class="smallerDiv">
         <form method="POST" th:action="@{/postProductionValues}" th:object="${masterDataRequest}">
             <br>
-            Current yearly production:
+            Anzahl Fahrräder pro Jahr:
             <td th:text="${yearlyProduction}"></td>
             <input class="form-control" type="number" th:field="*{yearlyCapacity}" required/>
             <br>
-            Current hourly capacity:
+            Kapazität pro Stunde:
             <td th:text="${hourlyCapacity}"></td>
             <input class="form-control" type="number" th:field="*{hourlyCapacity}" required/>
             <br>
-            <button class="btn btn-primary" type="submit" name="submit" value="value">Produktionsvorgaben ändern
-            </button>
+            <button class="btn btn-info" type="submit" name="submit" value="value">Speichern<i class="fa fa-check"></i></button>
         </form>
     </div>
 </div>

@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <style>
         .smallerDiv {
-            float: left;
+            text-align: center;
             margin: auto;
             padding: 20px;
-            width: 45%;
+            width: 30%;
         }
 
         a {
@@ -24,6 +24,7 @@
             padding-top: 5px;
             text-decoration: none;
         }
+
     </style>
 </head>
 <body>
@@ -35,11 +36,11 @@
 
 <div class="container">
     <br>
-    <h1>Kundenbestellung aufgeben</h1>
+    <h1><center>Bestellung neu</center></h1>
     <br>
     <form method="POST" th:action="@{/sales}" th:object="${salesRequest}">
         <div class="smallerDiv">
-            <label>Fahrrad:</label>
+
             <span th:each="bike: ${bikes}">
             <span th:utext="${bike.name}"></span>
             <input class="form-control" type="number" th:field="*{bikeMap[__${bike.name}__]}" required/>
@@ -66,7 +67,7 @@
             <label>Ankunftsdatum beim Kunden:</label>
             <input class="form-control" type="date" th:field="*{customerDeliveryDate}" required/>
             <br>
-            <button class="btn btn-success" type="submit" name="submit" value="value">Bestellung aufgeben</button>
+            <button class="btn btn-info" type="submit" name="submit" value="value">Bestellung aufgeben</button>
         </div>
     </form>
 </div>

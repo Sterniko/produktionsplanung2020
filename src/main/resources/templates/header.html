@@ -1,31 +1,39 @@
-<div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <span class="text-muted">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+      integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="~/lib/Font-Awesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="~/lib/Font-Awesome/css/regular.min.css">
+<link rel="stylesheet" href="~/lib/Font-Awesome/css/solid.min.css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div th:fragment="Menu" style="position: fixed; z-index:10; width: 100%">
+    <div class="pos-f-t">
+
+
         <div class="links">
-        <a class="headerHref" href="/">Home</a>
-        <a class="headerHref" href="/showShips">Schiffe</a>
-        <a class="headerHref" href="/warehouse">Lager</a>
-        <a class="headerHref" href="/production">Produktion</a>
-        <a class="headerHref" href="/sales">Kundenbestellung</a>
-        <a class="headerHref" href="/marketing">Marketing</a>
-        <a class="headerHref" href="/masterData">Stammdaten</a>
-        <a class="headerHref" href="/">Lieferungen</a>
+            <a href="/" class="btn btn-info">Home<i class="fa fa-bar-chart" aria-hidden="true" data-th-bgcolor="blue"></i></a>
+            <a href="/showShips" class="btn btn-info">Schiffe</a>
+            <a href="/warehouse" class="btn btn-info">Lager <i class=""></i></a>
+            <a href="/production" class="btn btn-info">Produktion<i aria-hidden="true"></i></a>
+            <a href="/sales" class="btn btn-info">Kundenbestellung</a>
+            <a href="/marketing" class="btn btn-info">Marketingaktion</a>
+            <a href="/deliveries?idSent=none" class="btn btn-info">Lieferungen</a>
+            <a href="/masterData" class="btn btn-info">Stammdaten</a>
+            <a href="/bikechart" class="btn btn-info"> Fahrrad Statistik<i class="fa fa-bar-chart" aria-hidden="true"></i></a>
+            <a href="/warehousechart" class="btn btn-info"> Lager Statistik<i class="fa fa-bar-chart"></i></a>
+            <a href="/refresh" class="btn btn-info">
+                <i class="fa fa-refresh"></i></a>
 
 
         </div>
         </span>
-        </div>
+
+
     </div>
-    <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
 </div>
-
-
+</html>
 
 <style>
     a{
