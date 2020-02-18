@@ -39,7 +39,7 @@ public class ProductionService2 {
 
 
     public void simulateWholeProduction() {
-        simulateWholeProduction(2019);
+        simulateWholeProduction(2021);
     }
 
 

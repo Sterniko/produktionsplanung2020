@@ -54,6 +54,13 @@ public class BusinessDay implements Comparable<BusinessDay> {
         return date;
     }
 
+    public String germanDate(){
+
+        String returnvalue =String.format("%02d.%02d.%d",date.getDayOfMonth(), date.getMonthValue(), date.getYear());
+        return returnvalue;
+
+    }
+
     public void setDate(LocalDate date) {
         this.date = date;
     }

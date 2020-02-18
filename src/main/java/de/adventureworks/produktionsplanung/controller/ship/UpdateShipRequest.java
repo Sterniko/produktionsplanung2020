@@ -8,7 +8,7 @@ public class UpdateShipRequest {
 
     private String name;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate newArrival;
 
     public UpdateShipRequest() {

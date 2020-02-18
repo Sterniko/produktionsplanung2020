@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class SalesRequest {
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate placementDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate customerDeliveryDate;
     private Country country;
     private Map<String, Integer> bikeMap;

@@ -58,7 +58,7 @@ public class ProductionInitUtilTest {
         public void testGetDailyFromMonthlyProduction() {
             Map<Integer, Map<Bike, Integer>> monthlyProduction = ProductionInitUtil.getAbsoluteMonthlyProduction(relativeBikeProduction, monthProdDistrib, yearlyProduction);
 
-            Map<LocalDate, Map<Bike, Integer>> dailyProduction = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2019, 100000, 100 );
+            Map<LocalDate, Map<Bike, Integer>> dailyProduction = ProductionInitUtil.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2021, 100000, 100 );
 
             System.out.println(dailyProduction);
 
@@ -97,8 +97,8 @@ public class ProductionInitUtilTest {
         public void testBusinessWeeks() {
 
             Map<Integer, Map<Bike, Integer>> monthlyProduction = HelperMethods.getAbsoluteMonthlyProduction(relativeBikeProduction, monthPercentArr, yearlyProduction);
-            Map<LocalDate, Map<Bike, Integer>> dailyProduction = HelperMethods.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2019);
-            List<BusinessWeek> businessWeeks = HelperMethods.createBusinessWeeksFromWorkingDayProduction(dailyProduction, 2019, dataBean);
+            Map<LocalDate, Map<Bike, Integer>> dailyProduction = HelperMethods.getDailyWorkingDayProductionFromMonthlyProduction(monthlyProduction, 2021);
+            List<BusinessWeek> businessWeeks = HelperMethods.createBusinessWeeksFromWorkingDayProduction(dailyProduction, 2021, dataBean);
 
             for (BusinessWeek week : businessWeeks) {
                 int weeklySum = 0;

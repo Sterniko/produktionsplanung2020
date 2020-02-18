@@ -64,10 +64,10 @@
                 <p th:each="entry: ${bd.getWorkingDays()}">
                         <span th:if="${entry.getKey() == T(de.adventureworks.produktionsplanung.model.entities.external.Country).GERMANY}">
                                 <span th:if="${entry.getValue()}">
-                                    <span style="color:red" th:utext="${bd.getDate()}"></span>
+                                    <span style="color:red" th:utext="${bd.germanDate()}"></span>
                                 </span>
                                 <span th:unless="${entry.getValue()}">
-                                    <span style="color:black" th:utext="${bd.getDate()}"></span>
+                                    <span style="color:black" th:utext="${bd.germanDate()}"></span>
                                 </span>
                         </span>
 

@@ -73,7 +73,7 @@ public class DeliveryServiceTest {
 
     @Test
     public void printTest() {
-        LocalDate date = LocalDate.of(2019, 1, 1);
+        LocalDate date = LocalDate.of(2021, 1, 1);
         for (int i = 1; i<366; i++){
             System.out.print("t" + i + " = \"" + date + "\";");
         date = date.plusDays(1);

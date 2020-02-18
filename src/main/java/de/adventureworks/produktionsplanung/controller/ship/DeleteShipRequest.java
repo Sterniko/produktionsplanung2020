@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class DeleteShipRequest {
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate deleteDate;
     private String name;
 

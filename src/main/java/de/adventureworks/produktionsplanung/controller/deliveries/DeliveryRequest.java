@@ -12,7 +12,7 @@ public class DeliveryRequest {
 
     private String equalsid;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.YYYY")
     private LocalDate date;
 
     public DeliveryRequest() {

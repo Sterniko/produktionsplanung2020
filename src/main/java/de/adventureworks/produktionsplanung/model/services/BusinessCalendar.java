@@ -17,10 +17,10 @@ public class BusinessCalendar {
     private boolean arrHolidays[][];
     /**
      * Constructor BusinessCalendar
-     * gets Holidays for a year dummy 2019
+     * gets Holidays for a year dummy 2021
      */
     public BusinessCalendar() {
-        getHolidaysForYear(2019);
+        getHolidaysForYear(2021);
     }
     public boolean[][] getHolidays() {
         return this.arrHolidays;

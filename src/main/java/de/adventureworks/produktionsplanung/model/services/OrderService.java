@@ -117,7 +117,7 @@ public class OrderService {
                 }
             }
 
-            if (dayBefore.isAfter(LocalDate.of(2018, 10, 31))) {
+            if (dayBefore.isAfter(LocalDate.of(2020, 10, 31))) {
                 dataBean.getBusinessDay(dayBefore).setPendingSupplierAmount(pendingSupplierAmount);
             }
             */

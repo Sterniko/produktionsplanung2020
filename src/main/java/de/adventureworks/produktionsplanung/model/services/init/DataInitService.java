@@ -218,14 +218,14 @@ public class DataInitService {
                 for (BusinessDay bd : businessDayList) {
 
                     int week = this.businessCalendar.getCalendarWeekFromDate(bd.getDate());
-                    //TODO : JAHRE -> 2019 KW 1 .. 2020 KW 1 ... in BW speichern ?!
+                    //TODO : JAHRE -> 2021 KW 1 .. 2022 KW 1 ... in BW speichern ?!
                     if (week == i) {
-                        if (bd.getDate().getYear() == 2019 && bd.getDate().getMonthValue() == 1) {
-                            bw.setYear(2019);
+                        if (bd.getDate().getYear() == 2021 && bd.getDate().getMonthValue() == 1) {
+                            bw.setYear(2021);
                             businessDayToWeekList.add(bd);
 
-                        } else if (bd.getDate().getYear() == 2019 && week != 1) {
-                            bw.setYear(2019);
+                        } else if (bd.getDate().getYear() == 2021 && week != 1) {
+                            bw.setYear(2021);
                             businessDayToWeekList.add(bd);
                         }
 
@@ -239,8 +239,8 @@ public class DataInitService {
             }
 */
 
-            LocalDate firstDayOfYear = LocalDate.of(2019, 1, 1);
-            LocalDate nextYearfirstDay = LocalDate.of(2020, 1, 1);
+            LocalDate firstDayOfYear = LocalDate.of(2021, 1, 1);
+            LocalDate nextYearfirstDay = LocalDate.of(2022, 1, 1);
 
             int weekCounter = 1;
             BusinessWeek businessWeek = new BusinessWeek(weekCounter);
@@ -340,7 +340,7 @@ public class DataInitService {
         data.setBusinessDays(new HashMap<>());
 
 
-        LocalDate date = LocalDate.of(2019, 2, 5);
+        LocalDate date = LocalDate.of(2021, 2, 5);
         List<BusinessWeek> weeks = new LinkedList<>();
         for (int i = 0; i < 5; i++) {
 
@@ -374,9 +374,9 @@ public class DataInitService {
     private static void addExampleShip(Data data) {
 
 
-        LocalDate dep1 = LocalDate.of(2019, 7, 23);
+        LocalDate dep1 = LocalDate.of(2021, 7, 23);
         LocalDate dep2 = LocalDate.of(2017, 4, 3);
-        LocalDate dep3 = LocalDate.of(2018, 10, 19);
+        LocalDate dep3 = LocalDate.of(2020, 10, 19);
         LocalDate arr1 = LocalDate.now().plusDays(233);
         LocalDate arr2 = LocalDate.now().plusDays(23);
         LocalDate arr3 = LocalDate.now().plusDays(33);

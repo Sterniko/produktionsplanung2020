@@ -55,7 +55,7 @@ public class DeliveryHandlerTest {
         }
 
 
-        LogisticsObject logisticsObject = new LogisticsObject(null, 0, componentIntegerMap2, LocalDate.of(2019, 2, 15), LocalDate.of(2019, 1, 12));
+        LogisticsObject logisticsObject = new LogisticsObject(null, 0, componentIntegerMap2, LocalDate.of(2021, 2, 15), LocalDate.of(2021, 1, 12));
         List<LogisticsObject> logisticsObjectList = new ArrayList<>();
 
         Map<Component, Integer> componentIntegerMap = new HashMap<>();
@@ -72,13 +72,13 @@ public class DeliveryHandlerTest {
         LOMAP.put(supplier, dezemberding);
 
 
-        dataBean.getBusinessDay(LocalDate.of(2018, 12, 27)).setPendingSupplierAmount(LOMAP);
+        dataBean.getBusinessDay(LocalDate.of(2020, 12, 27)).setPendingSupplierAmount(LOMAP);
 
         logisticsObjectList.add(logisticsObject);
-        dataBean.getBusinessDay(LocalDate.of(2019, 2, 15)).setReceivedDeliveries(logisticsObjectList);
-        String Id = dataBean.getBusinessDay(LocalDate.of(2019, 2, 15)).getReceivedDeliveries().get(0).getId();
-        BusinessDay businessDay = dataBean.getBusinessDay(LocalDate.of(2019, 2, 12));
-        Map<Component, Integer> components = dataBean.getBusinessDay(LocalDate.of(2018, 12, 27)).getPendingSupplierAmount().get(supplier).getComponents();
+        dataBean.getBusinessDay(LocalDate.of(2021, 2, 15)).setReceivedDeliveries(logisticsObjectList);
+        String Id = dataBean.getBusinessDay(LocalDate.of(2021, 2, 15)).getReceivedDeliveries().get(0).getId();
+        BusinessDay businessDay = dataBean.getBusinessDay(LocalDate.of(2021, 2, 12));
+        Map<Component, Integer> components = dataBean.getBusinessDay(LocalDate.of(2020, 12, 27)).getPendingSupplierAmount().get(supplier).getComponents();
 
         deliveryService.startEvent(Id, businessDay, components);
 

@@ -15,6 +15,6 @@ public class ProductionInitService {
 
     @PostConstruct
     public void initProductionStarter() {
-        productionService2.simulateWholeProduction(2019);
+        productionService2.simulateWholeProduction(2021);
     }
 }

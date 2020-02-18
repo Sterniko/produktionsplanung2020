@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class WarehouseRequest {
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate date;
 
     private Map<String, Integer> warehouseMap;

@@ -41,7 +41,7 @@
         <table id="tblDeliveries" class="table">
             <th:block th:each="bd : ${businessDays}">
                 <tr id="trDate">
-                    <th id="date" th:text="${bd.getDate()}"></th>
+                    <th id="date" th:text="${bd.germanDate()}"></th>
                 </tr>
                 <tr>
                     <td>Sent Deliveries</td>

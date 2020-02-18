@@ -39,7 +39,7 @@ public class ProductionService2Test {
 
     @Test
     public void testProductionForDay() {
-        productionService2.simulateWholeProduction( 2019);
+        productionService2.simulateWholeProduction( 2021);
 
         List<LocalDate> sortedDays = new ArrayList<LocalDate>(dataBean.getBusinessDays().keySet());
         Collections.sort(sortedDays);

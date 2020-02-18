@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class MarketingRequest {
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private LocalDate placementDate;
 
     private int businessWeek;

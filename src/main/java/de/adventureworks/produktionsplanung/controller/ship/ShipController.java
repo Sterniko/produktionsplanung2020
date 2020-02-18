@@ -70,12 +70,12 @@ public class ShipController {
     @RequestMapping(value = "/bikechart")
     public String charts(Model model) {
 
-        LocalDate date = LocalDate.of(2019,1,1);
+        LocalDate date = LocalDate.of(2021,1,1);
         int i = 1;
         int cumPlanAmount = 0;
         int cumActualAmount = 0;
         int additAmount = 0;
-        while (date.isBefore(LocalDate.of(2019,12,31))) {
+        while (date.isBefore(LocalDate.of(2021,12,31))) {
             cumPlanAmount+= dataBean.getBusinessDay(date).getSumOfPlannedDailyProduction();
             String name = "p" + i;
             model.addAttribute(name, cumPlanAmount);
@@ -104,12 +104,12 @@ public class ShipController {
     @RequestMapping(value = "/warehousechart")
     public String warehouse(Model model) {
 
-        LocalDate date = LocalDate.of(2019,1,1);
+        LocalDate date = LocalDate.of(2021,1,1);
         int i = 1;
         int cumPlanAmount = 0;
         int cumActualAmount = 0;
         int additAmount = 0;
-        while (date.isBefore(LocalDate.of(2019,12,31))) {
+        while (date.isBefore(LocalDate.of(2021,12,31))) {
             BusinessDay businessDay = dataBean.getBusinessDay(date);
 
             String name = "p" + i;
