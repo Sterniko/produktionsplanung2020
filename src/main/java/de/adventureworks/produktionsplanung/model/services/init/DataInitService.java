@@ -51,17 +51,17 @@ public class DataInitService {
             });
             data.updateComponent(saddleList);
 
-            ArrayList<Fork> forkList = mapper.readValue(new File("JSONs/fork.json"), new TypeReference<List<Fork>>() {
+            ArrayList<Fork> forkList = (ArrayList<Fork>) mapper.readValue(new File("JSONs/fork.json"), new TypeReference<List<Fork>>() {
             });
             data.updateComponent(forkList);
 
-            ArrayList<Bike> bikeList = mapper.readValue(new File("JSONs/bikes.json"), new TypeReference<List<Bike>>() {
+            ArrayList<Bike> bikeList = (ArrayList<Bike>) mapper.readValue(new File("JSONs/bikes.json"), new TypeReference<List<Bike>>() {
             });
             data.setBikes(bikeList);
 
             mapper.registerModule(new JavaTimeModule());
 
-            ArrayList<Ship> shipList = mapper.readValue(new File("JSONs/ships.json"), new TypeReference<List<Ship>>() {
+            ArrayList<Ship> shipList = (ArrayList<Ship>) mapper.readValue(new File("JSONs/ships.json"), new TypeReference<List<Ship>>() {
             });
             data.setShips(shipList);
 
