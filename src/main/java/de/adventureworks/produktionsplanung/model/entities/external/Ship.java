@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Ship implements Comparable<Ship>{
+public class Ship implements Comparable<Ship> {
 
     private String name;
     private LocalDate departure;
@@ -41,6 +41,17 @@ public class Ship implements Comparable<Ship>{
     public LocalDate getDeparture() {
         return departure;
     }
+
+    public String getGermanDeparture() {
+        String returnvalue = String.format("%02d.%02d.%d", departure.getDayOfMonth(), departure.getMonthValue(), departure.getYear());
+        return returnvalue;
+    }
+
+    public String getGermanArrival() {
+        String returnvalue = String.format("%02d.%02d.%d", arrival.getDayOfMonth(), arrival.getMonthValue(), arrival.getYear());
+        return returnvalue;
+    }
+
 
     public void setDeparture(LocalDate departure) {
         this.departure = departure;
@@ -86,23 +97,25 @@ public class Ship implements Comparable<Ship>{
     }
 
 
-    public void addOrder(LogisticsObject order){
-        if(deliveries==null){deliveries= new ArrayList<>();}
+    public void addOrder(LogisticsObject order) {
+        if (deliveries == null) {
+            deliveries = new ArrayList<>();
+        }
         deliveries.add(order);
     }
 
-    public void deleteOrder(LogisticsObject order){
+    public void deleteOrder(LogisticsObject order) {
         deliveries.remove(order);
     }
 
-    public void addOrders(List<LogisticsObject> newOrders){
-        for(LogisticsObject e : newOrders){
+    public void addOrders(List<LogisticsObject> newOrders) {
+        for (LogisticsObject e : newOrders) {
             addOrder(e);
         }
     }
 
-    public void deleteOrders(List<LogisticsObject> toDelete){
-        for(LogisticsObject e: toDelete){
+    public void deleteOrders(List<LogisticsObject> toDelete) {
+        for (LogisticsObject e : toDelete) {
             deleteOrder(e);
         }
     }
@@ -114,8 +127,6 @@ public class Ship implements Comparable<Ship>{
     public void setDeliveries(List<LogisticsObject> deliveries) {
         this.deliveries = deliveries;
     }
-
-
 
 
 }

@@ -155,7 +155,7 @@ public class ProductionService2 {
                     earliestPlaceDay = placeDay;
                 }
 
-                System.out.println(orderBusinessDay);
+              //  System.out.println(orderBusinessDay);
 
                 orderService.addToOrder(orderBusinessDay, supplierSortedComponents.get(s));
 

@@ -45,7 +45,7 @@ public class OrderService {
                     Ship ship = arrivalCalculatorService.getNextAvailabeShip(bd.getDate());
                     ship.addOrder(lo);
                 }
-                System.out.println(arrivalDate);
+               // System.out.println(arrivalDate);
                 oldSentList.add(lo);
                 List<LogisticsObject> oldRecievedList = dataBean.getBusinessDay(arrivalDate).getReceivedDeliveries();
                 List<LogisticsObject> newRecievedList = new ArrayList<>();

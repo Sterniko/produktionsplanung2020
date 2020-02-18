@@ -18,6 +18,11 @@ public class DeleteShipRequest {
         return deleteDate;
     }
 
+    public String getGermanDeleteDate(){
+        String returnvalue = String.format("%02d.%02d.%d", deleteDate.getDayOfMonth(), deleteDate.getMonthValue(), deleteDate.getYear());
+        return returnvalue;
+    }
+
     public void setDeleteDate(LocalDate deleteDate) {
         this.deleteDate = deleteDate;
     }

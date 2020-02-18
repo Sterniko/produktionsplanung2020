@@ -49,7 +49,7 @@ public class SalesController {
     @RequestMapping(value = "/sales", method = RequestMethod.POST)
     public String postAdditionalProduction(SalesRequest salesRequest) {
 
-        //System.out.println(salesRequest); Debbuging
+        System.out.println(salesRequest);// Debbuging
         Country country = salesRequest.getCountry();
         LocalDate customerDeliveryDate = salesRequest.getCustomerDeliveryDate();
         //BusinessDay deliveryDay = dataBean.getBusinessDay(customerDeliveryDate); WHY

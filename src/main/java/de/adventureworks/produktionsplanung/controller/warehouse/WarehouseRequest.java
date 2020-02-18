@@ -39,8 +39,8 @@ public class WarehouseRequest {
     }
 
     public void setComponentAmout(String component, int amount) {
-        System.out.println(component);
-        System.out.println(amount);
+      //  System.out.println(component);
+      //  System.out.println(amount);
     }
 
     @Override

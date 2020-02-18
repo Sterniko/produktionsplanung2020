@@ -12,7 +12,7 @@ public class ProduktionsplanungApplication {
 		ApplicationContext ctx = SpringApplication.run(ProduktionsplanungApplication.class, args);
 
 		Object dataBean = ctx.getBean("dataBean");
-		System.out.println(((DataBean)dataBean).getCustomers());
+		//System.out.println(((DataBean)dataBean).getCustomers());
 	}
 
 }

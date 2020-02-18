@@ -75,17 +75,17 @@ public class DeliveryServiceTest {
     public void printTest() {
         LocalDate date = LocalDate.of(2021, 1, 1);
         for (int i = 1; i<366; i++){
-            System.out.print("t" + i + " = \"" + date + "\";");
+           // System.out.print("t" + i + " = \"" + date + "\";");
         date = date.plusDays(1);
     }
 
         System.out.println();
         for (int i = 1; i < 366; i++) {
-            System.out.print("t"+i+","  );
+          // System.out.print("t"+i+","  );
         }
         System.out.println();
         for (int i = 1; i < 366; i++) {
-            System.out.print(Math.random() + "," );
+           // System.out.print(Math.random() + "," );
         }
 
 
@@ -93,47 +93,47 @@ public class DeliveryServiceTest {
 
     @Test
     public void printValues() {
-        System.out.println();
+      //  System.out.println();
         for (int i = 1; i < 366; i++) {
-            System.out.print("var p" + i + " = " + "/*[[${p" + i + "}]]*/2;");
+           // System.out.print("var p" + i + " = " + "/*[[${p" + i + "}]]*/2;");
         }
         System.out.println();
         for (int i = 1; i < 366; i++) {
-            System.out.print("p" + i + "," );
+      //      System.out.print("p" + i + "," );
         }
-        System.out.println();
+        //System.out.println();
 
         for (int i = 1; i < 366; i++) {
-            System.out.print("var c" + i + " = " + "/*[[${c" + i + "}]]*/2;");
+        //    System.out.print("var c" + i + " = " + "/*[[${c" + i + "}]]*/2;");
         }
-        System.out.println();
+       // System.out.println();
         for (int i = 1; i < 366; i++) {
-            System.out.print("c" + i + "," );
-        }
-
-        System.out.println();
-
-        for (int i = 1; i < 366; i++) {
-            System.out.print("var o" + i + " = " + "/*[[${o" + i + "}]]*/2;");
-        }
-        System.out.println();
-        for (int i = 1; i < 366; i++) {
-            System.out.print("o" + i + "," );
+         //   System.out.print("c" + i + "," );
         }
 
         System.out.println();
 
         for (int i = 1; i < 366; i++) {
-            System.out.print("var a" + i + " = " + "/*[[${a" + i + "}]]*/2;");
+         //   System.out.print("var o" + i + " = " + "/*[[${o" + i + "}]]*/2;");
+        }
+       // System.out.println();
+        for (int i = 1; i < 366; i++) {
+        //    System.out.print("o" + i + "," );
+        }
+
+       // System.out.println();
+
+        for (int i = 1; i < 366; i++) {
+          //  System.out.print("var a" + i + " = " + "/*[[${a" + i + "}]]*/2;");
         }
         System.out.println();
         for (int i = 1; i < 366; i++) {
-            System.out.print("a" + i + "," );
+         //   System.out.print("a" + i + "," );
         }
 
 
 
-        System.out.println();
+    //    System.out.println();
     }
 
     @Test
