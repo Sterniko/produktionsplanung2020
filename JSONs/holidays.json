@@ -462,7 +462,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false

@@ -235,6 +235,7 @@ public class JSONService {
         JSONService.insertHoliday(LocalDate.of(2020, 12, 25), Country.GERMANY, dateMap);
         JSONService.insertHoliday(LocalDate.of(2020, 12, 26), Country.GERMANY, dateMap);
         JSONService.insertHoliday(LocalDate.of(2021, 1, 1), Country.GERMANY, dateMap);
+        JSONService.insertHoliday(LocalDate.of(2021, 1, 6), Country.GERMANY, dateMap);
         JSONService.insertHoliday(LocalDate.of(2021, 4, 19), Country.GERMANY, dateMap);
         JSONService.insertHoliday(LocalDate.of(2021, 4, 21), Country.GERMANY, dateMap);
         JSONService.insertHoliday(LocalDate.of(2021, 4, 22), Country.GERMANY, dateMap);
