@@ -32,7 +32,13 @@ public final class ProductionInitUtil {
 
         for (int monthNumber = 1; monthNumber < 13; monthNumber++) {//jeder Iterationsschritt ist 1 Monat
             Map<Bike, Integer> monthlyProductionMap = new HashMap<>();
-            double percentage = monthlyProductionShares.get(monthNumber);
+            double percentage = 0;
+            if (monthlyProductionShares.get(12) == null) {
+                percentage = monthlyProductionShares.get(monthNumber - 1);
+            } else {
+                percentage = monthlyProductionShares.get(monthNumber);
+            }
+
 
             double overhang = 0;
             for (Bike bike : absoluteYearlyBikeProduction.keySet()) {//jeder Iterationsschritt ist 1 Fahrradproduktion im Monat
@@ -67,19 +73,19 @@ public final class ProductionInitUtil {
 
         Map<Integer, Boolean> monthSaturdayAllowedMap = new HashMap<>();
         //Wenn die Tagproduktion ohne samstage über der borderprod liegt, wird samstagsarbeit erlaubt.
-        for (int i: yearlyProduction.keySet()) {
+        for (int i : yearlyProduction.keySet()) {
             int sum = 0;
-            for (Bike bike: yearlyProduction.get(i).keySet()) {
+            for (Bike bike : yearlyProduction.get(i).keySet()) {
                 sum += yearlyProduction.get(i).get(bike);
             }
             int workingDaysWithSaturday = 0;
             int workingDaysWithoutSaturday = 0;
             LocalDate date = LocalDate.of(year, i, 1);
-            while(date.getMonth().getValue() == i) {
-                if (! (businessCalendar.isHoliday(date) || date.getDayOfWeek()== DayOfWeek.SUNDAY) ){
+            while (date.getMonth().getValue() == i) {
+                if (!(businessCalendar.isHoliday(date) || date.getDayOfWeek() == DayOfWeek.SUNDAY)) {
                     workingDaysWithSaturday++;
                 }
-                if(! (businessCalendar.isHoliday(date) || date.getDayOfWeek()== DayOfWeek.SUNDAY || date.getDayOfWeek()== DayOfWeek.SATURDAY )) {
+                if (!(businessCalendar.isHoliday(date) || date.getDayOfWeek() == DayOfWeek.SUNDAY || date.getDayOfWeek() == DayOfWeek.SATURDAY)) {
                     workingDaysWithoutSaturday++;
                 }
                 date = date.plusDays(1);
@@ -88,14 +94,13 @@ public final class ProductionInitUtil {
             //int daysWithoutSaturday = businessCalendar.getWorkingDaysOutOfMonthAndYear(i, 2021);
 
 
-
             int dailyProductionInMonthWithoutSaturday = sum / workingDaysWithoutSaturday;
             int dailyProductionWithSaturday = sum / workingDaysWithSaturday;
 
-            boolean saturdayWorkAllowed  = dailyProductionInMonthWithoutSaturday > maxProdBorder// Ohne Samstage wir dmehr als 21 Stunden/Tag produziert
-                    || (dailyProductionInMonthWithoutSaturday > saturdayDailyProdBorder && dailyProductionWithSaturday <= saturdayDailyProdBorder );
+            boolean saturdayWorkAllowed = dailyProductionInMonthWithoutSaturday > maxProdBorder// Ohne Samstage wir dmehr als 21 Stunden/Tag produziert
+                    || (dailyProductionInMonthWithoutSaturday > saturdayDailyProdBorder && dailyProductionWithSaturday <= saturdayDailyProdBorder);
 
-            monthSaturdayAllowedMap.put(i,saturdayWorkAllowed);
+            monthSaturdayAllowedMap.put(i, saturdayWorkAllowed);
         }
 
 
