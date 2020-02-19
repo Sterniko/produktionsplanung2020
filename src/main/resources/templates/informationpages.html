@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <meta charset="UTF-8">
-    </head>
+</head>
 <body>
 <center>
     <div>
@@ -24,9 +24,86 @@
     <br>
     <br>
     <div class="container">
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
+            </style>
+        </head>
+        <body>
         <br>
-        <h1>Hello Izice</h1>
+        <h2>Stücklisten</h2>
         <br>
+        <br>
+
+        <table>
+            <tr>
+                <th>Fahrradtyp</th>
+                <th>MTB Allrounder</th>
+                <th>MTB Competition</th>
+                <th>MTB Downhill</th>
+                <th>MTB Extreme</th>
+                <th>MTB Freeride</th>
+                <th>MTB Marathon</th>
+                <th>MTB Performace</th>
+                <th>MTB Trail</th>
+            </tr>
+            <tr>
+                <td>Gabel</td>
+                <td>Rock Schox Reba</td>
+                <td>Fox Talas 140</td>
+                <td>Rock Schox Recon 351</td>
+                <td>Fox 32 F100</td>
+                <td>Fox 32 F80</td>
+                <td>Rock Schox Recon SL</td>
+                <td>Fox 32 F100</td>
+                <td>SR Suntour Raidon</td>
+
+            </tr>
+            <tr>
+                <td>Sattel</td>
+                <td>Spark</td>
+                <td>Speedline</td>
+                <td>Fizik Tundra</td>
+                <td>Fizik Tundra</td>
+                <td>Fizik Tundra</td>
+                <td>Raceline</td>
+                <td>Fizik Tundra</td>
+                <td>Speedline</td>
+
+            </tr>
+            <tr>
+                <td>Rahmen</td>
+                <td>Aluminium 7005DB</td>
+                <td>Carbon Monocoque</td>
+                <td>Aluminium 7005TB</td>
+                <td>Carbon Monocoque</td>
+                <td>Aluminium 7005TB</td>
+                <td>Aluminium 7005TB</td>
+                <td>Aluminium 7005TB</td>
+                <td>Carbon Monocoque</td>
+
+            </tr>
+        </table>
+
+        </body>
+        </html>
+
 
 
         <div th:replace="fragments/scripts :: script"></div>
