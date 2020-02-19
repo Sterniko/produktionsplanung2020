@@ -19,22 +19,26 @@
         }
 
         #date {
-            font-size: 26px;
-        }
-        table.blueTable {
-            border: 1px solid #1C6EA4;
-            width: 100%;
-            text-align: left;
-            border-collapse: collapse;
+            font-size: 20px;
         }
 
-        #tblDeliveries {
+        #tblDeliveries tr, td {
             width:100%;
+            white-space: nowrap;
+
         }
         td {
             border:1px solid;
             overflow:hidden;
             vertical-align:top;
+
+        }
+        .smallerDiv {
+            text-align: center;
+            margin: auto;
+            padding: 20px;
+            width: 30%;
+            float: left;
         }
     </style>
 </head>
@@ -48,14 +52,14 @@
     <br>
     <h1>Lieferungen</h1>
     <br>
-    <div style=" overflow-x: scroll;height:300px;">
+    <div class="smallerDiv">
         <table id="tblDeliveries" class="blueTable">
             <th:span th:each="bd : ${businessDays}">
                 <tr id="trDate">
                     <th id="date" th:text="${bd.germanDate()}"></th>
                 </tr>
                 <tr>
-                    <td>Sent Deliveries</td>
+                    <td>Vom Lieferant gesendet:</td>
                     <th:block th:each="lo : ${bd.getSentDeliveries()}">
                         <td>
                             <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-info"
@@ -64,11 +68,11 @@
                     </th:block>
                 </tr>
                 <tr>
-                    <td>Received Deliveries</td>
+                    <td>Empfangene Lieferung:</td>
                     <th:block th:each="lo : ${bd.getReceivedDeliveries()}">
 
                         <td>
-                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-success"
+                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning"
                                th:text="${lo.printForSentDelivery()}"></a>
                         </td>
                     </th:block>

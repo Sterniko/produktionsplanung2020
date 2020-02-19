@@ -13,19 +13,57 @@
 <div th:fragment="Menu" style="position: fixed; z-index:10; width: 100%">
     <div class="pos-f-t">
 
-        <center>
-            <div class="links">
-                <a href="/" class="btn btn-info"><i class="fa fa-home"></i> Home</a>
-                <a href="/warehouse" class="btn btn-info">Lagerbestände<i class=""></i></a>
-                <a href="/production" class="btn btn-info">Produktionsplanung<i aria-hidden="true"></i></a>
-                <a href="/sales" class="btn btn-info"><i class="fa fa-fw fa-user"></i> Bestellen</a>
-                <a href="/marketing" class="btn btn-info">Marketingaktion</a>
-                <a href="/showShips" class="btn btn-info">Ladungsverlust</a>
-                <a href="/deliveries?idSent=none" class="btn btn-info">Lieferungen</a>
-                <a href="/masterData" class="btn btn-info">Stammdaten</a>
-                <a href="/bikechart" class="btn btn-info"><i class="fa fa-line-chart" aria-hidden="true"></i>Fahrrad Statistik</a>
-                <a href="/warehousechart" class="btn btn-info"><i class="fa fa-bar-chart"></i>Lager Statistik</a>
-        </center>
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #5bc0de;
+                position: center;
+            }
+
+            li a{
+                float: left;
+            }
+
+
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: black;
+            }
+
+            .active {
+                background-color: black;
+            }
+        </style>
+
+
+        <ul>
+
+            <center>
+                <li><a href="/" th:size="20px" th:width="10px"> </a></li>
+                <li><a href="/" th:size="20px" th:width="10px"> </a></li>
+            <li><a href="/" th:size="20px" th:width="10px"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/warehouse" th:size="20px" th:width="10px">Lagerbestände<i class=""></i></a></li>
+            <li><a href="/production" th:size="20px" th:width="10px">Produktionsplanung<i aria-hidden="true"></i></a></li>
+            <li><a href="/sales" th:size="20px" th:width="10px"><i class="fa fa-fw fa-user"></i> Bestellen</a></li>
+            <li><a href="/marketing" th:size="20px" th:width="10px">Marketingaktion</a></li>
+            <li><a href="/showShips" th:size="20px" th:width="10px">Ladungsverlust</a></li>
+            <li><a href="/deliveries?idSent=none" th:size="20px" th:width="10px">Lieferungen</a></li>
+            <li><a href="/masterData" th:size="20px" th:width="10px">Stammdaten</a></li>
+            <li><a href="/bikechart" th:size="20px" th:width="10px"><i class="fa fa-line-chart" aria-hidden="true"></i>Fahrrad Statistik</a></li>
+            <li><a href="/warehousechart" th:size="20px" th:width="10px"><i class="fa fa-bar-chart"></i>Lager Statistik</a></li>
+            </center>
+        </ul>
 
     </div>
     </span>
@@ -33,4 +71,5 @@
 
 </div>
 </div>
+
 </html>
