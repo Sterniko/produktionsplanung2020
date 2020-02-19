@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +28,9 @@ public class DeliveryService {
     }
 
     public LogisticsObject getDeliveryToDeliveryID(String deliveryID) {
-        if(deliveryID.equals("none")){return null;}
+        if (deliveryID.equals("none")) {
+            return null;
+        }
         BusinessDay arrivalDay = getArrivalDateToDeliveryID(deliveryID);
 
         List<LogisticsObject> receivedDeliveries = arrivalDay.getReceivedDeliveries();
@@ -36,7 +39,7 @@ public class DeliveryService {
 
         for (LogisticsObject lo : receivedDeliveries) {
             if (lo.getId().equals(deliveryID)) {
-                return  lo;
+                return lo;
             }
         }
         return returningLogisticObject;
@@ -46,8 +49,38 @@ public class DeliveryService {
     public BusinessDay getArrivalDateToDeliveryID(String deliveryID) {
 
         deliveryID = deliveryID.trim();
-        String    arrivalDateString = deliveryID.substring(0, 10);
-        LocalDate arrivalDate = LocalDate.parse(arrivalDateString);
+        String arrivalDateString = deliveryID.substring(0, 10);
+        LocalDate arrivalDate = null;
+        try {
+            arrivalDate = LocalDate.parse(arrivalDateString);
+        } catch (DateTimeParseException p) {
+            for(Character c: arrivalDateString.toCharArray()){
+                System.out.print(c);
+                System.out.print(' ');
+                System.out.print(' ');
+            }
+            System.out.println("");
+            for(int i=0; i< arrivalDateString.length();i++){
+                System.out.print(i);
+                System.out.print(' ');
+            }
+
+            int ende = -1;
+            int anfang = -1;
+            ende = arrivalDateString.length() ;
+            anfang = arrivalDateString.length() - 4;
+            System.out.println("here");
+            int jahr = Integer.parseInt(arrivalDateString.substring(anfang, ende));
+            ende = arrivalDateString.length() - 5;
+            anfang = arrivalDateString.length() - 7;
+            System.out.println("here");
+            int month = Integer.parseInt(arrivalDateString.substring(anfang, ende));
+            ende = arrivalDateString.length() - 8;
+            anfang = arrivalDateString.length() - 10;
+            System.out.println("here");
+            int tag = Integer.parseInt(arrivalDateString.substring(anfang, ende));
+            arrivalDate = LocalDate.of(jahr, month, tag);
+        }
         BusinessDay arrivalDay = dataBean.getBusinessDay(arrivalDate);
 
         return arrivalDay;
@@ -55,11 +88,11 @@ public class DeliveryService {
 
 
     public LogisticsObject getLoByID(String deliveryID) {
-        for(Map.Entry bd : dataBean.getBusinessDays().entrySet()){
+        for (Map.Entry bd : dataBean.getBusinessDays().entrySet()) {
             BusinessDay dayToCheck = (BusinessDay) bd.getValue();
 
-            for(LogisticsObject received : dayToCheck.getReceivedDeliveries()){
-                if(received.getId() == deliveryID){
+            for (LogisticsObject received : dayToCheck.getReceivedDeliveries()) {
+                if (received.getId() == deliveryID) {
                     return received;
                 }
             }
