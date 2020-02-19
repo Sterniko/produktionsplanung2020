@@ -54,16 +54,8 @@ public class DeliveryService {
         try {
             arrivalDate = LocalDate.parse(arrivalDateString);
         } catch (DateTimeParseException p) {
-            for(Character c: arrivalDateString.toCharArray()){
-                System.out.print(c);
-                System.out.print(' ');
-                System.out.print(' ');
-            }
-            System.out.println("");
-            for(int i=0; i< arrivalDateString.length();i++){
-                System.out.print(i);
-                System.out.print(' ');
-            }
+
+
 
             int ende = -1;
             int anfang = -1;
