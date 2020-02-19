@@ -80,32 +80,26 @@
                  </th>
              </tr>
              <tr>
-                 <td>Planproduktion</td>
+                 <td>Soll</td>
                  <td th:each="bd2: ${businessDays}">
                      <span th:utext="|${bd2.plannedProduction.get(bike)}|"></span>
                  </td>
              </tr>
              <tr>
-                 <td>Zusatzproduktion</td>
+                 <td>Zusatz</td>
                  <td th:each="bd2: ${businessDays}">
                      <span th:utext="|${bd2.additionalProduction.get(bike)}|"></span>
                  </td>
              </tr>
              <tr>
-                 <td>Prioproduktion</td>
-                 <td th:each="bd2: ${businessDays}">
-                     <span th:utext="|${bd2.prioProduction.get(bike)}|"></span>
-                 </td>
-             </tr>
              <tr>
-             <tr>
-                 <td>Istproduktion</td>
+                 <td>Ist</td>
                  <td th:each="bd2: ${businessDays}">
                      <span th:utext="|${bd2.actualProduction.get(bike)}|"></span>
                  </td>
              </tr>
              <tr>
-                 <td>Fehlbetrag</td>
+                 <td>Rückstand</td>
                  <td th:each="bd2: ${businessDays}">
                      <span th:utext="|${bd2.getPlannedAndAdditionalMinusActualProduction().get(bike)}|"></span>
                  </td>

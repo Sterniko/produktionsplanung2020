@@ -21,9 +21,20 @@
         #date {
             font-size: 26px;
         }
+        table.blueTable {
+            border: 1px solid #1C6EA4;
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
 
         #tblDeliveries {
-            background-color: whitesmoke;
+            width:100%;
+        }
+        td {
+            border:1px solid;
+            overflow:hidden;
+            vertical-align:top;
         }
     </style>
 </head>
@@ -38,8 +49,8 @@
     <h1>Lieferungen</h1>
     <br>
     <div style=" overflow-x: scroll;height:300px;">
-        <table id="tblDeliveries" class="table">
-            <th:block th:each="bd : ${businessDays}">
+        <table id="tblDeliveries" class="blueTable">
+            <th:span th:each="bd : ${businessDays}">
                 <tr id="trDate">
                     <th id="date" th:text="${bd.germanDate()}"></th>
                 </tr>
@@ -47,7 +58,7 @@
                     <td>Sent Deliveries</td>
                     <th:block th:each="lo : ${bd.getSentDeliveries()}">
                         <td>
-                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-warning"
+                            <a th:href="@{${deliveries}(idSent=${lo.getId()})}" class="btn btn-info"
                                th:text="${lo.printForReceivedDelivery()}"></a>
                         </td>
                     </th:block>
@@ -62,7 +73,7 @@
                         </td>
                     </th:block>
                 </tr>
-            </th:block>
+            </th:span>
         </table>
     </div>
 
