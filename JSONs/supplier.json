@@ -1,6 +1,6 @@
 [
   {
-    "name": "WernerRahmenGMBH",
+    "name": "Rahmenlieferant AG",
     "lotSize": 10,
     "leadTime": 7,
     "country": "GERMANY",
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "name": "Tenedores de Zaragoza",
+    "name": "Spanish Gables United",
     "lotSize": 75,
     "leadTime": 14,
     "country": "SPAIN",
@@ -56,7 +56,7 @@
     ]
   },
   {
-    "name": "DengwongSaddles",
+    "name": "Saddles of China Society",
     "lotSize": 500,
     "leadTime": 49,
     "country": "CHINA",

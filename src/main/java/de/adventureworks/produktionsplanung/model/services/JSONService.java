@@ -141,9 +141,9 @@ public class JSONService {
 
         ArrayList<Supplier> supplierList = new ArrayList<>();
 
-        supplierList.add(new Supplier("WernerRahmenGMBH", 10, 7, Country.GERMANY, null));
-        supplierList.add(new Supplier("Tenedores de Zaragoza", 75, 14, Country.SPAIN, null));
-        supplierList.add(new Supplier("DengwongSaddles", 500, 49, Country.CHINA, null));
+        supplierList.add(new Supplier("Rahmenlieferant AG", 10, 7, Country.GERMANY, null));
+        supplierList.add(new Supplier("Spanish Gables United", 75, 14, Country.SPAIN, null));
+        supplierList.add(new Supplier("Saddles of China Society", 500, 49, Country.CHINA, null));
 
         supplierList.get(0).setComponents(frameList);
         supplierList.get(1).setComponents(forkList);

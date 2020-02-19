@@ -76,17 +76,17 @@ public class OrderService {
     public void addToOrder(BusinessDay bd, Map<Component, Integer> map) {
         for (Component c : map.keySet()) {
             if (map.get(c) != null) {
-                if (c.getSupplier().getName().equals("WernerRahmenGMBH")) {
+                if (c.getSupplier().getName().equals("Rahmenlieferant AG")) {
                     int addAmount = map.get(c);
                     OrderService.addAmount(bd, addAmount, c);
 
                 }
-                if (c.getSupplier().getName().equals("Tenedores de Zaragoza")) {
+                if (c.getSupplier().getName().equals("Spanish Gables United")) {
                     int addAmount = map.get(c);
                     OrderService.addAmount(bd, addAmount, c);
 
                 }
-                if (c.getSupplier().getName().equals("DengwongSaddles")) {
+                if (c.getSupplier().getName().equals("Saddles of China Society")) {
                     int addAmount = map.get(c);
                     OrderService.addAmount(bd, addAmount, c);
 

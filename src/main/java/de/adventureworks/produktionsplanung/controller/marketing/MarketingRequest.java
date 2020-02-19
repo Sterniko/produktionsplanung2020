@@ -9,7 +9,8 @@ import java.util.Map;
 
 public class MarketingRequest {
 
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
+   // @DateTimeFormat(pattern = "dd.MM.yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate placementDate;
 
     private int businessWeek;
@@ -50,6 +51,10 @@ public class MarketingRequest {
         this.businessWeek = businessWeek;
         this.bikeMap = bikeMap;
 
+    }
+
+    public MarketingRequest(String placementDate, int businessWeek, Map<String, Integer> bikemap){
+        this(LocalDate.of(1,1,1), businessWeek,bikemap);
     }
 
 

@@ -110,11 +110,11 @@ public class LogisticsObject {
     }
 
     public String printForReceivedDelivery() {
-        return supplier.getName() + " Sendung: " + arrivalDate + " Menge:" + getSumAmount();
+        return supplier.getName() + " Sendung: " +  getGermanArrival() + " Menge:" + getSumAmount();
     }
 
     public String printForSentDelivery() {
-        return supplier.getName() + " Ankunft: " + departureDate + " Menge:" + getSumAmount();
+        return supplier.getName() + " Ankunft: " + getGermanDeparture() + " Menge:" + getSumAmount();
     }
 
     @Override
@@ -130,12 +130,23 @@ public class LogisticsObject {
         }
 
         if (departureDate != null) {
-            componentString = departureDate.toString().concat(componentString);
+            componentString = getGermanDeparture().concat(componentString);
         }
         if (arrivalDate != null) {
-            componentString = arrivalDate.toString().concat(componentString);
+            componentString = getGermanArrival().toString().concat(componentString);
         }
 
         return (componentString);
     }
+
+    private String getGermanArrival(){
+        String returnvalue =String.format("%02d.%02d.%d",arrivalDate.getDayOfMonth(), arrivalDate.getMonthValue(), arrivalDate.getYear());
+        return returnvalue;
+    }
+
+    private String getGermanDeparture(){
+        String returnvalue =String.format("%02d.%02d.%d",departureDate.getDayOfMonth(), departureDate.getMonthValue(), departureDate.getYear());
+        return returnvalue;
+    }
+
 }

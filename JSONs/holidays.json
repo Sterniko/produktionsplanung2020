@@ -75,7 +75,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -201,7 +201,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -327,7 +327,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -642,7 +642,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -768,7 +768,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -894,7 +894,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1020,7 +1020,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1074,7 +1074,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1137,7 +1137,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1200,7 +1200,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1299,7 +1299,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1335,7 +1335,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1425,7 +1425,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1497,7 +1497,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1551,7 +1551,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1560,7 +1560,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1578,7 +1578,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": true,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1623,7 +1623,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1686,7 +1686,7 @@
     "USA": false,
     "CHINA": true,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1704,7 +1704,7 @@
     "USA": false,
     "CHINA": true,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1713,7 +1713,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1731,7 +1731,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1758,7 +1758,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1794,7 +1794,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1812,7 +1812,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1821,7 +1821,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1857,7 +1857,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1911,7 +1911,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1920,7 +1920,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -1983,7 +1983,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2028,7 +2028,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2091,7 +2091,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2118,7 +2118,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2154,7 +2154,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2208,7 +2208,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2217,7 +2217,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2271,7 +2271,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2280,7 +2280,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2325,7 +2325,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2388,7 +2388,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2451,7 +2451,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2514,7 +2514,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2631,7 +2631,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2694,7 +2694,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2721,7 +2721,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": true,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2757,7 +2757,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2820,7 +2820,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2865,7 +2865,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2928,7 +2928,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2946,7 +2946,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -2991,7 +2991,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3054,7 +3054,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3117,7 +3117,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3126,7 +3126,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3162,7 +3162,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3225,7 +3225,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3288,7 +3288,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3351,7 +3351,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3522,7 +3522,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3639,7 +3639,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3648,7 +3648,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3774,7 +3774,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3900,7 +3900,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3927,7 +3927,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": true,
-    "GERMANY": false,
+    "GERMANY": true,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -3990,7 +3990,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -4044,7 +4044,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -4062,7 +4062,7 @@
     "USA": true,
     "CHINA": false,
     "SPAIN": true,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": true,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -4116,7 +4116,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -4242,7 +4242,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -4368,7 +4368,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": true,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false
@@ -4494,7 +4494,7 @@
     "USA": false,
     "CHINA": false,
     "SPAIN": false,
-    "GERMANY": true,
+    "GERMANY": false,
     "FRANCE": false,
     "SWITZERLAND": false,
     "AUSTRIA": false

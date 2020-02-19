@@ -4,7 +4,7 @@
     "frame": {
       "name": "7005DB",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -27,7 +27,7 @@
     "fork": {
       "name": "Fox32 F100",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -66,7 +66,7 @@
     "saddle": {
       "name": "Spark",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -96,7 +96,7 @@
     "frame": {
       "name": "Monocoque",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -119,7 +119,7 @@
     "fork": {
       "name": "Fox Talas140",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -158,7 +158,7 @@
     "saddle": {
       "name": "Speed Line",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -188,7 +188,7 @@
     "frame": {
       "name": "7005TB",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -211,7 +211,7 @@
     "fork": {
       "name": "Rock Schox Recon351",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -250,7 +250,7 @@
     "saddle": {
       "name": "Fizik Tundra",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -280,7 +280,7 @@
     "frame": {
       "name": "Monocoque",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -303,7 +303,7 @@
     "fork": {
       "name": "Rock Schox Reba",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -342,7 +342,7 @@
     "saddle": {
       "name": "Spark",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -372,7 +372,7 @@
     "frame": {
       "name": "7005TB",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -395,7 +395,7 @@
     "fork": {
       "name": "Fox32 F80",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -434,7 +434,7 @@
     "saddle": {
       "name": "Fizik Tundra",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -464,7 +464,7 @@
     "frame": {
       "name": "7005DB",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -487,7 +487,7 @@
     "fork": {
       "name": "Rock Schox ReconSL",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -526,7 +526,7 @@
     "saddle": {
       "name": "Race Line",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -556,7 +556,7 @@
     "frame": {
       "name": "7005TB",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -579,7 +579,7 @@
     "fork": {
       "name": "Rock Schox Reba",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -618,7 +618,7 @@
     "saddle": {
       "name": "Fizik Tundra",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
@@ -648,7 +648,7 @@
     "frame": {
       "name": "Monocoque",
       "supplier": {
-        "name": "WernerRahmenGMBH",
+        "name": "Rahmenlieferant AG",
         "lotSize": 10,
         "leadTime": 7,
         "country": "GERMANY",
@@ -671,7 +671,7 @@
     "fork": {
       "name": "SR Suntour Raidon",
       "supplier": {
-        "name": "Tenedores de Zaragoza",
+        "name": "Spanish Gables United",
         "lotSize": 75,
         "leadTime": 14,
         "country": "SPAIN",
@@ -710,7 +710,7 @@
     "saddle": {
       "name": "Speed Line",
       "supplier": {
-        "name": "DengwongSaddles",
+        "name": "Saddles of China Society",
         "lotSize": 500,
         "leadTime": 49,
         "country": "CHINA",
